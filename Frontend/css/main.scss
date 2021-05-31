@@ -7,3 +7,7 @@ $colors: (
     success: #06B261,
     error: #E63322,
 );
+
+@function color($color-name) {
+    @return map-get($colors , $color-name )
+}
