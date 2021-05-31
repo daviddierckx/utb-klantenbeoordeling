@@ -1,0 +1,27 @@
+{
+  "name": "utb-backend",
+  "version": "1.0.0",
+  "description": "Backend for UTB feedback forms",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/Pistrie/utb-klantenbeoordeling.git"
+  },
+  "author": "Avans-Students",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/Pistrie/utb-klantenbeoordeling/issues"
+  },
+  "homepage": "https://gitlab.com/Pistrie/utb-klantenbeoordeling#readme",
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "tracer": "^1.1.4"
+  }
+}
