@@ -8,7 +8,7 @@ exports.add = function (data, callback) {
     jwt.sign({data: data.email_address}, config.auth.secret, {expiresIn: '1h'}, (err, res) => {
         if (err) return callback("error-while-creating-token", undefined);
         const hashed = crypto.createHash('sha256').update(data.password).digest('base64');
-        database.con.query('INSERT INTO `users` (`token`, `firstname`, `lastname`, `studentnumber`, `email_address`, `password`) VALUES (?,?,?,?,?,?)',
+        database.con.query('INSERT INTO `user` (`token`, `email`, `name`, `password`, `isAdmin`) VALUES (?,?,?,?,?,?)',
             [res, data.firstname, data.lastname, data.studentnumber, data.email_address, hashed], function (error, results, fields) {
                 if (error) return callback(error.sqlMessage, undefined);
                 if (results.affectedRows === 0) return callback("user-already-exists", undefined);
@@ -19,7 +19,7 @@ exports.add = function (data, callback) {
 
 exports.login = function (email, password, callback) {
     const hashed = crypto.createHash('sha256').update(password).digest('base64');
-    database.con.query('SELECT * FROM users WHERE email_address = ? AND password = ?', [email, hashed], function (error, results, fields) {
+    database.con.query('SELECT * FROM user WHERE email = ? AND password = ?', [email, hashed], function (error, results, fields) {
         if (error) return callback(error.sqlMessage, undefined);
         if (results.length === 0) {
             return callback("user-login-failed", undefined);
@@ -31,7 +31,7 @@ exports.login = function (email, password, callback) {
 exports.generateNewToken = function (email, user_id, callback) {
     jwt.sign({user_email: email, user_id: user_id}, config.auth.secret, {expiresIn: '1h'}, (err, res) => {
         if (err) return callback("error-while-creating-token", undefined);
-        database.con.query('UPDATE `users` SET `token`=? WHERE email_address=? AND id=?',
+        database.con.query('UPDATE `user` SET `token`=? WHERE email=? AND id=?',
             [res, email, user_id], function (error, results, fields) {
                 if (error) return callback(error.sqlMessage, undefined);
                 if (results.affectedRows === 0) return callback("failed to update token", undefined);
@@ -42,7 +42,7 @@ exports.generateNewToken = function (email, user_id, callback) {
 
 
 exports.get = function (id, callback) {
-    database.con.query('SELECT * FROM users WHERE users.id = ?', [id], function (error, results, fields) {
+    database.con.query('SELECT * FROM users WHERE user.id = ?', [id], function (error, results, fields) {
         if (error) return callback(error.sqlMessage, undefined);
         if (results.length === 0) {
             return callback("user-not-found", undefined);

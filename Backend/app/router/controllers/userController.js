@@ -5,10 +5,9 @@ const logger = require('tracer').console()
 
 exports.register = function (req, res) {
     logger.log("Received request to register user");
-    let check = request_utils.verifyBody(req, res, 'firstname', 'string');
-    check = check && request_utils.verifyBody(req, res, 'lastname', 'string');
-    check = check && request_utils.verifyBody(req, res, 'studentnumber', 'int');
-    check = check && request_utils.verifyBody(req, res, 'email_address', 'email');
+    let check = request_utils.verifyBody(req, res, 'name', 'string');
+    check = check && request_utils.verifyBody(req, res, 'isAdmin', 'int');
+    check = check && request_utils.verifyBody(req, res, 'email', 'email');
     check = check && request_utils.verifyBody(req, res, 'password', 'password');
     if (!check) {
         logger.log("Request cancelled because of an invalid param");
@@ -16,10 +15,9 @@ exports.register = function (req, res) {
     }
 
     users_dao.add({
-        firstname: req.body.firstname,
-        lastname: req.body.lastname,
-        studentnumber: req.body.studentnumber,
-        email_address: req.body.email_address,
+        name: req.body.firstname,
+        isAdmin: req.body.isAdmin,
+        email: req.body.email,
         password: req.body.password
     }, (err2, res2) => {
         if (err2) {
