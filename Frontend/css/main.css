@@ -10,8 +10,8 @@ header ul li {
 }
 
 body {
-  font-family: 'roboto';
-  color: #F5F0EF;
+  font-family: "roboto";
+  color: #f5f0ef;
   font-size: medium;
   margin: 0;
 }
@@ -25,7 +25,7 @@ body #bg {
 }
 
 #formTitle {
-  font-family: 'montserrat';
+  font-family: "montserrat";
   margin-left: 20%;
 }
 
@@ -33,9 +33,12 @@ form {
   text-align: center;
 }
 
-form input
-#productgroup {
+form input #productgroup {
   list-style: none;
   text-align: left;
 }
 /*# sourceMappingURL=main.css.map */
+
+.checked {
+  color: orange;
+}
