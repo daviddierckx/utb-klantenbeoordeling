@@ -47,3 +47,18 @@ exports.login = function (req, res) {
         return res.status(201).send({"success": true, "token": res2.token, "user_id": res2.user_id});
     })
 };
+
+const mysql = require("mysql");
+const database = require("../../dao/database");
+
+exports.view = (req, res) => {
+  // User the connection
+  database.con.query("SELECT * FROM User", (err, rows) => {
+    if (!err) {
+      res.render("login", { rows });
+    } else {
+      console.log(err);
+    }
+    console.log("The data from user table: \n", rows);
+  });
+};
