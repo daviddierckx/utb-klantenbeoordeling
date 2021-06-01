@@ -4,7 +4,8 @@
   "description": "Backend for UTB feedback forms",
   "main": "server.js",
   "scripts": {
-    "test": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
