@@ -1,1 +1,46 @@
-/* No CSS *//*# sourceMappingURL=main.css.map */
+header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+header ul li {
+    float: left;
+}
+
+body {
+    font-family: "roboto";
+    color: #f5f0ef;
+    font-size: medium;
+    margin: 0;
+}
+
+body #bg {
+    background-image: url("../images/background.jpg");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+#formTitle {
+    font-family: "montserrat";
+    margin-left: 20%;
+}
+
+form {
+    text-align: center;
+}
+
+form input #productgroup {
+    list-style: none;
+    text-align: left;
+}
+
+ul {
+    list-style: none;
+}
+
+
+/*# sourceMappingURL=main.css.map */
