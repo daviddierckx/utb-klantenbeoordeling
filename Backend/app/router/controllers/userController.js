@@ -15,7 +15,7 @@ exports.register = function (req, res) {
     }
 
     users_dao.add({
-        name: req.body.firstname,
+        name: req.body.name,
         isAdmin: req.body.isAdmin,
         email: req.body.email,
         password: req.body.password
