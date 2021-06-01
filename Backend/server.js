@@ -1,4 +1,5 @@
 const port = process.env.PORT || 3000;
+const ip = process.env.IP || '127.0.0.1'
 const express = require("express");
 const app = express();
 const routes = require("./app/router/routes");
@@ -18,7 +19,7 @@ app.set("view engine", "hbs");
 app.use("/api", routes);
 app.use("/admin", routeAdmin);
 app.listen(port, () => {
-  logger.log(`Avans app listening at http://localhost:${port}`);
+  logger.log(`Avans app listening at http://${ip}:${port}`);
 });
 
 module.exports = app;
