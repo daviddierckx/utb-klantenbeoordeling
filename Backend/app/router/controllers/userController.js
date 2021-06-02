@@ -55,7 +55,7 @@ exports.view = (req, res) => {
   // User the connection
   database.con.query("SELECT * FROM User", (err, rows) => {
     if (!err) {
-      res.render("login", { rows });
+      res.render("login", { layout:loginmain.hbs, rows });
     } else {
       console.log(err);
     }
