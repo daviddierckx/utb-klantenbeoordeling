@@ -1,15 +1,15 @@
 $colors: (
-    primary: #0C457F,
-    PrimaryDark: #051A2E,
-    primaryLight: #749DC8,
-    textColor: #F5F0EF,
-    starColor: #C8A95B,
-    success: #06B261,
-    error: #E63322,
+  primary: #0c457f,
+  PrimaryDark: #051a2e,
+  primaryLight: #749dc8,
+  textColor: #f5f0ef,
+  starColor: #c8a95b,
+  success: #06b261,
+  error: #e63322,
 );
 
 @function color($color-name) {
-    @return map-get($colors , $color-name )
+  @return map-get($colors, $color-name);
 }
 
 header ul{
@@ -20,29 +20,29 @@ header ul{
 }
 
 header ul li {
-    float: left;
+  float: left;
 }
 
 body {
-    font-family: 'roboto';
-    color: color(textColor);
-    font-size: medium;
-    margin: 0;
-    
-    #bg {
-        background-image: url('../images/background.jpg');
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        z-index: -1;
-    }
+  font-family: "roboto";
+  color: color(textColor);
+  font-size: medium;
+  margin: 0;
+
+  #bg {
+    background-image: url("../images/background.jpg");
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+  }
 }
 #formTitle {
-    font-family: 'montserrat';
-    margin-left: 20%;
-}  
+  font-family: "montserrat";
+  margin-left: 20%;
+}
 form {
-    text-align: center;
+  text-align: center;
 }
 input[type="text"]{
     background: color(textColor);
