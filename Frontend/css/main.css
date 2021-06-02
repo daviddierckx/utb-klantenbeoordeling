@@ -23,7 +23,11 @@ body #bg {
   height: 100%;
   position: absolute;
   z-index: -1;
-  rotate: (90deg);
+  background-size: cover;
+}
+
+main {
+  margin-top: 10vh;
 }
 
 #formTitle {
@@ -33,6 +37,7 @@ body #bg {
 
 form {
   text-align: center;
+  font-size: x-large;
 }
 
 input[type="text"] {
@@ -52,18 +57,15 @@ input[type="date"] {
 }
 
 figure.snip0024 {
-  font-family: "Raleway", Arial, sans-serif;
-  color: #fff;
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  right: 0%;
   overflow: hidden;
   margin: 0%;
   min-width: 90px;
   max-width: 90px;
   max-height: 90px;
   width: 100%;
-  background: #000000;
-  text-align: left;
-  float: right;
 }
 
 figure.snip0024 * {
@@ -71,8 +73,11 @@ figure.snip0024 * {
   box-sizing: border-box;
 }
 
-figure.snip0024 img {
-  opacity: 1;
+figure.snip0024 input {
+  background-color: #749dc8;
+  opacity: 0.2;
+  min-height: 90px;
+  min-width: 90px;
   width: 100%;
   -webkit-transition: opacity 0.35s;
   transition: opacity 0.35s;
@@ -104,27 +109,6 @@ figure.snip0024 > div::before {
     rgba(0, 0, 0, 0.2) 40%,
     rgba(0, 0, 0, 0.8)
   );
-}
-
-figure.snip0024 h2 {
-  word-spacing: -0.1em;
-  font-weight: 400;
-  text-transform: uppercase;
-  top: 0;
-  opacity: 0;
-  padding: 25px;
-  margin: 0;
-  position: absolute;
-  color: transparent;
-  text-shadow: 0 0 10px #ffffff;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  -webkit-transition-delay: 0s;
-  transition-delay: 0s;
-}
-
-figure.snip0024 h2 span {
-  font-weight: 800;
 }
 
 figure.snip0024 i {
