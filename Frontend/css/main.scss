@@ -37,12 +37,17 @@ body {
     z-index: -1;
   }
 }
+
+main {
+    margin-top: 10vh;
+}
 #formTitle {
   font-family: "montserrat";
   margin-left: 20%;
 }
 form {
   text-align: center;
+  font-size: x-large;
 }
 input[type="text"]{
     background: color(textColor);
@@ -60,25 +65,26 @@ input[type="text"]{
 
   @import url(https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css);
 figure.snip0024 {
-  font-family: 'Raleway', Arial, sans-serif;
-  color: #fff;
-  position: relative;
+
+  position: fixed;
+  bottom: 0;
+  right: 0%;
   overflow: hidden;
   margin: 0%;
   min-width: 90px;
   max-width: 90px;
   max-height: 90px;
   width: 100%;
-  background: #000000;
-  text-align: left;
-  float: right;
 }
 figure.snip0024 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-figure.snip0024 img {
-  opacity: 1;
+figure.snip0024 input{
+  background-color: color(primaryLight);
+  opacity: 0.2;
+  min-height: 90px;
+  min-width: 90px;
   width: 100%;
   -webkit-transition: opacity 0.35s;
   transition: opacity 0.35s;
@@ -103,25 +109,6 @@ figure.snip0024 > div::before {
   -webkit-transition-delay: 0.3s;
   transition-delay: 0.3s;
   background-image: linear-gradient(-45deg, #000000 0%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0.8));
-}
-figure.snip0024 h2 {
-  word-spacing: -0.1em;
-  font-weight: 400;
-  text-transform: uppercase;
-  top: 0;
-  opacity: 0;
-  padding: 25px;
-  margin: 0;
-  position: absolute;
-  color: transparent;
-  text-shadow: 0 0 10px #ffffff;
-  -webkit-transition: all 0.4s;
-  transition: all 0.4s;
-  -webkit-transition-delay: 0s;
-  transition-delay: 0s;
-}
-figure.snip0024 h2 span {
-  font-weight: 800;
 }
 figure.snip0024 i {
   display: inline-block;
