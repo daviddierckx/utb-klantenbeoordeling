@@ -31,14 +31,14 @@ exports.register = function (req, res) {
 
 exports.login = function (req, res) {
     logger.log("Received request to log user in");
-    let check = request_utils.verifyBody(req, res, 'email_address', 'email');
+    let check = request_utils.verifyBody(req, res, 'email', 'email');
     check = check && request_utils.verifyBody(req, res, 'password', 'password');
     if (!check) {
         logger.log("Request cancelled because of an invalid param");
         return;
     }
 
-    users_dao.login(req.body.email_address, req.body.password, (err2, res2) => {
+    users_dao.login(req.body.email, req.body.password, (err2, res2) => {
         if (err2) {
             logger.log("Error in login:", err2);
             return res.status(400).send({"success": false, "error": err2});
@@ -55,7 +55,7 @@ exports.view = (req, res) => {
   // User the connection
   database.con.query("SELECT * FROM User", (err, rows) => {
     if (!err) {
-      res.render("login", { layout:loginmain.hbs, rows });
+      res.render("login", { layout:false, rows });
     } else {
       console.log(err);
     }

@@ -10,4 +10,9 @@ router.get("", (req, res) => {
   res.render("login");
 });
 
+router.post("", (req, res) => {
+  userController.login(req, res);
+  res.redirect("admin")
+})
+
 module.exports = router;
