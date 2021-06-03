@@ -18,36 +18,6 @@ const methods = {
 
   return_customer_feedback_html: function(req, res, next) {
     logger.log("Returning customer feedback main page");
-
-    const formType = req.params.formType;
-    const pageNr = req.params.pageNr;
-
-    let toSend = "";
-
-    switch (pageNr) {
-      case "1":
-        toSend = "klantenfeedback.html";
-        break;
-      case "2":
-        toSend = "klantenfeedbacksterretjes.html";
-        break;
-      case "3":
-        toSend = "klantendeedbackRadioButton.html";
-        break;
-      default:
-        toSend = undefined;
-        break;
-    }
-    try {
-      res
-        .status(200)
-        .send("/Frontend/", toSend)
-    } catch (err) {
-      next({
-        success: false,
-        errCode: 400
-      })
-    }
   }
 }
 
