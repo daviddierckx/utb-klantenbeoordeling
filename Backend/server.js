@@ -15,8 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use("/api", routes);
 //Templating Engine
-app.engine("hbs", exphbs({ extname: ".hbs" }));
-app.use(express.static("public"));
+app.engine("hbs", exphbs({ layoutsDir: 'views/layouts', defaultLayout: 'main', extname: ".hbs" }));
 
 app.set("view engine", "hbs");
 app.use("/api", routes);
