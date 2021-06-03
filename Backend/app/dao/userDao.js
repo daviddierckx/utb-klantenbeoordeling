@@ -24,14 +24,14 @@ exports.login = function (email, password, callback) {
         if (results.length === 0) {
             return callback("user-login-failed", undefined);
         }
-        exports.generateNewToken(results[0].email_address, results[0].id, callback)
+        exports.generateNewToken(results[0].email, results[0].id, results[0].isAdmin, callback)
     });
 }
 
-exports.generateNewToken = function (email, user_id, callback) {
-    jwt.sign({user_email: email, user_id: user_id}, config.auth.secret, {expiresIn: '1h'}, (err, res) => {
+exports.generateNewToken = function (email, user_id, isAdmin, callback) {
+    jwt.sign({user_email: email, user_id: user_id, isAdmin: isAdmin}, config.auth.secret, {expiresIn: '1h'}, (err, res) => {
         if (err) return callback("error-while-creating-token", undefined);
-        callback(undefined, {token: res, user_id: user_id});
+        callback(undefined, {token: res, user_id: user_id, isAdmin: isAdmin});
         // database.con.query('UPDATE `User` SET `token`=? WHERE email=? AND id=?',
         //     [res, email, user_id], function (error, results, fields) {
         //         if (error) return callback(error.sqlMessage, undefined);

@@ -15,7 +15,7 @@ exports.register = function (req, res) {
 
   users_dao.add(
     {
-      name: req.body.firstname,
+      name: req.body.name,
       isAdmin: req.body.isAdmin,
       email: req.body.email,
       password: req.body.password,
@@ -48,7 +48,23 @@ exports.login = function (req, res) {
             return res.status(400).send({"success": false, "error": err2});
         }
         logger.log("User logged in with token", res2);
-        return res.status(201).send({"success": true, "token": res2.token, "user_id": res2.user_id});
+
+        switch (res2.isAdmin) {
+          case 0:
+            //User is guest
+              res.redirect("login")
+            break;
+          case 1:
+            //User is employee
+              res.redirect("admin")
+            break;
+          case 2:
+            //User is admin
+            res.redirect("admin")
+            break;
+        }
+
+        return res.status(201).send({"success": true, "token": res2.token, "user_id": res2.user_id, "isAdmin": res2.isAdmin});
     })
 };
 
