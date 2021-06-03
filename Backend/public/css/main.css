@@ -126,7 +126,9 @@ figure.snip0024 i {
   -webkit-transition-delay: 0.4s;
   transition-delay: 0.4s;
 }
-
+input#password {
+  -webkit-text-security: disc;
+}
 figure.snip0024 .curl {
   width: 0px;
   height: 0px;
