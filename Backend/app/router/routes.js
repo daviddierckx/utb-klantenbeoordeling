@@ -35,7 +35,6 @@ router.post('/login', user_controller.login);
 // Add router here
 // must haves
 router.get('/feedback/:formId/addAnswer', forms_controller.enter_form_answer);
-router.get('/feedback/:formType/:pageNr', forms_controller.return_customer_feedback_html);
 router.get('/feedback', forms_controller.placeholder);
 router.get('/complaints/overview', forms_controller.placeholder);
 // should haves
