@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTB klantenfeedback</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+</head>
+
+<body>
+    <div id="bg"></div>
+    <header>
+        <ul>
+            <li>
+                <a href="https://www.utboils.com/" class="logo"><img src="../Frontend/images/logo.png" alt="UTB logo"></a>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <form action="">
+            <label for="progressbar">voortgang</label>
+            <progress id="progressbar" value="100" max="100"></progress><br><br><br><br>
+
+
+
+            <label for="firstQuestion">Hoe staat u tegenover het bestellen in de UTB webshop?</label>
+            <br><br>
+            <div class="questionRB">
+                <span></span>
+                <input type="radio" name="questionOneRB" id="positiveRB">
+                <label for="positiveRB">Positief</label>
+                <input type="radio" name="questionOneRB" id="neutralRB">
+                <label for="neutralRB">Neutraal</label>
+                <input type="radio" name="questionOneRB" id="negativeRB">
+                <label for="negativeRB">Negatief</label>
+            </div>
+            <br><br>
+            <label for="secondQuestion">Hoe waardeert u UTB ten opzichte van andere merken?</label>
+            <br><br>
+            <div class="questionRB">
+                <span></span>
+                <input type="radio" name="questionTwoRB" id="positiveRB">
+                <label for="positiveRB">Positief</label>
+                <input type="radio" name="questionTwoRB" id="neutralRB">
+                <label for="neutralRB">Neutraal</label>
+                <input type="radio" name="questionTwoRB" id="negativeRB">
+                <label for="negativeRB">Negatief</label>
+            </div>
+            <br><br>
+            <button id="send">Verzenden</button>
+        </form>
+    </main>
+</body>
+
+</html>
