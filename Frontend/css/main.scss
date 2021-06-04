@@ -44,7 +44,11 @@ form {
     #nextBtn {
         background-color: color(primary);
         color: color(textColor);
-        border: 2px solid #008CBA;
+        border: 2px solid #0c457f;
+        border-radius: 8px;
+        width: 140px;
+        height: 50px;
+        margin: 40px 10px 10px;
     }
     #nextBtn:hover {
         background-color: #008CBA;
@@ -53,7 +57,11 @@ form {
     #prevBtn {
         background-color: color(primary);
         color: color(textColor);
-        border: 2px solid #008CBA;
+        border: 2px solid #0c457f;
+        border-radius: 8px;
+        width: 140px;
+        height: 50px;
+        margin: 40px 10px 10px;
     }
     #prevBtn:hover {
         background-color: #008CBA;

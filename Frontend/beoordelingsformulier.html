@@ -10,7 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
 </head>
 
 <body>
@@ -29,11 +29,11 @@
         <form id="regForm" action="">
 
             <h1>klantenfeedback</h1>
-            
+
             <!-- One "tab" for each step in the form: -->
             <div class="tab">
                 <label for="progressbar">voortgang</label>
-                <progress id="progressbar"value="20" max="100"></progress><br><br> 
+                <progress id="progressbar" value="20" max="100"></progress><br><br>
                 <label for="datePicker">datum</label>
                 <input type="date" name="datePicker" id="datePicker" value="2021-05-31" min="2021-01-01" max="2021-05-31" oninput="this.className = ''"><br><br>
                 <label for="companyName">naam bedrijf</label><br>
@@ -46,64 +46,64 @@
                 <input type="radio" name="productgroup" id="lubricants" oninput="this.className = ''">
                 <label for="lubricants">smeermiddelen</label>
             </div>
-            
-            
-            <div class="tab">            
-                <label for="progressbar">voortgang</label>
-                <progress id="progressbar"value="50" max="100"></progress><br><br>  
-                <div class="question" id="questionId">
-                    <p class="questionText">Voorbeeld vraag</p>
-                    <div class="questionRating" oninput="this.className = ''"> 
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>   
-                  </div>
-                  <div class="question" id="questionId">
-                      <p class="questionText">Voorbeeld vraag</p>
-                      <div class="questionRating" oninput="this.className = ''">
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star"></span>
-                          <span class="fa fa-star"></span>
-                      </div>   
-                  </div>
-                  <div class="question" id="questionId">
-                      <p class="questionText">Voorbeeld vraag</p>
-                      <div class="questionRating" oninput="this.className = ''">
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star"></span>
-                          <span class="fa fa-star"></span>
-                      </div>   
-                  </div>
-                  <div class="question" id="questionId">
-                      <p class="questionText">Voorbeeld vraag</p>
-                      <div class="questionRating" oninput="this.className = ''">
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star"></span>
-                          <span class="fa fa-star"></span>
-                      </div>   
-                  </div>
-            </div>
-            
+
+
             <div class="tab">
                 <label for="progressbar">voortgang</label>
-                <progress id="progressbar"value="80" max="100"></progress><br><br>
+                <progress id="progressbar" value="50" max="100"></progress><br><br>
+                <div class="question" id="questionId">
+                    <p class="questionText">Voorbeeld vraag</p>
+                    <div class="questionRating" oninput="this.className = ''">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                </div>
+                <div class="question" id="questionId">
+                    <p class="questionText">Voorbeeld vraag</p>
+                    <div class="questionRating" oninput="this.className = ''">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                </div>
+                <div class="question" id="questionId">
+                    <p class="questionText">Voorbeeld vraag</p>
+                    <div class="questionRating" oninput="this.className = ''">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                </div>
+                <div class="question" id="questionId">
+                    <p class="questionText">Voorbeeld vraag</p>
+                    <div class="questionRating" oninput="this.className = ''">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab">
+                <label for="progressbar">voortgang</label>
+                <progress id="progressbar" value="80" max="100"></progress><br><br>
                 <h3>Opmerkingen</h3>
                 <textarea id="opmerkingen" class="opmerkingen" rows="4" cols="50" maxlength="200" placeholder="Opmerkingen..." oninput="this.className = ''">
                 </textarea>
             </div>
-            
+
             <div class="tab">
                 <label for="progressbar">voortgang</label>
-                <progress id="progressbar"value="95" max="100"></progress><br><br>
+                <progress id="progressbar" value="95" max="100"></progress><br><br>
                 <h3>Overige vragen</h3>
                 <label for="firstQuestion">Hoe staat u tegenover het bestellen in de UTB webshop?</label>
                 <br><br>
@@ -129,24 +129,24 @@
                     <label for="negativeRB">Negatief</label>
                 </div>
             </div>
-            
+
             <div style="overflow:auto;">
-              <div style="float:right;">
-                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-              </div>
+                <div style="float:center;">
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                </div>
             </div>
-            
+
             <!-- Circles which indicates the steps of the form: -->
             <div style="text-align:center;margin-top:40px;">
-              <span class="step"></span>
-              <span class="step"></span>
-              <span class="step"></span>
-              <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
             </div>
-            
-            </form>
-      
+
+        </form>
+
         <figure class="snip0024">
             <input type="button">
             <div>
@@ -159,4 +159,5 @@
     </main>
 </body>
 <script src="/Frontend/js/myScript.js"></script>
+
 </html>
