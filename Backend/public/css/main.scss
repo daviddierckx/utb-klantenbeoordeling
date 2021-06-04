@@ -1,8 +1,7 @@
-$colors: ( primary: #0c457f, PrimaryDark: #051a2e, primaryLight: #749dc8, textColor: #f5f0ef, starColor: #c8a95b, success: #06b261, error: #e63322, errorLight: #F0847A, );
+$colors: ( primary: #0c457f, PrimaryDark: #051a2e, primaryLight: #749dc8, textColor: #f5f0ef, starColor: #c8a95b, success: #06b261, error: #e63322, );
 @function color($color-name) {
     @return map-get($colors, $color-name);
 }
-
 
 header ul {
     list-style-type: none;
@@ -20,11 +19,14 @@ body {
     color: color(textColor);
     font-size: medium;
     margin: 0;
-    background-image: url("/Frontend/images/background.jpg"); 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    #bg {
+        background-image: url("../images/background.jpg");
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: -1;
+        background-size: cover;
+    }
 }
 
 main {
@@ -39,35 +41,16 @@ main {
 form {
     text-align: center;
     font-size: x-large;
-    #nextBtn {
-        background-color: color(primary);
-        color: color(textColor);
-        border: 2px solid #0c457f;
-        border-radius: 8px;
-        width: 140px;
-        height: 50px;
-        margin: 40px 10px 10px;
-    }
-    #nextBtn:hover {
-        background-color: #008CBA;
-        color: white;
-    }
-    #prevBtn {
-        background-color: color(primary);
-        color: color(textColor);
-        border: 2px solid #0c457f;
-        border-radius: 8px;
-        width: 140px;
-        height: 50px;
-        margin: 40px 10px 10px;
-    }
-    #prevBtn:hover {
-        background-color: #008CBA;
-        color: white;
-    }
 }
 
 input[type="text"] {
+    background: color(textColor);
+    border: 1px solid color(error);
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+input[type="password"] {
     background: color(textColor);
     border: 1px solid color(error);
     box-sizing: border-box;
@@ -78,84 +61,6 @@ input[type="date"] {
     border-radius: 5px;
 }
 
-p {
-    margin: 2vh, auto;
-}
-
-//stars
-@mixin star-rating( $filled-color: #c8a95b,
-$empty-color: #444,
-$size: 60px,
-$width: 50%) {
-    $star--filled: ★;
-    $star--empty: ☆;
-    width: $width;
-    >* {
-        float: right;
-    }
-    // optional initial pulse of stars
-    @at-root {
-        @keyframes pulse {
-            50% {
-                color: lighten($empty-color, 10%);
-                text-shadow: 0 0 15px lighten($empty-color, 20%);
-            }
-        }
-    }
-    label {
-        height: 40px;
-        width: 20%;
-        display: block;
-        position: relative;
-        cursor: pointer;
-        @for $i from 5 through 1 {
-            &:nth-of-type(#{$i}):after {
-                $animation-delay: $i * .05s;
-                animation-delay: $animation-delay;
-            }
-        }
-        &:after {
-            transition: all 0.4s ease-out;
-            -webkit-font-smoothing: antialiased;
-            position: absolute;
-            content: '#{$star--empty}';
-            color: $empty-color;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            font-size: $size;
-            animation: 1s pulse ease;
-        }
-        &:hover:after {
-            color: lighten($empty-color, 10%);
-            text-shadow: 0 0 15px lighten($empty-color, 10%);
-        }
-    }
-    input {
-        display: none;
-        &:checked {
-            +label:after,
-            ~label:after {
-                content: '#{$star--filled}';
-                color: $filled-color;
-                text-shadow: 0 0 20px $filled-color;
-            }
-        }
-    }
-}
-
-.rating {
-    margin: 1vh auto;
-    @include star-rating();
-}
-
-body {
-    background-color: #111;
-}
-
-//next page button
 .checked {
     color: color(starColor);
 }
@@ -310,67 +215,4 @@ figure.snip0024.hover .curl {
     box-sizing: border-box;
     box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
     border-radius: 10px;
-}
-
-//carroussel
-#regForm {
-    background-color: color(PrimaryDark);
-    margin: 100px auto;
-    padding: 40px;
-    width: 70%;
-    min-width: 300px;
-}
-
-
-/* Style the input fields */
-
-input {
-    padding: 10px;
-    width: 100%;
-    font-size: 17px;
-    font-family: Roboto;
-    border: 1px solid color(primaryLight)
-}
-
-
-/* Mark input boxes that gets an error on validation: */
-
-input.invalid {
-  background-color: color(errorLight);
-  border-color: color(error);
-  }
-
-
-/* Hide all steps by default: */
-
-.tab {
-    display: none;
-}
-
-
-/* Make circles that indicate the steps of the form: */
-
-.step {
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: color(primaryLight);
-    border: none;
-    border-radius: 50%;
-    display: inline-block;
-    opacity: 0.5;
-}
-
-
-/* Mark the active step: */
-
-.step.active {
-    opacity: 1;
-}
-
-
-/* Mark the steps that are finished and valid: */
-
-.step.finish {
-    background-color: color(success);
 }
