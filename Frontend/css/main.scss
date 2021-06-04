@@ -41,6 +41,24 @@ main {
 form {
     text-align: center;
     font-size: x-large;
+    #nextBtn {
+        background-color: color(primary);
+        color: color(textColor);
+        border: 2px solid #008CBA;
+    }
+    #nextBtn:hover {
+        background-color: #008CBA;
+        color: white;
+    }
+    #prevBtn {
+        background-color: color(primary);
+        color: color(textColor);
+        border: 2px solid #008CBA;
+    }
+    #prevBtn:hover {
+        background-color: #008CBA;
+        color: white;
+    }
 }
 
 input[type="text"] {
@@ -48,85 +66,90 @@ input[type="text"] {
     border: 1px solid color(error);
     box-sizing: border-box;
     border-radius: 5px;
- }
- input[type="date"] {
-     border-radius: 5px;
- }
- p {
-   margin: 2vh, auto;
- }
+}
+
+input[type="date"] {
+    border-radius: 5px;
+}
+
+p {
+    margin: 2vh, auto;
+}
+
 //stars
+@mixin star-rating( $filled-color: #c8a95b,
+$empty-color: #444,
+$size: 60px,
+$width: 50%) {
+    $star--filled: ★;
+    $star--empty: ☆;
+    width: $width;
+    >* {
+        float: right;
+    }
+    // optional initial pulse of stars
+    @at-root {
+        @keyframes pulse {
+            50% {
+                color: lighten($empty-color, 10%);
+                text-shadow: 0 0 15px lighten($empty-color, 20%);
+            }
+        }
+    }
+    label {
+        height: 40px;
+        width: 20%;
+        display: block;
+        position: relative;
+        cursor: pointer;
+        @for $i from 5 through 1 {
+            &:nth-of-type(#{$i}):after {
+                $animation-delay: $i * .05s;
+                animation-delay: $animation-delay;
+            }
+        }
+        &:after {
+            transition: all 0.4s ease-out;
+            -webkit-font-smoothing: antialiased;
+            position: absolute;
+            content: '#{$star--empty}';
+            color: $empty-color;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            font-size: $size;
+            animation: 1s pulse ease;
+        }
+        &:hover:after {
+            color: lighten($empty-color, 10%);
+            text-shadow: 0 0 15px lighten($empty-color, 10%);
+        }
+    }
+    input {
+        display: none;
+        &:checked {
+            +label:after,
+            ~label:after {
+                content: '#{$star--filled}';
+                color: $filled-color;
+                text-shadow: 0 0 20px $filled-color;
+            }
+        }
+    }
+}
 
-@mixin star-rating( $filled-color: #c8a95b, $empty-color: #444, $size: 60px, $width: 50%) {
-  $star--filled: ★;
-  $star--empty: ☆;
-  width: $width;
-  > * {
-   float: right;
-  }
-  // optional initial pulse of stars
-  @at-root {
-   @keyframes pulse {
-    50% {
-     color: lighten($empty-color, 10%);
-     text-shadow: 0 0 15px lighten($empty-color, 20%);
-    }
-   }
-  }
-  label {
-   height: 40px;
-   width: 20%;
-   display: block;
-   position: relative;
-   cursor: pointer;
-   @for $i from 5 through 1 {
-    &:nth-of-type(#{$i}):after {
-     $animation-delay: $i * .05s;
-     animation-delay: $animation-delay;
-    }
-   }
-   &:after {
-    transition: all 0.4s ease-out;
-    -webkit-font-smoothing: antialiased;
-    position: absolute;
-    content: '#{$star--empty}';
-    color: $empty-color;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    font-size: $size;
-    animation: 1s pulse ease;
-   }
-   &:hover:after {
-    color: lighten($empty-color, 10%);
-    text-shadow: 0 0 15px lighten($empty-color, 10%);
-   }
-  }
-  input {
-   display: none;
-   &:checked {
-    + label:after,
-    ~ label:after {
-     content: '#{$star--filled}';
-     color: $filled-color;
-     text-shadow: 0 0 20px $filled-color;
-    }
-   }
-  }
- }
- 
- .rating {
-  margin: 1vh auto;
-  @include star-rating();
- }
- 
- body {
-  background-color: #111;
- }
+.rating {
+    margin: 1vh auto;
+    @include star-rating();
+}
 
-   //next page button
+body {
+    background-color: #111;
+}
+
+//next page button
 .checked {
     color: color(starColor);
 }
@@ -284,51 +307,63 @@ figure.snip0024.hover .curl {
 }
 
 //carroussel
-
 #regForm {
-  background-color: color(PrimaryDark);
-  margin: 100px auto;
-  padding: 40px;
-  width: 70%;
-  min-width: 300px;
+    background-color: color(PrimaryDark);
+    margin: 100px auto;
+    padding: 40px;
+    width: 70%;
+    min-width: 300px;
 }
+
 
 /* Style the input fields */
+
 input {
-  padding: 10px;
-  width: 100%;
-  font-size: 17px;
-  font-family: Roboto;
-  border: 1px solid color(primaryLight)}
+    padding: 10px;
+    width: 100%;
+    font-size: 17px;
+    font-family: Roboto;
+    border: 1px solid color(primaryLight)
+}
+
 
 /* Mark input boxes that gets an error on validation: */
+
 input.invalid {
-  background-color: color(error);
+    background-color: color(error);
 }
+
 
 /* Hide all steps by default: */
+
 .tab {
-  display: none;
+    display: none;
 }
+
 
 /* Make circles that indicate the steps of the form: */
+
 .step {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: color(primaryLight);
-  border: none;
-  border-radius: 50%;
-  display: inline-block;
-  opacity: 0.5;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: color(primaryLight);
+    border: none;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
 }
+
 
 /* Mark the active step: */
+
 .step.active {
-  opacity: 1;
+    opacity: 1;
 }
 
+
 /* Mark the steps that are finished and valid: */
+
 .step.finish {
-  background-color: color(success);
+    background-color: color(success);
 }

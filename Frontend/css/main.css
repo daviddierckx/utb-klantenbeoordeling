@@ -41,6 +41,28 @@ form {
   font-size: x-large;
 }
 
+form #nextBtn {
+  background-color: #0c457f;
+  color: #f5f0ef;
+  border: 2px solid #008CBA;
+}
+
+form #nextBtn:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+form #prevBtn {
+  background-color: #0c457f;
+  color: #f5f0ef;
+  border: 2px solid #008CBA;
+}
+
+form #prevBtn:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
 input[type="text"] {
   background: #f5f0ef;
   border: 1px solid #e63322;
