@@ -21,7 +21,7 @@ exports.register = function (req, res) {
       password: req.body.password,
     },
     (err2, res2) => {
-      if (!err2) {
+      if (err2) {
         logger.log("Error in register:", err2);
         return res.status(400).send({ success: false, error: err2 });
       }
