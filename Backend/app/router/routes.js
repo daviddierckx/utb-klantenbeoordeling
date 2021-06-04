@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const logger = require("tracer").console();
-const forms_controller = require("./controllers/formsController");
-const user_controller = require("./controllers/userController");
 const jwt = require("jsonwebtoken");
 const config = require("./../config");
+const forms_controller = require("./controllers/formsController");
+const user_controller = require("./controllers/userController");
 
 // middleware logger
 router.use(function timeLog(req, res, next) {

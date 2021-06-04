@@ -32,6 +32,8 @@
             
             <!-- One "tab" for each step in the form: -->
             <div class="tab">
+                <label for="progressbar">voortgang</label>
+                <progress id="progressbar"value="20" max="100"></progress><br><br> 
                 <label for="datePicker">datum</label>
                 <input type="date" name="datePicker" id="datePicker" value="2021-05-31" min="2021-01-01" max="2021-05-31" oninput="this.className = ''"><br><br>
                 <label for="companyName">naam bedrijf</label><br>
@@ -39,15 +41,16 @@
                 <label for="companyReprensentative">naam klant</label><br>
                 <input type="text" id="companyReprensentative" name="companyReprensentative" oninput="this.className = ''"><br><br>
                 <label for="productGroup">productgroep</label><br>
-                <input type="radio" name="fuels" id="fuels" oninput="this.className = ''">
+                <input type="radio" name="productgroup" id="fuels" oninput="this.className = ''" checked>
                 <label for="fuels">brandstoffen&specials</label><br>
-                <input type="radio" name="lubricants" id="lubricants" oninput="this.className = ''">
+                <input type="radio" name="productgroup" id="lubricants" oninput="this.className = ''">
                 <label for="lubricants">smeermiddelen</label>
             </div>
             
             
-            <div class="tab">            <label for="progressbar">voortgang</label>
-                <progress id="progressbar"value="20" max="100"></progress><br><br>  
+            <div class="tab">            
+                <label for="progressbar">voortgang</label>
+                <progress id="progressbar"value="50" max="100"></progress><br><br>  
                 <div class="question" id="questionId">
                     <p class="questionText">Voorbeeld vraag</p>
                     <div class="questionRating" oninput="this.className = ''"> 
@@ -91,20 +94,26 @@
             </div>
             
             <div class="tab">
+                <label for="progressbar">voortgang</label>
+                <progress id="progressbar"value="80" max="100"></progress><br><br>
+                <h3>Opmerkingen</h3>
                 <textarea id="opmerkingen" class="opmerkingen" rows="4" cols="50" maxlength="200" placeholder="Opmerkingen..." oninput="this.className = ''">
                 </textarea>
             </div>
             
             <div class="tab">
+                <label for="progressbar">voortgang</label>
+                <progress id="progressbar"value="95" max="100"></progress><br><br>
+                <h3>Overige vragen</h3>
                 <label for="firstQuestion">Hoe staat u tegenover het bestellen in de UTB webshop?</label>
                 <br><br>
                 <div class="questionRB" oninput="this.className = ''">
                     <span></span>
-                    <input type="radio" name="questionOneRB" id="positiveRB">
+                    <input type="radio" name="questionOrder" id="positiveRB">
                     <label for="positiveRB">Positief</label>
-                    <input type="radio" name="questionOneRB" id="neutralRB">
+                    <input type="radio" name="questionOrder" id="neutralRB" checked>
                     <label for="neutralRB">Neutraal</label>
-                    <input type="radio" name="questionOneRB" id="negativeRB">
+                    <input type="radio" name="questionOrder" id="negativeRB">
                     <label for="negativeRB">Negatief</label>
                 </div>
                 <br><br>
@@ -112,11 +121,11 @@
                 <br><br>
                 <div class="questionRB" oninput="this.className = ''">
                     <span></span>
-                    <input type="radio" name="questionTwoRB" id="positiveRB">
+                    <input type="radio" name="questionBrands" id="positiveRB">
                     <label for="positiveRB">Positief</label>
-                    <input type="radio" name="questionTwoRB" id="neutralRB">
+                    <input type="radio" name="questionBrands" id="neutralRB" checked>
                     <label for="neutralRB">Neutraal</label>
-                    <input type="radio" name="questionTwoRB" id="negativeRB">
+                    <input type="radio" name="questionBrands" id="negativeRB">
                     <label for="negativeRB">Negatief</label>
                 </div>
             </div>
