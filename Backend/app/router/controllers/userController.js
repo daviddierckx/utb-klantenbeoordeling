@@ -26,11 +26,10 @@ exports.register = function (req, res) {
         return res.status(400).send({ success: false, error: err2 });
       }
 
-      res.redirect("add-user");
+      res.redirect("adduser");
 
       return res
-        .status(201)
-        .send({ success: true, token: res2.token, user_id: res2.user_id });
+        .status(201);
     }
   );
 };
