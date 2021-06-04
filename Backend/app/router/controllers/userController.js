@@ -25,7 +25,8 @@ exports.register = function (req, res) {
         logger.log("Error in register:", err2);
         return res.status(400).send({ success: false, error: err2 });
       }
-      res.render("add-user", { alert: "User added succesfully" });
+
+      res.redirect("add-user");
 
       return res
         .status(201)
