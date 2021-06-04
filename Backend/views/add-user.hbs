@@ -55,14 +55,14 @@
     </main>
     <body>
       {{#if alert}}
-        <div class="alert" role="alert">
+        <div id="alert" role="alert">
           {{alert}}
           <button
             type="button"
             class="btn-close"
             data-bs-dismiss="alert"
             aria-label="Close"
-          ></button>
+          >X</button>
         </div>
       {{/if}}
 
@@ -138,6 +138,7 @@
 
         </div>
       </form>
+      <script src="/js/script.js"></script>
     </body>
     <footer></footer>
   </body>
