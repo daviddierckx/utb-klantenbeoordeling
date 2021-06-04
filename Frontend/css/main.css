@@ -88,31 +88,6 @@ p {
   cursor: pointer;
 }
 
-.rating label:nth-of-type(10):after {
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
-}
-
-.rating label:nth-of-type(9):after {
-  -webkit-animation-delay: 0.45s;
-          animation-delay: 0.45s;
-}
-
-.rating label:nth-of-type(8):after {
-  -webkit-animation-delay: 0.4s;
-          animation-delay: 0.4s;
-}
-
-.rating label:nth-of-type(7):after {
-  -webkit-animation-delay: 0.35s;
-          animation-delay: 0.35s;
-}
-
-.rating label:nth-of-type(6):after {
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s;
-}
-
 .rating label:nth-of-type(5):after {
   -webkit-animation-delay: 0.25s;
           animation-delay: 0.25s;
@@ -335,5 +310,54 @@ figure.snip0024.hover .curl {
   -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
           box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
   border-radius: 10px;
+}
+
+#regForm {
+  background-color: #051a2e;
+  margin: 100px auto;
+  padding: 40px;
+  width: 70%;
+  min-width: 300px;
+}
+
+/* Style the input fields */
+input {
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  font-family: Roboto;
+  border: 1px solid #749dc8;
+}
+
+/* Mark input boxes that gets an error on validation: */
+input.invalid {
+  background-color: #e63322;
+}
+
+/* Hide all steps by default: */
+.tab {
+  display: none;
+}
+
+/* Make circles that indicate the steps of the form: */
+.step {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #749dc8;
+  border: none;
+  border-radius: 50%;
+  display: inline-block;
+  opacity: 0.5;
+}
+
+/* Mark the active step: */
+.step.active {
+  opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.step.finish {
+  background-color: #06b261;
 }
 /*# sourceMappingURL=main.css.map */
