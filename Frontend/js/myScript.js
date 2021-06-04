@@ -70,3 +70,7 @@ function fixStepIndicator(n) {
   //... and adds the "active" class to the current step:
   x[n].className += " active";
 }
+
+var bgHeight = $(window).height();
+var bgWidth = $(window).width();
+document.getElementById("bg").style.backgroundSize
