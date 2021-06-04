@@ -18,6 +18,7 @@ app.use(express.static("public"));
 app.set("view engine", "hbs");
 app.use("/api", routes);
 app.use("/admin", routeAdmin);
+
 app.listen(port, () => {
   logger.log(`Avans app listening at http://localhost:${port}`);
 });
