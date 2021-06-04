@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTB klantenfeedback</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+</head>
+
+<body>
+    <div id="bg"></div>
+    <header>
+        <ul>
+            <li>
+                <a href="https://www.utboils.com/" class="logo"><img src="../Frontend/images/logo.png" alt="UTB logo"></a>
+            </li>
+            <li>
+                <h1 id="formTitle">klanttevredenheid</h1>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <form action="">
+            <label for="progressbar">voortgang</label>
+            <progress id="progressbar" value="20" max="100"></progress><br><br>
+            <div class="tab">
+              <label for="datePicker">datum</label>
+              <input type="date" name="datePicker" id="datePicker" value="2021-05-31" min="2021-01-01" max="2021-05-31"><br><br>
+              <label for="companyName">naam bedrijf</label><br>
+              <input type="text" id="companyName" name="companyName"><br><br>
+              <label for="companyReprensentative">naam klant</label><br>
+              <input type="text" id="companyReprensentative" name="companyReprensentative"><br><br>
+              <label for="productGroup">productgroep</label><br>
+              <input type="radio" name="fuels" id="fuels">
+              <label for="fuels">brandstoffen&specials</label><br>
+              <input type="radio" name="lubricants" id="lubricants">
+              <label for="lubricants">smeermiddelen</label>
+            </div>
+            <div class="tab">
+              <div class="question" id="questionId">
+                <p class="questionText">Voorbeeld vraag</p>
+                <div class="questionRating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div>   
+              </div>
+              <div class="question" id="questionId">
+                  <p class="questionText">Voorbeeld vraag</p>
+                  <div class="questionRating">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                  </div>   
+              </div>
+              <div class="question" id="questionId">
+                  <p class="questionText">Voorbeeld vraag</p>
+                  <div class="questionRating">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                  </div>   
+              </div>
+              <div class="question" id="questionId">
+                  <p class="questionText">Voorbeeld vraag</p>
+                  <div class="questionRating">
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star checked"></span>
+                      <span class="fa fa-star"></span>
+                      <span class="fa fa-star"></span>
+                  </div>   
+              </div>
+            </div>
+            <div class="tab">
+              <textarea id="opmerkingen" class="opmerkingen" rows="4" cols="50" maxlength="200">Opmerkingen...
+              </textarea>
+            </div>
+            <div class="tab">
+              <label for="firstQuestion">Hoe staat u tegenover het bestellen in de UTB webshop?</label>
+              <br><br>
+              <div class="questionRB">
+                  <span></span>
+                  <input type="radio" name="questionOneRB" id="positiveRB">
+                  <label for="positiveRB">Positief</label>
+                  <input type="radio" name="questionOneRB" id="neutralRB">
+                  <label for="neutralRB">Neutraal</label>
+                  <input type="radio" name="questionOneRB" id="negativeRB">
+                  <label for="negativeRB">Negatief</label>
+              </div>
+              <br><br>
+              <label for="secondQuestion">Hoe waardeert u UTB ten opzichte van andere merken?</label>
+              <br><br>
+              <div class="questionRB">
+                  <span></span>
+                  <input type="radio" name="questionTwoRB" id="positiveRB">
+                  <label for="positiveRB">Positief</label>
+                  <input type="radio" name="questionTwoRB" id="neutralRB">
+                  <label for="neutralRB">Neutraal</label>
+                  <input type="radio" name="questionTwoRB" id="negativeRB">
+                  <label for="negativeRB">Negatief</label>
+              </div>
+            </div>
+        </form>
+        <figure class="snip0024">
+            <input type="button">
+            <div>
+                <a href="klantenfeedbacksterretjes.html">
+                    <i class="ion-ios-arrow-thin-right"></i>
+                    <div class="curl"></div>
+                </a>
+            </div>
+        </figure>
+    </main>
+</body>
+
+</html>
