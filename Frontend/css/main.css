@@ -544,4 +544,21 @@ input.invalid {
 .step.finish {
   background-color: #06b261;
 }
+
+.opmerkingen {
+  background: #f5f0ef;
+  margin: 8px;
+  border: 1px solid #e63322;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 5px;
+  width: 60%;
+  height: 200px;
+}
+
+@media only screen and (max-width: 784px) {
+  .opmerkingen {
+    width: 90%;
+  }
+}
 /*# sourceMappingURL=main.css.map */

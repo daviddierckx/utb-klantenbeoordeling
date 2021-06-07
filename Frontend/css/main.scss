@@ -522,3 +522,19 @@ input.invalid {
 .step.finish {
   background-color: color(success);
 }
+
+.opmerkingen {
+  background: color(textColor);
+  margin: 8px;
+  border: 1px solid color(error);
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 60%;
+  height: 200px;
+}
+
+@media only screen and (max-width: 784px) {
+  .opmerkingen {
+    width: 90%;
+  }
+}
