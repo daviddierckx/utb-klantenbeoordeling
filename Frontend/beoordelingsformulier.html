@@ -41,10 +41,16 @@
                 <label for="companyReprensentative">naam klant</label><br>
                 <input type="text" id="companyReprensentative" name="companyReprensentative" oninput="this.className = ''"><br><br>
                 <label for="productGroup">productgroep</label><br>
-                <input type="radio" name="productgroup" id="fuels" oninput="this.className = ''" checked>
-                <label for="fuels">brandstoffen&specials</label><br>
-                <input type="radio" name="productgroup" id="lubricants" oninput="this.className = ''">
-                <label for="lubricants">smeermiddelen</label>
+                <ul class="productgroup"><br>
+                    <li>
+                       <label for="fuels">brandstoffen&specials</label>  
+                       <input type="radio" name="productgroup" id="fuels" oninput="this.className = ''" checked>
+                    </li>
+                    <li>
+                        <label for="lubricants">smeermiddelen</label>
+                        <input type="radio" name="productgroup" id="lubricants" oninput="this.className = ''"> 
+                    </li>
+                </ul>   
             </div>
 
 
@@ -222,24 +228,42 @@
                 <br><br>
                 <div class="questionRB" oninput="this.className = ''">
                     <span></span>
-                    <input type="radio" name="questionOrder" id="positiveRB">
-                    <label for="positiveRB">Positief</label>
-                    <input type="radio" name="questionOrder" id="neutralRB" checked>
-                    <label for="neutralRB">Neutraal</label>
-                    <input type="radio" name="questionOrder" id="negativeRB">
-                    <label for="negativeRB">Negatief</label>
+                    <ul class="questionList">
+                        <li>
+                            <label for="positiveRB">Positief</label>
+                            <input type="radio" name="questionOrder" id="positiveRB">
+                        </li>
+                        <li>
+                           <label for="neutralRB">Neutraal</label>
+                            <input type="radio" name="questionOrder" id="neutralRB" checked> 
+                        </li>
+                        <li>
+                           <label for="negativeRB">Negatief</label>
+                            <input type="radio" name="questionOrder" id="negativeRB"> 
+                        </li>
+                    </ul>
+                    
                 </div>
                 <br><br>
                 <label for="secondQuestion">Hoe waardeert u UTB ten opzichte van andere merken?</label>
                 <br><br>
                 <div class="questionRB" oninput="this.className = ''">
                     <span></span>
-                    <input type="radio" name="questionBrands" id="positiveRB">
-                    <label for="positiveRB">Positief</label>
-                    <input type="radio" name="questionBrands" id="neutralRB" checked>
-                    <label for="neutralRB">Neutraal</label>
-                    <input type="radio" name="questionBrands" id="negativeRB">
-                    <label for="negativeRB">Negatief</label>
+                    <ul class="questionList">
+                        <li>
+                            <label for="positiveRB">Positief</label>
+                            <input type="radio" name="questionBrands" id="positiveRB">
+                        </li>
+                        <li>
+                            <label for="neutralRB">Neutraal</label>
+                            <input type="radio" name="questionBrands" id="neutralRB" checked>
+                        </li>
+                        <li>
+                            <label for="negativeRB">Negatief</label>
+                            <input type="radio" name="questionBrands" id="negativeRB"> 
+                        </li>
+                    </ul>
+                    
                 </div>
             </div>
 
