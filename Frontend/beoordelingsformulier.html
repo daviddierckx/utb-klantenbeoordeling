@@ -28,7 +28,7 @@
     <main>
         <form id="regForm" action="">
 
-            <h1>klantenfeedback</h1>
+            <h2>klantenfeedback</h2>
 
             <!-- One "tab" for each step in the form: -->
             <div class="tab">
@@ -41,10 +41,16 @@
                 <label for="companyReprensentative">naam klant</label><br>
                 <input type="text" id="companyReprensentative" name="companyReprensentative" oninput="this.className = ''"><br><br>
                 <label for="productGroup">productgroep</label><br>
-                <input type="radio" name="productgroup" id="fuels" oninput="this.className = ''" checked>
-                <label for="fuels">brandstoffen&specials</label><br>
-                <input type="radio" name="productgroup" id="lubricants" oninput="this.className = ''">
-                <label for="lubricants">smeermiddelen</label>
+                <ul class="productgroup"><br>
+                    <li>
+                       <label for="fuels">brandstoffen&specials</label>  
+                       <input type="radio" name="productgroup" id="fuels" oninput="this.className = ''" checked>
+                    </li>
+                    <li>
+                        <label for="lubricants">smeermiddelen</label>
+                        <input type="radio" name="productgroup" id="lubricants" oninput="this.className = ''"> 
+                    </li>
+                </ul>   
             </div>
 
 
@@ -161,15 +167,18 @@
                         
                     </fieldset>
                 </div><br><br>
-                </div>
+                
             </div>
 
-            <div class="tab">
+            <div class="tab" class="container">
                 <label for="progressbar">voortgang</label>
                 <progress id="progressbar" value="80" max="100"></progress><br><br>
-                <h3>Opmerkingen</h3>
-                <textarea id="opmerkingen" class="opmerkingen" rows="4" cols="50" maxlength="200" placeholder="Opmerkingen..." oninput="this.className = ''">
-                </textarea>
+                <div class="comment">
+                    <h3>Overige opmerkingen</h3>
+                    <textarea id="opmerkingen" class="textinput">
+                    </textarea>
+                </div>
+                
             </div>
 
             <div class="tab">
@@ -180,24 +189,42 @@
                 <br><br>
                 <div class="questionRB" oninput="this.className = ''">
                     <span></span>
-                    <input type="radio" name="questionOrder" id="positiveRB">
-                    <label for="positiveRB">Positief</label>
-                    <input type="radio" name="questionOrder" id="neutralRB" checked>
-                    <label for="neutralRB">Neutraal</label>
-                    <input type="radio" name="questionOrder" id="negativeRB">
-                    <label for="negativeRB">Negatief</label>
+                    <ul class="questionList">
+                        <li>
+                            <label for="positiveRB">Positief</label>
+                            <input type="radio" name="questionOrder" id="positiveRB">
+                        </li>
+                        <li>
+                           <label for="neutralRB">Neutraal</label>
+                            <input type="radio" name="questionOrder" id="neutralRB" checked> 
+                        </li>
+                        <li>
+                           <label for="negativeRB">Negatief</label>
+                            <input type="radio" name="questionOrder" id="negativeRB"> 
+                        </li>
+                    </ul>
+                    
                 </div>
                 <br><br>
                 <label for="secondQuestion">Hoe waardeert u UTB ten opzichte van andere merken?</label>
                 <br><br>
                 <div class="questionRB" oninput="this.className = ''">
                     <span></span>
-                    <input type="radio" name="questionBrands" id="positiveRB">
-                    <label for="positiveRB">Positief</label>
-                    <input type="radio" name="questionBrands" id="neutralRB" checked>
-                    <label for="neutralRB">Neutraal</label>
-                    <input type="radio" name="questionBrands" id="negativeRB">
-                    <label for="negativeRB">Negatief</label>
+                    <ul class="questionList">
+                        <li>
+                            <label for="positiveRB">Positief</label>
+                            <input type="radio" name="questionBrands" id="positiveRB">
+                        </li>
+                        <li>
+                            <label for="neutralRB">Neutraal</label>
+                            <input type="radio" name="questionBrands" id="neutralRB" checked>
+                        </li>
+                        <li>
+                            <label for="negativeRB">Negatief</label>
+                            <input type="radio" name="questionBrands" id="negativeRB"> 
+                        </li>
+                    </ul>
+                    
                 </div>
             </div>
 

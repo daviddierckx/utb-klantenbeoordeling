@@ -32,6 +32,7 @@ function nextPrev(n) {
   // if you have reached the end of the form... :
   if (currentTab >= x.length) {
     //...the form gets submitted:
+    alert("Formulier succesvol verstuurd!");
     document.getElementById("regForm").submit();
     return false;
   }
