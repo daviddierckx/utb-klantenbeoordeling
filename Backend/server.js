@@ -6,6 +6,7 @@ const app = express();
 const routes = require("./app/router/routes");
 const logger = require("tracer").console();
 const bodyParser = require("body-parser");
+var serveStatic = require("serve-static");
 
 const routeAdmin = require("./app/router/admin");
 const routeLogin = require("./app/router/login");
@@ -24,6 +25,8 @@ app.use("/api", routes);
 app.use("/admin", routeAdmin);
 app.use("/login", routeLogin);
 app.use("/beoordelingsformulier", routeBOF);
+app.use(serveStatic("./views"));
+
 app.listen(port, () => {
   logger.log(`Avans app listening at http://${ip}:${port}`);
 });
