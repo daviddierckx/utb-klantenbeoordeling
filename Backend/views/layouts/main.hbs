@@ -56,6 +56,11 @@
     <body>
       {{{body}}}
     </body>
-    <footer></footer>
+    <footer>
+      <script>
+        if ( window.history.replaceState ) { window.history.replaceState( null,
+        null, window.location.href ); }
+      </script>
+    </footer>
   </body>
 </html>
