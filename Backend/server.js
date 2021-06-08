@@ -12,11 +12,11 @@ const routeAdmin = require("./app/router/admin");
 const routeLogin = require("./app/router/login");
 const routeBOF = require("./app/router/routeBOF");
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use("/api", routes);
 //Templating Engine
-app.engine("hbs", exphbs({ extname: ".hbs" }));
+app.engine("hbs", exphbs({extname: ".hbs"}));
 app.use(express.static("public"));
 
 // app.get('/', function(req, res) {
