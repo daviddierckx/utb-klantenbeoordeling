@@ -11,62 +11,75 @@ Form Format:
         [
             {
                 "type": "small_text",
-                "label": "Naam bedrijf"
+                "label": "Naam bedrijf",
+                "isRequired": true
             },
             {
                 "type": "small_text",
-                "label": "Naam klant"
+                "label": "Naam klant",
+                "isRequired": true
             },
             {
                 "type": "radio",
                 "label": "Product groep",
-                "options": ["Brandstoffen & specials", "Smeermiddelen"]
+                "options": ["Brandstoffen & specials", "Smeermiddelen"],
+                "isRequired": true
             }
         ],
         [
             {
                 "type": "radio",
                 "label": "Hoe staat u tegenover bestelen in de UTB webshop?",
-                "options": ["Positief", "Neutraal", "Negatief"]
+                "options": ["Positief", "Neutraal", "Negatief"],
+                "isRequired": true
             },
             {
                 "type": "radio",
                 "label": "Waardering UTB/UNIL tov andere merken?",
-                "options": ["Onderscheidend", "Gelijk", "Minder"]
+                "options": ["Onderscheidend", "Gelijk", "Minder"],
+                "isRequired": true
             }
         ],
         [
             {
                 "type": "rating",
-                "label": "Bereikbaarheid UTB?"
+                "label": "Bereikbaarheid UTB?",
+                "isRequired": true
             },
             {
                 "type": "rating",
-                "label": "Bezoekfrequentie van de UTB vertenwoordiger?"
+                "label": "Bezoekfrequentie van de UTB vertenwoordiger?",
+                "isRequired": true
             },
             {
                 "type": "rating",
-                "label": "Tevredenheid over de mogelijkheden en de wijze van bestellen?"
+                "label": "Tevredenheid over de mogelijkheden en de wijze van bestellen?",
+                "isRequired": true
             },
             {
                 "type": "rating",
-                "label": "Tevredenheid mbt de levertijden?"
+                "label": "Tevredenheid mbt de levertijden?",
+                "isRequired": true
             },
             {
                 "type": "rating",
-                "label": "Tevredenheid mbt de administratieve afhandeling?"
+                "label": "Tevredenheid mbt de administratieve afhandeling?",
+                "isRequired": true
             },
             {
                 "type": "rating",
-                "label": "Tevredenheid mbt de klachtenafhandeling?"
+                "label": "Tevredenheid mbt de klachtenafhandeling?",
+                "isRequired": true
             },
             {
                 "type": "rating",
-                "label": "Eindoordeel UTB organisatie?"
+                "label": "Eindoordeel UTB organisatie?",
+                "isRequired": true
             },
             {
                 "type": "big_text",
-                "label": "Opmerkingen?"
+                "label": "Opmerkingen?",
+                "isRequired": true
             }
         ]
     ]
