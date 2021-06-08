@@ -48,14 +48,15 @@ exports.login = function (req, res) {
   users_dao.login(req.body.email, req.body.password, (err2, res2) => {
     if (err2) {
       logger.log("Error in login:", err2);
-      return res.status(400).send({ success: false, error: err2 });
+      return res.status(400).send({ success: false, error: "halloo mensen" });
     }
     logger.log("User logged in with token", res2);
 
     switch (res2.isAdmin) {
       case 0:
         //User is guest
-        res.redirect("login");
+        res.redirect("beoordelingsformulier");
+        console.log("beoordeling");
         break;
       case 1:
         //User is employee
@@ -67,12 +68,7 @@ exports.login = function (req, res) {
         break;
     }
 
-    return res.status(201).send({
-      success: true,
-      token: res2.token,
-      user_id: res2.user_id,
-      isAdmin: res2.isAdmin,
-    });
+    return res.status(201);
   });
 };
 
