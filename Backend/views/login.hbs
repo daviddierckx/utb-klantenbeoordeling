@@ -57,9 +57,21 @@
               placeholder="wachtwoord"
             />
             <input type="submit" class="fadeInDown" value="Log In" />
+            {{#if alert}}
+              <div id="alert" class="alert-login" role="alert">
+                {{alert}}
+
+              </div>
+            {{/if}}
           </form>
         </div>
       </div>
     </main>
   </body>
+  <footer>
+    <script>
+      if ( window.history.replaceState ) { window.history.replaceState( null,
+      null, window.location.href ); }
+    </script>
+  </footer>
 </html>

@@ -538,3 +538,8 @@ input[type="password"]:placeholder {
 * {
   box-sizing: border-box;
 }
+
+.alert-login {
+  color: red;
+  font-size: 13px;
+}
