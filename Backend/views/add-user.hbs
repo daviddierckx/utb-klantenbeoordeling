@@ -1,0 +1,152 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UTB klantenfeedback</title>
+
+    <link rel="stylesheet" href="/css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+
+  </head>
+  <body>
+    <div id="bg"></div>
+    <header>
+      <ul>
+        <li>
+          <a href="https://www.utboils.com/" class="logo"><img
+              src="../images/logo.png"
+              alt="UTB logo"
+            /></a>
+        </li>
+        <li>
+          <h1 id="homepageTitle">Admin pagina</h1>
+          <h4 id="homepageSubTitle">
+            Hier zijn de verschillende adminfunctionaliteiten te vinden
+          </h4>
+        </li>
+      </ul>
+    </header>
+    <main>
+      <div class="buttonlist">
+        <button type="button" id="overzicht">
+          Beoordelingsoverzicht
+        </button>
+        <button type="button" id="opmerkingen">
+          Opmerkingen
+        </button>
+        <button type="button" id="vragen">
+          Vragen wijzigen
+        </button>
+        <button type="button" id="gebruikers">
+          Gebruikers wijzigen
+        </button>
+        <button type="button" id="gebruikers">
+          <a href="/admin"> Back </a>
+        </button>
+      </div>
+    </main>
+    <body>
+      {{#if alert}}
+        <div id="alert" role="alert">
+          {{alert}}
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          >X</button>
+        </div>
+      {{/if}}
+
+      <form class="" method="POST" action="adduser">
+        <div class="">
+          <div class="">
+            <label for="floatingInput"> Name</label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              name="name"
+              aria-describedby="emailHelp"
+              placeholder="Enter name"
+            />
+
+        
+          </div>
+        </div>
+        <div class="">
+
+          <div class="">
+             <label for="floatingInput">Email</label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              name="email"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+            />
+
+          </div>
+        </div>
+        
+        <div class="">
+
+          <div class="">
+          <label for="floatingInput">Password</label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              name="password"
+              aria-describedby="emailHelp"
+              placeholder="Enter password"
+            />
+
+          </div>
+        </div>
+        <div class="">
+
+            <div class="">
+             <label for="floatingInput">is Admin</label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              name="isAdmin"
+              aria-describedby="emailHelp"
+              placeholder="Enter admin"
+            />
+
+          </div>
+        </div>
+        </div>
+        <div class="">
+          <button type="submit" class="btn">Submit</button>
+
+        </div>
+      </form>
+      <script src="/js/script.js">
+      </script>
+    </body>
+    <footer>
+      <script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
+    </footer>
+  </body>
+</html>

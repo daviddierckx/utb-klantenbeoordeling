@@ -45,3 +45,22 @@ exports.add_new_form = function (req, res) {
     return res.status(201).send({"success": true, "id": res2, "name": req.body.name});
   });
 };
+
+
+exports.placeholder = function(req, res) {
+  logger.log("Sending placeholder request");
+  return res
+    .status(500)
+    .send({ success: false })
+}
+
+exports.enter_form_answer = function(req, res) {
+  logger.log("Received request to add a form answers");
+  return res
+    .status(500)
+    .send({ success: false, error: "not implemented yet" });
+}
+
+exports.return_customer_feedback_html = function(req, res, next) {
+  logger.log("Returning customer feedback main page");
+}

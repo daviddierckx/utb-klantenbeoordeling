@@ -10,7 +10,7 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    
+
 </head>
 
 <body>
@@ -28,135 +28,225 @@
     <main>
         <form id="regForm" action="">
 
-            <h1>klantenfeedback</h1>
-            
+            <h2>klantenfeedback</h2>
+
             <!-- One "tab" for each step in the form: -->
             <div class="tab">
                 <label for="progressbar">voortgang</label>
-                <progress id="progressbar"value="20" max="100"></progress><br><br> 
+                <progress id="progressbar" value="20" max="100"></progress><br><br>
                 <label for="datePicker">datum</label>
-                <input type="date" name="datePicker" id="datePicker" value="2021-05-31" min="2021-01-01" max="2021-05-31" oninput="this.className = ''"><br><br>
+                <input id="datePicker" type="date" /><br><br>
                 <label for="companyName">naam bedrijf</label><br>
                 <input type="text" id="companyName" name="companyName" oninput="this.className = ''"><br><br>
                 <label for="companyReprensentative">naam klant</label><br>
                 <input type="text" id="companyReprensentative" name="companyReprensentative" oninput="this.className = ''"><br><br>
                 <label for="productGroup">productgroep</label><br>
-                <input type="radio" name="productgroup" id="fuels" oninput="this.className = ''" checked>
-                <label for="fuels">brandstoffen&specials</label><br>
-                <input type="radio" name="productgroup" id="lubricants" oninput="this.className = ''">
-                <label for="lubricants">smeermiddelen</label>
+                <ul class="productgroup"><br>
+                    <li>
+                       <label for="fuels">brandstoffen&specials</label>  
+                       <input type="radio" name="productgroup" id="fuels" oninput="this.className = ''" checked>
+                    </li>
+                    <li>
+                        <label for="lubricants">smeermiddelen</label>
+                        <input type="radio" name="productgroup" id="lubricants" oninput="this.className = ''"> 
+                    </li>
+                </ul>   
             </div>
-            
-            
-            <div class="tab">            
+
+
+            <div class="tab">
                 <label for="progressbar">voortgang</label>
-                <progress id="progressbar"value="50" max="100"></progress><br><br>  
+                <progress id="progressbar" value="50" max="100"></progress><br><br>
                 <div class="question" id="questionId">
-                    <p class="questionText">Voorbeeld vraag</p>
-                    <div class="questionRating" oninput="this.className = ''"> 
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                    </div>   
-                  </div>
-                  <div class="question" id="questionId">
-                      <p class="questionText">Voorbeeld vraag</p>
-                      <div class="questionRating" oninput="this.className = ''">
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star"></span>
-                          <span class="fa fa-star"></span>
-                      </div>   
-                  </div>
-                  <div class="question" id="questionId">
-                      <p class="questionText">Voorbeeld vraag</p>
-                      <div class="questionRating" oninput="this.className = ''">
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star"></span>
-                          <span class="fa fa-star"></span>
-                      </div>   
-                  </div>
-                  <div class="question" id="questionId">
-                      <p class="questionText">Voorbeeld vraag</p>
-                      <div class="questionRating" oninput="this.className = ''">
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star checked"></span>
-                          <span class="fa fa-star"></span>
-                          <span class="fa fa-star"></span>
-                      </div>   
-                  </div>
+                    <p class="questionText">Bereikbaarheid UTB?</p><br>
+                    <fieldset class="rating">
+                        <input type="radio" id="field1_star5" name="rating1" value="5" /><label class = "full" for="field1_star5"></label>
+                        
+                        <input type="radio" id="field1_star4" name="rating1" value="4" /><label class = "full" for="field1_star4"></label>
+                        
+                        <input type="radio" id="field1_star3" name="rating1" value="3" /><label class = "full" for="field1_star3"></label>
+                        
+                        <input type="radio" id="field1_star2" name="rating1" value="2" /><label class = "full" for="field1_star2"></label>
+                        
+                        <input type="radio" id="field1_star1" name="rating1" value="1" /><label class = "full" for="field1_star1"></label>
+                        
+                    </fieldset>
+                </div><br><br>
+                <div class="question" id="questionId">
+                    <p class="questionText">Bezoekfrequentie UTB vertegenwoordiger?</p><br>
+                    <fieldset class="rating">
+                        <input type="radio" id="field2_star5" name="rating2" value="5" /><label class = "full" for="field2_star5"></label>
+                        
+                        <input type="radio" id="field2_star4" name="rating2" value="4" /><label class = "full" for="field2_star4"></label>
+                        
+                        <input type="radio" id="field2_star3" name="rating2" value="3" /><label class = "full" for="field2_star3"></label>
+                        
+                        <input type="radio" id="field2_star2" name="rating2" value="2" /><label class = "full" for="field2_star2"></label>
+                        
+                        <input type="radio" id="field2_star1" name="rating2" value="1" /><label class = "full" for="field2_star1"></label>
+                        
+                    </fieldset>
+                </div><br><br>
+                <div class="question" id="questionId">
+                    <p class="questionText">Tevredenheid over de mogelijkheden en de wijze van bestellen?</p><br>
+                    <fieldset class="rating">
+                        <input type="radio" id="field3_star5" name="rating3" value="5" /><label class = "full" for="field3_star5"></label>
+                        
+                        <input type="radio" id="field3_star4" name="rating3" value="4" /><label class = "full" for="field3_star4"></label>
+                        
+                        <input type="radio" id="field3_star3" name="rating3" value="3" /><label class = "full" for="field3_star3"></label>
+                        
+                        <input type="radio" id="field3_star2" name="rating3" value="2" /><label class = "full" for="field3_star2"></label>
+                        
+                        <input type="radio" id="field3_star1" name="rating3" value="1" /><label class = "full" for="field3_star1"></label>
+                        
+                    </fieldset>
+                </div><br><br>
+                <div class="question" id="questionId">
+                    <p class="questionText">Tevredenheid mbt de levertijden?</p><br>
+                    <fieldset class="rating">
+                        <input type="radio" id="field4_star5" name="rating4" value="5" /><label class = "full" for="field4_star5"></label>
+                        
+                        <input type="radio" id="field4_star4" name="rating4" value="4" /><label class = "full" for="field4_star4"></label>
+                        
+                        <input type="radio" id="field4_star3" name="rating4" value="3" /><label class = "full" for="field4_star3"></label>
+                        
+                        <input type="radio" id="field4_star2" name="rating4" value="2" /><label class = "full" for="field4_star2"></label>
+                        
+                        <input type="radio" id="field4_star1" name="rating4" value="1" /><label class = "full" for="field4_star1"></label>
+                        
+                    </fieldset>
+                </div>
             </div>
-            
+
             <div class="tab">
                 <label for="progressbar">voortgang</label>
-                <progress id="progressbar"value="80" max="100"></progress><br><br>
-                <h3>Opmerkingen</h3>
-                <textarea id="opmerkingen" class="opmerkingen" rows="4" cols="50" maxlength="200" placeholder="Opmerkingen..." oninput="this.className = ''">
-                </textarea>
+                <progress id="progressbar" value="75" max="100"></progress><br><br>
+                <div class="question" id="questionId">
+                    <p class="questionText">Tevredenheid mbt de administratieve afhandeling?</p><br>
+                    <fieldset class="rating">
+                        <input type="radio" id="field5_star5" name="rating5" value="5" /><label class = "full" for="field5_star5"></label>
+                        
+                        <input type="radio" id="field5_star4" name="rating5" value="4" /><label class = "full" for="field5_star4"></label>
+                        
+                        <input type="radio" id="field5_star3" name="rating5" value="3" /><label class = "full" for="field5_star3"></label>
+                        
+                        <input type="radio" id="field5_star2" name="rating5" value="2" /><label class = "full" for="field5_star2"></label>
+                        
+                        <input type="radio" id="field5_star1" name="rating5" value="1" /><label class = "full" for="field5_star1"></label>
+                        
+                    </fieldset>
+                </div><br><br>
+                <div class="question" id="questionId">
+                    <p class="questionText">Tevredenheid mbt de klachtenafhandeling?</p><br>
+                    <fieldset class="rating">
+                        <input type="radio" id="field6_star5" name="rating6" value="5" /><label class = "full" for="field6_star5"></label>
+                        
+                        <input type="radio" id="field6_star4" name="rating6" value="4" /><label class = "full" for="field6_star4"></label>
+                        
+                        <input type="radio" id="field6_star3" name="rating6" value="3" /><label class = "full" for="field6_star3"></label>
+                        
+                        <input type="radio" id="field6_star2" name="rating6" value="2" /><label class = "full" for="field6_star2"></label>
+                        
+                        <input type="radio" id="field6_star1" name="rating6" value="1" /><label class = "full" for="field6_star1"></label>
+                        
+                    </fieldset>
+                </div><br><br>
+                <div class="question" id="questionId">
+                    <p class="questionText">Eindoordeel UTB organisatie ?</p><br>
+                    <fieldset class="rating">
+                        <input type="radio" id="field7_star5" name="rating7" value="5" /><label class = "full" for="field7_star5"></label>
+                        
+                        <input type="radio" id="field7_star4" name="rating7" value="4" /><label class = "full" for="field7_star4"></label>
+                        
+                        <input type="radio" id="field7_star3" name="rating7" value="3" /><label class = "full" for="field7_star3"></label>
+                        
+                        <input type="radio" id="field7_star2" name="rating7" value="2" /><label class = "full" for="field7_star2"></label>
+                        
+                        <input type="radio" id="field7_star1" name="rating7" value="1" /><label class = "full" for="field7_star1"></label>
+                        
+                    </fieldset>
+                </div><br><br>
+                
             </div>
-            
+
+            <div class="tab" class="container">
+                <label for="progressbar">voortgang</label>
+                <progress id="progressbar" value="80" max="100"></progress><br><br>
+                <div class="comment">
+                    <h3>Overige opmerkingen</h3>
+                    <textarea id="opmerkingen" class="textinput">
+                    </textarea>
+                </div>
+                
+            </div>
+
             <div class="tab">
                 <label for="progressbar">voortgang</label>
-                <progress id="progressbar"value="95" max="100"></progress><br><br>
+                <progress id="progressbar" value="95" max="100"></progress><br><br>
                 <h3>Overige vragen</h3>
                 <label for="firstQuestion">Hoe staat u tegenover het bestellen in de UTB webshop?</label>
                 <br><br>
                 <div class="questionRB" oninput="this.className = ''">
                     <span></span>
-                    <input type="radio" name="questionOrder" id="positiveRB">
-                    <label for="positiveRB">Positief</label>
-                    <input type="radio" name="questionOrder" id="neutralRB" checked>
-                    <label for="neutralRB">Neutraal</label>
-                    <input type="radio" name="questionOrder" id="negativeRB">
-                    <label for="negativeRB">Negatief</label>
+                    <ul class="questionList">
+                        <li>
+                            <label for="positiveRB">Positief</label>
+                            <input type="radio" name="questionOrder" id="positiveRB">
+                        </li>
+                        <li>
+                           <label for="neutralRB">Neutraal</label>
+                            <input type="radio" name="questionOrder" id="neutralRB" checked> 
+                        </li>
+                        <li>
+                           <label for="negativeRB">Negatief</label>
+                            <input type="radio" name="questionOrder" id="negativeRB"> 
+                        </li>
+                    </ul>
+                    
                 </div>
                 <br><br>
                 <label for="secondQuestion">Hoe waardeert u UTB ten opzichte van andere merken?</label>
                 <br><br>
                 <div class="questionRB" oninput="this.className = ''">
                     <span></span>
-                    <input type="radio" name="questionBrands" id="positiveRB">
-                    <label for="positiveRB">Positief</label>
-                    <input type="radio" name="questionBrands" id="neutralRB" checked>
-                    <label for="neutralRB">Neutraal</label>
-                    <input type="radio" name="questionBrands" id="negativeRB">
-                    <label for="negativeRB">Negatief</label>
+                    <ul class="questionList">
+                        <li>
+                            <label for="positiveRB">Positief</label>
+                            <input type="radio" name="questionBrands" id="positiveRB">
+                        </li>
+                        <li>
+                            <label for="neutralRB">Neutraal</label>
+                            <input type="radio" name="questionBrands" id="neutralRB" checked>
+                        </li>
+                        <li>
+                            <label for="negativeRB">Negatief</label>
+                            <input type="radio" name="questionBrands" id="negativeRB"> 
+                        </li>
+                    </ul>
+                    
                 </div>
             </div>
-            
-            <div style="overflow:auto;">
-              <div style="float:right;">
-                <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
-              </div>
+
+            <div style="overflow:none;">
+                <div style="float:center;">
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                </div>
             </div>
-            
+
             <!-- Circles which indicates the steps of the form: -->
             <div style="text-align:center;margin-top:40px;">
-              <span class="step"></span>
-              <span class="step"></span>
-              <span class="step"></span>
-              <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
+                <span class="step"></span>
             </div>
             
             </form>
-      
-        <figure class="snip0024">
-            <input type="button">
-            <div>
-                <a href="klantenfeedbacksterretjes.html">
-                    <i class="ion-ios-arrow-thin-right"></i>
-                    <div class="curl"></div>
-                </a>
-            </div>
-        </figure>
     </main>
 </body>
 <script src="/Frontend/js/myScript.js"></script>
+<script src="/Frontend/js/datePicker.js"></script>
 </html>

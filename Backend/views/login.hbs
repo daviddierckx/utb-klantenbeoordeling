@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UTB klantenfeedback</title>
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/login.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat"
       rel="stylesheet"
@@ -57,9 +57,21 @@
               placeholder="wachtwoord"
             />
             <input type="submit" class="fadeInDown" value="Log In" />
+            {{#if alert}}
+              <div id="alert" class="alert-login" role="alert">
+                {{alert}}
+
+              </div>
+            {{/if}}
           </form>
         </div>
       </div>
     </main>
   </body>
+  <footer>
+    <script>
+      if ( window.history.replaceState ) { window.history.replaceState( null,
+      null, window.location.href ); }
+    </script>
+  </footer>
 </html>

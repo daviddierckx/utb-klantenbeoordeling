@@ -1,15 +1,30 @@
+<div align="center">
+
 # UTB-Feedback Backend
 
+</div>
+
+### Table of contents
+
+- Setup guide
+- How to start?
+- Errors
+
 ### Setup Guide
-* Run `npm install` in your console
-* Create a .env file and add the lines below listed in #Errors-Missing_.env_File
+
+- Run `npm install` in your console
+- Create a .env file and add the lines below listed in #Errors-Missing\_.env_File
 
 ### How to start?
-* Run `npm start`
 
-##Errors
-#### Missing .env file?
+- Run `npm start`
+
+### Errors
+
+#### Missing .env file
+
 Add this to your .env:
+
 ```
 DATABASE_ADDRESS=onno204.nl
 DATABASE_USERNAME=avans_utb
