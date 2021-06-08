@@ -1,15 +1,16 @@
 const port = process.env.PORT || 3000;
-const ip = process.env.IP || '127.0.0.1'
+const ip = process.env.IP || "127.0.0.1";
 const express = require("express");
 const exphbs = require("express-handlebars");
 const app = express();
 const routes = require("./Backend/app/router/routes");
 const logger = require("tracer").console();
 const bodyParser = require("body-parser");
+var serveStatic = require("serve-static");
 
-
-const routeAdmin = require("./Backend/app/router/admin");
-const routeLogin = require("./Backend/app/router/login");
+const routeAdmin = require("./app/router/admin");
+const routeLogin = require("./app/router/login");
+const routeBOF = require("./app/router/routeBOF");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -24,9 +25,13 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/Frontend/index.html');
 })
 app.set("view engine", "hbs");
+
 app.use("/api", routes);
 app.use("/admin", routeAdmin);
 app.use("/login", routeLogin);
+app.use("/beoordelingsformulier", routeBOF);
+app.use(serveStatic("./views"));
+
 app.listen(port, () => {
   logger.log(`Avans app listening at http://${ip}:${port}`);
 });
