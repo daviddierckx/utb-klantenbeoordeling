@@ -34,3 +34,22 @@ exports.search = (req, res) => {
 exports.adduser = (req, res) => {
   res.render("add-user", { layout: false });
 };
+
+//delete user
+exports.delete = (req, res) => {
+  console.log(req.params.id);
+
+  // User the connection
+  database.con.query(
+    "DELETE FROM User WHERE id = ?",
+    [req.params.id],
+    (err, rows) => {
+      if (!err) {
+        res.redirect("/admin");
+      } else {
+        console.log(err);
+      }
+      console.log("The data from user table: \n", rows);
+    }
+  );
+};
