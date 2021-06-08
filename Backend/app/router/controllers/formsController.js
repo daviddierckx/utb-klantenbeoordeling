@@ -7,6 +7,14 @@ exports.enter_form_answer = function (req, res) {
   return res.status(500).send({"success": false, "error": "not implemented yet"});
 };
 
+exports.placeholder = function (req, res) {
+  logger.log("Sending placeholder request");
+  return res.status(500).send({success: false})
+}
+
+exports.return_customer_feedback_html = function (req, res, next) {
+  logger.log("Returning customer feedback main page");
+}
 
 exports.get_form = function (req, res) {
   logger.log("Received request for a form");
@@ -21,7 +29,7 @@ exports.get_form = function (req, res) {
       logger.log("Error in receiving form:", err2);
       return res.status(400).send({"success": false, "error": err2});
     }
-    logger.log("Got form data", res2);
+    logger.log("Got form data", JSON.stringify(res2));
     return res.status(201).send({"success": true, "data": res2});
   });
 };
@@ -45,22 +53,3 @@ exports.add_new_form = function (req, res) {
     return res.status(201).send({"success": true, "id": res2, "name": req.body.name});
   });
 };
-
-
-exports.placeholder = function(req, res) {
-  logger.log("Sending placeholder request");
-  return res
-    .status(500)
-    .send({ success: false })
-}
-
-exports.enter_form_answer = function(req, res) {
-  logger.log("Received request to add a form answers");
-  return res
-    .status(500)
-    .send({ success: false, error: "not implemented yet" });
-}
-
-exports.return_customer_feedback_html = function(req, res, next) {
-  logger.log("Returning customer feedback main page");
-}
