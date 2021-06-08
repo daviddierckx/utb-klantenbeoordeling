@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const logger = require('tracer').console()
+const jwt = require('jsonwebtoken');
+const config = require('./../config');
 const forms_controller = require('./controllers/formsController');
 const user_controller = require('./controllers/userController');
 

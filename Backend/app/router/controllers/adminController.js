@@ -12,3 +12,20 @@ exports.view = (req, res) => {
     console.log("The data from user table: \n", rows);
   });
 };
+
+//Find by Search
+exports.search = (req, res) => {
+  let searchTerm = req.body.search;
+  database.con.query(
+    "SELECT * FROM User WHERE name LIKE ?",
+    ["%" + searchTerm + "%"],
+    (err, rows) => {
+      if (!err) {
+        res.render("home", { rows });
+      } else {
+        console.log(err);
+      }
+      console.log("The search data from user table: \n", rows);
+    }
+  );
+};
