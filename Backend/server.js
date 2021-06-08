@@ -19,13 +19,14 @@ app.use("/api", routes);
 app.engine("hbs", exphbs({ extname: ".hbs" }));
 app.use(express.static("public"));
 
-app.get('/', function(req, res) {
-  logger.log('Called GET on /')
-  logger.log(__dirname + '/Frontend/index.html');
-  res.sendFile(__dirname + '/Frontend/index.html');
-})
+// app.get('/', function(req, res) {
+//   logger.log('Called GET on /')
+//   logger.log(__dirname + '/Frontend/index.html');
+//   res.sendFile(__dirname + '/Frontend/index.html');
+// })
 app.set("view engine", "hbs");
 
+app.get('/', (req, res) => { res.redirect("login") });
 app.use("/api", routes);
 app.use("/admin", routeAdmin);
 app.use("/login", routeLogin);
