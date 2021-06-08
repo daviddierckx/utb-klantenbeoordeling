@@ -48,7 +48,11 @@ exports.login = function (req, res) {
   users_dao.login(req.body.email, req.body.password, (err2, res2) => {
     if (err2) {
       logger.log("Error in login:", err2);
-      return res.status(400).send({ success: false, error: "halloo mensen" });
+      res.render("login", {
+        alert: "Oops, something wasn't right",
+        layout: false,
+      });
+      return res.status(400).send;
     }
     logger.log("User logged in with token", res2);
 
