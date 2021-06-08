@@ -4,6 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UTB klantenfeedback</title>
+
     <link rel="stylesheet" href="css/main.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Montserrat"
@@ -47,11 +48,19 @@
         <button type="button" id="gebruikers">
           Gebruikers wijzigen
         </button>
+        <button type="button" id="add-user">
+          <a href="admin/adduser">+ add user</a>
+        </button>
       </div>
     </main>
     <body>
       {{{body}}}
     </body>
-    <footer></footer>
+    <footer>
+      <script>
+        if ( window.history.replaceState ) { window.history.replaceState( null,
+        null, window.location.href ); }
+      </script>
+    </footer>
   </body>
 </html>

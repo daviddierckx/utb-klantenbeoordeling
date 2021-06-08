@@ -1,8 +1,7 @@
 const database = require("./database");
-const config = require('./../config');
-const jwt = require('jsonwebtoken');
-const crypto = require('crypto');
-
+const config = require("./../config");
+const jwt = require("jsonwebtoken");
+const crypto = require("crypto");
 
 exports.add = function (data, callback) {
     jwt.sign({data: data.email}, config.auth.secret, {expiresIn: '1h'}, (err, res) => {
@@ -12,7 +11,7 @@ exports.add = function (data, callback) {
             [data.email, data.name, hashed, data.isAdmin], function (error, results, fields) {
                 if (error) return callback(error.sqlMessage, undefined);
                 if (results.affectedRows === 0) return callback("user-already-exists", undefined);
-                exports.generateNewToken(data.email, results.insertId, callback)
+                exports.generateNewToken(data.email, results.insertId, data.isAdmin, callback)
             });
     });
 }
