@@ -11,11 +11,11 @@ const bodyParser = require("body-parser");
 const routeAdmin = require("./app/router/admin");
 const routeLogin = require("./app/router/login");
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use("/api", routes);
 //Templating Engine
-app.engine("hbs", exphbs({ extname: ".hbs" }));
+app.engine("hbs", exphbs({extname: ".hbs"}));
 app.use(express.static("public"));
 
 app.set("view engine", "hbs");
