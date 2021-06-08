@@ -6,9 +6,9 @@
 
 ### Table of contents
 
-- [Setup guide](###Setup guide)
-- [How to start?](###How to start)
-- [Errors](###Errors)
+- Setup guide
+- How to start?
+- Errors
 
 ### Setup Guide
 
