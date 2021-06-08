@@ -3,13 +3,13 @@ const ip = process.env.IP || '127.0.0.1'
 const express = require("express");
 const exphbs = require("express-handlebars");
 const app = express();
-const routes = require("./app/router/routes");
+const routes = require("./Backend/app/router/routes");
 const logger = require("tracer").console();
 const bodyParser = require("body-parser");
 
 
-const routeAdmin = require("./app/router/admin");
-const routeLogin = require("./app/router/login");
+const routeAdmin = require("./Backend/app/router/admin");
+const routeLogin = require("./Backend/app/router/login");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -18,6 +18,11 @@ app.use("/api", routes);
 app.engine("hbs", exphbs({ extname: ".hbs" }));
 app.use(express.static("public"));
 
+app.get('/', function(req, res) {
+  logger.log('Called GET on /')
+  logger.log(__dirname + '/Frontend/index.html');
+  res.sendFile(__dirname + '/Frontend/index.html');
+})
 app.set("view engine", "hbs");
 app.use("/api", routes);
 app.use("/admin", routeAdmin);
