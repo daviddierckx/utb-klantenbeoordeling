@@ -45,7 +45,7 @@ router.post("/login", user_controller.login);
 
 // Add router here
 // must haves
-router.get('/feedback/:formId/addAnswer', forms_controller.enter_form_answer);
+router.post('/feedback/:formName', forms_controller.enter_form_answer);
 router.get('/feedback', forms_controller.placeholder);
 router.get('/complaints/overview', forms_controller.placeholder);
 // should haves
@@ -57,8 +57,9 @@ router.put('/complaints/:complaintNr', forms_controller.placeholder);
 router.get('/complaints/:complaintNr', forms_controller.placeholder);
 
 // Idk:
+router.get('/form/:formName', forms_controller.get_form);
+router.post('/form/:formName', forms_controller.enter_form_answer);
 router.post('/manage/form', forms_controller.add_new_form);
-router.get('/manage/form/:formName', forms_controller.get_form);
 
 
 module.exports = router
