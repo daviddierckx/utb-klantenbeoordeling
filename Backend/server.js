@@ -6,7 +6,7 @@ const app = express();
 const routes = require("./app/router/routes");
 const logger = require("tracer").console();
 const bodyParser = require("body-parser");
-var serveStatic = require("serve-static");
+const serveStatic = require("serve-static");
 
 const routeAdmin = require("./app/router/admin");
 const routeLogin = require("./app/router/login");
@@ -14,6 +14,13 @@ const routeBOF = require("./app/router/routeBOF");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
+// middleware logger
+app.use(function timeLog(req, res, next) {
+  logger.log(req.originalUrl, 'Time:', Date.now(), 'data:', JSON.stringify(req.body), 'query:', JSON.stringify(req.query), 'params:', JSON.stringify(req.params))
+  next();
+});
+
 app.use("/api", routes);
 //Templating Engine
 app.engine("hbs", exphbs({extname: ".hbs"}));
