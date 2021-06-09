@@ -25,7 +25,7 @@ exports.get_form = function (req, res) {
       return res.status(400).send({"success": false, "error": err2});
     }
     logger.log("Got form data", JSON.stringify(res2));
-    return res.status(201).send({"success": true, "data": res2});
+    return res.status(200).send({"success": true, "data": res2});
   });
 };
 
@@ -63,8 +63,25 @@ exports.enter_form_answer = function (req, res) {
       logger.log("Error in adding form answers:", err2);
       return res.status(400).send({"success": false, "error": err2});
     }
-    const formId = res2.id
-    logger.log("Got form answer data", JSON.stringify(res2));
+    logger.log("Got adding form answer data", JSON.stringify(res2));
     return res.status(201).send({"success": true, "data": res2});
+  });
+};
+
+exports.get_all_form_answers = function (req, res) {
+  logger.log("Received request for all form answers");
+  let check = request_utils.verifyParam(req, res, 'formName', 'string');
+  if (!check) {
+    logger.log("Request cancelled because of an invalid param");
+    return;
+  }
+
+  forms_dao.getAllFormAnswers(req.params.formName, (err2, res2) => {
+    if (err2) {
+      logger.log("Error in adding form answers:", err2);
+      return res.status(400).send({"success": false, "error": err2});
+    }
+    logger.log("Got form answers data", JSON.stringify(res2));
+    return res.status(200).send({"success": true, "data": res2});
   });
 };
