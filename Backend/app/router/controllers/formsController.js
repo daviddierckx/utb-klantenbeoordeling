@@ -2,24 +2,6 @@ const logger = require('tracer').console();
 const request_utils = require('./../../utils/requestUtils');
 const forms_dao = require('./../../dao/formsDao');
 
-<<<<<<< HEAD
-exports.placeholder = function(req, res) {
-  logger.log("Sending placeholder request");
-  return res
-    .status(500)
-    .send({ success: false })
-},
-
-exports.enter_form_answer = function(req, res) {
-  logger.log("Received request to add a form answers");
-  return res
-    .status(500)
-    .send({ success: false, error: "not implemented yet" });
-},
-
-exports.return_customer_feedback_html = function(req, res, next) {
-  logger.log("Returning customer feedback main page");
-=======
 exports.enter_form_answer = function (req, res) {
   logger.log("Received request to add a form answers");
   return res.status(500).send({"success": false, "error": "not implemented yet"});
@@ -70,5 +52,4 @@ exports.add_new_form = function (req, res) {
     logger.log("Form created with formId", res2);
     return res.status(201).send({"success": true, "id": res2, "name": req.body.name});
   });
->>>>>>> 9aad678cfd7b21d645fc60715d97ae439e02af20
 };
