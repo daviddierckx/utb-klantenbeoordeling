@@ -7,4 +7,6 @@ const logger = require("tracer").console();
 //Routers
 router.get("/", BOFController.view);
 
+router.get('/succes', BOFController.submit);
+
 module.exports = router;

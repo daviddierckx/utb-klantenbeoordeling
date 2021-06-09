@@ -35,7 +35,7 @@ function nextPrev(n) {
     document.getElementById("regForm").submit();
     console.log("Submitted");
     document.getElementById("regForm").addEventListener("click", () => {
-      window.location.href = "succes.html";
+      window.location.href = "beoordelingsformulier/succes";
     });
     return false;
   }
