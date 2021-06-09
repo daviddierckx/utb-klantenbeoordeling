@@ -38,8 +38,15 @@ exports.register = function (req, res) {
 
 exports.login = function (req, res) {
   logger.log("Received request to log user in");
-  let check = request_utils.verifyBody(req, res, "email", "email");
-  check = check && request_utils.verifyBody(req, res, "password", "password");
+  const errorHandler = () => {
+    res.render("login", {
+      alert: "Oops, something wasn't right",
+      layout: false,
+    });
+    return res.status(400);
+  }
+  let check = request_utils.verifyBody(req, res, "email", "email", errorHandler);
+  check = check && request_utils.verifyBody(req, res, "password", "password", errorHandler);
   if (!check) {
     logger.log("Request cancelled because of an invalid param");
     return;
@@ -48,11 +55,7 @@ exports.login = function (req, res) {
   users_dao.login(req.body.email, req.body.password, (err2, res2) => {
     if (err2) {
       logger.log("Error in login:", err2);
-      res.render("login", {
-        alert: "Oops, something wasn't right",
-        layout: false,
-      });
-      return res.status(400).send;
+      return errorHandler();
     }
     logger.log("User logged in with token", res2);
 

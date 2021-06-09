@@ -18,18 +18,18 @@ exports.verifyParam = function (req, res, paramName, paramType) {
   return true;
 };
 
-exports.verifyBody = function (req, res, paramName, paramType) {
+exports.verifyBody = function (req, res, paramName, paramType, errorHandler) {
   const success = exports.verifyValue(req.body[paramName], paramType);
   if (!success) {
     logger.log("Body", paramName, "was missing or not of type", paramType);
-    res.status(400).send; /* ({
-      success: false,
-      error: "Missing param " + paramName + " or not of type " + paramType,
-    }); */
-    res.render("login", {
-      alert: "Oops, something wasn't right",
-      layout: false,
-    });
+    if (!errorHandler){
+      res.status(400).send({
+        success: false,
+        error: "Missing param " + paramName + " or not of type " + paramType,
+      });
+    }else{
+      errorHandler(paramName, paramType);
+    }
     return false;
   }
   return true;
