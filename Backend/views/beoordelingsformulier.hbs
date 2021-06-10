@@ -6,12 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UTB klantenfeedback</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
             integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        const formName = "{{data.name}}";
+    </script>
 </head>
 
 <body>
@@ -27,7 +30,7 @@
     </ul>
 </header>
 <main>
-    <form id="regForm" action="">
+    <form id="regForm" action="" method="post">
         <h2>{{data.title}}</h2>
         <h6 style="margin-bottom: 1rem;">{{data.subtitle}}</h6>
 
@@ -42,7 +45,8 @@
                 {{#each this as | question |}}
                     {{#ifEquals question.type "date"}}
                         <label class="question-label" for="datePicker">{{question.label}}</label>
-                        <input class="question-input date-picker" id="question-{{question.id}}" type="date"/>
+                        <input class="question-input date-picker" id="question-{{question.id}}"
+                               name="question-{{question.id}}" type="date"/>
                     {{/ifEquals}}
                     {{#ifEquals question.type "small_text"}}
                         <label class="question-label" for="question-{{question.id}}">{{question.label}}</label>
@@ -51,7 +55,8 @@
                     {{/ifEquals}}
                     {{#ifEquals question.type "big_text"}}
                         <label class="question-label" for="question-{{question.id}}">{{question.label}}</label>
-                        <textarea id="question-{{question.id}}" name="question-{{question.id}}" class="form-question textinput" placeholder="Opmerking"></textarea>
+                        <textarea id="question-{{question.id}}" name="question-{{question.id}}"
+                                  class="form-question textinput" placeholder="Opmerking"></textarea>
                     {{/ifEquals}}
                     {{#ifEquals question.type "radio"}}
                         <label class="question-label" for="question-{{question.id}}">{{question.label}}</label>
@@ -59,7 +64,7 @@
                             {{#each question.options as |option|}}
                                 <li>
                                     <input type="radio" id="question-{{question.id}}-{{@key}}"
-                                           name="question-{{question.id}}" checked>
+                                           name="question-{{question.id}}" value="{{this}}" checked>
                                     <label for="question-{{question.id}}-{{@key}}">{{this}}</label>
                                 </li>
                             {{/each}}
@@ -109,8 +114,8 @@
 
 
 </main>
-<script src="/js/myScript.js"></script>
-<script src="/js/datePicker.js"></script>
-<script src="/js/formScript.js"></script>
+<script src="/../js/myScript.js"></script>
+<script src="/../js/datePicker.js"></script>
+<script src="/../js/formScript.js"></script>
 </body>
 </html>
