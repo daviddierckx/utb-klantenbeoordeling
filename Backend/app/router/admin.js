@@ -13,6 +13,8 @@ router.post("/adduser", user_controller.register);
 
 router.get("/forms/manage", adminController.manageForms);
 
+router.get("/edituser/:id", adminController.edituser);
+router.post("/edituser/:id", user_controller.update);
 
 //Router
 router.get("", (req, res) => {

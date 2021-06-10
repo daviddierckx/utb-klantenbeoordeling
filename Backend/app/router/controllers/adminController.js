@@ -35,6 +35,22 @@ exports.adduser = (req, res) => {
   res.render("add-user", { layout: false });
 };
 
+//Edit existing user
+exports.edituser = (req, res) => {
+  database.con.query(
+    "SELECT * FROM User WHERE id = ?", 
+    [req.params.id],
+    (err, rows) => {
+      if (!err) {
+        res.render("edituser", { rows, layout:false });
+      } else {
+        console.log(err);
+      }
+      console.log("The data from user table: \n", rows);
+    }
+  );
+};
+
 
 exports.manageForms = (req, res) => {
   res.render("manageForms", { layout: false });

@@ -93,3 +93,36 @@ exports.view = (req, res) => {
     console.log("The data from user table: \n", rows);
   });
 };
+
+exports.update = function (req, res) {
+  logger.log("Received request to update user");
+  let check = request_utils.verifyBody(req, res, "name", "string");
+  check = check && request_utils.verifyBody(req, res, "isAdmin", "int");
+  check = check && request_utils.verifyBody(req, res, "email", "email");
+  if (!check) {
+    logger.log("Request cancelled because of an invalid param");
+    return;
+  }
+
+  users_dao.update(
+    {
+      name: req.body.name,
+      isAdmin: req.body.isAdmin,
+      email: req.body.email,
+      id: req.params.id
+    },
+    (err2, res2) => {
+      if (err2) {
+        logger.log("Error in register:", err2);
+        return res.status(400).send({ success: false, error: err2 });
+      }
+
+      res.render("edituser", {
+        alert: "User added succesfully",
+        layout: false,
+      });
+
+      return res.status(201);
+    }
+  );
+};
