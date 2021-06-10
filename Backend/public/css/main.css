@@ -373,20 +373,28 @@ hr {
 .progress-container > * {
   display: inline-block;
   vertical-align: middle;
+  margin-bottom: 1rem;
 }
 
 .progress-container .progress-bar {
-  width: 50%;
+  width: calc(70% - 8rem);
   background-color: #ddd;
 }
 
 .progress-container .progress-bar-progress {
-  width: 0%;
+  width: 0;
+  transition-duration: 0.25s;
   height: 0.5rem;
   background-color: #04AA6D;
   text-align: center;
   line-height: 30px;
   color: white;
+}
+
+@media screen and (max-width: 1024px) {
+  .progress-container .progress-bar {
+    width: calc(90% - 8rem);
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

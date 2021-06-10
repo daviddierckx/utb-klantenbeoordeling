@@ -25,6 +25,8 @@ function nextPrev(n) {
   var x = document.getElementsByClassName("tab");
   // Exit the function if any field in the current tab is invalid:
   if (n == 1 && !validateForm()) return false;
+  // Validate current form data by executing a change event
+  $(x[currentTab]).children().change().children().change().children().change()
   // Increase or decrease the current tab by 1:
   currentTab = currentTab + n;
   // if you have reached the end of the form... :
@@ -42,7 +44,7 @@ function validateForm() {
   // This function deals with validation of the form fields
   var x, y, i, valid = true;
   x = document.getElementsByClassName("tab");
-  if (! x[currentTab]){
+  if (!x[currentTab]) {
     return console.log("Form not found");
   }
   y = x[currentTab].getElementsByTagName("input");
