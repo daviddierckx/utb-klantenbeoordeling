@@ -35,6 +35,11 @@ exports.adduser = (req, res) => {
   res.render("add-user", { layout: false });
 };
 
+
+exports.manageForms = (req, res) => {
+  res.render("manageForms", { layout: false });
+};
+
 //delete user
 exports.delete = (req, res) => {
   console.log(req.params.id);

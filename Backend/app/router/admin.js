@@ -11,6 +11,9 @@ router.post("/", adminController.search);
 router.get("/adduser", adminController.adduser);
 router.post("/adduser", user_controller.register);
 
+router.get("/forms/manage", adminController.manageForms);
+
+
 //Router
 router.get("", (req, res) => {
   res.render("home");

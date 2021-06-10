@@ -2,7 +2,7 @@ const database = require("./database");
 const logger = require("tracer").console()
 
 /*
-Form Format:
+Add form Format - http://localhost:3000/api/manage/form:
 {
   "name": "utb-feedback-1",
   "title": "UTB Klantenfeedback",
@@ -93,9 +93,90 @@ Form Format:
     ]
   ]
 }
+
+
+
+Add Answers format - http://localhost:3000/api/form/hatsaaa3:
+{
+    "answers": [
+        {
+            "questionId": 176,
+            "answer": "bla bla bla"
+        },
+        {
+            "questionId": 177,
+            "answer": "asdfsadfasdfla"
+        },
+        {
+            "questionId": 178,
+            "answer": "Brandstoffen & specials"
+        }
+    ]
+}
 */
 
-// Get main form
+exports.addFormAnswer = function (formName, answerData, callback) {
+  database.con.query('SELECT * FROM Form WHERE name LIKE ?', [formName], function (error, results, fields) {
+    if (error) return callback(error.sqlMessage, undefined);
+    if (results.length === 0) {
+      return callback("form-not-found", undefined);
+    }
+    const formId = results[0]['id'];
+
+    database.con.query('SELECT MAX(entryId) as entryId FROM Answer WHERE formId LIKE ?', [formId], function (error, results, fields) {
+      if (error) return callback(error.sqlMessage, undefined);
+      if (results.length === 0) {
+        return callback("form-not-found", undefined);
+      }
+      const entryId = results[0]['entryId'] + 1;
+      const promises = [];
+      // Insert all pages into the database
+      for (const answer of answerData) {
+        promises.push(addFormAnswer(formId, entryId, answer.questionId, answer.answer));
+      }
+
+      Promise.all(promises).then((pageRowResults) => {
+        logger.log("Inserted answerId's:", JSON.stringify(pageRowResults))
+        callback(undefined, entryId);
+
+      }).catch((err) => {
+        logger.log("Error while adding options to form:", err)
+        callback(err, undefined);
+      });
+    });
+  });
+}
+
+exports.getAllFormAnswers = function (formName, callback) {
+  database.con.query('SELECT * FROM Form WHERE name LIKE ?', [formName], function (error, results, fields) {
+    if (error) return callback(error.sqlMessage, undefined);
+    if (results.length === 0) {
+      return callback("form-not-found", undefined);
+    }
+    const formId = results[0]['id'];
+
+    database.con.query('SELECT * FROM Answer WHERE formId LIKE ?', [formId], function (error, results, fields) {
+      if (error) return callback(error.sqlMessage, undefined);
+      if (results.length === 0) {
+        return callback("form-not-found", undefined);
+      }
+      const answerData = {};
+      for (const answer of results) {
+        if (answerData[answer.entryId] === undefined) {
+          answerData[answer.entryId] = {};
+        }
+        answerData[answer.entryId][answer.questionId] = {
+          label: answer.questionLabel,
+          answer: answer.answer,
+        }
+      }
+      callback(undefined, answerData);
+    });
+  });
+}
+
+
+// Get  form
 exports.getForm = function (formName, callback) {
   database.con.query('SELECT * FROM Form WHERE name LIKE ?', [formName], function (error, results, fields) {
     if (error) return callback(error.sqlMessage, undefined);
@@ -104,6 +185,7 @@ exports.getForm = function (formName, callback) {
     }
     const formId = results[0]['id'];
     const formData = {
+      'id': formId,
       'name': results[0]['name'],
       'title': results[0]['title'],
       'subtitle': results[0]['subtitle'],
@@ -246,6 +328,19 @@ function getFormQuestion(questionId) {
       [questionId], function (error, results, fields) {
         if (error) return reject(error.sqlMessage);
         resolve(results)
+      });
+  });
+}
+
+// Add Answer
+function addFormAnswer(formId, entryId, questionId, answer) {
+  logger.log("Add answer to form:", formId, entryId, questionId, answer)
+  return new Promise((resolve, reject) => {
+    database.con.query("INSERT INTO `Answer` (`formId`, `entryId`, `questionId`, `questionLabel`, `answer`) VALUES (?,?,?,(SELECT questionTitle FROM Question WHERE id = ? LIMIT 1),?)",
+      [formId, entryId, questionId, questionId, answer], function (error, results, fields) {
+        if (error) return reject(error.sqlMessage);
+        if (results.affectedRows === 0) return reject("no-rows-affected");
+        resolve(results.insertId)
       });
   });
 }
