@@ -58,7 +58,7 @@ router.get('/complaints/:complaintNr', forms_controller.placeholder);
 
 // Idk:
 router.post('/manage/form', forms_controller.add_new_form);
-router.get('/manage/form/:formName', forms_controller.get_form);
+router.get('/form/:formName', forms_controller.get_form);
 
 
 module.exports = router

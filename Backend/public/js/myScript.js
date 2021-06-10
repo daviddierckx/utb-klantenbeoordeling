@@ -45,10 +45,7 @@ function nextPrev(n) {
 
 function validateForm() {
   // This function deals with validation of the form fields
-  var x,
-    y,
-    i,
-    valid = true;
+  var x, y, i, valid = true;
   x = document.getElementsByClassName("tab");
   y = x[currentTab].getElementsByTagName("input");
   // A loop that checks every input field in the current tab:
@@ -65,6 +62,7 @@ function validateForm() {
   if (valid) {
     document.getElementsByClassName("step")[currentTab].className += " finish";
   }
+  $(".invalid").on('keydown', (e) => $(e.target).removeClass("invalid"));
   return valid; // return the valid status
 }
 

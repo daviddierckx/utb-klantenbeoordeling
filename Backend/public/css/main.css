@@ -1,85 +1,5 @@
 @charset "UTF-8";
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -89,17 +9,7 @@ video {
 }
 
 /* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
@@ -117,10 +27,7 @@ q {
   quotes: none;
 }
 
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+blockquote:before, blockquote:after, q:before, q:after {
   content: "";
   content: none;
 }
@@ -147,6 +54,9 @@ body {
   font-size: medium;
   margin: 0;
   background-image: url("/images/background.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
 }
 
@@ -154,75 +64,42 @@ main {
   margin-top: 10vh;
 }
 
-#formTitle {
-  font-family: "montserrat";
-  margin-left: 20%;
-}
-
 form {
   text-align: center;
   font-size: x-large;
 }
-
-form #nextBtn {
+form .pageButtons {
   background-color: #0c457f;
   color: #f5f0ef;
   border: 2px solid #0c457f;
   border-radius: 8px;
   width: 140px;
   height: 50px;
-  margin: 40px 10px 10px;
+  margin: 10px 10px 10px;
 }
-
-form #nextBtn:hover {
+form .pageButtons:hover {
   background-color: #008cba;
   color: white;
 }
 
-form #prevBtn {
-  background-color: #0c457f;
-  color: #f5f0ef;
-  border: 2px solid #0c457f;
-  border-radius: 8px;
-  width: 140px;
-  height: 50px;
-  margin: 40px 10px 10px;
+.formTitle {
+  font-family: "montserrat", serif;
+  margin-left: 20%;
 }
 
-form #prevBtn:hover {
-  background-color: #008cba;
-  color: white;
-}
-
-form #submitBtn {
-  background-color: #0c457f;
-  color: #f5f0ef;
-  border: 2px solid #0c457f;
-  border-radius: 8px;
-  width: 140px;
-  height: 50px;
-  margin: 40px 10px 10px;
-}
-
-form #submitBtn:hover {
-  background-color: #008cba;
-  color: white;
-}
-
-input[type="text"] {
+input[type=text] {
   background: #f5f0ef;
   border: 1px solid #e63322;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-radius: 5px;
 }
 
-input[type="date"] {
+input[type=date] {
   border-radius: 5px;
 }
 
 p {
-  margin: 2vh, auto;
+  margin: 2vh;
 }
 
 .questionText {
@@ -233,25 +110,15 @@ p {
   margin: 1vh auto;
   width: 50%;
 }
-
 .rating > * {
   float: right;
 }
-
-@-webkit-keyframes pulse {
-  50% {
-    color: #5e5e5e;
-    text-shadow: 0 0 15px #777777;
-  }
-}
-
 @keyframes pulse {
   50% {
     color: #5e5e5e;
     text-shadow: 0 0 15px #777777;
   }
 }
-
 .rating label {
   height: 40px;
   width: 20%;
@@ -259,59 +126,37 @@ p {
   position: relative;
   cursor: pointer;
 }
-
 .rating label:nth-of-type(10):after {
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
+  animation-delay: 0.5s;
 }
-
 .rating label:nth-of-type(9):after {
-  -webkit-animation-delay: 0.45s;
-          animation-delay: 0.45s;
+  animation-delay: 0.45s;
 }
-
 .rating label:nth-of-type(8):after {
-  -webkit-animation-delay: 0.4s;
-          animation-delay: 0.4s;
+  animation-delay: 0.4s;
 }
-
 .rating label:nth-of-type(7):after {
-  -webkit-animation-delay: 0.35s;
-          animation-delay: 0.35s;
+  animation-delay: 0.35s;
 }
-
 .rating label:nth-of-type(6):after {
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s;
+  animation-delay: 0.3s;
 }
-
 .rating label:nth-of-type(5):after {
-  -webkit-animation-delay: 0.25s;
-          animation-delay: 0.25s;
+  animation-delay: 0.25s;
 }
-
 .rating label:nth-of-type(4):after {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
-
 .rating label:nth-of-type(3):after {
-  -webkit-animation-delay: 0.15s;
-          animation-delay: 0.15s;
+  animation-delay: 0.15s;
 }
-
 .rating label:nth-of-type(2):after {
-  -webkit-animation-delay: 0.1s;
-          animation-delay: 0.1s;
+  animation-delay: 0.1s;
 }
-
 .rating label:nth-of-type(1):after {
-  -webkit-animation-delay: 0.05s;
-          animation-delay: 0.05s;
+  animation-delay: 0.05s;
 }
-
 .rating label:after {
-  -webkit-transition: all 0.4s ease-out;
   transition: all 0.4s ease-out;
   -webkit-font-smoothing: antialiased;
   position: absolute;
@@ -323,10 +168,8 @@ p {
   height: 100%;
   text-align: center;
   font-size: 40px;
-  -webkit-animation: 1s pulse ease;
-          animation: 1s pulse ease;
+  animation: 1s pulse ease;
 }
-
 .rating label label {
   height: 40px;
   width: 20%;
@@ -334,34 +177,22 @@ p {
   position: relative;
   cursor: pointer;
 }
-
 .rating label label:nth-of-type(5):after {
-  -webkit-animation-delay: 0.25s;
-          animation-delay: 0.25s;
+  animation-delay: 0.25s;
 }
-
 .rating label label:nth-of-type(4):after {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
-
 .rating label label:nth-of-type(3):after {
-  -webkit-animation-delay: 0.15s;
-          animation-delay: 0.15s;
+  animation-delay: 0.15s;
 }
-
 .rating label label:nth-of-type(2):after {
-  -webkit-animation-delay: 0.1s;
-          animation-delay: 0.1s;
+  animation-delay: 0.1s;
 }
-
 .rating label label:nth-of-type(1):after {
-  -webkit-animation-delay: 0.05s;
-          animation-delay: 0.05s;
+  animation-delay: 0.05s;
 }
-
 .rating label label:after {
-  -webkit-transition: all 0.4s ease-out;
   transition: all 0.4s ease-out;
   -webkit-font-smoothing: antialiased;
   position: absolute;
@@ -373,19 +204,15 @@ p {
   height: 100%;
   text-align: center;
   font-size: 40px;
-  -webkit-animation: 1s pulse ease;
-          animation: 1s pulse ease;
+  animation: 1s pulse ease;
 }
-
 .rating label label:hover:after {
   color: #5e5e5e;
   text-shadow: 0 0 15px #5e5e5e;
 }
-
 .rating input {
   display: none;
 }
-
 .rating input:checked + label:after,
 .rating input:checked ~ label:after {
   content: "★";
@@ -496,4 +323,37 @@ h2 {
   font-size: 28px;
   padding-bottom: 10px;
 }
+
+hr {
+  border-top-style: none;
+  color: grey;
+  margin-left: 10%;
+  width: 80%;
+}
+
+.question-spacer {
+  height: 2rem;
+}
+
+.question-input {
+  margin-top: 0.3rem;
+}
+
+.question-radio {
+  margin-top: 1rem;
+}
+
+.question-radio li {
+  margin-bottom: 0.2rem;
+}
+
+.question-radio label {
+  display: inline-block;
+}
+
+.question-radio input {
+  width: auto;
+  display: inline-block;
+}
+
 /*# sourceMappingURL=main.css.map */
