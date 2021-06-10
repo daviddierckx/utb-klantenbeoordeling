@@ -58,3 +58,15 @@ exports.delete = (req, res) => {
     }
   );
 };
+
+exports.viewUser = (req, res) => {
+  // User the connection
+  database.con.query("SELECT * FROM User WHERE id = ?", [req.params.id], (err, rows) => {
+    if (!err) {
+      res.render("view-user", { rows, layout: false });
+    } else {
+      console.log(err);
+    }
+    console.log("The data from user table: \n", rows);
+  });
+};

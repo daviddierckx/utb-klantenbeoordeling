@@ -12,31 +12,30 @@
   </thead>
   <tbody>
     {{#each rows}}
-      <tr>
-        <th scope="row">{{this.id}}</th>
-        <td>{{this.email}}</td>
-        <td>{{this.name}}</td>
-        <!-- <td>{{this.password}}</td>
+    <tr>
+      <th scope="row">{{this.id}}</th>
+      <td>{{this.email}}</td>
+      <td>{{this.name}}</td>
+      <!-- <td>{{this.password}}</td>
         <td>{{this.isAdmin}}</td> -->
-        <td class="">
-          <a href="#" type="button" class=""><i class=""></i>View</a>
-          <a href="#" type="button" class=""><i class=""></i>Edit</a>
-          <a type="button" class="btn-delete" href="javascript:delay('/admin/users/{{this.id}}')"><i
-            ></i>Delete</a>
-        </td>
-      </tr>
+      <td class="">
+        <a href="admin/users/overview/{{this.id}}" type="button" class=""><i class=""></i>View</a>
+        <a href="#" type="button" class=""><i class=""></i>Edit</a>
+        <a type="button" class="btn-delete" href="javascript:delay('/admin/users/{{this.id}}')"><i></i>Delete</a>
+      </td>
+    </tr>
     {{/each}}
     <script>
 
-      function delay (URL) {
-          if (confirm("Are you sure you want to delete this user?")) {
-            alert("You have deleted this user");
-             setTimeout( function() { window.location.href = URL },100);
-          } else {
-            alert("You have cancelled this delete!");
-          }
-   
-}
+      function delay(URL) {
+        if (confirm("Are you sure you want to delete this user?")) {
+          alert("You have deleted this user");
+          setTimeout(function () { window.location.href = URL }, 100);
+        } else {
+          alert("You have cancelled this delete!");
+        }
+
+      }
 
     </script>
 

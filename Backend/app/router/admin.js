@@ -13,6 +13,7 @@ router.post("/adduser", user_controller.register);
 
 router.get("/forms/manage", adminController.manageForms);
 
+router.get("/users/overview/:id", adminController.viewUser);
 
 //Router
 router.get("", (req, res) => {
@@ -29,10 +30,9 @@ router.post("/login", forms_controller.placeholder); //done
 router.get("/feedback/overview", forms_controller.placeholder);
 router.delete("/feedback/:feedbackId", forms_controller.placeholder);
 router.put("/feedback/:feedbackId", forms_controller.placeholder);
-router.get("/users/overview", forms_controller.placeholder);
 router.post("/users", forms_controller.placeholder);
 //delete a user
-router.get("/users/:id", adminController.delete);
+router.get("/users/:id", adminController.delete);//done
 router.put("/users/:userId", forms_controller.placeholder);
 // should haves
 router.post("/feedback/:formId", forms_controller.placeholder);
