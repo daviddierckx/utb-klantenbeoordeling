@@ -7,4 +7,20 @@ module.exports = {
     // controller returns data to frontend
     // callback(err, undefined)
     // callback(undefined, result)
+    getAveragesFromRating = (callback) => {
+        const query = {
+            sql: "SELECT Q.questionTitle, AVG(A.answer) FROM Question AS Q JOIN Answer AS A ON A.questionId = Q.id WHERE Q.questionType = 'rating' GROUP BY Q.id",
+            timeout: 3000
+        }
+        database.con.query(query, (err, results) => {
+            if (result.length == 0) {
+                logger.log("No data")
+                callback("No data", undefined)
+            } else if (err) {
+                logger.log("An error occured")
+                callback(err, undefined)
+            }
+            callback(undefined, results)
+        })
+    }
 }
