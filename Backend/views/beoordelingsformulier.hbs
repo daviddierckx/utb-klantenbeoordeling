@@ -31,10 +31,12 @@
         <h2>{{data.title}}</h2>
         <h6 style="margin-bottom: 1rem;">{{data.subtitle}}</h6>
 
-        <div class="progress-bar">
-            <div class="progress-bar-progress"></div>
+        <div class="progress-container">
+            <span>Voortgang:</span>
+            <div class="progress-bar">
+                <div class="progress-bar-progress"></div>
+            </div>
         </div>
-        <hr>
         {{#each data.pages}}
             <div class="tab">
                 {{#each this as | question |}}
@@ -49,7 +51,7 @@
                     {{/ifEquals}}
                     {{#ifEquals question.type "big_text"}}
                         <label class="question-label" for="question-{{question.id}}">{{question.label}}</label>
-                        <textarea id="opmerkingen" class="textinput" placeholder="Opmerking"></textarea>
+                        <textarea id="question-{{question.id}}" name="question-{{question.id}}" class="form-question textinput" placeholder="Opmerking"></textarea>
                     {{/ifEquals}}
                     {{#ifEquals question.type "radio"}}
                         <label class="question-label" for="question-{{question.id}}">{{question.label}}</label>
@@ -107,7 +109,8 @@
 
 
 </main>
-</body>
 <script src="/js/myScript.js"></script>
 <script src="/js/datePicker.js"></script>
+<script src="/js/formScript.js"></script>
+</body>
 </html>
