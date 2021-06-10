@@ -25,47 +25,58 @@ exports.register = function (req, res) {
         logger.log("Error in register:", err2);
         return res.status(400).send({ success: false, error: err2 });
       }
-      logger.log("User created with token", res2);
-      return res
-        .status(201)
-        .send({ success: true, token: res2.token, user_id: res2.user_id });
+
+      res.render("add-user", {
+        alert: "User added succesfully",
+        layout: false,
+      });
+
+      return res.status(201);
     }
   );
 };
 
 exports.login = function (req, res) {
-    logger.log("Received request to log user in");
-    let check = request_utils.verifyBody(req, res, 'email', 'email');
-    check = check && request_utils.verifyBody(req, res, 'password', 'password');
-    if (!check) {
-        logger.log("Request cancelled because of an invalid param");
-        return;
+  logger.log("Received request to log user in");
+  const errorHandler = () => {
+    res.render("login", {
+      alert: "Oops, something wasn't right",
+      layout: false,
+    });
+    return res.status(400);
+  }
+  let check = request_utils.verifyBody(req, res, "email", "email", errorHandler);
+  check = check && request_utils.verifyBody(req, res, "password", "password", errorHandler);
+  if (!check) {
+    logger.log("Request cancelled because of an invalid param");
+    return;
+  }
+
+  users_dao.login(req.body.email, req.body.password, (err2, res2) => {
+    if (err2) {
+      logger.log("Error in login:", err2);
+      return errorHandler();
+    }
+    logger.log("User logged in with token", res2);
+
+    switch (res2.isAdmin) {
+      case 0:
+        //User is guest
+        res.redirect("beoordelingsformulier");
+        console.log("beoordeling");
+        break;
+      case 1:
+        //User is employee
+        res.redirect("admin");
+        break;
+      case 2:
+        //User is admin
+        res.redirect("admin");
+        break;
     }
 
-    users_dao.login(req.body.email, req.body.password, (err2, res2) => {
-        if (err2) {
-            logger.log("Error in login:", err2);
-            return res.status(400).send({"success": false, "error": err2});
-        }
-        logger.log("User logged in with token", res2);
-
-        switch (res2.isAdmin) {
-          case 0:
-            //User is guest
-              res.redirect("login")
-            break;
-          case 1:
-            //User is employee
-              res.redirect("admin")
-            break;
-          case 2:
-            //User is admin
-            res.redirect("admin")
-            break;
-        }
-
-        return res.status(201).send({"success": true, "token": res2.token, "user_id": res2.user_id, "isAdmin": res2.isAdmin});
-    })
+    return res.status(201);
+  });
 };
 
 const mysql = require("mysql");

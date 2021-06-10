@@ -18,36 +18,36 @@
     <header>
         <ul>
             <li>
-                <a href="https://www.utboils.com/" class="logo"><img src="../Frontend/images/logo.png" alt="UTB logo"></a>
+                <a href="https://www.utboils.com/" class="logo"><img src="../images/logo.png" alt="UTB logo"></a>
             </li>
             <li>
-                <h1 id="formTitle">klanttevredenheid</h1>
+                <h1 id="formTitle">Klanttevredenheid</h1>
             </li>
         </ul>
     </header>
     <main>
         <form id="regForm" action="">
 
-            <h2>klantenfeedback</h2>
+            <h2>Klantenfeedback</h2>
 
             <!-- One "tab" for each step in the form: -->
             <div class="tab">
-                <label for="progressbar">voortgang</label>
+                <label for="progressbar">Voortgang</label>
                 <progress id="progressbar" value="20" max="100"></progress><br><br>
-                <label for="datePicker">datum</label>
+                <label for="datePicker">Datum</label>
                 <input id="datePicker" type="date" /><br><br>
-                <label for="companyName">naam bedrijf</label><br>
+                <label for="companyName">Bedrijfsnaam</label><br>
                 <input type="text" id="companyName" name="companyName" oninput="this.className = ''"><br><br>
-                <label for="companyReprensentative">naam klant</label><br>
+                <label for="companyReprensentative">Naam klant</label><br>
                 <input type="text" id="companyReprensentative" name="companyReprensentative" oninput="this.className = ''"><br><br>
-                <label for="productGroup">productgroep</label><br>
+                <label for="productGroup">Productgroep</label><br>
                 <ul class="productgroup"><br>
                     <li>
-                       <label for="fuels">brandstoffen&specials</label>  
+                       <label for="fuels">Brandstoffen & Specials</label>  
                        <input type="radio" name="productgroup" id="fuels" oninput="this.className = ''" checked>
                     </li>
                     <li>
-                        <label for="lubricants">smeermiddelen</label>
+                        <label for="lubricants">Smeermiddelen</label>
                         <input type="radio" name="productgroup" id="lubricants" oninput="this.className = ''"> 
                     </li>
                 </ul>   
@@ -55,7 +55,7 @@
 
 
             <div class="tab">
-                <label for="progressbar">voortgang</label>
+                <label for="progressbar">Voortgang</label>
                 <progress id="progressbar" value="50" max="100"></progress><br><br>
                 <div class="question" id="questionId">
                     <p class="questionText">Bereikbaarheid UTB?</p><br>
@@ -120,7 +120,7 @@
             </div>
 
             <div class="tab">
-                <label for="progressbar">voortgang</label>
+                <label for="progressbar">Voortgang</label>
                 <progress id="progressbar" value="75" max="100"></progress><br><br>
                 <div class="question" id="questionId">
                     <p class="questionText">Tevredenheid mbt de administratieve afhandeling?</p><br>
@@ -171,18 +171,17 @@
             </div>
 
             <div class="tab" class="container">
-                <label for="progressbar">voortgang</label>
+                <label for="progressbar">Voortgang</label>
                 <progress id="progressbar" value="80" max="100"></progress><br><br>
                 <div class="comment">
                     <h3>Overige opmerkingen</h3>
-                    <textarea id="opmerkingen" class="textinput">
-                    </textarea>
+                    <textarea id="opmerkingen" class="textinput" placeholder="Opmerking"></textarea>
                 </div>
                 
             </div>
 
             <div class="tab">
-                <label for="progressbar">voortgang</label>
+                <label for="progressbar">Voortgang</label>
                 <progress id="progressbar" value="95" max="100"></progress><br><br>
                 <h3>Overige vragen</h3>
                 <label for="firstQuestion">Hoe staat u tegenover het bestellen in de UTB webshop?</label>
@@ -247,6 +246,6 @@
             </form>
     </main>
 </body>
-<script src="/Frontend/js/myScript.js"></script>
-<script src="/Frontend/js/datePicker.js"></script>
+<script src="/js/myScript.js"></script>
+<script src="/js/datePicker.js"></script>
 </html>
