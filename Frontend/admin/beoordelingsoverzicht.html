@@ -37,9 +37,19 @@
         <thead>
           <tr>
             <th>Bedrijfsnaam</th>
+            <th>Datum</th>
             <th>Contact persoon</th>
             <th>Productgroep</th>
-            <th></th>
+            <th>Hoe staat u tegenover bestelen in de UTB webshop?</th>
+            <th>Waardering UTB/UNIL tov andere merken?</th>
+            <th>Bereikbaarheid UTB?</th>
+            <th>Bezoekfrequentie van de UTB vertenwoordiger?</th>
+            <th>Tevredenheid over de mogelijkheden en de wijze van bestellen?</th>
+            <th>Tevredenheid mbt de levertijden?</th>
+            <th>Tevredenheid mbt de administratieve afhandeling?</th>
+            <th>Tevredenheid mbt de klachtenafhandeling?</th>
+            <th>Eindoordeel UTB organisatie?</th>
+            <th>Opmerkingen?</th>
           </tr>
         </thead>
         <tbody id="testBody"></tbody>
@@ -49,8 +59,8 @@
 </body>
 <script>
   const items = [
-    { company: "Avans1", contact: "Remo", productGroup: "smeermiddelen" },
-    { company: "Avans2", contact: "Rene", productGroup: "olie" },
+    { company: "Avans1", date: "10-09-21", contact: "Remo", productGroup: "smeermiddelen" },
+    { company: "Avans2", date: "10-09-21", contact: "Rene", productGroup: "olie" }
   ];
   function loadTableData(items) {
     const table = document.getElementById("testBody");
@@ -58,9 +68,11 @@
       let row = table.insertRow();
       let company = row.insertCell(0);
       company.innerHTML = item.company;
-      let contact = row.insertCell(1);
+      let date = row.insertCell(1);
+      date.innerHTML = item.date;
+      let contact = row.insertCell(2);
       contact.innerHTML = item.contact;
-      let productgroep = row.insertCell(2);
+      let productgroep = row.insertCell(3);
       productgroep.innerHTML = item.productGroup;
     });
   }
