@@ -180,52 +180,13 @@
                 
             </div>
 
-            <div class="tab">
-                <label for="progressbar">voortgang</label>
-                <progress id="progressbar" value="95" max="100"></progress><br><br>
-                <h3>Overige vragen</h3>
-                <label for="firstQuestion">Hoe staat u tegenover het bestellen in de UTB webshop?</label>
-                <br><br>
-                <div class="questionRB" oninput="this.className = ''">
-                    <span></span>
-                    <ul class="questionList">
-                        <li>
-                            <label for="positiveRB">Positief</label>
-                            <input type="radio" name="questionOrder" id="positiveRB">
-                        </li>
-                        <li>
-                           <label for="neutralRB">Neutraal</label>
-                            <input type="radio" name="questionOrder" id="neutralRB" checked> 
-                        </li>
-                        <li>
-                           <label for="negativeRB">Negatief</label>
-                            <input type="radio" name="questionOrder" id="negativeRB"> 
-                        </li>
-                    </ul>
-                    
-                </div>
-                <br><br>
-                <label for="secondQuestion">Hoe waardeert u UTB ten opzichte van andere merken?</label>
-                <br><br>
-                <div class="questionRB" oninput="this.className = ''">
-                    <span></span>
-                    <ul class="questionList">
-                        <li>
-                            <label for="positiveRB">Positief</label>
-                            <input type="radio" name="questionBrands" id="positiveRB">
-                        </li>
-                        <li>
-                            <label for="neutralRB">Neutraal</label>
-                            <input type="radio" name="questionBrands" id="neutralRB" checked>
-                        </li>
-                        <li>
-                            <label for="negativeRB">Negatief</label>
-                            <input type="radio" name="questionBrands" id="negativeRB"> 
-                        </li>
-                    </ul>
-                    
-                </div>
-            </div>
+        <div style="overflow:auto;">
+          <div style="float:center;">
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)" >Previous</button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)"
+            >Next</button>
+          </div>
+        </div>
 
             <div style="overflow:none;">
                 <div style="float:center;">
