@@ -102,6 +102,10 @@ p {
   margin: 2vh;
 }
 
+.date-picker {
+  width: calc(100% - 1.5rem);
+}
+
 .questionText {
   margin: 0;
 }
@@ -354,6 +358,20 @@ hr {
 .question-radio input {
   width: auto;
   display: inline-block;
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: #ddd;
+}
+
+.progress-bar-progress {
+  width: 10%;
+  height: 2px;
+  background-color: #04AA6D;
+  text-align: center;
+  line-height: 30px;
+  color: white;
 }
 
 /*# sourceMappingURL=main.css.map */

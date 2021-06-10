@@ -63,6 +63,7 @@ function validateForm() {
     document.getElementsByClassName("step")[currentTab].className += " finish";
   }
   $(".invalid").on('keydown', (e) => $(e.target).removeClass("invalid"));
+  $(".invalid").on('change', (e) => $(e.target).removeClass("invalid"));
   return valid; // return the valid status
 }
 
