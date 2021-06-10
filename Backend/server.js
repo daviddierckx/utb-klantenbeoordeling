@@ -6,6 +6,7 @@ const app = express();
 const routes = require("./app/router/routes");
 const logger = require("tracer").console();
 const bodyParser = require("body-parser");
+const cookieParser = require('cookie-parser');
 const serveStatic = require("serve-static");
 
 const routeAdmin = require("./app/router/admin");
@@ -14,6 +15,7 @@ const routeBOF = require("./app/router/routeBOF");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(cookieParser());
 
 // middleware logger
 app.use(function timeLog(req, res, next) {

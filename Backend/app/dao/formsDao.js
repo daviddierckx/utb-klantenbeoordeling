@@ -122,7 +122,6 @@ exports.addFormAnswer = function (formName, answerData, callback) {
       const entryId = results[0]['entryId'] + 1;
       const promises = [];
       // Insert all pages into the database
-      console.log(answerData);
       for (const answer of answerData) {
         promises.push(addFormAnswer(formId, entryId, answer.questionId, answer.answer));
       }
@@ -154,7 +153,7 @@ exports.getAllFormAnswers = function (formName, callback) {
       }
       const answerData = {};
       for (const answer of results) {
-        if (answerData[answer.entryId] === undefined){
+        if (answerData[answer.entryId] === undefined) {
           answerData[answer.entryId] = {};
         }
         answerData[answer.entryId][answer.questionId] = {
