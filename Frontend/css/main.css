@@ -146,7 +146,8 @@ body {
   color: #f5f0ef;
   font-size: medium;
   margin: 0;
-  background-image: url("/Frontend/images/background.jpg");
+  height: 100%;
+  background-image: url("/utb-klantenbeoordeling/Frontend/images/background.jpg");
   background-size: cover;
 }
 
@@ -378,10 +379,6 @@ p {
   text-shadow: 0 0 20px #c8a95b;
 }
 
-body {
-  background-color: #111;
-}
-
 #regForm {
   background-color: #051a2e;
   margin: 100px auto;
@@ -480,5 +477,42 @@ h1 {
 h2 {
   font-size: 28px;
   padding-bottom: 10px;
+}
+
+.opmerkingenLijst {
+  background-color: #749dc8;
+  margin: 20px;
+  padding: 10px;
+}
+
+.opmerkingenBox {
+  border: 1px solid #051a2e;
+  margin: 20px;
+  padding: 10px;
+}
+
+/* Style tab links */
+.tablink {
+  background-color: #051a2e;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+
+.tablink:hover {
+  background-color: #749dc8;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: #f5f0ef;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
 }
 /*# sourceMappingURL=main.css.map */
