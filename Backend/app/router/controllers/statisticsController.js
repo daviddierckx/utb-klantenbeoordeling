@@ -18,21 +18,21 @@ module.exports = {
             // })
 
             // Maak lijst van vragen en gemiddeldes
-            var list =document.createElement("div");
-                list.className = "opmerkingenLijst";
+            var list = document.createElement("div");
+            list.className = "opmerkingenLijst";
 
-            for (let i = 0; i < res.length; i++) { 
+            for (let i = 0; i < res.length; i++) {
                 //maak 'opmerking box' div
                 var box = document.createElement("div");
-                    box.className = "opmerkingenBox";
+                box.className = "opmerkingenBox";
                 //maak 'vraag ' p
                 var vraag = document.createElement("p");
-                    vraag.className = "vraag";
-                    vraag.innerText = res.name;
+                vraag.className = "vraag";
+                vraag.innerText = res.name;
                 //maak 'gemiddelde' p
-                var gemiddelde =document.createElement("p");
-                    gemiddelde.className = "gemiddelde";
-                    gemiddelde.innerText = res.remarks;
+                var gemiddelde = document.createElement("p");
+                gemiddelde.className = "gemiddelde";
+                gemiddelde.innerText = res.remarks;
 
                 // voeg vraag en gemiddelde toe aan box
                 box.appendChild(vraag);
@@ -43,10 +43,20 @@ module.exports = {
 
                 // add to body
                 var element = document.getElementsByClassName("overzicht")[0];
-                    element.appendChild(list); 
+                element.appendChild(list);
             }
-            
+        })
+    },
 
+    getCountRadioButtonAnswers = function(req, res) {
+        statistics_dao.getCountOfRadioButtons((err, res) => {
+            if (err) {
+                logger.log("Error getting count of ratings:", err)
+                return res.status(400).send({
+                    success: false,
+                    error: err
+                })
+            }
         })
     },
 
@@ -59,21 +69,21 @@ module.exports = {
                     error: err
                 })
             }
-            var list =document.createElement("div");
-                list.className = "opmerkingenLijst";
+            var list = document.createElement("div");
+            list.className = "opmerkingenLijst";
 
-            for (let i = 0; i < res.length; i++) { 
+            for (let i = 0; i < res.length; i++) {
                 //maak 'opmerking box' div
                 var box = document.createElement("div");
-                    box.className = "opmerkingenBox";
+                box.className = "opmerkingenBox";
                 //maak 'naam bedrijf' p
                 var naam = document.createElement("p");
-                    naam.className = "naamBedrijf";
-                    naam.innerText = res.name;
+                naam.className = "naamBedrijf";
+                naam.innerText = res.name;
                 //maak 'opmerking' p
-                var opmerking =document.createElement("p");
-                    opmerking.className = "opmerking";
-                    opmerking.innerText = res.remarks;
+                var opmerking = document.createElement("p");
+                opmerking.className = "opmerking";
+                opmerking.innerText = res.remarks;
 
                 // voeg naam en opmerking to aan box
                 box.appendChild(naam);
@@ -84,10 +94,8 @@ module.exports = {
 
                 // add to body
                 var element = document.getElementsByClassName("overzicht")[0];
-                    element.appendChild(list); 
+                element.appendChild(list);
             }
-            
-
         })
     }
 }
