@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/utb-klantenbeoordeling/Frontend/css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <style>
+        html{
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <button class="tablink" onclick="openPage('Overview', this, '#749dc8')" id="defaultOpen">Beoordelingsoverzicht</button>
+    <button class="tablink" onclick="openPage('Comments', this, '#749dc8')">Opmerkingen</button>
+    <button class="tablink" onclick="openPage('Questions', this, '#749dc8')">Vragen Wijzigen</button>
+    <button class="tablink" onclick="openPage('Users', this, '#749dc8')">Gebrukers Wijzigen</button>
+
+    <div id="Overview" class="tabcontent">
+        <h3>Beoordelingsoverzicht</h3><br><br>
+        <p>Hier komt een Beoordelingsoverzicht</p>
+    </div>
+
+    <div id="Comments" class="tabcontent">
+        <h3>Opmerkingen</h3><br><br>
+        <p>Hier komen opmerkingen</p>
+    </div>
+
+    <div id="Questions" class="tabcontent">
+        <h3>Vragen wijzigen</h3><br><br>
+        <p>hier komt de pagina om vragen te wijzigen</p>
+    </div>
+
+    <div id="Users" class="tabcontent">
+        <h3>Gebrukers wijzigen</h3><br><br>
+        <p>hier komt de pagina om gebruikers te wijzigen</p>
+    </div>
+</body>
+<script src="/utb-klantenbeoordeling/Frontend/js/adminJs.js"></script>
+</html>
