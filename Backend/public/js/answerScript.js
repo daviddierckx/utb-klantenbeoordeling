@@ -1,0 +1,1 @@
+const answerObject = Object.getOwnPropertyNames(answer);
