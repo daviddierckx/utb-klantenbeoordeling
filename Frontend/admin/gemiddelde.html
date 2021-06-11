@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTB klantenfeedback</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+</head>
+<body>
+    <div id="bg"></div>
+    <header>
+        <ul>
+            <li>
+                <a href="https://www.utboils.com/" class="logo"><img src="../Frontend/images/logo.png" alt="UTB logo"></a>
+            </li>
+            <li>
+                <h1 id="homepageTitle">Overzicht</h1>
+                <h4 id="homepageSubTitle">
+                  Hier is het overzicht per vraag te vinden en een lijst met opmerkingen.
+                </h4>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <div>
+            <button id="callAverage" onclick="remarks()">
+                Call overview
+            </button>
+        </div>
+        <div class="overzicht">
+          <div class="opmerkingenLijst">
+            <div class="opmerkingenBox">
+                <p class="vraag">Eindoordeel UTB</p>
+                <p class="gemiddelde">6.9</p>
+            </div>
+        </div>
+        </div>
+        
+        <div>
+            <button id="export">export to pdf</button>
+        </div>
+    </main>
+    <footer><button id="next"></button></footer>
+</body>
+</html>

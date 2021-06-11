@@ -22,5 +22,23 @@ module.exports = {
             }
             callback(undefined, results)
         })
+    },
+
+    // nog aan te passen
+    getRemarks = (callback) => {
+        const query = {
+            sql: "SELECT * FROM Question JOIN Answer ON Answer.questionId = Question.id WHERE questionType = 'remarks'",
+            timeout: 3000
+        }
+        database.con.query(query, (err, results) => {
+            if (result.length == 0) {
+                logger.log("No data")
+                callback("No data", undefined)
+            } else if (err) {
+                logger.log("An error occured")
+                callback(err, undefined)
+            }
+            callback(undefined, results)
+        })
     }
 }
