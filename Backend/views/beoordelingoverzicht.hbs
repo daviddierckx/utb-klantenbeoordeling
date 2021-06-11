@@ -1,0 +1,22 @@
+<table class="">
+  <thead class="">
+    <tr>
+      <th scope="">Bedrijfsnaam</th>
+      <th scope="">Datum</th>
+      <th scope="">Contact persoon</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each rows}}
+    <tr>
+      <th scope="row">{{this.company}}</th>
+      <th>{{this.date}}</th>
+      <th>{{this.contact}}</th>
+      <th>{{}}</th>
+    </tr>
+    {{/each}}
+    <script>
+    </script>
+
+  </tbody>
+</table>

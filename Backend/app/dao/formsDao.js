@@ -4,85 +4,94 @@ const logger = require("tracer").console()
 /*
 Add form Format - http://localhost:3000/api/manage/form:
 {
-    "name": "hatsaaa2",
-    "title": "UTB Feedback2",
-    "subtitle": "Formulier klanttevredenheid UTB voor ISO 9001",
-    "pages": [
-        [
-            {
-                "type": "small_text",
-                "label": "Naam bedrijf",
-                "isRequired": true
-            },
-            {
-                "type": "small_text",
-                "label": "Naam klant",
-                "isRequired": true
-            },
-            {
-                "type": "radio",
-                "label": "Product groep",
-                "options": ["Brandstoffen & specials", "Smeermiddelen"],
-                "isRequired": true
-            }
-        ],
-        [
-            {
-                "type": "radio",
-                "label": "Hoe staat u tegenover bestelen in de UTB webshop?",
-                "options": ["Positief", "Neutraal", "Negatief"],
-                "isRequired": true
-            },
-            {
-                "type": "radio",
-                "label": "Waardering UTB/UNIL tov andere merken?",
-                "options": ["Onderscheidend", "Gelijk", "Minder"],
-                "isRequired": true
-            }
-        ],
-        [
-            {
-                "type": "rating",
-                "label": "Bereikbaarheid UTB?",
-                "isRequired": true
-            },
-            {
-                "type": "rating",
-                "label": "Bezoekfrequentie van de UTB vertenwoordiger?",
-                "isRequired": true
-            },
-            {
-                "type": "rating",
-                "label": "Tevredenheid over de mogelijkheden en de wijze van bestellen?",
-                "isRequired": true
-            },
-            {
-                "type": "rating",
-                "label": "Tevredenheid mbt de levertijden?",
-                "isRequired": true
-            },
-            {
-                "type": "rating",
-                "label": "Tevredenheid mbt de administratieve afhandeling?",
-                "isRequired": true
-            },
-            {
-                "type": "rating",
-                "label": "Tevredenheid mbt de klachtenafhandeling?",
-                "isRequired": true
-            },
-            {
-                "type": "rating",
-                "label": "Eindoordeel UTB organisatie?",
-                "isRequired": true
-            },
-            {
-                "type": "big_text",
-                "label": "Opmerkingen?",
-                "isRequired": true
-            }
-        ]
+  "name": "utb-feedback-1",
+  "title": "UTB Klantenfeedback",
+  "subtitle": "Formulier klanttevredenheid UTB",
+  "pages": [
+    [
+      {
+        "type": "date",
+        "label": "Datum",
+        "isRequired": true
+      },
+      {
+        "type": "small_text",
+        "label": "Bedrijfsnaam",
+        "isRequired": true
+      },
+      {
+        "type": "small_text",
+        "label": "Naam klant",
+        "isRequired": true
+      },
+      {
+        "type": "radio",
+        "label": "Product groep",
+        "options": ["Brandstoffen & Specials", "Smeermiddelen"],
+        "isRequired": true
+      }
+    ],
+    [
+      {
+        "type": "rating",
+        "label": "Bereikbaarheid UTB?",
+        "isRequired": true
+      },
+      {
+        "type": "rating",
+        "label": "Bezoekfrequentie UTB vertegenwoordiger?",
+        "isRequired": true
+      },
+      {
+        "type": "rating",
+        "label": "Tevredenheid over de mogelijkheden en de wijze van bestellen?",
+        "isRequired": true
+      },
+      {
+        "type": "rating",
+        "label": "Tevredenheid mbt de levertijden?",
+        "isRequired": true
+      }
+    ],
+    [
+      {
+        "type": "rating",
+        "label": "Tevredenheid mbt de administratieve afhandeling?",
+        "isRequired": true
+      },
+      {
+        "type": "rating",
+        "label": "Tevredenheid mbt de klachtenafhandeling?",
+        "isRequired": true
+      },
+      {
+        "type": "rating",
+        "label": "Eindoordeel UTB organisatie ?",
+        "isRequired": true
+      }
+    ],
+    [
+      {
+        "type": "big_text",
+        "label": "Overige opmerkingen",
+        "isRequired": true
+      }
+    ],
+    [
+      {
+        "type": "radio",
+        "label": "Hoe staat u tegenover bestelen in de UTB webshop?",
+        "options": ["Positief", "Neutraal", "Negatief"],
+        "isRequired": true
+      },
+      {
+        "type": "radio",
+        "label": "Hoe waardeert u UTB ten opzichte van andere merken?",
+        "options": ["Positief", "Neutraal", "Negatief"],
+        "isRequired": true
+      }
     ]
+  ]
 }
 
 

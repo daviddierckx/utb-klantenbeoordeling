@@ -1,98 +1,19 @@
 $colors: (
-  primary: #0c457f,
-  PrimaryDark: #051a2e,
-  primaryLight: #749dc8,
-  textColor: #f5f0ef,
-  starColor: #c8a95b,
-  success: #06b261,
-  error: #e63322,
-  errorLight: #f0847a,
+        primary: #0c457f,
+        PrimaryDark: #051a2e,
+        primaryLight: #749dc8,
+        textColor: #f5f0ef,
+        starColor: #c8a95b,
+        success: #06b261,
+        error: #e63322,
+        errorLight: #f0847a,
 );
 @function color($color-name) {
   @return map-get($colors, $color-name);
 }
+
 //reset use agent stylesheets
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -100,42 +21,36 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-menu,
-nav,
-section {
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
 }
+
 body {
   line-height: 1;
 }
+
 ol,
 ul {
   list-style: none;
 }
+
 blockquote,
 q {
   quotes: none;
 }
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
+
+blockquote:before, blockquote:after, q:before, q:after {
   content: "";
   content: none;
 }
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
 // start of (s)css code
 header ul {
   list-style-type: none;
@@ -164,40 +79,34 @@ main {
   margin-top: 10vh;
 }
 
-#formTitle {
-  font-family: "montserrat";
-  margin-left: 20%;
-}
-
 form {
   text-align: center;
   font-size: x-large;
-  #nextBtn {
+
+  .pageButtons {
     background-color: color(primary);
     color: color(textColor);
     border: 2px solid #0c457f;
     border-radius: 8px;
     width: 140px;
     height: 50px;
-    margin: 40px 10px 10px;
+    margin: 10px 10px 10px;
   }
-  #nextBtn:hover {
+
+  .pageButtons:hover {
     background-color: #008cba;
     color: white;
   }
-  #prevBtn {
-    background-color: color(primary);
-    color: color(textColor);
-    border: 2px solid #0c457f;
-    border-radius: 8px;
-    width: 140px;
-    height: 50px;
-    margin: 40px 10px 10px;
+  .pageButtons:disabled {
+    background-color: #0c3968;
+    color: grey;
+    border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3Cstyle%3Epath%7Banimation:stroke 5s infinite linear%3B%7D%40keyframes stroke%7Bto%7Bstroke-dashoffset:776%3B%7D%7D%3C/style%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232d3561' /%3E%3Cstop offset='25%25' stop-color='%23c05c7e' /%3E%3Cstop offset='50%25' stop-color='%23f3826f' /%3E%3Cstop offset='100%25' stop-color='%23ffb961' /%3E%3C/linearGradient%3E %3Cpath d='M1.5 1.5 l97 0l0 97l-97 0 l0 -97' stroke-linecap='square' stroke='url(%23g)' stroke-width='3' stroke-dasharray='388'/%3E %3C/svg%3E") 1;
   }
-  #prevBtn:hover {
-    background-color: #008cba;
-    color: white;
-  }
+}
+
+.formTitle {
+  font-family: "montserrat", serif;
+  margin-left: 20%;
 }
 
 input[type="text"] {
@@ -212,12 +121,18 @@ input[type="date"] {
 }
 
 p {
-  margin: 2vh, auto;
+  margin: 2vh;
 }
+
+.date-picker{
+  width: calc(100% - 1.5rem);
+}
+
 //star rating
 .questionText {
   margin: 0;
 }
+
 //stars
 @mixin star-rating(
   $filled-color: #c8a95b,
@@ -252,6 +167,7 @@ p {
         animation-delay: $animation-delay;
       }
     }
+
     &:after {
       transition: all 0.4s ease-out;
       -webkit-font-smoothing: antialiased;
@@ -266,40 +182,44 @@ p {
       font-size: $size;
       animation: 1s pulse ease;
     }
+
     label {
-        height: 40px;
-        width: 20%;
-        display: block;
-        position: relative;
-        cursor: pointer;
-        @for $i from 5 through 1 {
-            &:nth-of-type(#{$i}):after {
-                $animation-delay: $i * .05s;
-                animation-delay: $animation-delay;
-            }
+      height: 40px;
+      width: 20%;
+      display: block;
+      position: relative;
+      cursor: pointer;
+      @for $i from 5 through 1 {
+        &:nth-of-type(#{$i}):after {
+          $animation-delay: $i * .05s;
+          animation-delay: $animation-delay;
         }
-        &:after {
-            transition: all 0.4s ease-out;
-            -webkit-font-smoothing: antialiased;
-            position: absolute;
-            content: '#{$star--empty}';
-            color: $empty-color;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            font-size: $size;
-            animation: 1s pulse ease;
-        }
-        &:hover:after {
-            color: lighten($empty-color, 10%);
-            text-shadow: 0 0 15px lighten($empty-color, 10%);
-        }
+      }
+
+      &:after {
+        transition: all 0.4s ease-out;
+        -webkit-font-smoothing: antialiased;
+        position: absolute;
+        content: '#{$star--empty}';
+        color: $empty-color;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        font-size: $size;
+        animation: 1s pulse ease;
+      }
+
+      &:hover:after {
+        color: lighten($empty-color, 10%);
+        text-shadow: 0 0 15px lighten($empty-color, 10%);
+      }
     }
   }
   input {
     display: none;
+
     &:checked {
       + label:after,
       ~ label:after {
@@ -308,6 +228,12 @@ p {
         text-shadow: 0 0 20px $filled-color;
       }
     }
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
   }
 }
 
@@ -383,18 +309,22 @@ input.invalid {
   margin: 0px auto;
   margin-top: 50px;
 }
+
 .comment {
   float: left;
   width: 100%;
   height: auto;
 }
+
 .commenter {
   float: left;
 }
+
 .commenter img {
   width: 35px;
   height: 35px;
 }
+
 .comment-text-area {
   float: left;
   width: 100%;
@@ -423,3 +353,54 @@ h2 {
   font-size: 28px;
   padding-bottom: 10px;
 }
+
+// Form design
+hr{
+  border-top-style: none;
+  color: grey;
+  margin-left: 10%;
+  width: 80%;
+}
+.question-spacer {
+  height: 2rem;
+}
+.question-input {
+  margin-top: .3rem;
+}
+.question-radio{
+  margin-top: 1rem;
+}
+.question-radio li{
+  margin-bottom: .2rem;
+}
+.question-radio label{
+  display: inline-block;
+}
+.question-radio input{
+  width: auto;
+  display: inline-block;
+}
+.progress-container > * {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 1rem;
+}
+.progress-container .progress-bar{
+  width: calc(70% - 8rem);
+  background-color: #ddd;
+}
+.progress-container .progress-bar-progress {
+  width: 0;
+  transition-duration: .25s;
+  height: .5rem;
+  background-color: #04AA6D;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}
+@media screen and (max-width: 1024px){
+  .progress-container .progress-bar{
+    width: calc(90% - 8rem);
+  }
+}
+
