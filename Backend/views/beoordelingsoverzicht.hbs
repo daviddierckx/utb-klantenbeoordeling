@@ -27,9 +27,9 @@
     {{#each data2}}
       <tr>
         {{#each this as | answer |}}
-          <script type="text/javascript" src="answerScript.js"></script>
-          {{#ifEquals answerObject {{question.id}}}}
-            <td th:text={{question.id}}>{{answer}}</td>
+          <script src="answerScript.js"></script>
+          {{#ifEquals answerObject question.id}}
+            <td th:text={{question.id}}>{{answer.answer}}</td>
           {{/ifEquals}}
         {{/each}}
       </tr>
