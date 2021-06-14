@@ -1,0 +1,43 @@
+<table class="">
+  <thead class="">
+    {{#each data.pages}}
+      {{#each this as | question |}}
+        {{#ifEquals question.type "date"}}
+          <th><label class="question-label" for="datePicker">{{question.label}}</label></th>
+        {{/ifEquals}}
+        {{#ifEquals question.type "small_text"}}
+          <th><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
+            
+        {{/ifEquals}}
+        {{#ifEquals question.type "big_text"}}
+          <th><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
+            
+        {{/ifEquals}}
+        {{#ifEquals question.type "radio"}}
+          <th><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
+            
+        {{/ifEquals}}
+        {{#ifEquals question.type "rating"}}
+          <th><label class="question-label">{{question.label}}</label></th>
+        {{/ifEquals}}
+      {{/each}}
+    {{/each}}
+  </thead>
+  <tbody>
+    {{#each data2}}
+      <tr>
+        {{#each this as | answer |}}
+          {{!-- <script type="text/javascript" src="answerScript.js"></script> --}}
+          {{!-- {{#ifEquals answer question.id}} --}}
+            <td th:text={{question.id}}>{{answer.answer}}</td>
+          {{!-- {{/ifEquals}} --}}
+        {{/each}}
+      </tr>
+      
+    {{/each}}
+    
+    <script>
+    </script>
+
+  </tbody>
+</table>

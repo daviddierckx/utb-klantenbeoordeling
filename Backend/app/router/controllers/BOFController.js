@@ -27,7 +27,16 @@ exports.viewForm = (req, res) => {
       return res.status(400).send({"success": false, "error": err2});
     }
     logger.log("Got form data", JSON.stringify(res2));
-    res.render("beoordelingsformulier", { layout: false, data: res2});
+
+    //Add answers to res2
+    forms_dao.getAllFormAnswers(req.params.formName, (err3, res3) => {
+      if (err3) {
+        logger.log("Error in receiving answers:", err3);
+        return res.status(400).send({"success": false, "error": err3});
+      }
+      logger.log("Got form answers", JSON.stringify(res3));
+      res.render("beoordelingsoverzicht", {data: res2, data2: res3});
+    })
   });
 };
 
