@@ -3,7 +3,7 @@ const statistics_dao = require('../../dao/statisticsDao')
 
 module.exports = {
     getAverageRatings(req, res) {
-        statistics_dao.getAveragesFromRating((err, res) => {
+        statistics_dao.getAveragesFromRating((err, results) => {
             if (err) {
                 logger.log("Error getting average ratings:", err)
                 return res.status(400).send({
@@ -21,18 +21,18 @@ module.exports = {
             var list = document.createElement("div");
             list.className = "opmerkingenLijst";
 
-            for (let i = 0; i < res.length; i++) {
+            for (let i = 0; i < results.length; i++) {
                 //maak 'opmerking box' div
                 var box = document.createElement("div");
                 box.className = "opmerkingenBox";
                 //maak 'vraag ' p
                 var vraag = document.createElement("p");
                 vraag.className = "vraag";
-                vraag.innerText = res.name;
+                vraag.innerText = results.name;
                 //maak 'gemiddelde' p
                 var gemiddelde = document.createElement("p");
                 gemiddelde.className = "gemiddelde";
-                gemiddelde.innerText = res.remarks;
+                gemiddelde.innerText = results.remarks;
 
                 // voeg vraag en gemiddelde toe aan box
                 box.appendChild(vraag);
@@ -49,7 +49,7 @@ module.exports = {
     },
 
     getCountRadioButtonAnswers(req, res) {
-        statistics_dao.getCountOfRadioButtons((err, res) => {
+        statistics_dao.getCountOfRadioButtons((err, results) => {
             if (err) {
                 logger.log("Error getting count of ratings:", err)
                 return res.status(400).send({
@@ -57,6 +57,11 @@ module.exports = {
                     error: err
                 })
             }
+            logger.log("Got the count!", JSON.stringify(results))
+            return res.status(200).send({
+                success: true,
+                data: results
+            })
         })
     },
 
