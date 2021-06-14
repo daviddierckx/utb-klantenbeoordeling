@@ -37,7 +37,7 @@
 
     <div id="Users" class="tabcontent">
         <h3>Gebruiker Toevoegen</h3><br><br>
-        <form class="" method="POST" action="adduser">
+        <form class="" method="POST" action="admin/adduser">
             <div class="">
               <div class="">
                 <label for="floatingInput"> Naam</label>
@@ -93,11 +93,15 @@
                 <div class="">
                  <label for="floatingInput">is Admin</label>
                       <br><br>
+                
+                <input type="hidden" name="isAdmin" value="0">
+
                 <input
                   type="checkbox"
                   class="form-control"
                   id="floatingInput"
                   name="isAdmin"
+                  value="1"
                   aria-describedby="emailHelp"
                 />
     
