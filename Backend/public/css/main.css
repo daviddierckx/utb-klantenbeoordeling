@@ -396,6 +396,15 @@ input {
   border: 1px solid #749dc8;
 }
 
+.checkboxgroup {
+  display: inline-block;
+  text-align: center;
+  padding: 25px;
+}
+.checkboxgroup label {
+  display: block;
+}
+
 /* Mark input boxes that gets an error on validation: */
 input.invalid {
   background-color: #f0847a;

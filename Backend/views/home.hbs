@@ -1,129 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
-    <link rel="stylesheet" href="/css/main.css">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <style>
-        html{
-            height: 100%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <style>
+    html {
+      height: 100%;
+    }
+  </style>
 </head>
+
 <body>
-    <button class="tablink" onclick="openPage('Overview', this, '#749dc8')" id="defaultOpen">Beoordelingsoverzicht</button>
-    <button class="tablink" onclick="openPage('Comments', this, '#749dc8')">Opmerkingen</button>
-    <button class="tablink" onclick="openPage('Questions', this, '#749dc8')">Vragen Wijzigen</button>
-    <button class="tablink" onclick="openPage('Users', this, '#749dc8')">Gebruiker Toevoegen</button>
+  <button class="tablink" onclick="openPage('Overview', this, '#749dc8')"
+    id="defaultOpen">Beoordelingsoverzicht</button>
+  <button class="tablink" onclick="openPage('Comments', this, '#749dc8')">Opmerkingen</button>
+  <button class="tablink" onclick="openPage('Questions', this, '#749dc8')">Vragen Wijzigen</button>
+  <button class="tablink" onclick="openPage('Users', this, '#749dc8')">Gebruiker Toevoegen</button>
 
-    <div id="Overview" class="tabcontent">
-        <h3>Beoordelingsoverzicht</h3><br><br>
-        <p>Hier komt een Beoordelingsoverzicht</p>
-    </div>
+  <div id="Overview" class="tabcontent">
+    <h3>Beoordelingsoverzicht</h3><br><br>
+    <p>Hier komt een Beoordelingsoverzicht</p>
+  </div>
 
-    <div id="Comments" class="tabcontent">
-        <h3>Opmerkingen</h3><br><br>
-        <p>Hier komen opmerkingen</p>
-    </div>
+  <div id="Comments" class="tabcontent">
+    <h3>Opmerkingen</h3><br><br>
+    <p>Hier komen opmerkingen</p>
+  </div>
 
-    <div id="Questions" class="tabcontent">
-        <h3>Vragen wijzigen</h3><br><br>
-        <p>hier komt de pagina om vragen te wijzigen</p>
-    </div>
+  <div id="Questions" class="tabcontent">
+    <h3>Vragen wijzigen</h3><br><br>
+    <p>hier komt de pagina om vragen te wijzigen</p>
+  </div>
 
-    <div id="Users" class="tabcontent">
-        <h3>Gebruiker Toevoegen</h3><br><br>
+  <div id="Users" class="tabcontent">
+    <h3>Gebruiker Toevoegen</h3><br><br>
+    <form class="" method="POST" action="admin/adduser">
+      <div class="">
+        <div class="">
+          <label for="floatingInput"> Naam</label>
+          <br><br>
+          <input type="text" class="form-control" id="floatingInput" name="name" aria-describedby="emailHelp"
+            placeholder="naam..." />
 
-        
 
-        <form id="form" class="" method="POST" action="/admin/adduser">
-            <div class="">
-              <div class="">
-                <label for="floatingInput"> Naam</label>
-                  <br><br>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="floatingInput"
-                  name="name"
-                  aria-describedby="emailHelp"
-                  placeholder="naam..."
-                />
-    
-            
-              </div>
-            </div><br>
-            <div class="">
-    
-              <div class="">
-                 <label for="floatingInput">Emailadres</label>
-                  <br><br>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="floatingInput"
-                  name="email"
-                  aria-describedby="emailHelp"
-                  placeholder="email..."
-                />
-    
-              </div>
-            </div>
-            <br>
-            <div class="">
-    
-              <div class="">
-              <label for="floatingInput">Wachtwoord</label>
-                  <br><br>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="id_password"
-                  name="password"
-                  aria-describedby="emailHelp"
-                  placeholder="wachtwoord..."
-                />
-                <!--<input type="password" name="password" autocomplete="current-password" required="" id="id_password"> -->
-                <i class="far fa-eye" id="togglePassword"></i>
-              </div>
-            </div><br>
-            <div class="">
-    
-                <div class="">
-                 <label for="floatingInput">is Admin</label>
-                      <br><br>
+        </div>
+      </div><br>
+      <div class="">
 
-                <input
-                  type="checkbox"
-                  class="form-control"
-                  id="floatingInput"
-                  name="isAdmin"
-                  aria-describedby="emailHelp"
-                />
-    
-              </div>
-            </div>
-            <br><br>
-            <div class="">
-              <button type="submit" class="btn">Opslaan</button>
-    
-            </div>
-          </form>
-    </div>
+        <div class="">
+          <label for="floatingInput">Emailadres</label>
+          <br><br>
+          <input type="text" class="form-control" id="floatingInput" name="email" aria-describedby="emailHelp"
+            placeholder="email..." />
+
+        </div>
+      </div>
+      <br>
+      <div class="">
+
+        <div class="">
+          <label for="floatingInput">Wachtwoord</label>
+          <br><br>
+          <input type="password" class="form-control" id="id_password" name="password" aria-describedby="emailHelp"
+            placeholder="wachtwoord..." />
+          <!--<input type="password" name="password" autocomplete="current-password" required="" id="id_password"> -->
+          <i class="far fa-eye" id="togglePassword"></i>
+        </div>
+      </div><br>
+      <div class="">
+
+        <div class="checkboxes">
+          <div class="checkboxgroup">
+
+            <label for="">Gebruiker</label>
+            <input type="radio" name="isAdmin" value="0">
+          </div>
+          <div class="checkboxgroup">
+            <label for="">Admin</label>
+            <input type="radio" class="form-control" id="floatingInput" name="isAdmin" value="1"
+              aria-describedby="emailHelp" />
+          </div>
+
+        </div>
+      </div>
+      <br><br>
+      <div class="">
+        <button type="submit" class="btn">Opslaan</button>
+
+      </div>
+    </form>
+  </div>
 </body>
 <script src="/js/adminJs.js"></script>
-<script type="text/javascript">
-            // when page is ready
-            $(document).ready(function() {
-                // on form submit
-                $("#form").on('submit', function() {
-                    // to each unchecked checkbox
-                    $(this).find('input[type=checkbox]:not(:checked)').prop('checked', true).val(0);
-                })
-            })
-        </script>
+
 </html>
