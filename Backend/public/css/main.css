@@ -621,6 +621,15 @@ input[type="radio"]{
   border-color: #fff;
 
 }
+#alert{
+  font-weight: bold;
+  font-size: 20px;
+  padding-bottom: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: green;
+}
 #option-1:checked:checked ~ .option-1 .dot::before,
 #option-2:checked:checked ~ .option-2 .dot::before{
   opacity: 1;

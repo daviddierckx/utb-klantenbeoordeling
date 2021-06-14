@@ -22,61 +22,73 @@
   <button class="tablink"><a href="">Vragen Wijzigen</a></button>
   <button class="tablink active"><a href="/admin/adduser">Gebruiker Toevoegen</a></button>
 
-  {{#if alert}}
-  <div id="alert" role="alert">
-    {{alert}}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
-  </div>
-  {{/if}}
 
-  <form class="" method="POST" action="adduser">
+
+  <br><br>
+  <form class="" method="POST" action="/admin/adduser">
     <div class="">
       <div class="">
-        <label for="floatingInput"> Name</label>
-
+        <label for="floatingInput"> Naam</label>
+        <br><br>
         <input type="text" class="form-control" id="floatingInput" name="name" aria-describedby="emailHelp"
-          placeholder="Enter name" />
+          placeholder="naam..." />
 
 
       </div>
-    </div>
+    </div><br>
     <div class="">
 
       <div class="">
-        <label for="floatingInput">Email</label>
-
+        <label for="floatingInput">Emailadres</label>
+        <br><br>
         <input type="text" class="form-control" id="floatingInput" name="email" aria-describedby="emailHelp"
-          placeholder="Enter email" />
+          placeholder="email..." />
 
       </div>
     </div>
-
+    <br>
     <div class="">
 
       <div class="">
-        <label for="floatingInput">Password</label>
-
-        <input type="text" class="form-control" id="floatingInput" name="password" aria-describedby="emailHelp"
-          placeholder="Enter password" />
-
-      </div>
-    </div>
-    <div class="">
-
-      <div class="">
-        <label for="floatingInput">is Admin</label>
-
-        <input type="text" class="form-control" id="floatingInput" name="isAdmin" aria-describedby="emailHelp"
-          placeholder="Enter admin" />
-
+        <label for="floatingInput">Wachtwoord</label>
+        <br><br>
+        <input type="password" class="form-control" id="id_password" name="password" aria-describedby="emailHelp"
+          placeholder="wachtwoord..." />
+        <!--<input type="password" name="password" autocomplete="current-password" required="" id="id_password"> -->
+        <i class="far fa-eye" id="togglePassword"></i>
       </div>
     </div>
     </div>
     <div class="">
-      <button type="submit" class="btn">Submit</button>
 
-    </div>
+      <div class="checkboxes">
+        <div class="checkboxgroup">
+
+          <div class="wrapper-checkbox">
+            <input type="radio" name="isAdmin" value="0" aria-describedby="emailHelp" id="option-1" checked>
+            <input type="radio" name="isAdmin" value="1" aria-describedby="emailHelp" id="option-2">
+            <label for="option-1" class="option option-1">
+              <div class="dot"></div>
+              <span>User</span>
+            </label>
+            <label for="option-2" class="option option-2">
+              <div class="dot"></div>
+              <span>Admin</span>
+            </label>
+          </div>
+        </div>
+        {{#if alert}}
+        <div id="alert" role="alert">
+          {{alert}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+        </div>
+        {{/if}}
+        <div class="">
+          <button type="submit" class="btn">Opslaan</button>
+
+        </div>
   </form>
+  </div>
   <script src="/js/script.js">
   </script>
 </body>
