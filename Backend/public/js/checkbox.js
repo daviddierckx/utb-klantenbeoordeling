@@ -1,1 +1,0 @@
-$isAdmin = (isset($_POST['isAdmin'])) ? 1 : 0;

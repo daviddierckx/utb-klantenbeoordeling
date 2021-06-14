@@ -37,7 +37,10 @@
 
     <div id="Users" class="tabcontent">
         <h3>Gebruiker Toevoegen</h3><br><br>
-        <form class="" method="POST" action="admin/adduser">
+
+        
+
+        <form id="form" class="" method="POST" action="/admin/adduser">
             <div class="">
               <div class="">
                 <label for="floatingInput"> Naam</label>
@@ -93,8 +96,6 @@
                 <div class="">
                  <label for="floatingInput">is Admin</label>
                       <br><br>
-                
-                <script src="/js/checkbox.js"></script>
 
                 <input
                   type="checkbox"
@@ -115,4 +116,14 @@
     </div>
 </body>
 <script src="/js/adminJs.js"></script>
+<script type="text/javascript">
+            // when page is ready
+            $(document).ready(function() {
+                // on form submit
+                $("#form").on('submit', function() {
+                    // to each unchecked checkbox
+                    $(this).find('input[type=checkbox]:not(:checked)').prop('checked', true).val(0);
+                })
+            })
+        </script>
 </html>
