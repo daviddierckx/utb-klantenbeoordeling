@@ -35,7 +35,7 @@ exports.viewForm = (req, res) => {
         return res.status(400).send({"success": false, "error": err3});
       }
       logger.log("Got form answers", JSON.stringify(res3));
-      res.render("beoordelingsoverzicht", { layout: false, data: res2, data2: res3});
+      res.render("beoordelingsoverzicht", {data: res2, data2: res3});
     })
   });
 };
