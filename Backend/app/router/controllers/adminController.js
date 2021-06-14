@@ -32,7 +32,7 @@ exports.search = (req, res) => {
 
 //Add new user
 exports.adduser = (req, res) => {
-  res.render("home", { layout: false });
+  res.render("add-user", { layout: false });
 };
 
 //Edit existing user

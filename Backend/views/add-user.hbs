@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <style>
+    html {
+      height: 100%;
+    }
+  </style>
+</head>
+    <body>
+      <button class="tablink"><a href="/beoordelingsformulier/utb-feedback-1">Beoordelingsoverzicht</a></button>
+      <button class="tablink"><a href="/admin">Gebruikers</a></button>
+      <button class="tablink"><a href="">Vragen Wijzigen</a></button>
+      <button class="tablink"><a href="/admin/adduser">Gebruiker Toevoegen</a></button>
+
+      {{#if alert}}
+        <div id="alert" role="alert">
+          {{alert}}
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+          >X</button>
+        </div>
+      {{/if}}
+
+      <form class="" method="POST" action="adduser">
+        <div class="">
+          <div class="">
+            <label for="floatingInput"> Name</label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              name="name"
+              aria-describedby="emailHelp"
+              placeholder="Enter name"
+            />
+
+        
+          </div>
+        </div>
+        <div class="">
+
+          <div class="">
+             <label for="floatingInput">Email</label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              name="email"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+            />
+
+          </div>
+        </div>
+        
+        <div class="">
+
+          <div class="">
+          <label for="floatingInput">Password</label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              name="password"
+              aria-describedby="emailHelp"
+              placeholder="Enter password"
+            />
+
+          </div>
+        </div>
+        <div class="">
+
+            <div class="">
+             <label for="floatingInput">is Admin</label>
+
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInput"
+              name="isAdmin"
+              aria-describedby="emailHelp"
+              placeholder="Enter admin"
+            />
+
+          </div>
+        </div>
+        </div>
+        <div class="">
+          <button type="submit" class="btn">Submit</button>
+
+        </div>
+      </form>
+      <script src="/js/script.js">
+      </script>
+    </body>
+    <footer>
+      <script>
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
+    </footer>
+  </body>
+</html>

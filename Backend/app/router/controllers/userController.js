@@ -26,7 +26,7 @@ exports.register = function (req, res) {
         return res.status(400).send({ success: false, error: err2 });
       }
 
-      res.render("home", {
+      res.render("add-user", {
         alert: "User added succesfully",
         layout: false,
       });
