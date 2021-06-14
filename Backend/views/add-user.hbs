@@ -15,105 +15,78 @@
     }
   </style>
 </head>
-    <body>
-      <button class="tablink"><a href="/beoordelingsformulier/utb-feedback-1">Beoordelingsoverzicht</a></button>
-      <button class="tablink"><a href="/admin">Gebruikers</a></button>
-      <button class="tablink"><a href="">Vragen Wijzigen</a></button>
-      <button class="tablink"><a href="/admin/adduser">Gebruiker Toevoegen</a></button>
 
-      {{#if alert}}
-        <div id="alert" role="alert">
-          {{alert}}
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          >X</button>
-        </div>
-      {{/if}}
+<body>
+  <button class="tablink"><a href="/beoordelingsformulier/utb-feedback-1">Beoordelingsoverzicht</a></button>
+  <button class="tablink"><a href="/admin">Gebruikers</a></button>
+  <button class="tablink"><a href="">Vragen Wijzigen</a></button>
+  <button class="tablink active"><a href="/admin/adduser">Gebruiker Toevoegen</a></button>
 
-      <form class="" method="POST" action="adduser">
-        <div class="">
-          <div class="">
-            <label for="floatingInput"> Name</label>
+  {{#if alert}}
+  <div id="alert" role="alert">
+    {{alert}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+  </div>
+  {{/if}}
 
-            <input
-              type="text"
-              class="form-control"
-              id="floatingInput"
-              name="name"
-              aria-describedby="emailHelp"
-              placeholder="Enter name"
-            />
+  <form class="" method="POST" action="adduser">
+    <div class="">
+      <div class="">
+        <label for="floatingInput"> Name</label>
 
-        
-          </div>
-        </div>
-        <div class="">
+        <input type="text" class="form-control" id="floatingInput" name="name" aria-describedby="emailHelp"
+          placeholder="Enter name" />
 
-          <div class="">
-             <label for="floatingInput">Email</label>
 
-            <input
-              type="text"
-              class="form-control"
-              id="floatingInput"
-              name="email"
-              aria-describedby="emailHelp"
-              placeholder="Enter email"
-            />
+      </div>
+    </div>
+    <div class="">
 
-          </div>
-        </div>
-        
-        <div class="">
+      <div class="">
+        <label for="floatingInput">Email</label>
 
-          <div class="">
-          <label for="floatingInput">Password</label>
+        <input type="text" class="form-control" id="floatingInput" name="email" aria-describedby="emailHelp"
+          placeholder="Enter email" />
 
-            <input
-              type="text"
-              class="form-control"
-              id="floatingInput"
-              name="password"
-              aria-describedby="emailHelp"
-              placeholder="Enter password"
-            />
+      </div>
+    </div>
 
-          </div>
-        </div>
-        <div class="">
+    <div class="">
 
-            <div class="">
-             <label for="floatingInput">is Admin</label>
+      <div class="">
+        <label for="floatingInput">Password</label>
 
-            <input
-              type="text"
-              class="form-control"
-              id="floatingInput"
-              name="isAdmin"
-              aria-describedby="emailHelp"
-              placeholder="Enter admin"
-            />
+        <input type="text" class="form-control" id="floatingInput" name="password" aria-describedby="emailHelp"
+          placeholder="Enter password" />
 
-          </div>
-        </div>
-        </div>
-        <div class="">
-          <button type="submit" class="btn">Submit</button>
+      </div>
+    </div>
+    <div class="">
 
-        </div>
-      </form>
-      <script src="/js/script.js">
-      </script>
-    </body>
-    <footer>
-      <script>
-if ( window.history.replaceState ) {
-  window.history.replaceState( null, null, window.location.href );
-}
-</script>
-    </footer>
-  </body>
+      <div class="">
+        <label for="floatingInput">is Admin</label>
+
+        <input type="text" class="form-control" id="floatingInput" name="isAdmin" aria-describedby="emailHelp"
+          placeholder="Enter admin" />
+
+      </div>
+    </div>
+    </div>
+    <div class="">
+      <button type="submit" class="btn">Submit</button>
+
+    </div>
+  </form>
+  <script src="/js/script.js">
+  </script>
+</body>
+<footer>
+  <script>
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
+  </script>
+</footer>
+</body>
+
 </html>

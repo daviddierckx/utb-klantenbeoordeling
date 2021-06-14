@@ -116,6 +116,10 @@ blockquote,
 q {
   quotes: none;
 }
+a{
+  text-decoration:none;
+  color:#fff;
+}
 
 blockquote:before,
 blockquote:after,
@@ -541,7 +545,9 @@ form input {
   font-size: 17px;
   width: 25%;
 }
-
+.active{
+  background-color: #749dc8;
+}
 .tablink:hover {
   background-color: #749dc8;
 }
