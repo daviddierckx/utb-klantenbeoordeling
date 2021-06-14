@@ -201,7 +201,7 @@ form {
   }
 }
 
-input[type="text"] {
+input[type="text"], [type="password"] {
   background: color(textColor);
   border: 1px solid color(error);
   box-sizing: border-box;
