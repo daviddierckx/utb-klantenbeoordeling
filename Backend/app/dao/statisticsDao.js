@@ -1,5 +1,5 @@
-const database = require('./database')
-const logger = require('tracer').console()
+const database = require("./database");
+const logger = require("tracer").console();
 
 // maar twee radiobutton vragen
 // Hoe staat u tegenover het bestellen in de UTB webshop?
@@ -19,22 +19,22 @@ module.exports = {
                     JOIN Answer AS A ON A.questionId = Q.id
                   WHERE Q.questionType = 'rating'
                   GROUP BY Q.id;`,
-            timeout: 3000
-        }
+            timeout: 3000,
+        };
         database.con.query(query, (err, results) => {
             if (results.length === 0) {
-                logger.log("No data")
-                callback("No data", undefined)
+                logger.log("No data");
+                callback("No data", undefined);
             } else if (err) {
-                logger.log("An error occured")
-                callback(err, undefined)
+                logger.log("An error occured");
+                callback(err, undefined);
             }
-            callback(undefined, results)
-        })
+            callback(undefined, results);
+        });
     },
 
     getCountOfRadioButtons(callback) {
-        logger.log("Executing query")
+        logger.log("Executing query");
         const query = {
             // sql: "SELECT Q.questionTitle, (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'positief') AS AantalPositief, (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'neutraal') AS AantalNeutraal, (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'negatief') AS AantalNegatief FROM Question AS Q JOIN Answer AS A ON A.questionId = Q.id WHERE Q.questionType = 'radio' AND Q.questionTitle <> 'Product groep' GROUP BY Q.id;",
             sql: `SELECT Q.questionTitle
@@ -58,20 +58,20 @@ module.exports = {
                   WHERE  Q.questionType = 'radio'
                   AND    Q.questionTitle <> 'Product groep'
                   GROUP  BY Q.id;`,
-            timeout: 3000
-        }
+            timeout: 3000,
+        };
         database.con.query(query, (err, results) => {
             if (results.length === 0) {
-                logger.log("No data")
-                callback("No data", undefined)
+                logger.log("No data");
+                callback("No data", undefined);
             } else if (err) {
-                logger.log("An error occured")
-                callback(err, undefined)
+                logger.log("An error occured");
+                callback(err, undefined);
             }
-            logger.log("OK. Returning results")
+            logger.log("OK. Returning results");
             // logger.log(results)
-            callback(undefined, results)
-        })
+            callback(undefined, results);
+        });
     },
 
     // nog aan te passen
@@ -81,17 +81,17 @@ module.exports = {
                   FROM Question
                     JOIN Answer ON Answer.questionId = Question.id
                   WHERE questionType = 'remarks'`,
-            timeout: 3000
-        }
+            timeout: 3000,
+        };
         database.con.query(query, (err, results) => {
             if (result.length == 0) {
-                logger.log("No data")
-                callback("No data", undefined)
+                logger.log("No data");
+                callback("No data", undefined);
             } else if (err) {
-                logger.log("An error occured")
-                callback(err, undefined)
+                logger.log("An error occured");
+                callback(err, undefined);
             }
-            callback(undefined, results)
-        })
-    }
-}
+            callback(undefined, results);
+        });
+    },
+};
