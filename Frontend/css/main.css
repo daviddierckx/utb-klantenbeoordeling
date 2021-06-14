@@ -195,7 +195,7 @@ form #prevBtn:hover {
   color: white;
 }
 
-input[type="text"] {
+input[type="text"], [type="password"] {
   background: #f5f0ef;
   border: 1px solid #e63322;
   -webkit-box-sizing: border-box;
