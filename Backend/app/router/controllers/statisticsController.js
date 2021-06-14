@@ -1,15 +1,15 @@
-const logger = require('tracer').console()
-const statistics_dao = require('../../dao/statisticsDao')
+const logger = require("tracer").console();
+const statistics_dao = require("../../dao/statisticsDao");
 
 module.exports = {
     getAverageRatings(req, res) {
         statistics_dao.getAveragesFromRating((err, results) => {
             if (err) {
-                logger.log("Error getting average ratings:", err)
+                logger.log("Error getting average ratings:", err);
                 return res.status(400).send({
                     success: false,
-                    error: err
-                })
+                    error: err,
+                });
             }
             // logger.log("Got average ratings", JSON.stringify(res))
             // return res.status(200).send({
@@ -45,34 +45,34 @@ module.exports = {
                 var element = document.getElementsByClassName("overzicht")[0];
                 element.appendChild(list);
             }
-        })
+        });
     },
 
     getCountRadioButtonAnswers(req, res) {
         statistics_dao.getCountOfRadioButtons((err, results) => {
             if (err) {
-                logger.log("Error getting count of ratings:", err)
+                logger.log("Error getting count of ratings:", err);
                 return res.status(400).send({
                     success: false,
-                    error: err
-                })
+                    error: err,
+                });
             }
-            logger.log("Got the count!", JSON.stringify(results))
+            logger.log("Got the count!", JSON.stringify(results));
             return res.status(200).send({
                 success: true,
-                data: results
-            })
-        })
+                data: results,
+            });
+        });
     },
 
     getRemarks(req, res) {
         statistics_dao.getRemarks((err, res) => {
             if (err) {
-                logger.log("Error getting remarks:", err)
+                logger.log("Error getting remarks:", err);
                 return res.status(400).send({
                     success: false,
-                    error: err
-                })
+                    error: err,
+                });
             }
             var list = document.createElement("div");
             list.className = "opmerkingenLijst";
@@ -101,6 +101,6 @@ module.exports = {
                 var element = document.getElementsByClassName("overzicht")[0];
                 element.appendChild(list);
             }
-        })
-    }
-}
+        });
+    },
+};
