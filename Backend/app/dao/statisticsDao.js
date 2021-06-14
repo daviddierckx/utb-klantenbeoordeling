@@ -11,9 +11,14 @@ module.exports = {
     // controller returns data to frontend
     // callback(err, undefined)
     // callback(undefined, result)
-    getAveragesFromRating = (callback) => {
+    getAveragesFromRating(callback) {
         const query = {
-            sql: "SELECT Q.questionTitle, AVG(A.answer) FROM Question AS Q JOIN Answer AS A ON A.questionId = Q.id WHERE Q.questionType = 'rating' GROUP BY Q.id;",
+            // sql: "SELECT Q.questionTitle, AVG(A.answer) FROM Question AS Q JOIN Answer AS A ON A.questionId = Q.id WHERE Q.questionType = 'rating' GROUP BY Q.id;",
+            sql: `SELECT Q.questionTitle, AVG(A.answer)
+                  FROM Question AS Q
+                    JOIN Answer AS A ON A.questionId = Q.id
+                  WHERE Q.questionType = 'rating'
+                  GROUP BY Q.id;`,
             timeout: 3000
         }
         database.con.query(query, (err, results) => {
@@ -28,7 +33,7 @@ module.exports = {
         })
     },
 
-    getCountOfRadioButtons = (callback) => {
+    getCountOfRadioButtons(callback) {
         const query = {
             // sql: "SELECT Q.questionTitle, (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'positief') AS AantalPositief, (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'neutraal') AS AantalNeutraal, (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'negatief') AS AantalNegatief FROM Question AS Q JOIN Answer AS A ON A.questionId = Q.id WHERE Q.questionType = 'radio' AND Q.questionTitle <> 'Product groep' GROUP BY Q.id;",
             sql: `SELECT Q.questionTitle
@@ -36,17 +41,17 @@ module.exports = {
                   ,      sum(CASE
                             when A.answer = 'positief' then 1
                             else 0
-                         end )                                                      as AantalPositief
+                         end)                                                      as AantalPositief
                   /*,     (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'positief' and A.questionId = Q.id ) AS AantalPositief_old  */
                   ,      sum(CASE
                             when A.answer = 'neutraal' then 1
                             else 0
-                         end )                                                      as AantalNeutraal
+                         end)                                                      as AantalNeutraal
                   /* ,     (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'neutraal' and A.questionId = Q.id ) AS AantalNeutraal_old */
                   ,      sum(CASE
                             when A.answer = 'negatief' then 1
                             else 0
-                         end )                                                      as AantalNegatief
+                         end)                                                      as AantalNegatief
                   /*,     (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'negatief' and A.questionId = Q.id ) AS Old_AantalNegatief */
                   FROM   Question AS Q JOIN Answer AS A ON A.questionId = Q.id
                   WHERE  Q.questionType = 'radio'
@@ -67,7 +72,7 @@ module.exports = {
     },
 
     // nog aan te passen
-    getRemarks = (callback) => {
+    getRemarks(callback) {
         const query = {
             sql: `SELECT *
                   FROM Question

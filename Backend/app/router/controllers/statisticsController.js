@@ -2,7 +2,7 @@ const logger = require('tracer').console()
 const statistics_dao = require('../../dao/statisticsDao')
 
 module.exports = {
-    getAverageRatings = function(req, res) {
+    getAverageRatings(req, res) {
         statistics_dao.getAveragesFromRating((err, res) => {
             if (err) {
                 logger.log("Error getting average ratings:", err)
@@ -48,7 +48,7 @@ module.exports = {
         })
     },
 
-    getCountRadioButtonAnswers = function(req, res) {
+    getCountRadioButtonAnswers(req, res) {
         statistics_dao.getCountOfRadioButtons((err, res) => {
             if (err) {
                 logger.log("Error getting count of ratings:", err)
@@ -60,7 +60,7 @@ module.exports = {
         })
     },
 
-    getRemarks = function(req, res) {
+    getRemarks(req, res) {
         statistics_dao.getRemarks((err, res) => {
             if (err) {
                 logger.log("Error getting remarks:", err)
