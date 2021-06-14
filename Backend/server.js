@@ -30,9 +30,6 @@ app.set("view engine", "hbs");
 
 app.get('/', (req, res) => { res.redirect("login") });
 app.use("/api", routes);
-
-app.use('/test', routeStatistics)
-
 app.use("/admin", routeAdmin);
 app.use("/login", routeLogin);
 app.use("/beoordelingsformulier", routeBOF);
