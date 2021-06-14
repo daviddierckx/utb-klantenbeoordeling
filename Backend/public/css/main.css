@@ -542,6 +542,7 @@ form input {
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
+  margin-bottom: 32px;
   font-size: 17px;
   width: 25%;
 }
