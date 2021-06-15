@@ -654,3 +654,47 @@ input[type="radio"]{
 #option-2:checked:checked ~ .option-2 span{
   color: #fff;
 }
+
+/* Zoekbalk css */
+
+
+/* Style the search field */
+form.example{
+  margin-top: 30px !important;
+  margin-bottom: 20px !important;
+  margin-right: 190px
+  
+}
+form.example input[type=text] {
+
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: right;
+  width: 20%;
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+  float: right;
+  width: 3%;
+  padding: 12px;
+  background: #749dc8;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #749dc8;
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
