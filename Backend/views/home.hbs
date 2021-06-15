@@ -17,17 +17,30 @@
 </head>
 
 <body>
-    <button class="tablink" onclick="openPage('Overview', this, '#749dc8')" id="defaultOpen">Beoordelingsoverzicht</button>
-    <button class="tablink" onclick="openPage('Users', this, '#749dc8')">Gebruikers</button>
-    <button class="tablink" onclick="openPage('Questions', this, '#749dc8')">Vragen Wijzigen</button>
-    <button class="tablink" onclick="openPage('AddUser', this, '#749dc8')">Gebruiker Toevoegen</button>
+  <nav>
+  <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
+  <a href="/admin"><button class="tablink active">Gebruikers</button></a>
+  <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
+  <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+  </nav><br><br><br><br><br>
+  <table class="">
+    <thead class="">
+      <tr>
+        <th scope="">ID</th>
+        <th scope="">Naam</th>
+        <th scope="">Email</th>
+        {{! <th scope="">Password</th>
+        <th scope="">IsAdmin</th> }}
+        <th scope="" class="text-end">Action</th>
 
+      </tr>
+    </thead>
     <tbody>
       {{#each rows}}
       <tr>
-        <th scope="row">{{this.id}}</th>
-        <td>{{this.email}}</td>
+        <td scope="row">{{this.id}}</td>
         <td>{{this.name}}</td>
+        <td>{{this.email}}</td>
         <!-- <td>{{this.password}}</td>
           <td>{{this.isAdmin}}</td> -->
         <td class="">
@@ -49,105 +62,10 @@
 
         }
 
-    <div id="Users" class="tabcontent">
-        <h3>Gebruikers</h3><br><br>
-        <div class="view-user">
-            {{#each rows}}
-            <div>
-                <h1 style="padding: 20px;">{{this.name}} </h1>
-
-            </div>
-            <div>
-                <h4 style="padding: 20px;">Email: {{this.email}}</h4>
-            </div>
-            <div style="padding: 20px;" class="comments">
-                <h6>Opmerkingen:</h6>
-                {{this.comments}}
-            </div>
-
-            {{/each}}
-
-        </div> 
-    </div>
+      </script>
 
     </tbody>
   </table>
 
-    <div id="AddUser" class="tabcontent">
-        <h3>Gebruiker Toevoegen</h3><br><br>
-        <form class="" method="POST" action="adduser">
-            <div class="">
-              <div class="">
-                <label for="floatingInput"> Naam</label>
-                  <br><br>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="floatingInput"
-                  name="name"
-                  aria-describedby="emailHelp"
-                  placeholder="naam..."
-                />
-    
-            
-              </div>
-            </div><br>
-            <div class="">
-    
-              <div class="">
-                 <label for="floatingInput">Emailadres</label>
-                  <br><br>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="floatingInput"
-                  name="email"
-                  aria-describedby="emailHelp"
-                  placeholder="email..."
-                />
-    
-              </div>
-            </div>
-            <br>
-            <div class="">
-    
-              <div class="">
-              <label for="floatingInput">Wachtwoord</label>
-                  <br><br>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="id_password"
-                  name="password"
-                  aria-describedby="emailHelp"
-                  placeholder="wachtwoord..."
-                />
-                <!--<input type="password" name="password" autocomplete="current-password" required="" id="id_password"> -->
-                <i class="far fa-eye" id="togglePassword"></i>
-              </div>
-            </div><br>
-            <div class="">
-    
-                <div class="">
-                 <label for="floatingInput">is Admin</label>
-                      <br><br>
-                <input
-                  type="checkbox"
-                  class="form-control"
-                  id="floatingInput"
-                  name="isAdmin"
-                  aria-describedby="emailHelp"
-                />
-    
-              </div>
-            </div>
-            <br><br>
-            <div class="">
-              <button type="submit" class="btn">Opslaan</button>
-    
-            </div>
-          </form>
-    </div>
-</body>
-<script src="/js/adminJs.js"></script>
+
 </html>
