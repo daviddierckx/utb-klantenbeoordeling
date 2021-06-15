@@ -18,10 +18,10 @@
 
 <body>
   <nav>
-  <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
-  <a href="/admin"><button class="tablink active">Gebruikers</button></a>
-  <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
-  <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+    <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
+    <a href="/admin"><button class="tablink active">Gebruikers</button></a>
+    <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
+    <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
   </nav><br><br><br><br><br>
   <table class="">
     <thead class="">
@@ -31,7 +31,7 @@
         <th scope="">Email</th>
         {{! <th scope="">Password</th>
         <th scope="">IsAdmin</th> }}
-        <th scope="" class="text-end">Action</th>
+        <th scope="" class="text-end">Actie</th>
 
       </tr>
     </thead>
@@ -44,20 +44,20 @@
         <!-- <td>{{this.password}}</td>
           <td>{{this.isAdmin}}</td> -->
         <td class="">
-          <a href="admin/users/overview/{{this.id}}" type="button" class=""><i class=""></i>View</a>
-          <a type="button" class="btn-edit" href="/admin/edituser/{{this.id}}"><i class=""></i>Edit</a>
-          <a type="button" class="btn-delete" href="javascript:delay('/admin/users/{{this.id}}')"><i></i>Delete</a>
+          <a href="admin/users/overview/{{this.id}}" type="button" class=""><i class=""></i>Bekijk</a>
+          <a type="button" class="btn-edit" href="/admin/edituser/{{this.id}}"><i class=""></i>Bewerk</a>
+          <a type="button" class="btn-delete" href="javascript:delay('/admin/users/{{this.id}}')"><i></i>Verwijder</a>
         </td>
       </tr>
       {{/each}}
       <script>
 
         function delay(URL) {
-          if (confirm("Are you sure you want to delete this user?")) {
-            alert("You have deleted this user");
+          if (confirm("Weet u zeker dat u deze gebruiker wilt verwijderen?")) {
+            alert("Je hebt deze gebruiker verwijderd");
             setTimeout(function () { window.location.href = URL }, 100);
           } else {
-            alert("You have cancelled this delete!");
+            alert("Je hebt deze verwijdering geannuleerd!");
           }
 
         }
