@@ -13,7 +13,7 @@ const routeAdmin = require("./app/router/admin");
 const routeLogin = require("./app/router/login");
 const routeBOF = require("./app/router/routeBOF");
 
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
@@ -25,17 +25,15 @@ app.use(function timeLog(req, res, next) {
 
 app.use("/api", routes);
 //Templating Engine
-const hbs = exphbs.create({
-  extname: ".hbs",
-  helpers: require("./app/utils/handlebarsHelpers")
-});
-app.engine("hbs", hbs.engine);
+app.engine("hbs", exphbs({ extname: ".hbs" }));
 app.use(express.static("public"));
 
 
 app.set("view engine", "hbs");
 
-app.get('/', (req, res) => { res.redirect("login") });
+app.get("/", (req, res) => {
+    res.redirect("login");
+});
 app.use("/api", routes);
 app.use("/admin", routeAdmin);
 app.use("/login", routeLogin);
@@ -43,7 +41,7 @@ app.use("/beoordelingsformulier", routeBOF);
 app.use(serveStatic("./views"));
 
 app.listen(port, () => {
-  logger.log(`Avans app listening at http://${ip}:${port}`);
+    logger.log(`Avans app listening at http://${ip}:${port}`);
 });
 
 module.exports = app;
