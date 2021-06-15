@@ -73,25 +73,4 @@ module.exports = {
             callback(undefined, results);
         });
     },
-
-    getRemarks(callback) {
-        const query = {
-            sql: `SELECT Q.questionTitle, A.answer
-                  FROM Answer as A
-	                JOIN Question AS Q ON Q.id = A.questionId
-                  WHERE Q.questionTitle = 'Overige opmerkingen'`,
-            timeout: 3000,
-        };
-        database.con.query(query, (err, results) => {
-            if (results.length == 0) {
-                logger.log("No data");
-                callback("No data", undefined);
-            } else if (err) {
-                logger.log("An error occured");
-                callback(err, undefined);
-            }
-            logger.log("OK. Returning remarks");
-            callback(undefined, results);
-        });
-    },
 };
