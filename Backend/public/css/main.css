@@ -413,6 +413,52 @@ td a {
   padding: 5%;
 }
 
+.userInfo {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  width: 50%;
+  display: block;
+  margin: 5% auto;
+  text-align: center;
+}
+
+.userInfo h1 {
+  padding-top: 2vh;
+}
+
+.userInfo p {
+  font-size: x-large;
+  padding: 25px;
+}
+
+.userInfo a {
+  background: #0c457f;
+  border: 2px solid #051A2E;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: inline-block;
+  margin: 30px;
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+  border-radius: 10px;
+  padding: 2vh 10%;
+  color: #f5f0ef;
+  text-decoration: none;
+}
+
+.userInfo a:hover {
+  background: #55A2EF;
+  border: 2px solid #051A2E;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  border-radius: 10px;
+  padding: 2vh 10%;
+  color: #f5f0ef;
+  text-decoration: none;
+}
+
 #regForm {
   background-color: #051a2e;
   margin: 100px auto;
