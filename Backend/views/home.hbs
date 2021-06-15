@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
     html {
       height: 100%;
@@ -23,6 +24,10 @@
     <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
     <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
   </nav><br><br><br><br><br>
+  <form class="example" method="POST" action="/admin" novalidate>
+    <input type="text" placeholder="Search.." name="search">
+    <button type="submit"><i class="fa fa-search"></i></button>
+  </form>
   <table class="">
     <thead class="">
       <tr>

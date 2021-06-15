@@ -413,6 +413,52 @@ td a {
   padding: 5%;
 }
 
+.userInfo {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  width: 50%;
+  display: block;
+  margin: 5% auto;
+  text-align: center;
+}
+
+.userInfo h1 {
+  padding-top: 2vh;
+}
+
+.userInfo p {
+  font-size: x-large;
+  padding: 25px;
+}
+
+.userInfo a {
+  background: #0c457f;
+  border: 2px solid #051A2E;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: inline-block;
+  margin: 30px;
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+  border-radius: 10px;
+  padding: 2vh 10%;
+  color: #f5f0ef;
+  text-decoration: none;
+}
+
+.userInfo a:hover {
+  background: #55A2EF;
+  border: 2px solid #051A2E;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  border-radius: 10px;
+  padding: 2vh 10%;
+  color: #f5f0ef;
+  text-decoration: none;
+}
+
 #regForm {
   background-color: #051a2e;
   margin: 100px auto;
@@ -653,4 +699,51 @@ input[type="radio"]{
 #option-1:checked:checked ~ .option-1 span,
 #option-2:checked:checked ~ .option-2 span{
   color: #fff;
+}
+.active{
+  background-color: #749dc8;
+}
+
+/* Zoekbalk css */
+
+
+/* Style the search field */
+form.example{
+  margin-top: 30px !important;
+  margin-bottom: 20px !important;
+  margin-right: 190px
+  
+}
+form.example input[type=text] {
+
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: right;
+  width: 20%;
+  background: #f1f1f1;
+}
+
+/* Style the submit button */
+form.example button {
+  float: right;
+  width: 3%;
+  padding: 12px;
+  background: #749dc8;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #749dc8;
+}
+
+/* Clear floats */
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
 }
