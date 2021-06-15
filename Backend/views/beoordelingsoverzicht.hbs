@@ -25,26 +25,23 @@
   <table class="">
     <thead class="">
       {{#each data.pages}}
-      {{#each this as | question |}}
-      {{#ifEquals question.type "date"}}
-      <th><label class="question-label" for="datePicker">{{question.label}}</label></th>
-      {{/ifEquals}}
-      {{#ifEquals question.type "small_text"}}
-      <th><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
-
-      {{/ifEquals}}
-      {{#ifEquals question.type "big_text"}}
-      <th><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
-
-      {{/ifEquals}}
-      {{#ifEquals question.type "radio"}}
-      <th><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
-
-      {{/ifEquals}}
-      {{#ifEquals question.type "rating"}}
-      <th><label class="question-label">{{question.label}}</label></th>
-      {{/ifEquals}}
-      {{/each}}
+        {{#each this as | question |}}
+          {{#ifEquals question.type "date"}}
+            <th><label class="question-label" for="datePicker">{{question.label}}</label></th>
+          {{/ifEquals}}
+          {{#ifEquals question.type "small_text"}}
+            <th><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
+          {{/ifEquals}}
+          {{#ifEquals question.type "big_text"}}
+            <th><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
+          {{/ifEquals}}
+          {{#ifEquals question.type "radio"}}
+            <th><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
+          {{/ifEquals}}
+          {{#ifEquals question.type "rating"}}
+            <th><label class="question-label">{{question.label}}</label></th>
+          {{/ifEquals}}
+        {{/each}}
       {{/each}}
     </thead>
     <tbody>
@@ -55,7 +52,7 @@
             <td th:text={{question.id}}>{{answer.answer}}</td>
           {{!-- {{/ifEquals}} --}}
         {{/each}}
-        <td><a href="">details</a></td>
+        <td><a href="/utb-feedback-1/1">details</a></td>
       </tr>
       {{/each}}
 

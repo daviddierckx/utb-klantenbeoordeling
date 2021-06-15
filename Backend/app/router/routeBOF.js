@@ -8,6 +8,7 @@ const logger = require("tracer").console();
 router.get("/", BOFController.view);
 router.get("/:formName", BOFController.viewForm);
 router.post("/:formName", BOFController.submitForm);
+router.get("/:formName/:entryId", BOFController.viewSingle);
 
 router.get('/succes', BOFController.submit);
 

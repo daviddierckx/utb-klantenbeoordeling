@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <style>
+    html {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
+    <a href="/admin"><button class="tablink active">Gebruikers</button></a>
+    <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
+    <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+  </nav><br><br><br><br><br>
+  <table class="">
+    <thead class="">
+      <tr>
+        <th scope="">ID</th>
+        <th scope="">Naam</th>
+        <th scope="">Email</th>
+        {{! <th scope="">Password</th>
+        <th scope="">IsAdmin</th> }}
+        <th scope="" class="text-end">Actie</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {{#each rows}}
+      <tr>
+        <td scope="row">{{this.id}}</td>
+        <td>{{this.name}}</td>
+        <td>{{this.email}}</td>
+        <!-- <td>{{this.password}}</td>
+          <td>{{this.isAdmin}}</td> -->
+        <td class="">
+          <a href="admin/users/overview/{{this.id}}" type="button" class=""><i class=""></i>Bekijk</a>
+          <a type="button" class="btn-edit" href="/admin/edituser/{{this.id}}"><i class=""></i>Bewerk</a>
+          <a type="button" class="btn-delete" href="javascript:delay('/admin/users/{{this.id}}')"><i></i>Verwijder</a>
+        </td>
+      </tr>
+      {{/each}}
+      <script>
+
+        function delay(URL) {
+          if (confirm("Weet u zeker dat u deze gebruiker wilt verwijderen?")) {
+            alert("Je hebt deze gebruiker verwijderd");
+            setTimeout(function () { window.location.href = URL }, 100);
+          } else {
+            alert("Je hebt deze verwijdering geannuleerd!");
+          }
+
+        }
+
+      </script>
+
+    </tbody>
+  </table>
+
+
+</html>
