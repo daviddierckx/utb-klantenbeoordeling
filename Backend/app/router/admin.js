@@ -3,7 +3,6 @@ const router = express.Router();
 const adminController = require("./controllers/adminController");
 const forms_controller = require("./controllers/formsController");
 const user_controller = require("./controllers/userController");
-const statistics_controller = require("./controllers/statisticsController");
 
 //create, find, update, delete
 router.get("/", adminController.view);
@@ -23,7 +22,9 @@ router.get("", (req, res) => {
   res.render("home");
 });
 
-router.get("/overview/customer_statistics", statistics_controller.getAverageRatings, statistics_controller.getCountRadioButtonAnswers);
+// routes uit het routes document op de drive
+// geen idee wat de routes hierboven precies betekenen
+// - sylvester
 
 // must haves
 router.get("/console", forms_controller.placeholder); //staat nu op /admin maar is af
