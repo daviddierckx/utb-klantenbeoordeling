@@ -154,11 +154,16 @@ body {
   font-size: medium;
   margin: 0;
   height: 100%;
-  background-image: url("/utb-klantenbeoordeling/Frontend/images/background.jpg");
+  background-image: url("/images/background.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+}
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 main {
@@ -316,7 +321,29 @@ p {
   margin: 1vh auto;
   @include star-rating();
 }
-
+//table
+table {
+  width: 80%;
+  margin: auto;  
+}
+table, th, td {
+  border: 1px solid black;
+}
+th, td {
+  padding: 15px;
+  text-align: center;
+}
+th {
+  background-color: color(primaryLight);
+  border: 2px solid black;
+}
+td {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+td a {
+  color: color(textColor);
+  padding: 5%;
+}
 
 //carroussel
 #regForm {
