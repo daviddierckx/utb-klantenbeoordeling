@@ -49,22 +49,16 @@
     </thead>
     <tbody>
       {{#each data2}}
-      <tr>
+      <tr id="answer">
         {{#each this as | answer |}}
-        {{!--
-        <script type="text/javascript" src="answerScript.js"></script> --}}
-        {{!-- {{#ifEquals answer question.id}} --}}
-        <td th:text={{question.id}}>{{answer.answer}}</td>
-        {{!-- {{/ifEquals}} --}}
+          {{!-- {{#ifEquals answer.label}} --}}
+            <td th:text={{question.id}}>{{answer.answer}}</td>
+          {{!-- {{/ifEquals}} --}}
         {{/each}}
+        <td><a href="">details</a></td>
       </tr>
-
       {{/each}}
-
-      <script>
-      </script>
 
     </tbody>
   </table>
-
 </html>
