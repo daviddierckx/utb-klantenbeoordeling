@@ -1,140 +1,96 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UTB klantenfeedback</title>
 
-    <link rel="stylesheet" href="/css/main.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <style>
+    html {
+      height: 100%;
+    }
+  </style>
+</head>
 
-  </head>
-  <body>
-    <div id="bg"></div>
-    <header>
-      <ul>
-        <li>
-          <a href="https://www.utboils.com/" class="logo"><img
-              src="/images/logo.png"
-              alt="UTB logo"
-            /></a>
-        </li>
-        <li>
-          <h1 id="homepageTitle">Admin pagina</h1>
-          <h4 id="homepageSubTitle">
-            Hier zijn de verschillende adminfunctionaliteiten te vinden
-          </h4>
-        </li>
-      </ul>
-    </header>
-    <main>
-      <div class="buttonlist">
-        <button type="button" id="overzicht">
-          Beoordelingsoverzicht
-        </button>
-        <button type="button" id="opmerkingen">
-          Opmerkingen
-        </button>
-        <button type="button" id="vragen">
-          Vragen wijzigen
-        </button>
-        <button type="button" id="gebruikers">
-          Gebruikers wijzigen
-        </button>
-        <button type="button" id="gebruikers">
-          <a href="/admin"> Back </a>
-        </button>
+<body>
+  <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
+  <a href="/admin"><button class="tablink active">Gebruikers</button></a>
+  <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
+  <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+
+  <br><br>
+  {{#each rows}}
+  <form class="" method="POST" action="/admin/edituser/{{this.id}}">
+    <div class="">
+      <div class="">
+        <label for="floatingInput"> Naam</label>
+        <br><br>
+        <input type="text" class="form-control" id="floatingInput" name="name" aria-describedby="emailHelp"
+          placeholder="naam..." value="{{this.name}}" />
+
+
       </div>
-    </main>
-    <body>
-      {{#if alert}}
+    </div><br>
+    <div class="">
+
+      <div class="">
+        <label for="floatingInput">Emailadres</label>
+        <br><br>
+        <input type="text" class="form-control" id="floatingInput" name="email" aria-describedby="emailHelp"
+          placeholder="email..." value="{{this.email}}" />
+
+      </div>
+    </div>
+    <br>
+    <div class="">
+
+      <div class="checkboxes">
+        <div class="checkboxgroup">
+
+          <div class="wrapper-checkbox">
+            {{#ifEquals this.isAdmin 0}}
+            <input type="radio" name="isAdmin" value="0" aria-describedby="emailHelp" id="option-1" checked>
+            <input type="radio" name="isAdmin" value="1" aria-describedby="emailHelp" id="option-2">
+            {{/ifEquals}}
+            {{#ifEquals this.isAdmin 1}}
+            <input type="radio" name="isAdmin" value="0" aria-describedby="emailHelp" id="option-1">
+            <input type="radio" name="isAdmin" value="1" aria-describedby="emailHelp" id="option-2" checked>
+            {{/ifEquals}}
+            <label for="option-1" class="option option-1">
+              <div class="dot"></div>
+              <span>User</span>
+            </label>
+            <label for="option-2" class="option option-2">
+              <div class="dot"></div>
+              <span>Admin</span>
+            </label>
+          </div>
+        </div>
+        {{#if alert}}
         <div id="alert" role="alert">
           {{alert}}
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          >X</button>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
         </div>
-      {{/if}}
-
-      {{#each rows}}
-      <form class="" method="POST" action="/admin/edituser/{{this.id}}">
+        {{/if}}
         <div class="">
-          <div class="">
-            <label for="floatingInput"> Name</label>
-
-            <input
-              type="text"
-              class="form-control"
-              id="floatingInput"
-              name="name"
-              aria-describedby="emailHelp"
-              placeholder="Enter name"
-              value={{this.name}}
-            />
-
-        
-          </div>
-        </div>
-        <div class="">
-
-          <div class="">
-             <label for="floatingInput">Email</label>
-
-            <input
-              type="text"
-              class="form-control"
-              id="floatingInput"
-              name="email"
-              aria-describedby="emailHelp"
-              placeholder="Enter email"
-              value={{this.email}}
-            />
-
-          </div>
-        </div>
-        <div class="">
-
-            <div class="">
-             <label for="floatingInput">is Admin</label>
-
-            <input
-              type="text"
-              class="form-control"
-              id="floatingInput"
-              name="isAdmin"
-              aria-describedby="emailHelp"
-              placeholder="Enter admin"
-              value={{this.isAdmin}}
-            />
-
-          </div>
-        </div>
-        </div>
-        <div class="">
-          <button type="submit" class="btn">Submit</button>
+          <button type="submit" class="btn">Opslaan</button>
 
         </div>
-      </form>
-      {{/each}}
-      <script src="/js/script.js">
-      </script>
-    </body>
-    <footer>
-      <script>
-if ( window.history.replaceState ) {
-  window.history.replaceState( null, null, window.location.href );
-}
-</script>
-    </footer>
-  </body>
+  </form>
+  </div>
+  {{/each}}
+  <script src="/js/script.js">
+  </script>
+</body>
+<footer>
+  <script>
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
+  </script>
+</footer>
 </html>
