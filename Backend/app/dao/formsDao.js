@@ -175,7 +175,7 @@ exports.getAllFormAnswers = function (formName, callback) {
   });
 }
 
-//get result from one company
+//get answers from one entry
 exports.getFormResult = function (formName, entryId, callback) {
   database.con.query('SELECT * FROM Form WHERE name LIKE ?', [formName], function (error, results, fields) {
     if (error) return callback(error.sqlMessage, undefined);
@@ -184,7 +184,7 @@ exports.getFormResult = function (formName, entryId, callback) {
     }
     const formId = results[0]['id'];
 
-    database.con.query('SELECT * FROM Answer WHERE formId LIKE ? AND entryId LIKE ?', [formId], [entryId], function (error, results, fields) {
+    database.con.query('SELECT * FROM Answer WHERE formId LIKE ? AND entryId LIKE ?', [formId, entryId], function (error, results, fields) {
       if (error) return callback(error.sqlMessage, undefined);
       if (results.length === 0) {
         return callback("form-not-found", undefined);
