@@ -654,6 +654,9 @@ input[type="radio"]{
 #option-2:checked:checked ~ .option-2 span{
   color: #fff;
 }
+.active{
+  background-color: #749dc8;
+}
 
 /* Zoekbalk css */
 
