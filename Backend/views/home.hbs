@@ -1,29 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
-    <link rel="stylesheet" href="/css/main.css">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <style>
-        html{
-            height: 100%;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <style>
+    html {
+      height: 100%;
+    }
+  </style>
 </head>
+
 <body>
     <button class="tablink" onclick="openPage('Overview', this, '#749dc8')" id="defaultOpen">Beoordelingsoverzicht</button>
     <button class="tablink" onclick="openPage('Users', this, '#749dc8')">Gebruikers</button>
     <button class="tablink" onclick="openPage('Questions', this, '#749dc8')">Vragen Wijzigen</button>
     <button class="tablink" onclick="openPage('AddUser', this, '#749dc8')">Gebruiker Toevoegen</button>
 
-    <div id="Overview" class="tabcontent">
-        <h3>Beoordelingsoverzicht</h3><br><br>
-        <p>Hier komt een Beoordelingsoverzicht</p>
-    </div>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each rows}}
+      <tr>
+        <th scope="row">{{this.id}}</th>
+        <td>{{this.email}}</td>
+        <td>{{this.name}}</td>
+        <!-- <td>{{this.password}}</td>
+          <td>{{this.isAdmin}}</td> -->
+        <td class="">
+          <a href="admin/users/overview/{{this.id}}" type="button" class=""><i class=""></i>View</a>
+          <a type="button" class="btn-edit" href="/admin/edituser/{{this.id}}"><i class=""></i>Edit</a>
+          <a type="button" class="btn-delete" href="javascript:delay('/admin/users/{{this.id}}')"><i></i>Delete</a>
+        </td>
+      </tr>
+      {{/each}}
+      <script>
+
+        function delay(URL) {
+          if (confirm("Are you sure you want to delete this user?")) {
+            alert("You have deleted this user");
+            setTimeout(function () { window.location.href = URL }, 100);
+          } else {
+            alert("You have cancelled this delete!");
+          }
+
+        }
 
     <div id="Users" class="tabcontent">
         <h3>Gebruikers</h3><br><br>
@@ -46,10 +72,8 @@
         </div> 
     </div>
 
-    <div id="Questions" class="tabcontent">
-        <h3>Vragen wijzigen</h3><br><br>
-        <p>hier komt de pagina om vragen te wijzigen</p>
-    </div>
+    </tbody>
+  </table>
 
     <div id="AddUser" class="tabcontent">
         <h3>Gebruiker Toevoegen</h3><br><br>

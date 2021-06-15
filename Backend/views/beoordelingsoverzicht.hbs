@@ -1,43 +1,70 @@
-<table class="">
-  <thead class="">
-    {{#each data.pages}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <style>
+    html {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink active">Beoordelingsoverzicht</button></a>
+  <a href="/admin"><button class="tablink">Gebruikers</button></a>
+  <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
+  <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+
+  <table class="">
+    <thead class="">
+      {{#each data.pages}}
       {{#each this as | question |}}
-        {{#ifEquals question.type "date"}}
-          <th><label class="question-label" for="datePicker">{{question.label}}</label></th>
-        {{/ifEquals}}
-        {{#ifEquals question.type "small_text"}}
-          <th><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
-            
-        {{/ifEquals}}
-        {{#ifEquals question.type "big_text"}}
-          <th><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
-            
-        {{/ifEquals}}
-        {{#ifEquals question.type "radio"}}
-          <th><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
-            
-        {{/ifEquals}}
-        {{#ifEquals question.type "rating"}}
-          <th><label class="question-label">{{question.label}}</label></th>
-        {{/ifEquals}}
+      {{#ifEquals question.type "date"}}
+      <th><label class="question-label" for="datePicker">{{question.label}}</label></th>
+      {{/ifEquals}}
+      {{#ifEquals question.type "small_text"}}
+      <th><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
+
+      {{/ifEquals}}
+      {{#ifEquals question.type "big_text"}}
+      <th><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
+
+      {{/ifEquals}}
+      {{#ifEquals question.type "radio"}}
+      <th><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
+
+      {{/ifEquals}}
+      {{#ifEquals question.type "rating"}}
+      <th><label class="question-label">{{question.label}}</label></th>
+      {{/ifEquals}}
       {{/each}}
-    {{/each}}
-  </thead>
-  <tbody>
-    {{#each data2}}
+      {{/each}}
+    </thead>
+    <tbody>
+      {{#each data2}}
       <tr>
         {{#each this as | answer |}}
-          {{!-- <script type="text/javascript" src="answerScript.js"></script> --}}
-          {{!-- {{#ifEquals answer question.id}} --}}
-            <td th:text={{question.id}}>{{answer.answer}}</td>
-          {{!-- {{/ifEquals}} --}}
+        {{!--
+        <script type="text/javascript" src="answerScript.js"></script> --}}
+        {{!-- {{#ifEquals answer question.id}} --}}
+        <td th:text={{question.id}}>{{answer.answer}}</td>
+        {{!-- {{/ifEquals}} --}}
         {{/each}}
       </tr>
-      
-    {{/each}}
-    
-    <script>
-    </script>
 
-  </tbody>
-</table>
+      {{/each}}
+
+      <script>
+      </script>
+
+    </tbody>
+  </table>
+
+</html>

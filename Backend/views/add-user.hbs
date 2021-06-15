@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <style>
+    html {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
+  <a href="/admin"><button class="tablink">Gebruikers</button></a>
+  <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
+  <a href="/admin/adduser"><button class="tablink active">Gebruiker Toevoegen</button></a>
+
+  <br><br>
+  <form class="" method="POST" action="/admin/adduser">
+    <div class="">
+      <div class="">
+        <label for="floatingInput"> Naam</label>
+        <br><br>
+        <input type="text" class="form-control" id="floatingInput" name="name" aria-describedby="emailHelp"
+          placeholder="naam..." />
+
+
+      </div>
+    </div><br>
+    <div class="">
+
+      <div class="">
+        <label for="floatingInput">Emailadres</label>
+        <br><br>
+        <input type="text" class="form-control" id="floatingInput" name="email" aria-describedby="emailHelp"
+          placeholder="email..." />
+
+      </div>
+    </div>
+    <br>
+    <div class="">
+
+      <div class="">
+        <label for="floatingInput">Wachtwoord</label>
+        <br><br>
+        <input type="password" class="form-control" id="id_password" name="password" aria-describedby="emailHelp"
+          placeholder="wachtwoord..." />
+        <!--<input type="password" name="password" autocomplete="current-password" required="" id="id_password"> -->
+        <i class="far fa-eye" id="togglePassword"></i>
+      </div>
+    </div>
+    </div>
+    <div class="">
+
+      <div class="checkboxes">
+        <div class="checkboxgroup">
+
+          <div class="wrapper-checkbox">
+            <input type="radio" name="isAdmin" value="0" aria-describedby="emailHelp" id="option-1" checked>
+            <input type="radio" name="isAdmin" value="1" aria-describedby="emailHelp" id="option-2">
+            <label for="option-1" class="option option-1">
+              <div class="dot"></div>
+              <span>User</span>
+            </label>
+            <label for="option-2" class="option option-2">
+              <div class="dot"></div>
+              <span>Admin</span>
+            </label>
+          </div>
+        </div>
+        {{#if alert}}
+        <div id="alert" role="alert">
+          {{alert}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+        </div>
+        {{/if}}
+        <div class="">
+          <button type="submit" class="btn">Opslaan</button>
+
+        </div>
+  </form>
+  </div>
+  <script src="/js/script.js">
+  </script>
+</body>
+<footer>
+  <script>
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
+  </script>
+</footer>
+</body>
+
+</html>
