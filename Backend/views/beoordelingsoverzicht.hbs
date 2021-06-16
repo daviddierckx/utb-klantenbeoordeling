@@ -35,12 +35,12 @@
           {{#ifEquals question.type "big_text"}}
             <th id="{{question.label}}"><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
           {{/ifEquals}}
-          {{#ifEquals question.type "radio"}}
+          {{!--{{#ifEquals question.type "radio"}}
             <th id="{{question.label}}"><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
           {{/ifEquals}}
           {{#ifEquals question.type "rating"}}
             <th id="{{question.label}}"><label class="question-label">{{question.label}}</label></th>
-          {{/ifEquals}}
+          {{/ifEquals}}--}}
         {{/each}}
       {{/each}}
     </thead>
