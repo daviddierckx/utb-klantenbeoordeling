@@ -27,33 +27,25 @@
   <div id="printDiv">
     <table class="">
       <thead class="">
-        <tr>
-          <th scope="">ID</th>
-          <th scope="">Naam</th>
-          <th scope="">Email</th>
-          {{! <th scope="">Password</th>
-          <th scope="">IsAdmin</th> }}
-          <th scope="" class="text-end">Actie</th>
-        </tr>
+        
+        {{#each data}}
+            {{#each this as | question |}}
+            <tr ></tr>
+              <th >{{question.label}}</th>
+              <td>{{question.answer}}</td>
+                </tr>
+            {{/each}}
+          {{/each}}
+      
       </thead>
       <tbody>
-        {{#each data}}
-        <tr>
-          <td scope="row">{{this.bedrijfsnaam}}</td>
-          <td>{{this.datum}}</td>
-          <td>{{this.answer}}</td>
-        </tr>
-        {{/each}}
-        <script>
-          function delay(URL) {
-            if (confirm("Weet u zeker dat u deze gebruiker wilt verwijderen?")) {
-              alert("Je hebt deze gebruiker verwijderd");
-              setTimeout(function () { window.location.href = URL }, 100);
-            } else {
-              alert("Je hebt deze verwijdering geannuleerd!");
-            }
-          }
-        </script>
+        {{!-- {{#each data}}
+            {{#each this as | answer |}}
+              <td>{{answer.answer}}</td>
+            {{/each}}
+          {{/each}} --}}
+
+
       </tbody>
     </table>
   </div>
