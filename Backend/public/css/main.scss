@@ -215,7 +215,8 @@ form {
   }
 }
 
-input[type="text"], [type="password"] {
+input[type="text"],
+[type="password"] {
   background: color(textColor);
   border: 1px solid color(error);
   box-sizing: border-box;
@@ -334,12 +335,15 @@ p {
 //table
 table {
   width: 80%;
-  margin: auto;  
+  margin: auto;
 }
-table, th, td {
+table,
+th,
+td {
   border: 1px solid black;
 }
-th, td {
+th,
+td {
   padding: 15px;
   text-align: center;
 }
@@ -372,21 +376,23 @@ td a {
 }
 .userInfo a {
   background: color(primary);
-  border: 2px solid #051A2E;
+  border: 2px solid #051a2e;
   box-sizing: border-box;
   display: inline-block;
   margin: 30px;
-  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+    inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
   border-radius: 10px;
   padding: 2vh 10%;
   color: color(textColor);
   text-decoration: none;
 }
 .userInfo a:hover {
-  background: #55A2EF;
-  border: 2px solid #051A2E;
+  background: #55a2ef;
+  border: 2px solid #051a2e;
   box-sizing: border-box;
-  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+    inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
   border-radius: 10px;
   padding: 2vh 10%;
   color: color(textColor);
@@ -511,10 +517,11 @@ form input {
   width: 20%;
   margin: 0;
   color: color(textColor);
-  background: #0C457F;
-  border: 2px solid #051A2E;
+  background: #0c457f;
+  border: 2px solid #051a2e;
   box-sizing: border-box;
-  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+    inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
   border-radius: 10px;
 }
 
@@ -568,8 +575,14 @@ form input {
   width: 3%;
 }
 .slide-in-bottom {
-	-webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+  animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.table.a {
+  table-layout: auto;
+  width: 180px;
 }
 .question-label {
   display: block;
