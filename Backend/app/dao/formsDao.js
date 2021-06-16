@@ -204,7 +204,7 @@ exports.getFormResult = function (formName, entryId, callback) {
   });
 }
 
-// Get  form
+// Get form
 exports.getForm = function (formName, callback) {
   database.con.query('SELECT * FROM Form WHERE name LIKE ?', [formName], function (error, results, fields) {
     if (error) return callback(error.sqlMessage, undefined);
