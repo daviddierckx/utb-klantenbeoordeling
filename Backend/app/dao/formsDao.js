@@ -184,7 +184,7 @@ exports.getFormResult = function (formName, entryId, callback) {
     }
     const formId = results[0]['id'];
 
-    database.con.query('SELECT * FROM Answer WHERE formId LIKE ? AND entryId LIKE ?', [formId], [entryId], function (error, results, fields) {
+    database.con.query('SELECT * FROM Answer WHERE formId LIKE ? AND entryId LIKE ?', [formId, entryId], function (error, results, fields) {
       if (error) return callback(error.sqlMessage, undefined);
       if (results.length === 0) {
         return callback("form-not-found", undefined);
@@ -199,7 +199,7 @@ exports.getFormResult = function (formName, entryId, callback) {
           answer: answer.answer,
         }
       }
-      callback(undefined, answerData);
+      return callback(undefined, answerData);
     });
   });
 }
