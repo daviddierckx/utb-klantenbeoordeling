@@ -177,14 +177,22 @@ form #nextBtn {
   color: #f5f0ef;
   border: 2px solid #0c457f;
   border-radius: 8px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
   width: 140px;
   height: 50px;
   margin: 40px 10px 10px;
 }
 
 form #nextBtn:hover {
-  background-color: #008cba;
-  color: white;
+  background: #55A2EF;
+  border: 2px solid #051A2E;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
 }
 
 form #prevBtn {
@@ -192,14 +200,22 @@ form #prevBtn {
   color: #f5f0ef;
   border: 2px solid #0c457f;
   border-radius: 8px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
   width: 140px;
   height: 50px;
   margin: 40px 10px 10px;
 }
 
 form #prevBtn:hover {
-  background-color: #008cba;
-  color: white;
+  background: #55A2EF;
+  border: 2px solid #051A2E;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
 }
 
 input[type="text"], [type="password"] {
@@ -648,33 +664,12 @@ form input {
 }
 
 .question-label {
-  padding: px;
+  display: block;
+  padding-top: 12px;
 }
-#option-1:checked:checked ~ .option-1 .dot::before,
-#option-2:checked:checked ~ .option-2 .dot::before{
-  opacity: 1;
-  transform: scale(1);
+
+textarea {
+  border-radius: 5px;
+  height: 20vh;
 }
-.wrapper-checkbox .option span{
-  font-size: 20px;
-  color: #808080;
-}
-#option-1:checked:checked ~ .option-1 span,
-#option-2:checked:checked ~ .option-2 span{
-  color: #fff;
-}
-#printPage {
-	background-color: #749DC8;
-	border: none;
-	color: white;
-	padding: 15px 32px;
-  margin: 5px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-}
-#wrapper {
-  display: flex;
-  justify-content: center;
-}
+/*# sourceMappingURL=main.css.map */
