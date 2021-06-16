@@ -611,7 +611,6 @@ form input {
   padding: 14px 16px;
   font-size: 17px;
   width: 25%;
-  margin-bottom: 64px;
 }
 
 .tablink:hover {
@@ -625,125 +624,20 @@ form input {
   padding: 100px 20px;
   height: 100%;
 }
-/*# sourceMappingURL=main.css.map */
 
-.wrapper-checkbox{
-  display: inline-flex;
-  margin-top: 30px; 
-  margin-bottom: 30px;
-  height: 50px;
-  width: 300px;
-  align-items: center;
-  justify-content: space-evenly;
+.searchbar {
+  display: block;
+  margin: 2vh;
+}
+
+.searchbar input {
+  border-color: #051a2e;
+  height: 6vh;
+}
+
+.searchbar button {
   border-radius: 5px;
-  padding: 20px 15px;
-  box-shadow: 5px 5px 30px rgba(0,0,0,0.2);
-}
-.wrapper-checkbox .option{
-  
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  margin: 0 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  padding: 0 10px;
-  border: 2px solid lightgrey;
-  transition: all 0.3s ease;
-}
-.wrapper-checkbox .option .dot{
-  height: 20px;
-  width: 20px;
- 
-  border-radius: 50%;
-  position: relative;
-}
-.wrapper-checkbox .option .dot::before{
-  position: absolute;
-  content: "";
-  top: 4px;
-  left: 4px;
-  width: 12px;
-  height: 12px;
-  background: #0069d9;
-  border-radius: 50%;
-  opacity: 0;
-  transform: scale(1.5);
-  transition: all 0.3s ease;
-}
-input[type="radio"]{
-  display: none;
-}
-#option-1:checked:checked ~ .option-1,
-#option-2:checked:checked ~ .option-2{
-  border-color: #0069d9;
-  background: #0069d9;
-}
-#option-1 ~ .option-1 .dot,
-#option-2 ~ .option-2 .dot{
-  background: #fff;
-  border-color: #fff;
-
-}
-#option-1:checked:checked ~ .option-1 .dot::before,
-#option-2:checked:checked ~ .option-2 .dot::before{
-  opacity: 1;
-  transform: scale(1);
-}
-.wrapper-checkbox .option span{
-  font-size: 20px;
-  color: #808080;
-}
-#option-1:checked:checked ~ .option-1 span,
-#option-2:checked:checked ~ .option-2 span{
-  color: #fff;
-}
-.active{
-  background-color: #749dc8;
-}
-
-/* Zoekbalk css */
-
-
-/* Style the search field */
-form.example{
-  margin-top: 30px !important;
-  margin-bottom: 20px !important;
-  margin-right: 190px
-  
-}
-form.example input[type=text] {
-
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: right;
-  width: 20%;
-  background: #f1f1f1;
-}
-
-/* Style the submit button */
-form.example button {
-  float: right;
+  height: 6vh;
   width: 3%;
-  padding: 12px;
-  background: #749dc8;
-  color: white;
-  font-size: 17px;
-  border: 1px solid grey;
-  border-left: none; /* Prevent double borders */
-  cursor: pointer;
 }
-
-form.example button:hover {
-  background: #749dc8;
-}
-
-/* Clear floats */
-form.example::after {
-  content: "";
-  clear: both;
-  display: table;
-}
+/*# sourceMappingURL=main.css.map */
