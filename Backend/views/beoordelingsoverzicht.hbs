@@ -48,14 +48,15 @@
       {{#each data2}}
       <tr id="answer">
         {{#each this as | answer |}}
-          {{!-- {{#ifEquals answer.label}} --}}
-            <td id="{{answer.label}}">{{answer.answer}}</td>
-          {{!-- {{/ifEquals}} --}}
+        {{!-- {{#ifEquals answer.label}} --}}
+        <td id="{{answer.label}}">{{answer.answer}}</td>
+        {{!-- {{/ifEquals}} --}}
         {{/each}}
-        <td><a href="/beoordelingsformulier/utb-feedback-1/1">details</a></td>
+        <td><a href="/beoordelingsformulier/utb-feedback-1/{{@key}}">details</a></td>
       </tr>
       {{/each}}
 
     </tbody>
   </table>
+
 </html>
