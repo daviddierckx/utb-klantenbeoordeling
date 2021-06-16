@@ -175,6 +175,34 @@ exports.getAllFormAnswers = function (formName, callback) {
   });
 }
 
+//get answers from one entry
+exports.getFormResult = function (formName, entryId, callback) {
+  database.con.query('SELECT * FROM Form WHERE name LIKE ?', [formName], function (error, results, fields) {
+    if (error) return callback(error.sqlMessage, undefined);
+    if (results.length === 0) {
+      return callback("form-not-found", undefined);
+    }
+    const formId = results[0]['id'];
+
+    database.con.query('SELECT * FROM Answer WHERE formId LIKE ? AND entryId LIKE ?', [formId, entryId], function (error, results, fields) {
+      if (error) return callback(error.sqlMessage, undefined);
+      if (results.length === 0) {
+        return callback("form-not-found", undefined);
+      }
+      const answerData = {};
+      for (const answer of results) {
+        if (answerData[answer.entryId] === undefined) {
+          answerData[answer.entryId] = {};
+        }
+        answerData[answer.entryId][answer.questionId] = {
+          label: answer.questionLabel,
+          answer: answer.answer,
+        }
+      }
+      callback(undefined, answerData);
+    });
+  });
+}
 
 // Get  form
 exports.getForm = function (formName, callback) {

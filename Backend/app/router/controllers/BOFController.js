@@ -3,13 +3,24 @@ const forms_dao = require("../../dao/formsDao");
 const logger = require("tracer").console();
 
 exports.view = (req, res) => {
-  forms_dao.getForm("utb-feedback-1", (err2, res2) => {
+  forms_dao.getForm(req.params.formName, (err2, res2) => {
     if (err2) {
       logger.log("Error in receiving form:", err2);
       return res.status(400).send({"success": false, "error": err2});
     }
     logger.log("Got form data", JSON.stringify(res2));
     res.render("beoordelingsformulier", { layout: false, data: res2});
+  });
+};
+
+exports.viewSingle = (req, res) => {
+  forms_dao.getFormResult(req.params.formName, req.params.entryId ,(err2, res2) => {
+    if (err2) {
+      logger.log("Error in receiving form:", err2);
+      return res.status(400).send({"success": false, "error": err2});
+    }
+    logger.log("Got form data", JSON.stringify(res2));
+    res.render("beoordelingsdetail", {data: res2});
   });
 };
 

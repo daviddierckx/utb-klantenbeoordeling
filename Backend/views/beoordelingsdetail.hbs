@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <style>
+    html {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
+    <a href="/admin"><button class="tablink active">Gebruikers</button></a>
+    <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
+    <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+  </nav><br><br><br><br><br>
+  <table class="">
+    <thead class="">
+      <tr>
+        <th scope="">ID</th>
+        <th scope="">Naam</th>
+        <th scope="">Email</th>
+        {{! <th scope="">Password</th>
+        <th scope="">IsAdmin</th> }}
+        <th scope="" class="text-end">Actie</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {{#each data}}
+      <tr>
+        <td scope="row">{{this.bedrijfsnaam}}</td>
+        <td>{{this.datum}}</td>
+        <td>{{this.answer}}</td>
+      </tr>
+      {{/each}}
+      <script>
+
+        function delay(URL) {
+          if (confirm("Weet u zeker dat u deze gebruiker wilt verwijderen?")) {
+            alert("Je hebt deze gebruiker verwijderd");
+            setTimeout(function () { window.location.href = URL }, 100);
+          } else {
+            alert("Je hebt deze verwijdering geannuleerd!");
+          }
+
+        }
+
+      </script>
+
+    </tbody>
+  </table>
+
+
+</html>
