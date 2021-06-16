@@ -23,7 +23,7 @@
     <a href="/admin"><button class="tablink active">Gebruikers</button></a>
     <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
     <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
-  </nav><br><br><br><br><br>
+  </nav>
   <form class="searchbar" method="POST" action="/admin" novalidate>
     <input type="text" placeholder="Search.." name="search">
     <button type="submit"><i class="fa fa-search"></i></button>
@@ -31,7 +31,7 @@
   <table class="">
     <thead class="">
       <tr>
-        <th scope="">ID</th>
+        {{!-- <th scope="">ID</th> --}}
         <th scope="">Naam</th>
         <th scope="">Email</th>
         {{! <th scope="">Password</th>
@@ -43,7 +43,7 @@
     <tbody>
       {{#each rows}}
       <tr>
-        <td scope="row">{{this.id}}</td>
+        {{!-- <td scope="row">{{this.id}}</td> --}}
         <td>{{this.name}}</td>
         <td>{{this.email}}</td>
         <!-- <td>{{this.password}}</td>

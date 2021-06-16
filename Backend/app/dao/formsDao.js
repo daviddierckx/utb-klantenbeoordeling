@@ -199,7 +199,7 @@ exports.getFormResult = function (formName, entryId, callback) {
           answer: answer.answer,
         }
       }
-      callback(undefined, answerData);
+      return callback(undefined, answerData);
     });
   });
 }
