@@ -650,4 +650,31 @@ form input {
 .question-label {
   padding: px;
 }
-/*# sourceMappingURL=main.css.map */
+#option-1:checked:checked ~ .option-1 .dot::before,
+#option-2:checked:checked ~ .option-2 .dot::before{
+  opacity: 1;
+  transform: scale(1);
+}
+.wrapper-checkbox .option span{
+  font-size: 20px;
+  color: #808080;
+}
+#option-1:checked:checked ~ .option-1 span,
+#option-2:checked:checked ~ .option-2 span{
+  color: #fff;
+}
+#printPage {
+	background-color: #749DC8;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+  margin: 5px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+#wrapper {
+  display: flex;
+  justify-content: center;
+}
