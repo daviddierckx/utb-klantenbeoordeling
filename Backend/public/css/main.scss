@@ -163,6 +163,7 @@ body {
 nav {
   position: fixed;
   top: 0;
+  margin-bottom: 5vh;
   width: 100%;
 }
 
@@ -546,7 +547,7 @@ form input {
 }
 .searchbar {
   display: block;
-  margin: 2vh;
+  margin: 10vh;
 }
 .searchbar input {
   border-color: color(PrimaryDark);
@@ -557,3 +558,9 @@ form input {
   height: 6vh;
   width: 3%;
 }
+.slide-in-bottom {
+	-webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.question-label {
+  padding:
