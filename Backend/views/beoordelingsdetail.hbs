@@ -23,42 +23,50 @@
     <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
     <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
   </nav><br><br><br><br><br>
-  <table class="">
-    <thead class="">
-      <tr>
-        <th scope="">ID</th>
-        <th scope="">Naam</th>
-        <th scope="">Email</th>
-        {{! <th scope="">Password</th>
-        <th scope="">IsAdmin</th> }}
-        <th scope="" class="text-end">Actie</th>
-
-      </tr>
-    </thead>
-    <tbody>
-      {{#each data}}
-      <tr>
-        <td scope="row">{{this.bedrijfsnaam}}</td>
-        <td>{{this.datum}}</td>
-        <td>{{this.answer}}</td>
-      </tr>
-      {{/each}}
-      <script>
-
-        function delay(URL) {
-          if (confirm("Weet u zeker dat u deze gebruiker wilt verwijderen?")) {
-            alert("Je hebt deze gebruiker verwijderd");
-            setTimeout(function () { window.location.href = URL }, 100);
-          } else {
-            alert("Je hebt deze verwijdering geannuleerd!");
+  <div id="printDiv">
+    <table class="">
+      <thead class="">
+        <tr>
+          <th scope="">ID</th>
+          <th scope="">Naam</th>
+          <th scope="">Email</th>
+          {{! <th scope="">Password</th>
+          <th scope="">IsAdmin</th> }}
+          <th scope="" class="text-end">Actie</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each data}}
+        <tr>
+          <td scope="row">{{this.bedrijfsnaam}}</td>
+          <td>{{this.datum}}</td>
+          <td>{{this.answer}}</td>
+        </tr>
+        {{/each}}
+        <script>
+          function delay(URL) {
+            if (confirm("Weet u zeker dat u deze gebruiker wilt verwijderen?")) {
+              alert("Je hebt deze gebruiker verwijderd");
+              setTimeout(function () { window.location.href = URL }, 100);
+            } else {
+              alert("Je hebt deze verwijdering geannuleerd!");
+            }
           }
-
-        }
-
-      </script>
-
-    </tbody>
-  </table>
-
+        </script>
+      </tbody>
+    </table>
+  </div>
+  <button onclick="window.print()">Print deze pagina</button>
+  {{!-- <input type="button" onClick="printDiv('printableArea')" value="Print deze pagina"> --}}
+  {{!-- <script type="text/javascript">
+    document.getElementById("doPrint").addEventListener("click", function() {
+      var printContents = document.getElementById('printDiv').innerHTML
+      var originalContents = document.body.innerHTML
+      document.body.innerHTML = printContents
+      window.print()
+      document.body.innerHTML = originalContents
+    })
+  </script> --}}
+</body>
 
 </html>
