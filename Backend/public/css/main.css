@@ -722,3 +722,18 @@ input[type="radio"]{
 #option-2:checked:checked ~ .option-2 span{
   color: #fff;
 }
+#printPage {
+	background-color: #749DC8;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+  margin: 5px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
+#wrapper {
+  display: flex;
+  justify-content: center;
+}
