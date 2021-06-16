@@ -57,3 +57,15 @@ exports.submitForm = function(req, res) {
     res.render("succes", { layout:false });
   });
 };
+
+
+exports.manageGetForms = function(req, res) {
+  forms_dao.getAllForms("utb-feedback-1", (err2, res2) => {
+    if (err2) {
+      logger.log("Error in receiving form:", err2);
+      return res.status(400).send({"success": false, "error": err2});
+    }
+    logger.log("Got all forms data", JSON.stringify(res2));
+    res.render("manageForms", { layout: false, data: res2});
+  });
+};

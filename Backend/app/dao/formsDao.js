@@ -175,6 +175,31 @@ exports.getAllFormAnswers = function (formName, callback) {
   });
 }
 
+exports.getAllForms = function (formName, callback) {
+  database.con.query('SELECT name FROM Form', [formName], function (error, results, fields) {
+    if (error) return callback(error.sqlMessage, undefined);
+    if (results.length === 0) return callback("no-forms-found", undefined);
+
+    const promises = [];
+    for (const result of results) {
+      promises.push(
+        new Promise((resolve, reject) => {
+          exports.getForm(result['name'], (err, res) => {
+            if (err) return reject(err);
+            resolve(res);
+          });
+        })
+      );
+    }
+
+    Promise.all(promises).then((formsData) => {
+      callback(undefined, formsData);
+    }).catch((err) => {
+      logger.log("Error while retrieving all forms:", err)
+      callback(err, undefined);
+    });
+  })
+}
 
 // Get  form
 exports.getForm = function (formName, callback) {

@@ -1,21 +1,29 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UTB klantenfeedback</title>
-
-    <link rel="stylesheet" href="/css/main.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
-
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/manageForms.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        const formName = "{{data.name}}";
+    </script>
 </head>
+
 <body>
 <div id="bg"></div>
 <header>
     <ul>
         <li>
-            <a href="https://www.utboils.com/" class="logo"><img src="../../images/logo.png" alt="UTB logo"/></a>
+            <a href="https://www.utboils.com/" class="logo"><img src="../images/logo.png" alt="UTB logo"></a>
         </li>
         <li>
             <h1 id="homepageTitle">Admin Formulieren beheer</h1>
@@ -25,5 +33,75 @@
         </li>
     </ul>
 </header>
+<main>
+
+    <div class="tab-titles">
+        {{#each data as | form |}}
+            <div class="tab-title" id="tab-title-{{form.id}}" onclick="showContent(this, '.tab-content', '#tab-content-{{form.id}}');">{{form.name}}</div>
+        {{/each}}
+    </div>
+
+    <div class="tab-container">
+        {{#each data as | form |}}
+            <div class="tab-content" id="tab-content-{{form.id}}">
+                <label for="page-name-{{form.id}}">Formulier verkorte-naam(voor in de URL, hier mogen geen spaties in
+                    zitten)</label>
+                <input type="text" id="page-name-{{form.id}}" value="{{form.name}}">
+
+                <label for="page-title-{{form.id}}">Formulier titel</label>
+                <input type="text" id="page-title-{{form.id}}" value="{{form.title}}">
+
+                <label for="page-subtitle-{{form.id}}">Formulier sub-titel</label>
+                <input type="text" id="page-subtitle-{{form.id}}" value="{{form.subtitle}}">
+
+                <div class="tab-titles">
+                    {{#each form.pages as | page pageId |}}
+                        <div class="tab-title" onclick="showContent(this, '.page-content', '#page-content-{{form.id}}-{{pageId}}');">Page: {{pageId}}</div>
+                    {{/each}}
+                </div>
+
+                <div class="tab-container">
+                    {{#each form.pages as | page pageId |}}
+                        <div class="tab-content page-content" id="page-content-{{form.id}}-{{pageId}}">
+                            {{#each page as | question |}}
+                                <div class="question-container">
+                                    <div class="question-container-label question-container-sub">
+                                        <label for="question-label-{{question.id}}">Vraag titel</label>
+                                        <input type="text" id="question-label-{{question.id}}"
+                                               value="{{question.label}}">
+                                    </div>
+                                    <div class="question-container-type question-container-sub">
+                                        <label for="question-type-{{question.id}}">Vraag type</label>
+                                        <select id="question-type-{{question.id}}">
+                                            <option value="date" {{#ifEquals question.type "date"}}
+                                                    selected {{/ifEquals}}>
+                                                Datum
+                                            </option>
+                                            <option value="small_text" {{#ifEquals question.type "small_text"}}
+                                                    selected {{/ifEquals}}>Klein stukje tekst
+                                            </option>
+                                            <option value="big_text" {{#ifEquals question.type "big_text"}}
+                                                    selected {{/ifEquals}}>Groot tekst vlak
+                                            </option>
+                                            <option value="radio" {{#ifEquals question.type "radio"}}
+                                                    selected {{/ifEquals}}>Multiple choice
+                                            </option>
+                                            <option value="rating" {{#ifEquals question.type "rating"}}
+                                                    selected {{/ifEquals}}>1-5 rating met sterren
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            {{/each}}
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+
+        {{/each}}
+    </div>
+</main>
+
+<script src="/../js/manageForms.js"></script>
 </body>
 </html>

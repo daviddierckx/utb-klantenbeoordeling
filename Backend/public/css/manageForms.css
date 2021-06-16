@@ -1,0 +1,64 @@
+.tab-container {
+  position: relative;
+}
+
+.tab-content {
+  display: none;
+  margin-top: 1rem;
+}
+
+.tab-titles {
+  font-size: 0;
+}
+.tab-titles .tab-title {
+  padding: 0.4rem;
+  font-size: medium;
+  display: inline-block;
+  cursor: pointer;
+  transition-duration: 0.25s;
+}
+.tab-titles .tab-title:not(:first-child) {
+  border-left-style: solid;
+  border-width: 1px;
+  border-color: darkgrey;
+}
+.tab-titles .tab-title:hover {
+  background-color: gray;
+}
+.tab-titles .selected-content {
+  background-color: #5e5e5e;
+}
+
+.question-container {
+  margin-top: 1rem;
+  width: 45%;
+  display: inline-block;
+}
+select {
+  margin-bottom: 1em;
+  padding: 0.25em;
+  border: 0;
+  border-bottom: 2px solid currentcolor;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  border-radius: 0;
+}
+select:focus, select:active {
+  outline: 0;
+  border-bottom-color: white;
+}
+
+.question-container:nth-child(2n) {
+  float: right;
+}
+
+.tab-titles:not(:first-child) {
+  margin-top: 1rem;
+}
+
+main {
+  margin-top: 5vh;
+  padding: 1rem;
+}
+
+/*# sourceMappingURL=manageForms.css.map */
