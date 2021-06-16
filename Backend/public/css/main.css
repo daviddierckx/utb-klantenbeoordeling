@@ -742,7 +742,7 @@ input[type="radio"]{
 }
 #option-1 ~ .option-1 .dot,
 #option-2 ~ .option-2 .dot{
-  background: #fff;
+  background: white;
   border-color: #fff;
 
 }
