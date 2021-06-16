@@ -36,18 +36,11 @@
       </tr>
     </thead>
     <tbody>
-      {{#each rows}}
+      {{#each data}}
       <tr>
-        <td scope="row">{{this.id}}</td>
-        <td>{{this.name}}</td>
-        <td>{{this.email}}</td>
-        <!-- <td>{{this.password}}</td>
-          <td>{{this.isAdmin}}</td> -->
-        <td class="">
-          <a href="admin/users/overview/{{this.id}}" type="button" class=""><i class=""></i>Bekijk</a>
-          <a type="button" class="btn-edit" href="/admin/edituser/{{this.id}}"><i class=""></i>Bewerk</a>
-          <a type="button" class="btn-delete" href="javascript:delay('/admin/users/{{this.id}}')"><i></i>Verwijder</a>
-        </td>
+        <td scope="row">{{this.bedrijfsnaam}}</td>
+        <td>{{this.datum}}</td>
+        <td>{{this.answer}}</td>
       </tr>
       {{/each}}
       <script>

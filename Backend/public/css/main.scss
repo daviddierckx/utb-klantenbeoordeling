@@ -544,3 +544,16 @@ form input {
   padding: 100px 20px;
   height: 100%;
 }
+.searchbar {
+  display: block;
+  margin: 2vh;
+}
+.searchbar input {
+  border-color: color(PrimaryDark);
+  height: 6vh;
+}
+.searchbar button {
+  border-radius: 5px;
+  height: 6vh;
+  width: 3%;
+}

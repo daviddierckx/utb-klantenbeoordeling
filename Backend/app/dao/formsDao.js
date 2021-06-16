@@ -175,7 +175,7 @@ exports.getAllFormAnswers = function (formName, callback) {
   });
 }
 
-//get result from one company
+//get answers from one entry
 exports.getFormResult = function (formName, entryId, callback) {
   database.con.query('SELECT * FROM Form WHERE name LIKE ?', [formName], function (error, results, fields) {
     if (error) return callback(error.sqlMessage, undefined);
