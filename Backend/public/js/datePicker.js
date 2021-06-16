@@ -1,1 +1,2 @@
-document.getElementById("datePicker").value = new Date().toDateInputValue();
+var elementArray = document.getElementsByClassName("date-picker")
+elementArray[0].valueAsDate = new Date();
