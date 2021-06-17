@@ -5,24 +5,24 @@ const statistics_controller = require("./controllers/statisticsController");
 
 // middleware logger
 router.use(function timeLog(req, res, next) {
-    logger.log(
-        req.originalUrl,
-        "Time:",
-        Date.now(),
-        "data:",
-        JSON.stringify(req.body),
-        "query:",
-        JSON.stringify(req.query),
-        "params:",
-        JSON.stringify(req.params)
-    );
-    next();
+  logger.log(
+    req.originalUrl,
+    "Time:",
+    Date.now(),
+    "data:",
+    JSON.stringify(req.body),
+    "query:",
+    JSON.stringify(req.query),
+    "params:",
+    JSON.stringify(req.params)
+  );
+  next();
 });
 
 // testing routes. Change these to something more functional down the line
 router.get(
-    "/feedback/statistics/radio",
-    statistics_controller.getCountRadioButtonAnswers
+  "/feedback/statistics/radio",
+  statistics_controller.getCountRadioButtonAnswers
 );
 
 module.exports = router;
