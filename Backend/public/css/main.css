@@ -187,8 +187,8 @@ form #nextBtn {
 }
 
 form #nextBtn:hover {
-  background: #55A2EF;
-  border: 2px solid #051A2E;
+  background: #55a2ef;
+  border: 2px solid #051a2e;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
@@ -210,8 +210,8 @@ form #prevBtn {
 }
 
 form #prevBtn:hover {
-  background: #55A2EF;
-  border: 2px solid #051A2E;
+  background: #55a2ef;
+  border: 2px solid #051a2e;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
@@ -786,5 +786,74 @@ textarea {
 .editForm {
   display: block;
   margin-top: 10vh;
+}
+
+@media only screen and (max-width: 647px) {
+  .formTitle {
+    font-family: "montserrat";
+    margin-left: 20%;
+    display: none;
+  }
+  #regForm {
+    background-color: #051a2e;
+    margin: 10px auto;
+    padding: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 65%;
+    min-width: 200px;
+  }
+  main {
+    margin-top: 0;
+  }
+  .hidden {
+    display: none;
+  }
+  form {
+    text-align: center;
+    font-size: x-large;
+  }
+  form #nextBtn {
+    background-color: #0c457f;
+    color: #f5f0ef;
+    border: 2px solid #0c457f;
+    border-radius: 8px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+            box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+    width: 70px;
+    height: 50px;
+    margin: 50px 10px 10px;
+  }
+  form #nextBtn:hover {
+    background: #55a2ef;
+    border: 2px solid #051a2e;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+            box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  }
+  form #prevBtn {
+    background-color: #0c457f;
+    color: #f5f0ef;
+    border: 2px solid #0c457f;
+    border-radius: 8px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+            box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+    width: 70px;
+    height: 50px;
+    margin: 50px 10px 10px;
+  }
+  form #prevBtn:hover {
+    background: #55a2ef;
+    border: 2px solid #051a2e;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+            box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  }
 }
 /*# sourceMappingURL=main.css.map */
