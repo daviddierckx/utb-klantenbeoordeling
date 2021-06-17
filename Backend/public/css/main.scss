@@ -771,3 +771,27 @@ input[type="radio"] {
     }
   }
 }
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .formTitle {
+    font-family: "montserrat";
+    margin-left: 20%;
+    display: none;
+  }
+
+  #regForm {
+    background-color: color(PrimaryDark);
+    margin: 7% auto;
+    // margin-top: 50px;
+
+    padding: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 65%;
+    min-width: 200px;
+  }
+
+  main {
+    margin-top: 0;
+  }
+}
