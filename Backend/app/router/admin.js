@@ -3,12 +3,13 @@ const router = express.Router();
 const adminController = require("./controllers/adminController");
 const forms_controller = require("./controllers/formsController");
 const user_controller = require("./controllers/userController");
+const authentication = require("../authentication");
 
 //create, find, update, delete
-router.get("/", adminController.view);
+router.get("/", authentication.isLoggedIn, adminController.view);
 router.post("/", adminController.search);
 
-router.get("/adduser", adminController.adduser);
+router.get("/adduser", authentication.isAdminLoggedIn, adminController.adduser);
 router.post("/adduser", user_controller.register);
 
 router.get("/forms/manage", adminController.manageForms);

@@ -31,12 +31,6 @@ exports.generateNewToken = function (email, user_id, isAdmin, callback) {
     jwt.sign({user_email: email, user_id: user_id, isAdmin: isAdmin}, config.auth.secret, {expiresIn: '1h'}, (err, res) => {
         if (err) return callback("error-while-creating-token", undefined);
         callback(undefined, {token: res, user_id: user_id, isAdmin: isAdmin});
-        // database.con.query('UPDATE `User` SET `token`=? WHERE email=? AND id=?',
-        //     [res, email, user_id], function (error, results, fields) {
-        //         if (error) return callback(error.sqlMessage, undefined);
-        //         if (results.affectedRows === 0) return callback("failed to update token", undefined);
-        //         callback(undefined, {token: res, user_id: user_id});
-        //     });
     });
 }
 

@@ -59,6 +59,8 @@ exports.login = function (req, res) {
     }
     logger.log("User logged in with token", res2);
 
+    console.log(req.headers);
+
     switch (res2.isAdmin) {
       case 0:
         //User is guest
