@@ -137,6 +137,7 @@ table {
   border-spacing: 0;
 }
 // start of (s)css code
+
 header ul {
   list-style-type: none;
   margin: 0;
@@ -574,4 +575,21 @@ form input {
 .table.a {
   table-layout: auto;
   width: 180px;
+}
+
+@media only screen and (max-width: 599px) {
+  /* For mobile phones: */
+  #regForm {
+    background-color: color(PrimaryDark);
+    margin: 100px auto;
+    padding: 40px;
+    width: 65%;
+    min-width: 200px;
+  }
+
+  #formTitle {
+    font-family: "montserrat";
+    margin-left: 20%;
+    display: none;
+  }
 }

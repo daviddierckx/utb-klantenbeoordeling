@@ -1,126 +1,200 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UTB klantenfeedback</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <script>
-        const formName = "{{data.name}}";
+      const formName = "{{data.name}}";
     </script>
-</head>
+  </head>
 
-<body>
-<div id="bg"></div>
-<header>
-    <ul>
+  <body>
+    <div id="bg"></div>
+    <header>
+      <ul>
         <li>
-            <a href="https://www.utboils.com/" class="logo"><img src="../images/logo.png" alt="UTB logo"></a>
+          <a href="https://www.utboils.com/" class="logo"><img
+              src="../images/logo.png"
+              alt="UTB logo"
+            /></a>
         </li>
         <li>
-            <h1 class="formTitle">{{data.title}}</h1>
+          <h1 class="formTitle">{{data.title}}</h1>
         </li>
-    </ul>
-</header>
-<main>
-    <form id="regForm" action="" method="post">
+      </ul>
+    </header>
+    <main>
+      <form id="regForm" action="" method="post">
         <h2>{{data.title}}</h2>
         <h6 style="margin-bottom: 1rem;">{{data.subtitle}}</h6>
 
         <div class="progress-container">
-            <span>Voortgang:</span>
-            <div class="progress-bar">
-                <div class="progress-bar-progress"></div>
-            </div>
+          <span>Voortgang:</span>
+          <div class="progress-bar">
+            <div class="progress-bar-progress"></div>
+          </div>
         </div>
         {{#each data.pages}}
-            <div class="tab">
-                {{#each this as | question |}}
-                    {{#ifEquals question.type "date"}}
-                        <label class="question-label" for="datePicker">{{question.label}}</label>
-                        <br>
-                        <input class="question-input date-picker" id="question-{{question.id}}"
-                               name="question-{{question.id}}" type="date"/>
-                    {{/ifEquals}}
-                    {{#ifEquals question.type "small_text"}}
-                        <label class="question-label" for="question-{{question.id}}">{{question.label}}</label>
-                        <br>
-                        <input class="question-input" type="text" id="question-{{question.id}}"
-                               name="question-{{question.id}}">
-                    {{/ifEquals}}
-                    {{#ifEquals question.type "big_text"}}
-                        <label class="question-label" for="question-{{question.id}}">{{question.label}}</label>
-                        <br><br>
-                        <textarea id="question-{{question.id}}" name="question-{{question.id}}"
-                                  class="form-question textinput" placeholder="Opmerking"></textarea>
-                    {{/ifEquals}}
-                    {{#ifEquals question.type "radio"}}
-                        <label class="question-label" for="question-{{question.id}}">{{question.label}}</label>
-                        <br>
-                        <ul class="question-radio">
-                            {{#each question.options as |option|}}
-                                <li>
-                                    <input type="radio" id="question-{{question.id}}-{{@key}}"
-                                           name="question-{{question.id}}" value="{{this}}" checked>
-                                           <br>
-                                    <label for="question-{{question.id}}-{{@key}}">{{this}}</label>
-                                </li>
-                            {{/each}}
-                        </ul>
-                    {{/ifEquals}}
-                    {{#ifEquals question.type "rating"}}
-                        <p class="questionText">{{question.label}}</p>
-                        <fieldset class="rating">
-                            <input type="radio" id="question-{{question.id}}-5" name="question-{{question.id}}"
-                                   value="5"/>
-                            <label class="full" for="question-{{question.id}}-5"></label>
+          <div class="tab">
+            {{#each this as |question|}}
+              {{#ifEquals question.type "date"}}
+                <label
+                  class="question-label"
+                  for="datePicker"
+                >{{question.label}}</label>
+                <br />
+                <input
+                  class="question-input date-picker"
+                  id="question-{{question.id}}"
+                  name="question-{{question.id}}"
+                  type="date"
+                />
+              {{/ifEquals}}
+              {{#ifEquals question.type "small_text"}}
+                <label
+                  class="question-label"
+                  for="question-{{question.id}}"
+                >{{question.label}}</label>
+                <br />
+                <input
+                  class="question-input"
+                  type="text"
+                  id="question-{{question.id}}"
+                  name="question-{{question.id}}"
+                />
+              {{/ifEquals}}
+              {{#ifEquals question.type "big_text"}}
+                <label
+                  class="question-label"
+                  for="question-{{question.id}}"
+                >{{question.label}}</label>
+                <br /><br />
+                <textarea
+                  id="question-{{question.id}}"
+                  name="question-{{question.id}}"
+                  class="form-question textinput"
+                  placeholder="Opmerking"
+                ></textarea>
+              {{/ifEquals}}
+              {{#ifEquals question.type "radio"}}
+                <label
+                  class="question-label"
+                  for="question-{{question.id}}"
+                >{{question.label}}</label>
+                <br />
+                <ul class="question-radio">
+                  {{#each question.options as |option|}}
+                    <li>
+                      <input
+                        type="radio"
+                        id="question-{{question.id}}-{{@key}}"
+                        name="question-{{question.id}}"
+                        value="{{this}}"
+                        checked
+                      />
+                      <br />
+                      <label
+                        for="question-{{question.id}}-{{@key}}"
+                      >{{this}}</label>
+                    </li>
+                  {{/each}}
+                </ul>
+              {{/ifEquals}}
+              {{#ifEquals question.type "rating"}}
+                <p class="questionText">{{question.label}}</p>
+                <fieldset class="rating">
+                  <input
+                    type="radio"
+                    id="question-{{question.id}}-5"
+                    name="question-{{question.id}}"
+                    value="5"
+                  />
+                  <label class="full" for="question-{{question.id}}-5"></label>
 
-                            <input type="radio" id="question-{{question.id}}-4" name="question-{{question.id}}"
-                                   value="4"/>
-                            <label class="full" for="question-{{question.id}}-4"></label>
+                  <input
+                    type="radio"
+                    id="question-{{question.id}}-4"
+                    name="question-{{question.id}}"
+                    value="4"
+                  />
+                  <label class="full" for="question-{{question.id}}-4"></label>
 
-                            <input type="radio" id="question-{{question.id}}-3" name="question-{{question.id}}"
-                                   value="3"/>
-                            <label class="full" for="question-{{question.id}}-3"></label>
+                  <input
+                    type="radio"
+                    id="question-{{question.id}}-3"
+                    name="question-{{question.id}}"
+                    value="3"
+                  />
+                  <label class="full" for="question-{{question.id}}-3"></label>
 
-                            <input type="radio" id="question-{{question.id}}-2" name="question-{{question.id}}"
-                                   value="2"/>
-                            <label class="full" for="question-{{question.id}}-2"></label>
+                  <input
+                    type="radio"
+                    id="question-{{question.id}}-2"
+                    name="question-{{question.id}}"
+                    value="2"
+                  />
+                  <label class="full" for="question-{{question.id}}-2"></label>
 
-                            <input type="radio" id="question-{{question.id}}-1" name="question-{{question.id}}"
-                                   value="1"/>
-                            <label class="full" for="question-{{question.id}}-1"></label>
-                        </fieldset>
-                    {{/ifEquals}}
-                    <div class="question-spacer"></div>
-                {{/each}}
-            </div>
+                  <input
+                    type="radio"
+                    id="question-{{question.id}}-1"
+                    name="question-{{question.id}}"
+                    value="1"
+                  />
+                  <label class="full" for="question-{{question.id}}-1"></label>
+                </fieldset>
+              {{/ifEquals}}
+              <div class="question-spacer"></div>
+            {{/each}}
+          </div>
         {{/each}}
         <div style="overflow: none;">
-            <div style="float: center;">
-                <button type="button" class="pageButtons" id="prevBtn" onclick="nextPrev(-1)">Vorige</button>
-                <button type="button" class="pageButtons" id="nextBtn" onclick="nextPrev(1)">Volgende</button>
-            </div>
+          <div style="float: center;">
+            <button
+              type="button"
+              class="pageButtons"
+              id="prevBtn"
+              onclick="nextPrev(-1)"
+            >Vorige</button>
+            <button
+              type="button"
+              class="pageButtons"
+              id="nextBtn"
+              onclick="nextPrev(1)"
+            >Volgende</button>
+          </div>
         </div>
 
         <div style="text-align:center;margin-top:40px;">
-            {{#each data.pages}}
-                <span class="step"></span>
-            {{/each}}
+          {{#each data.pages}}
+            <span class="step"></span>
+          {{/each}}
         </div>
-    </form>
+      </form>
 
-
-</main>
-<script src="/../js/myScript.js"></script>
-<script src="/../js/datePicker.js"></script>
-<script src="/../js/formScript.js"></script>
-</body>
+    </main>
+    <script src="/../js/myScript.js"></script>
+    <script src="/../js/datePicker.js"></script>
+    <script src="/../js/formScript.js"></script>
+  </body>
 </html>
