@@ -593,3 +593,12 @@ form input {
     display: none;
   }
 }
+
+//large title on feedback form pops down.
+@media only screen and (max-width: 647px) {
+  .formTitle {
+    font-family: "montserrat";
+    margin-left: 20%;
+    display: none;
+  }
+}
