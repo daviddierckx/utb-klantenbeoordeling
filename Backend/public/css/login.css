@@ -557,3 +557,23 @@ input[type="password"]:placeholder {
   font-size: 13px;
 }
 
+/*remove title when width below 332*/
+@media only screen and (max-width: 332px) {
+  .formTitle {
+    font-family: "montserrat";
+    margin-left: 20%;
+    display: none;
+  }
+} 
+
+@media only screen and (min-width: 1440px) {
+  #formContent{
+    max-width: 60%;
+  }
+  #formContent h2{
+    font-size: 40px;
+  }
+  #formContent form input{
+    font-size: 30px;
+  }
+}
