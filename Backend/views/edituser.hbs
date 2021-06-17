@@ -17,13 +17,15 @@
 </head>
 
 <body>
+  <nav>
   <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
   <a href="/admin"><button class="tablink active">Gebruikers</button></a>
   <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
   <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+  </nav>
 
   {{#each rows}}
-  <form class="" method="POST" action="/admin/edituser/{{this.id}}">
+  <form class="editForm" method="POST" action="/admin/edituser/{{this.id}}">
     <div class="">
       <div class="">
         <label for="floatingInput"> Naam</label>
