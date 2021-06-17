@@ -927,4 +927,13 @@ input[type="radio"] {
     margin-top: 0;
   }
 }
+
+@media print {
+  .browser-only {
+    display: none;
+  }
+  .printDiv {
+    display: block;
+  }
+}
 /*# sourceMappingURL=main.css.map */
