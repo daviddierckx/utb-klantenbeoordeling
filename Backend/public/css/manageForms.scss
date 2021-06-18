@@ -69,7 +69,7 @@ input {
   border: none !important;
 }
 
-button {
+button.button {
   padding: .3rem;
   margin-top: .6rem;
   border: 0;
@@ -78,12 +78,12 @@ button {
   float: right;
 }
 
-button:hover {
+button.button:hover {
   background-color: #b1b1b1;
 }
 
 main {
-  margin: 5vh auto;
+  margin: 12vh auto;
   padding: 1rem;
   max-width: 860px;
 }

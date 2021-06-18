@@ -19,20 +19,13 @@
 </head>
 
 <body>
-<div id="bg"></div>
-<header>
-    <ul>
-        <li>
-            <a href="https://www.utboils.com/" class="logo"><img src="../images/logo.png" alt="UTB logo"></a>
-        </li>
-        <li>
-            <h1 id="homepageTitle">Admin Formulieren beheer</h1>
-            <h4 id="homepageSubTitle">
-                Hier kan je formulieren beheren
-            </h4>
-        </li>
-    </ul>
-</header>
+<nav>
+    <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
+    <a href="/admin"><button class="tablink active">Gebruikers</button></a>
+    <a href="/admin/forms"><button class="tablink">Vragen Wijzigen</button></a>
+    <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+</nav>
+
 <main>
 
     <div class="tab-titles">
@@ -92,11 +85,11 @@
                                     </select>
                                 </div>
                             {{/each}}
-                            <button type="button" onclick="addQuestion(this)">Vraag toevoegen</button>
+                            <button type="button" class="button" onclick="addQuestion(this)">Vraag toevoegen</button>
                         </div>
                     {{/each}}
                 </div>
-                <button type="button" onclick="saveForm(this)" style="float: left">Formulier opslaan</button>
+                <button type="button" class="button" onclick="saveForm(this)" style="float: left">Formulier opslaan</button>
             </div>
 
         {{/each}}
