@@ -250,7 +250,7 @@ exports.getForm = function (formName, callback) {
         for (const questionOptions of questionOptionsData) {
           for (const page of formData.pages) {
             for (const question of page) {
-              if (question.id === questionOptions[0].questionId) {
+              if (questionOptions[0] && question.id === questionOptions[0].questionId) {
                 if (question.options === undefined) {
                   question.options = [];
                 }
@@ -331,7 +331,11 @@ exports.updateForm = function (formName, formData, callback) {
         const questionPromisses = [];
         for (const [pageIndex, page] of Object.entries(formData.pages)) {
           for (const [questionIndex, pageRow] of Object.entries(page)) {
-            questionPromisses.push(updateFormQuestion(pageRow.id, formId, pageIndex, questionIndex, pageRow.type, pageRow.label, pageRow.isRequired ?? true, pageRow));
+            if (pageRow.id) {
+              questionPromisses.push(updateFormQuestion(pageRow.id, formId, pageIndex, questionIndex, pageRow.type, pageRow.label, pageRow.isRequired ?? true, pageRow));
+            } else {
+              questionPromisses.push(addQuestionToForm(formId, pageIndex, questionIndex, pageRow.type, pageRow.label, pageRow.isRequired ?? true, pageRow));
+            }
           }
         }
 
@@ -354,7 +358,7 @@ exports.updateForm = function (formName, formData, callback) {
 }
 
 function updateFormQuestion(questionId, formId, pageIndex, questionIndex, questionType, questionLabel, isRequired, source) {
-  logger.log("Adding question:", formId, pageIndex, questionIndex, questionType, questionLabel, isRequired)
+  logger.log("updating question:", formId, pageIndex, questionIndex, questionType, questionLabel, isRequired)
   return new Promise((resolve, reject) => {
     database.con.query('UPDATE `Question` SET `formId` = ?, `pageIndex` = ?, `questionIndex` = ?, `questionType` = ?, `questionTitle` = ?, `isRequired` = ? WHERE id = ?',
       [formId, pageIndex, questionIndex, questionType, questionLabel, isRequired, questionId], function (error, results, fields) {

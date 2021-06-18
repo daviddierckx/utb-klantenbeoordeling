@@ -81,6 +81,29 @@ exports.updateForm = function(req, res) {
   });
 };
 
+
+exports.createForm = function(req, res) {
+  logger.log("Received request to create a form");
+  if (typeof req.body.data === "string"){
+    req.body.data = JSON.parse(req.body.data);
+  }
+  let check = request_utils.verifyBody(req, res, 'data', 'object');
+  if (!check) {
+    logger.log("Request cancelled because of an invalid param");
+    return;
+  }
+
+  forms_dao.createForm(req.body.data, (err2, res2) => {
+    if (err2) {
+      logger.log("Error in creating form:", err2);
+      return res.status(400).send({"success": false, "error": err2});
+    }
+    logger.log("Form created with formId", res2);
+    res.redirect("/admin/forms");
+    return res.status(201).send({"success": true, "id": res2, "name": req.body.name});
+  });
+};
+
 exports.manageGetForms = function(req, res) {
   forms_dao.getAllForms("utb-feedback-1", (err2, res2) => {
     if (err2) {

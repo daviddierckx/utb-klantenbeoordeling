@@ -114,10 +114,17 @@ function saveForm(el) {
     subtitle: $formElmt.find(".js-form-subtitle").val(),
     pages: pages
   };
+  const existingForm = $formElmt.find(".js-form-name").data('existing') ?? false
 
   // finalForm needs to be submitted
   console.log(finalForm);
-  return post("../../admin/forms/update/" + finalForm.name, {data: JSON.stringify(finalForm)});
+  if (existingForm) {
+    return post("../../admin/forms/update/" + finalForm.name, {data: JSON.stringify(finalForm)});
+  } else {
+    return post("../../admin/forms/create/" + finalForm.name, {data: JSON.stringify(finalForm)});
+  }
+
+
 }
 
 
