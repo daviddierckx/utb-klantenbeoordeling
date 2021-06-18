@@ -47,7 +47,7 @@
             <div class="tab-content" id="tab-content-{{form.id}}">
                 <label for="page-name-{{form.id}}">Formulier verkorte-naam(voor in de URL, hier mogen geen spaties in
                     zitten)</label>
-                <input class="js-form-name" type="text" id="page-name-{{form.id}}" placeholder="Formulier naam" value="{{form.name}}">
+                <input class="js-form-name" type="text" id="page-name-{{form.id}}" placeholder="Formulier naam" value="{{form.name}}" disabled>
 
                 <label for="page-title-{{form.id}}">Formulier titel</label>
                 <input class="js-form-title" type="text" id="page-title-{{form.id}}" placeholder="Formulier titel" value="{{form.title}}">
@@ -70,7 +70,7 @@
                                     <label for="question-type-{{question.id}}" class="sr-only">Vraag type</label>
                                     <label for="question-label-{{question.id}}" class="sr-only">Vraag titel</label>
                                     <label>Vraag {{increase @key}}</label>
-                                    <input class="js-question-label" type="text" id="question-label-{{question.id}}"
+                                    <input class="js-question-label" data-question-id="{{question.id}}" type="text" id="question-label-{{question.id}}"
                                            value="{{question.label}}" placeholder="Welke titel heeft de vraag?">
                                     <select class="js-question-type" id="question-type-{{question.id}}">
                                         <option value="date" {{#ifEquals question.type "date"}}

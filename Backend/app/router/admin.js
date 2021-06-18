@@ -50,5 +50,6 @@ router.delete("/complaints/:complaintNr", forms_controller.placeholder);
 
 
 router.get("/forms", BOFController.manageGetForms);
+router.post("/forms/update/:formName", BOFController.updateForm);
 
 module.exports = router;

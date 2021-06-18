@@ -96,11 +96,13 @@ function saveForm(el) {
   $formElmt.find(".page-content").each((_, pageElmnt) => {
     const page = [];
     $(pageElmnt).find(".question-container").each((_, questionElmnt) => {
-      const questionLabel = $(questionElmnt).find(".js-question-label").val();
+      const $labelElmt = $(questionElmnt).find(".js-question-label");
+      const questionLabel = $labelElmt.val();
       const questionType = $(questionElmnt).find(".js-question-type").val();
       page.push({
         required: true,
         type: questionType,
+        id: $labelElmt.data("question-id"),
         label: questionLabel
       });
     });
@@ -115,4 +117,26 @@ function saveForm(el) {
 
   // finalForm needs to be submitted
   console.log(finalForm);
+  return post("../../admin/forms/update/" + finalForm.name, {data: JSON.stringify(finalForm)});
+}
+
+
+function post(path, params, method = 'post') {
+  const form = document.createElement('form');
+  form.method = method;
+  form.action = path;
+
+  for (const key in params) {
+    if (params.hasOwnProperty(key)) {
+      const hiddenField = document.createElement('input');
+      hiddenField.type = 'hidden';
+      hiddenField.name = key;
+      hiddenField.value = params[key];
+
+      form.appendChild(hiddenField);
+    }
+  }
+
+  document.body.appendChild(form);
+  form.submit();
 }

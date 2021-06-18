@@ -98,6 +98,9 @@ input[type=text] {
   box-sizing: border-box;
   border-radius: 5px;
 }
+input[type=text]:disabled {
+  background-color: darkgrey;
+}
 
 input[type=date] {
   border-radius: 5px;
