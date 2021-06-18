@@ -175,6 +175,32 @@ exports.getAllFormAnswers = function (formName, callback) {
   });
 }
 
+exports.getAllForms = function (formName, callback) {
+  database.con.query('SELECT name FROM Form', [formName], function (error, results, fields) {
+    if (error) return callback(error.sqlMessage, undefined);
+    if (results.length === 0) return callback("no-forms-found", undefined);
+
+    const promises = [];
+    for (const result of results) {
+      promises.push(
+        new Promise((resolve, reject) => {
+          exports.getForm(result['name'], (err, res) => {
+            if (err) return reject(err);
+            resolve(res);
+          });
+        })
+      );
+    }
+
+    Promise.all(promises).then((formsData) => {
+      callback(undefined, formsData);
+    }).catch((err) => {
+      logger.log("Error while retrieving all forms:", err)
+      callback(err, undefined);
+    });
+  })
+}
+
 //get answers from one entry
 exports.getFormResult = function (formName, entryId, callback) {
   database.con.query('SELECT * FROM Form WHERE name LIKE ?', [formName], function (error, results, fields) {
@@ -253,7 +279,7 @@ exports.getForm = function (formName, callback) {
         for (const questionOptions of questionOptionsData) {
           for (const page of formData.pages) {
             for (const question of page) {
-              if (question.id === questionOptions[0].questionId) {
+              if (questionOptions[0] && question.id === questionOptions[0].questionId) {
                 if (question.options === undefined) {
                   question.options = [];
                 }
@@ -318,6 +344,58 @@ exports.createForm = function (formData, callback) {
         callback(err, undefined);
       });
     });
+}
+
+exports.updateForm = function (formName, formData, callback) {
+  database.con.query('SELECT * FROM Form WHERE name LIKE ?', [formName], function (error, results, fields) {
+    if (error) return callback(error.sqlMessage, undefined);
+    if (results.length === 0) {
+      return callback("form-not-found", undefined);
+    }
+    const formId = results[0]['id'];
+
+    database.con.query('UPDATE `Form` SET `name` = ?, `title` = ?, `subtitle` = ? WHERE id = ?',
+      [formData.name, formData.title, formData.subtitle, formId], function (error, results, fields) {
+        if (error) return callback(error.sqlMessage, undefined);
+        const questionPromisses = [];
+        for (const [pageIndex, page] of Object.entries(formData.pages)) {
+          for (const [questionIndex, pageRow] of Object.entries(page)) {
+            if (pageRow.id) {
+              questionPromisses.push(updateFormQuestion(pageRow.id, formId, pageIndex, questionIndex, pageRow.type, pageRow.label, pageRow.isRequired ?? true, pageRow));
+            } else {
+              questionPromisses.push(addQuestionToForm(formId, pageIndex, questionIndex, pageRow.type, pageRow.label, pageRow.isRequired ?? true, pageRow));
+            }
+          }
+        }
+
+        if (questionPromisses.length === 0) {
+          return callback(undefined, formData);
+        }
+        Promise.all(questionPromisses).then((questionOptionsData) => {
+          return callback(undefined, formId);
+        }).catch((err) => {
+          logger.log("Error while requestion question options:", err)
+          callback(err, undefined);
+        });
+
+
+      }
+    );
+
+
+  });
+}
+
+function updateFormQuestion(questionId, formId, pageIndex, questionIndex, questionType, questionLabel, isRequired, source) {
+  logger.log("updating question:", formId, pageIndex, questionIndex, questionType, questionLabel, isRequired)
+  return new Promise((resolve, reject) => {
+    database.con.query('UPDATE `Question` SET `formId` = ?, `pageIndex` = ?, `questionIndex` = ?, `questionType` = ?, `questionTitle` = ?, `isRequired` = ? WHERE id = ?',
+      [formId, pageIndex, questionIndex, questionType, questionLabel, isRequired, questionId], function (error, results, fields) {
+        if (error) return reject(error.sqlMessage);
+        if (results.affectedRows === 0) return reject("no-rows-affected");
+        resolve({insertId: results.insertId, source: source})
+      });
+  });
 }
 
 // Insert question into the database

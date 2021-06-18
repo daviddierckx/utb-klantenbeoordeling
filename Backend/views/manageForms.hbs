@@ -1,29 +1,101 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UTB klantenfeedback</title>
-
-    <link rel="stylesheet" href="/css/main.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
-
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/manageForms.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script>
+        const formName = "{{data.name}}";
+    </script>
 </head>
+
 <body>
-<div id="bg"></div>
-<header>
-    <ul>
-        <li>
-            <a href="https://www.utboils.com/" class="logo"><img src="../../images/logo.png" alt="UTB logo"/></a>
-        </li>
-        <li>
-            <h1 id="homepageTitle">Admin Formulieren beheer</h1>
-            <h4 id="homepageSubTitle">
-                Hier kan je formulieren beheren
-            </h4>
-        </li>
-    </ul>
-</header>
+<nav>
+    <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
+    <a href="/admin"><button class="tablink active">Gebruikers</button></a>
+    <a href="/admin/forms"><button class="tablink">Vragen Wijzigen</button></a>
+    <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+</nav>
+
+<main>
+
+    <div class="tab-titles">
+        {{#each data as | form |}}
+            <div class="tab-title" id="tab-title-{{form.id}}" onclick="showContent(this, '.tab-content', '#tab-content-{{form.id}}');">{{form.name}}</div>
+        {{/each}}
+        <div class="tab-title" onclick="addForm(this);">Nieuw formulier toevoegen</div>
+    </div>
+
+    <div class="tab-container form-list">
+        {{#each data as | form |}}
+            <div class="tab-content" id="tab-content-{{form.id}}">
+                <label for="page-name-{{form.id}}">Formulier verkorte-naam(voor in de URL, hier mogen geen spaties in
+                    zitten)</label>
+                <input class="js-form-name" type="text" id="page-name-{{form.id}}" placeholder="Formulier naam" value="{{form.name}}" data-existing="1" disabled>
+
+                <label for="page-title-{{form.id}}">Formulier titel</label>
+                <input class="js-form-title" type="text" id="page-title-{{form.id}}" placeholder="Formulier titel" value="{{form.title}}">
+
+                <label for="page-subtitle-{{form.id}}">Formulier sub-titel</label>
+                <input class="js-form-subtitle" type="text" id="page-subtitle-{{form.id}}" placeholder="Formulier ondertitel" value="{{form.subtitle}}">
+
+                <div class="tab-titles">
+                    {{#each form.pages as | page pageId |}}
+                        <div class="tab-title" onclick="showContent(this, '.page-content', '#page-content-{{form.id}}-{{pageId}}');">Page: {{pageId}}</div>
+                    {{/each}}
+                    <div class="tab-title" onclick="addPage(this);">Nieuwe pagina</div>
+                </div>
+
+                <div class="tab-container form-pages">
+                    {{#each form.pages as | page pageId |}}
+                        <div class="tab-content page-content" id="page-content-{{form.id}}-{{pageId}}">
+                            {{#each page as | question |}}
+                                <div class="question-container">
+                                    <label for="question-type-{{question.id}}" class="sr-only">Vraag type</label>
+                                    <label for="question-label-{{question.id}}" class="sr-only">Vraag titel</label>
+                                    <label>Vraag {{increase @key}}</label>
+                                    <input class="js-question-label" data-question-id="{{question.id}}" type="text" id="question-label-{{question.id}}"
+                                           value="{{question.label}}" placeholder="Welke titel heeft de vraag?">
+                                    <select class="js-question-type" id="question-type-{{question.id}}">
+                                        <option value="date" {{#ifEquals question.type "date"}}
+                                                selected {{/ifEquals}}>
+                                            Datum
+                                        </option>
+                                        <option value="small_text" {{#ifEquals question.type "small_text"}}
+                                                selected {{/ifEquals}}>Klein stukje tekst
+                                        </option>
+                                        <option value="big_text" {{#ifEquals question.type "big_text"}}
+                                                selected {{/ifEquals}}>Groot tekst vlak
+                                        </option>
+                                        <option value="radio" {{#ifEquals question.type "radio"}}
+                                                selected {{/ifEquals}}>Multiple choice
+                                        </option>
+                                        <option value="rating" {{#ifEquals question.type "rating"}}
+                                                selected {{/ifEquals}}>1-5 rating met sterren
+                                        </option>
+                                    </select>
+                                </div>
+                            {{/each}}
+                            <button type="button" class="button" onclick="addQuestion(this)">Vraag toevoegen</button>
+                        </div>
+                    {{/each}}
+                </div>
+                <button type="button" class="button" onclick="saveForm(this)" style="float: left">Formulier opslaan</button>
+            </div>
+
+        {{/each}}
+    </div>
+</main>
+
+<script src="/../js/manageForms.js"></script>
 </body>
 </html>

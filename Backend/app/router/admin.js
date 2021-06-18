@@ -3,6 +3,7 @@ const router = express.Router();
 const adminController = require("./controllers/adminController");
 const forms_controller = require("./controllers/formsController");
 const user_controller = require("./controllers/userController");
+const BOFController = require("./controllers/BOFController");
 
 //create, find, update, delete
 router.get("/", adminController.view);
@@ -46,5 +47,10 @@ router.get("/feedback/:formId", forms_controller.placeholder);
 // could haves
 router.get("/feedback/overview/:orderNr", forms_controller.placeholder);
 router.delete("/complaints/:complaintNr", forms_controller.placeholder);
+
+
+router.get("/forms", BOFController.manageGetForms);
+router.post("/forms/update/:formName", BOFController.updateForm);
+router.post("/forms/create/:formName", BOFController.createForm);
 
 module.exports = router;

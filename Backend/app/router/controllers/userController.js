@@ -90,7 +90,6 @@ exports.view = (req, res) => {
     } else {
       console.log(err);
     }
-    console.log("The data from user table: \n", rows);
   });
 };
 

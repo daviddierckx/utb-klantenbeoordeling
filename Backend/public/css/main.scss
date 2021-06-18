@@ -527,6 +527,12 @@ h3 {
     font-size: x-large;
     text-align: center;
 }
+.sr-only{
+  display: none;
+}
+.question-spacer {
+  height: 2rem;
+}
 
 form input {
     max-width: 50%;

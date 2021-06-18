@@ -9,7 +9,6 @@ exports.view = (req, res) => {
     } else {
       console.log(err);
     }
-    console.log("The data from user table: \n", rows);
   });
 };
 
@@ -46,7 +45,6 @@ exports.edituser = (req, res) => {
       } else {
         console.log(err);
       }
-      console.log("The data from user table: \n", rows);
     }
   );
 };
@@ -70,7 +68,6 @@ exports.delete = (req, res) => {
       } else {
         console.log(err);
       }
-      console.log("The data from user table: \n", rows);
     }
   );
 };
@@ -83,6 +80,5 @@ exports.viewUser = (req, res) => {
     } else {
       console.log(err);
     }
-    console.log("The data from user table: \n", rows);
   });
 };
