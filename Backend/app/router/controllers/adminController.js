@@ -37,11 +37,11 @@ exports.adduser = (req, res) => {
 //Edit existing user
 exports.edituser = (req, res) => {
   database.con.query(
-    "SELECT * FROM User WHERE id = ?", 
+    "SELECT * FROM User WHERE id = ?",
     [req.params.id],
     (err, rows) => {
       if (!err) {
-        res.render("edituser", { rows, layout:false });
+        res.render("edituser", { rows, layout: false });
       } else {
         console.log(err);
       }

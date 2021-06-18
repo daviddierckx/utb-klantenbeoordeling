@@ -1,81 +1,64 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UTB klantenfeedback</title>
-
-    <link rel="stylesheet" href="/css/main.css" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <style>
+        html {
+        height: 100%;
+        }
+    </style>
 </head>
 
 <body>
     <div id="bg"></div>
     <header>
-        <ul>
-            <li>
-                <a href="https://www.utboils.com/" class="logo"><img src="/images/logo.png" alt="UTB logo" /></a>
-            </li>
-            <li>
-                <h1 id="homepageTitle">Admin pagina</h1>
-                <h4 id="homepageSubTitle">
-                    Hier zijn de verschillende adminfunctionaliteiten te vinden
-                </h4>
-            </li>
-        </ul>
+        <nav>
+            <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
+            <a href="/admin"><button class="tablink active">Gebruikers</button></a>
+            <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
+            <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+        </nav>
     </header>
-    <main>
-        <div class="buttonlist">
-            <button type="button" id="overzicht">
-                Beoordelingsoverzicht
-            </button>
-            <button type="button" id="opmerkingen">
-                Opmerkingen
-            </button>
-            <button type="button" id="vragen">
-                Vragen wijzigen
-            </button>
-            <button type="button" id="gebruikers">
-                Gebruikers wijzigen
-            </button>
-            <button type="button" id="gebruikers">
-                <a href="/admin"> Back </a>
-            </button>
-        </div>
-    </main>
-
     <body>
 
 
         <div class="view-user">
             {{#each rows}}
-            <div>
-                <h1 style="padding: 20px;">{{this.name}} </h1>
-
+            <div class="userInfo">
+                <h1>Info over Gebruiker: {{this.name}}</h1>
+                <br><br>
+                <p>Naam: {{this.name}} </p>
+                <p>Email: {{this.email}}</p>
+                <a type="button" class="btn-edit" href="/admin/edituser/{{this.id}}"><i class=""></i>Aanpassen</a>
+                <a type="button" class="btn-delete" href="javascript:delay('/admin/users/{{this.id}}')"><i></i>Verwijderen</a>
             </div>
-            <div>
-                <h4 style="padding: 20px;">Email: {{this.email}}</h4>
-            </div>
-            <div style="padding: 20px;" class="comments">
-                <h6>Opmerkingen:</h6>
-                {{this.comments}}
-            </div>
-
             {{/each}}
 
         </div>
+              <script>
 
+        function delay(URL) {
+          if (confirm("Are you sure you want to delete this user?")) {
+            alert("You have deleted this user");
+            setTimeout(function () { window.location.href = URL }, 100);
+          } else {
+            alert("You have cancelled this delete!");
+          }
 
+        }
 
+      </script>
 
-
-
+    </div>
         <script src="/js/script.js">
         </script>
-    </body>
     <footer>
         <script>
             if (window.history.replaceState) {

@@ -1,152 +1,100 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UTB klantenfeedback</title>
 
-    <link rel="stylesheet" href="/css/main.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Montserrat"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <style>
+    html {
+      height: 100%;
+    }
+  </style>
+</head>
 
-  </head>
-  <body>
-    <div id="bg"></div>
-    <header>
-      <ul>
-        <li>
-          <a href="https://www.utboils.com/" class="logo"><img
-              src="../images/logo.png"
-              alt="UTB logo"
-            /></a>
-        </li>
-        <li>
-          <h1 id="homepageTitle">Admin pagina</h1>
-          <h4 id="homepageSubTitle">
-            Hier zijn de verschillende adminfunctionaliteiten te vinden
-          </h4>
-        </li>
-      </ul>
-    </header>
-    <main>
-      <div class="buttonlist">
-        <button type="button" id="overzicht">
-          Beoordelingsoverzicht
-        </button>
-        <button type="button" id="opmerkingen">
-          Opmerkingen
-        </button>
-        <button type="button" id="vragen">
-          Vragen wijzigen
-        </button>
-        <button type="button" id="gebruikers">
-          Gebruikers wijzigen
-        </button>
-        <button type="button" id="gebruikers">
-          <a href="/admin"> Back </a>
-        </button>
+<body>
+  <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
+  <a href="/admin"><button class="tablink">Gebruikers</button></a>
+  <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
+  <a href="/admin/adduser"><button class="tablink active">Gebruiker Toevoegen</button></a>
+
+  <br><br>
+  <form class="editForm" method="POST" action="/admin/adduser">
+    <div class="">
+      <div class="">
+        <label for="floatingInput"> Naam</label>
+        <br><br>
+        <input type="text" class="form-control" id="floatingInput" name="name" aria-describedby="emailHelp"
+          placeholder="naam..." />
+
+
       </div>
-    </main>
-    <body>
-      {{#if alert}}
+    </div><br>
+    <div class="">
+
+      <div class="">
+        <label for="floatingInput">Emailadres</label>
+        <br><br>
+        <input type="text" class="form-control" id="floatingInput" name="email" aria-describedby="emailHelp"
+          placeholder="email..." />
+
+      </div>
+    </div>
+    <br>
+    <div class="">
+
+      <div class="">
+        <label for="floatingInput">Wachtwoord</label>
+        <br><br>
+        <input type="password" class="form-control" id="id_password" name="password" aria-describedby="emailHelp"
+          placeholder="wachtwoord..." />
+        <!--<input type="password" name="password" autocomplete="current-password" required="" id="id_password"> -->
+        <i class="far fa-eye" id="togglePassword"></i>
+      </div>
+    </div>
+    </div>
+    <div class="">
+
+      <div class="checkboxes">
+        <div class="checkboxgroup">
+
+          <div class="wrapper-checkbox">
+            <input type="radio" name="isAdmin" value="0" aria-describedby="emailHelp" id="option-1" checked>
+            <input type="radio" name="isAdmin" value="1" aria-describedby="emailHelp" id="option-2">
+            <label for="option-1" class="option option-1">
+              <span>Gebruiker</span>
+            </label>
+            <label for="option-2" class="option option-2">
+              <span>Admin</span>
+            </label>
+          </div>
+        </div>
+        {{#if alert}}
         <div id="alert" role="alert">
           {{alert}}
-          <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-          >X</button>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
         </div>
-      {{/if}}
-
-      <form class="" method="POST" action="adduser">
+        {{/if}}
         <div class="">
-          <div class="">
-            <label for="floatingInput"> Name</label>
-
-            <input
-              type="text"
-              class="form-control"
-              id="floatingInput"
-              name="name"
-              aria-describedby="emailHelp"
-              placeholder="Enter name"
-            />
-
-        
-          </div>
-        </div>
-        <div class="">
-
-          <div class="">
-             <label for="floatingInput">Email</label>
-
-            <input
-              type="text"
-              class="form-control"
-              id="floatingInput"
-              name="email"
-              aria-describedby="emailHelp"
-              placeholder="Enter email"
-            />
-
-          </div>
-        </div>
-        
-        <div class="">
-
-          <div class="">
-          <label for="floatingInput">Password</label>
-
-            <input
-              type="text"
-              class="form-control"
-              id="floatingInput"
-              name="password"
-              aria-describedby="emailHelp"
-              placeholder="Enter password"
-            />
-
-          </div>
-        </div>
-        <div class="">
-
-            <div class="">
-             <label for="floatingInput">is Admin</label>
-
-            <input
-              type="text"
-              class="form-control"
-              id="floatingInput"
-              name="isAdmin"
-              aria-describedby="emailHelp"
-              placeholder="Enter admin"
-            />
-
-          </div>
-        </div>
-        </div>
-        <div class="">
-          <button type="submit" class="btn">Submit</button>
+          <button type="submit" class="btn" id="savebtn">Opslaan</button>
 
         </div>
-      </form>
-      <script src="/js/script.js">
-      </script>
-    </body>
-    <footer>
-      <script>
-if ( window.history.replaceState ) {
-  window.history.replaceState( null, null, window.location.href );
-}
-</script>
-    </footer>
-  </body>
+  </form>
+  </div>
+  <script src="/js/script.js">
+  </script>
+</body>
+<footer>
+  <script>
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
+  </script>
+</footer>
+</body>
+
 </html>

@@ -1,43 +1,76 @@
-<table class="">
-  <thead class="">
-    <tr>
-      <th scope="">#</th>
-      <th scope="">Email</th>
-      <th scope=""> Name</th>
-      {{! <th scope="">Password</th>
-      <th scope="">IsAdmin</th> }}
-      <th scope="" class="text-end">Action</th>
+<!DOCTYPE html>
+<html lang="en">
 
-    </tr>
-  </thead>
-  <tbody>
-    {{#each rows}}
-    <tr>
-      <th scope="row">{{this.id}}</th>
-      <td>{{this.email}}</td>
-      <td>{{this.name}}</td>
-      <!-- <td>{{this.password}}</td>
-        <td>{{this.isAdmin}}</td> -->
-      <td class="">
-        <a href="admin/users/overview/{{this.id}}" type="button" class=""><i class=""></i>View</a>
-        <a type="button" class="btn-edit" href="/admin/edituser/{{this.id}}"><i class=""></i>Edit</a>
-        <a type="button" class="btn-delete" href="javascript:delay('/admin/users/{{this.id}}')"><i></i>Delete</a>
-      </td>
-    </tr>
-    {{/each}}
-    <script>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    html {
+      height: 100%;
+    }
+  </style>
+</head>
 
-      function delay(URL) {
-        if (confirm("Are you sure you want to delete this user?")) {
-          alert("You have deleted this user");
-          setTimeout(function () { window.location.href = URL }, 100);
-        } else {
-          alert("You have cancelled this delete!");
+<body>
+  <nav>
+    <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
+    <a href="/admin"><button class="tablink active">Gebruikers</button></a>
+    <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
+    <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+  </nav>
+  <form class="searchbar" method="POST" action="/admin" novalidate>
+    <input type="text" placeholder="Zoeken.." name="search">
+    <button class="hidden" type="submit"><i class="fa fa-search"></i></button>
+  </form>
+  <table class="">
+    <thead class="">
+      <tr>
+        {{!-- <th scope="">ID</th> --}}
+        <th scope="">Naam</th>
+        <th scope="">Email</th>
+        {{! <th scope="">Password</th>
+        <th scope="">IsAdmin</th> }}
+        <th scope="" class="text-end">Actie</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {{#each rows}}
+      <tr>
+        {{!-- <td scope="row">{{this.id}}</td> --}}
+        <td>{{this.name}}</td>
+        <td>{{this.email}}</td>
+        <!-- <td>{{this.password}}</td>
+          <td>{{this.isAdmin}}</td> -->
+        <td class="">
+          <a href="admin/users/overview/{{this.id}}" type="button" class=""><i class=""></i>Bekijk</a>
+          <a type="button" class="btn-edit" href="/admin/edituser/{{this.id}}"><i class=""></i>Bewerk</a>
+          <a type="button" class="btn-delete" href="javascript:delay('/admin/users/{{this.id}}')"><i></i>Verwijder</a>
+        </td>
+      </tr>
+      {{/each}}
+      <script>
+
+        function delay(URL) {
+          if (confirm("Weet u zeker dat u deze gebruiker wilt verwijderen?")) {
+            alert("Je hebt deze gebruiker verwijderd");
+            setTimeout(function () { window.location.href = URL }, 100);
+          } else {
+            alert("Je hebt deze verwijdering geannuleerd!");
+          }
+
         }
 
-      }
+      </script>
 
-    </script>
+    </tbody>
+  </table>
 
-  </tbody>
-</table>
+
+</html>

@@ -6,6 +6,7 @@ const BOFController = require("./controllers/BOFController");
 router.get("/", BOFController.view);
 router.get("/:formName", BOFController.viewForm);
 router.post("/:formName", BOFController.submitForm);
+router.get("/:formName/:entryId", BOFController.viewSingle);
 
 router.get('/succes', BOFController.submit);
 
