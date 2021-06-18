@@ -29,36 +29,58 @@
   background-color: #5e5e5e;
 }
 
-.question-container {
-  margin-top: 1rem;
-  width: 45%;
-  display: inline-block;
-}
 select {
-  margin-bottom: 1em;
-  padding: 0.25em;
   border: 0;
-  border-bottom: 2px solid currentcolor;
-  font-weight: bold;
-  letter-spacing: 0.15em;
-  border-radius: 0;
+  width: 11rem;
+  margin-left: -5px;
+  height: 2.5rem;
+  vertical-align: top;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #f5f0ef;
 }
 select:focus, select:active {
   outline: 0;
   border-bottom-color: white;
 }
 
-.question-container:nth-child(2n) {
-  float: right;
+.question-container input {
+  width: calc(100% - 11rem);
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.2rem;
+  margin-top: 1rem;
 }
 
 .tab-titles:not(:first-child) {
   margin-top: 1rem;
 }
 
+input {
+  border: none !important;
+}
+
+button {
+  padding: 0.3rem;
+  margin-top: 0.6rem;
+  border: 0;
+  transition-duration: 0.25s;
+  cursor: pointer;
+  float: right;
+}
+
+button:hover {
+  background-color: #b1b1b1;
+}
+
 main {
-  margin-top: 5vh;
+  margin: 5vh auto;
   padding: 1rem;
+  max-width: 860px;
 }
 
 /*# sourceMappingURL=manageForms.css.map */

@@ -39,63 +39,64 @@
         {{#each data as | form |}}
             <div class="tab-title" id="tab-title-{{form.id}}" onclick="showContent(this, '.tab-content', '#tab-content-{{form.id}}');">{{form.name}}</div>
         {{/each}}
+        <div class="tab-title" onclick="addForm(this);">Nieuw formulier toevoegen</div>
     </div>
 
-    <div class="tab-container">
+    <div class="tab-container form-list">
         {{#each data as | form |}}
             <div class="tab-content" id="tab-content-{{form.id}}">
                 <label for="page-name-{{form.id}}">Formulier verkorte-naam(voor in de URL, hier mogen geen spaties in
                     zitten)</label>
-                <input type="text" id="page-name-{{form.id}}" value="{{form.name}}">
+                <input class="js-form-name" type="text" id="page-name-{{form.id}}" placeholder="Formulier naam" value="{{form.name}}">
 
                 <label for="page-title-{{form.id}}">Formulier titel</label>
-                <input type="text" id="page-title-{{form.id}}" value="{{form.title}}">
+                <input class="js-form-title" type="text" id="page-title-{{form.id}}" placeholder="Formulier titel" value="{{form.title}}">
 
                 <label for="page-subtitle-{{form.id}}">Formulier sub-titel</label>
-                <input type="text" id="page-subtitle-{{form.id}}" value="{{form.subtitle}}">
+                <input class="js-form-subtitle" type="text" id="page-subtitle-{{form.id}}" placeholder="Formulier ondertitel" value="{{form.subtitle}}">
 
                 <div class="tab-titles">
                     {{#each form.pages as | page pageId |}}
                         <div class="tab-title" onclick="showContent(this, '.page-content', '#page-content-{{form.id}}-{{pageId}}');">Page: {{pageId}}</div>
                     {{/each}}
+                    <div class="tab-title" onclick="addPage(this);">Nieuwe pagina</div>
                 </div>
 
-                <div class="tab-container">
+                <div class="tab-container form-pages">
                     {{#each form.pages as | page pageId |}}
                         <div class="tab-content page-content" id="page-content-{{form.id}}-{{pageId}}">
                             {{#each page as | question |}}
                                 <div class="question-container">
-                                    <div class="question-container-label question-container-sub">
-                                        <label for="question-label-{{question.id}}">Vraag titel</label>
-                                        <input type="text" id="question-label-{{question.id}}"
-                                               value="{{question.label}}">
-                                    </div>
-                                    <div class="question-container-type question-container-sub">
-                                        <label for="question-type-{{question.id}}">Vraag type</label>
-                                        <select id="question-type-{{question.id}}">
-                                            <option value="date" {{#ifEquals question.type "date"}}
-                                                    selected {{/ifEquals}}>
-                                                Datum
-                                            </option>
-                                            <option value="small_text" {{#ifEquals question.type "small_text"}}
-                                                    selected {{/ifEquals}}>Klein stukje tekst
-                                            </option>
-                                            <option value="big_text" {{#ifEquals question.type "big_text"}}
-                                                    selected {{/ifEquals}}>Groot tekst vlak
-                                            </option>
-                                            <option value="radio" {{#ifEquals question.type "radio"}}
-                                                    selected {{/ifEquals}}>Multiple choice
-                                            </option>
-                                            <option value="rating" {{#ifEquals question.type "rating"}}
-                                                    selected {{/ifEquals}}>1-5 rating met sterren
-                                            </option>
-                                        </select>
-                                    </div>
+                                    <label for="question-type-{{question.id}}" class="sr-only">Vraag type</label>
+                                    <label for="question-label-{{question.id}}" class="sr-only">Vraag titel</label>
+                                    <label>Vraag {{increase @key}}</label>
+                                    <input class="js-question-label" type="text" id="question-label-{{question.id}}"
+                                           value="{{question.label}}" placeholder="Welke titel heeft de vraag?">
+                                    <select class="js-question-type" id="question-type-{{question.id}}">
+                                        <option value="date" {{#ifEquals question.type "date"}}
+                                                selected {{/ifEquals}}>
+                                            Datum
+                                        </option>
+                                        <option value="small_text" {{#ifEquals question.type "small_text"}}
+                                                selected {{/ifEquals}}>Klein stukje tekst
+                                        </option>
+                                        <option value="big_text" {{#ifEquals question.type "big_text"}}
+                                                selected {{/ifEquals}}>Groot tekst vlak
+                                        </option>
+                                        <option value="radio" {{#ifEquals question.type "radio"}}
+                                                selected {{/ifEquals}}>Multiple choice
+                                        </option>
+                                        <option value="rating" {{#ifEquals question.type "rating"}}
+                                                selected {{/ifEquals}}>1-5 rating met sterren
+                                        </option>
+                                    </select>
                                 </div>
                             {{/each}}
+                            <button type="button" onclick="addQuestion(this)">Vraag toevoegen</button>
                         </div>
                     {{/each}}
                 </div>
+                <button type="button" onclick="saveForm(this)" style="float: left">Formulier opslaan</button>
             </div>
 
         {{/each}}
