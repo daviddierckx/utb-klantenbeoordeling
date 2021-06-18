@@ -6,17 +6,17 @@ const user_controller = require("./controllers/userController");
 const authentication = require("../authentication");
 
 //create, find, update, delete
-router.get("/", authentication.isLoggedIn, adminController.view);
-router.post("/", adminController.search);
+router.get("/", authentication.isAdminLoggedIn, adminController.view);
+router.post("/", authentication.isAdminLoggedIn, adminController.search);
 
 router.get("/adduser", authentication.isAdminLoggedIn, adminController.adduser);
-router.post("/adduser", user_controller.register);
+router.post("/adduser", authentication.isAdminLoggedIn, user_controller.register);
 
-router.get("/forms/manage", adminController.manageForms);
+router.get("/forms/manage", authentication.isAdminLoggedIn, adminController.manageForms);
 
-router.get("/edituser/:id", adminController.edituser);
-router.post("/edituser/:id", user_controller.update);
-router.get("/users/overview/:id", adminController.viewUser);
+router.get("/edituser/:id", authentication.isAdminLoggedIn, adminController.edituser);
+router.post("/edituser/:id", authentication.isAdminLoggedIn, user_controller.update);
+router.get("/users/overview/:id", authentication.isAdminLoggedIn, adminController.viewUser);
 
 //Router
 router.get("", (req, res) => {

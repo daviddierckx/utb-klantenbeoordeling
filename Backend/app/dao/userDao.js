@@ -46,8 +46,6 @@ exports.get = function (id, callback) {
 }
 
 exports.update = function (data, callback) {
-    console.log("help")
-    console.log(data);
     database.con.query('UPDATE `User` SET `email` = ?, `name` = ?, `isAdmin` = ? WHERE id = ?',
         [data.email, data.name, data.isAdmin, data.id], function (error, results, fields) {
             if (error) return callback(error.sqlMessage, undefined);

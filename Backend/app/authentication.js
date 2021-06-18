@@ -1,23 +1,19 @@
 const jwt = require('jsonwebtoken');
+const config = require('./config');
 
 exports.isLoggedIn = (req, res, next) => {
-  console.log("User authentication started");
-  const authHeader = req.headers['authorization']
-  const token = authHeader && authHeader.split(' ')[1]
-  console.log(token);
+  console.log("Authenticatie gestart.");
+  const token = req.cookies.token;
 
   if (token) {
     jwt.verify(token, config.auth.secret, function (err, decoded) {
       if (err) {
         return res.status(401).send({
           success: false, 
-          error: "Unauthorized"
+          error: "Log in om verder te gaan."
         })
       } else {
-        return res.status(200).send({
-          success: true,
-          message: 'Authenticatie voltooid'
-        })
+        next();
       }
     });
   } else {
@@ -29,8 +25,9 @@ exports.isLoggedIn = (req, res, next) => {
 }
 
 exports.isAdminLoggedIn = (req, res, next) => {
-  console.log("User authentication started");
-  const token = (req.header("authorization") ?? "").replace("Bearer ", "");
+  console.log("Authenticatie gestart.");
+  const token = req.cookies.token;
+  const isAdmin = req.cookies.isAdmin;
 
   if (token) {
     jwt.verify(token, config.auth.secret, {}, function (err, decoded) {
@@ -40,11 +37,8 @@ exports.isAdminLoggedIn = (req, res, next) => {
           error: "Log in om verder te gaan."
         })
       } else {
-        if (res.isAdmin === 1) {
-          return res.status(200).send({
-            success: true,
-            message: 'Authenticatie voltooid'
-          })
+        if (isAdmin === '1') {
+          next();
         } else {
           return res.status(401).send({
             success: false,

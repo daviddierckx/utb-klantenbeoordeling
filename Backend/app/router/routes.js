@@ -35,9 +35,6 @@ router.use(function timeLog(req, res, next) {
   });
 });
 
-router.post("/register", user_controller.register);
-router.post("/login", user_controller.login);
-
 // Add router here
 // must haves
 router.post('/feedback/:formName', forms_controller.enter_form_answer);

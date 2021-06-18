@@ -59,25 +59,11 @@ exports.login = function (req, res) {
     }
     logger.log("User logged in with token", res2);
 
-    console.log(req.headers);
+    res.cookie('token', res2.token);
+    res.cookie('isAdmin', res2.isAdmin);
 
-    switch (res2.isAdmin) {
-      case 0:
-        //User is guest
-        res.redirect("beoordelingsformulier");
-        console.log("beoordeling");
-        break;
-      case 1:
-        //User is employee
-        res.redirect("admin");
-        break;
-      case 2:
-        //User is admin
-        res.redirect("admin");
-        break;
-    }
-
-    return res.status(201);
+    res.redirect(res2.isAdmin == 1 ? "admin" : "beoordelingsformulier");
+    return res.status(200).send({"success": true, "data": res2});
   });
 };
 
@@ -92,7 +78,6 @@ exports.view = (req, res) => {
     } else {
       console.log(err);
     }
-    console.log("The data from user table: \n", rows);
   });
 };
 
