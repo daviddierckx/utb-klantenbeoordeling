@@ -795,4 +795,25 @@ textarea {
     display: none;
   }
 }
+
+#printPage {
+  background-color: #749DC8;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#wrapper-printButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
 /*# sourceMappingURL=main.css.map */
