@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <table class="">
   <thead class="">
     <tr>
@@ -12,6 +13,59 @@
   </thead>
   <tbody>
     {{#each rows}}
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    html {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+  <script>
+while(screen.availHeight > screen.availWidth) {
+  alert("Draai uw mobiele apparaat!");
+}
+
+</script>
+  <nav>
+    <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
+    <a href="/admin"><button class="tablink active">Gebruikers</button></a>
+    <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
+    <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+  </nav>
+  <form class="searchbar" method="POST" action="/admin" novalidate>
+    <input type="text" placeholder="Zoeken.." name="search">
+    <button class="hidden" type="submit"><i class="fa fa-search"></i></button>
+  </form>
+  <table style="margin-bottom: 20px;" class="">
+    <thead class="">
+      <tr>
+        {{!-- <th scope="">ID</th> --}}
+        <th scope="">Naam</th>
+        <th scope="">Email</th>
+        {{! <th scope="">Password</th>
+        <th scope="">IsAdmin</th> }}
+        <th scope="" class="text-end">Actie</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {{#each rows}}
+>>>>>>> Stashed changes
       <tr>
         <th scope="row">{{this.id}}</th>
         <td>{{this.email}}</td>

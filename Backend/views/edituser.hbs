@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <style>
+    html {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+<script>
+while(screen.availHeight > screen.availWidth) {
+  alert("Draai uw mobiele apparaat!");
+}
+
+</script>
+
+  <nav>
+  <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
+  <a href="/admin"><button class="tablink active">Gebruikers</button></a>
+  <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
+  <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+  </nav>
+
+  {{#each rows}}
+  <form class="editForm" method="POST" action="/admin/edituser/{{this.id}}">
+    <div class="">
+      <div style="margin-top: 100px;" class="">
+        <label for="floatingInput"> Naam</label>
+        <br><br>
+        <input type="text" class="form-control" id="floatingInput" name="name" aria-describedby="emailHelp"
+          placeholder="naam..." value="{{this.name}}" />
+
+
+      </div>
+    </div><br>
+    <div class="">
+
+      <div class="">
+        <label for="floatingInput">Emailadres</label>
+        <br><br>
+        <input type="text" class="form-control" id="floatingInput" name="email" aria-describedby="emailHelp"
+          placeholder="email..." value="{{this.email}}" />
+
+      </div>
+    </div>
+    <br>
+    <div class="">
+
+      <div class="checkboxes">
+        <div class="checkboxgroup">
+
+          <div class="wrapper-checkbox">
+            {{#ifEquals this.isAdmin 0}}
+            <input type="radio" name="isAdmin" value="0" aria-describedby="emailHelp" id="option-1" checked>
+            <input type="radio" name="isAdmin" value="1" aria-describedby="emailHelp" id="option-2">
+            {{/ifEquals}}
+            {{#ifEquals this.isAdmin 1}}
+            <input type="radio" name="isAdmin" value="0" aria-describedby="emailHelp" id="option-1">
+            <input type="radio" name="isAdmin" value="1" aria-describedby="emailHelp" id="option-2" checked>
+            {{/ifEquals}}
+            <label for="option-1" class="option option-1">
+              <span>Gebruiker</span>
+            </label>
+            <label for="option-2" class="option option-2">
+              <span>Beheerder</span>
+            </label>
+          </div>
+        </div>
+        {{#if alert}}
+        <div id="alert" role="alert">
+          {{alert}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
+        </div>
+        {{/if}}
+        <div class="">
+          <button type="submit" class="btn">Opslaan</button>
+
+        </div>
+  </form>
+  </div>
+  {{/each}}
+  <script src="/js/script.js">
+  </script>
+</body>
+<footer>
+  <script>
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
+  </script>
+</footer>
+
+</html>
