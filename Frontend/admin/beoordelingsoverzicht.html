@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta contact="viewport" content="width=device-width, initial-scale=1.0">
     <title>UTB klantenfeedback</title>
     <link rel="stylesheet" href="../css/main.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
@@ -29,20 +29,54 @@
           
       </nav>
       <div class="buttonlist">
-        <button type="button" id="overzicht">
-          Beoordelingsoverzicht
-        </button>
-        <button type="button" id="opmerkingen">
-          Opmerkingen
-        </button>
-        <button type="button" id="vragen">
-          Vragen wijzigen
-        </button>
-        <button type="button" id="gebruikers">
-          Gebruikers wijzigen
+        <button type="button" id="users">
+          Gebruikers
         </button>
       </div>
+      <table id="myTable" class="table">
+        <thead>
+          <tr>
+            <th>Bedrijfsnaam</th>
+            <th>Datum</th>
+            <th>Contact persoon</th>
+            <th>Productgroep</th>
+            <th>Hoe staat u tegenover bestelen in de UTB webshop?</th>
+            <th>Waardering UTB/UNIL tov andere merken?</th>
+            <th>Bereikbaarheid UTB?</th>
+            <th>Bezoekfrequentie van de UTB vertenwoordiger?</th>
+            <th>Tevredenheid over de mogelijkheden en de wijze van bestellen?</th>
+            <th>Tevredenheid mbt de levertijden?</th>
+            <th>Tevredenheid mbt de administratieve afhandeling?</th>
+            <th>Tevredenheid mbt de klachtenafhandeling?</th>
+            <th>Eindoordeel UTB organisatie?</th>
+            <th>Opmerkingen?</th>
+          </tr>
+        </thead>
+        <tbody id="testBody"></tbody>
+      </table>
     </main>
     <footer></footer>
 </body>
+<script>
+  const items = [
+    { company: "Avans1", date: "10-09-21", contact: "Remo", productGroup: "smeermiddelen" },
+    { company: "Avans2", date: "10-09-21", contact: "Rene", productGroup: "olie" }
+  ];
+  function loadTableData(items) {
+    const table = document.getElementById("testBody");
+    items.forEach( item => {
+      let row = table.insertRow();
+      let company = row.insertCell(0);
+      company.innerHTML = item.company;
+      let date = row.insertCell(1);
+      date.innerHTML = item.date;
+      let contact = row.insertCell(2);
+      contact.innerHTML = item.contact;
+      let productgroep = row.insertCell(3);
+      productgroep.innerHTML = item.productGroup;
+    });
+  }
+  loadTableData(items);
+  loadTableData([]);
+</script>
 </html>

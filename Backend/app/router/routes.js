@@ -6,11 +6,6 @@ const config = require("./../config");
 const forms_controller = require("./controllers/formsController");
 const user_controller = require("./controllers/userController");
 
-// middleware logger
-router.use(function timeLog(req, res, next) {
-  logger.log(req.originalUrl, 'Time:', Date.now(), 'data:', JSON.stringify(req.body), 'query:', JSON.stringify(req.query), 'params:', JSON.stringify(req.params))
-  next();
-});
 
 // User Authentication
 router.use(function timeLog(req, res, next) {
@@ -22,13 +17,13 @@ router.use(function timeLog(req, res, next) {
     return next();
   }
 
+  // If you want to skip out add this to your .env file: "SKIP_AUTH=0"
   if (process.env.SKIP_AUTH) {
     return next();
   }
 
   logger.log("User authentication started");
   const token = (req.header("authorization") ?? "").replace("Bearer ", "");
-  console.log("token: ", token);
 
   jwt.verify(token, config.auth.secret, {}, function (err, decoded) {
     if (err)
@@ -45,7 +40,7 @@ router.post("/login", user_controller.login);
 
 // Add router here
 // must haves
-router.get('/feedback/:formId/addAnswer', forms_controller.enter_form_answer);
+router.post('/feedback/:formName', forms_controller.enter_form_answer);
 router.get('/feedback', forms_controller.placeholder);
 router.get('/complaints/overview', forms_controller.placeholder);
 // should haves
@@ -57,8 +52,10 @@ router.put('/complaints/:complaintNr', forms_controller.placeholder);
 router.get('/complaints/:complaintNr', forms_controller.placeholder);
 
 // Idk:
+router.get('/form/:formName', forms_controller.get_form);
+router.post('/form/:formName', forms_controller.enter_form_answer);
 router.post('/manage/form', forms_controller.add_new_form);
-router.get('/manage/form/:formName', forms_controller.get_form);
-
+router.get('/form/:formName', forms_controller.get_form);
+router.get('/manage/form/:formName/answers', forms_controller.get_all_form_answers);
 
 module.exports = router

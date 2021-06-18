@@ -17,19 +17,21 @@
 </head>
 
 <body>
+  <nav>
   <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
-  <a href="/admin"><button class="tablink">Gebruikers</button></a>
+  <a href="/admin"><button class="tablink active">Gebruikers</button></a>
   <a href="/admin/forms"><button class="tablink">Vragen Wijzigen</button></a>
-  <a href="/admin/adduser"><button class="tablink active">Gebruiker Toevoegen</button></a>
+  <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+  </nav>
 
-  <br><br>
-  <form class="editForm" method="POST" action="/admin/adduser">
+  {{#each rows}}
+  <form class="editForm" method="POST" action="/admin/edituser/{{this.id}}">
     <div class="">
       <div class="">
         <label for="floatingInput"> Naam</label>
         <br><br>
         <input type="text" class="form-control" id="floatingInput" name="name" aria-describedby="emailHelp"
-          placeholder="naam..." />
+          placeholder="naam..." value="{{this.name}}" />
 
 
       </div>
@@ -40,36 +42,30 @@
         <label for="floatingInput">Emailadres</label>
         <br><br>
         <input type="text" class="form-control" id="floatingInput" name="email" aria-describedby="emailHelp"
-          placeholder="email..." />
+          placeholder="email..." value="{{this.email}}" />
 
       </div>
     </div>
     <br>
     <div class="">
 
-      <div class="">
-        <label for="floatingInput">Wachtwoord</label>
-        <br><br>
-        <input type="password" class="form-control" id="id_password" name="password" aria-describedby="emailHelp"
-          placeholder="wachtwoord..." />
-        <!--<input type="password" name="password" autocomplete="current-password" required="" id="id_password"> -->
-        <i class="far fa-eye" id="togglePassword"></i>
-      </div>
-    </div>
-    </div>
-    <div class="">
-
       <div class="checkboxes">
         <div class="checkboxgroup">
 
           <div class="wrapper-checkbox">
+            {{#ifEquals this.isAdmin 0}}
             <input type="radio" name="isAdmin" value="0" aria-describedby="emailHelp" id="option-1" checked>
             <input type="radio" name="isAdmin" value="1" aria-describedby="emailHelp" id="option-2">
+            {{/ifEquals}}
+            {{#ifEquals this.isAdmin 1}}
+            <input type="radio" name="isAdmin" value="0" aria-describedby="emailHelp" id="option-1">
+            <input type="radio" name="isAdmin" value="1" aria-describedby="emailHelp" id="option-2" checked>
+            {{/ifEquals}}
             <label for="option-1" class="option option-1">
               <span>Gebruiker</span>
             </label>
             <label for="option-2" class="option option-2">
-              <span>Admin</span>
+              <span>Beheerder</span>
             </label>
           </div>
         </div>
@@ -80,11 +76,12 @@
         </div>
         {{/if}}
         <div class="">
-          <button type="submit" class="btn" id="savebtn">Opslaan</button>
+          <button type="submit" class="btn">Opslaan</button>
 
         </div>
   </form>
   </div>
+  {{/each}}
   <script src="/js/script.js">
   </script>
 </body>
@@ -95,6 +92,5 @@
     }
   </script>
 </footer>
-</body>
 
 </html>

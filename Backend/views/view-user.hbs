@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <style>
+        html {
+        height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bg"></div>
+    <header>
+        <nav>
+            <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
+            <a href="/admin"><button class="tablink active">Gebruikers</button></a>
+            <a href="/admin/forms"><button class="tablink">Vragen Wijzigen</button></a>
+            <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+        </nav>
+    </header>
+    <body>
+
+
+        <div class="view-user">
+            {{#each rows}}
+            <div class="userInfo">
+                <h1>Info over Gebruiker: {{this.name}}</h1>
+                <br><br>
+                <p>Naam: {{this.name}} </p>
+                <p>Email: {{this.email}}</p>
+                <a type="button" class="btn-edit" href="/admin/edituser/{{this.id}}"><i class=""></i>Aanpassen</a>
+                <a type="button" class="btn-delete" href="javascript:delay('/admin/users/{{this.id}}')"><i></i>Verwijderen</a>
+            </div>
+            {{/each}}
+
+        </div>
+              <script>
+
+        function delay(URL) {
+          if (confirm("Are you sure you want to delete this user?")) {
+            alert("You have deleted this user");
+            setTimeout(function () { window.location.href = URL }, 100);
+          } else {
+            alert("You have cancelled this delete!");
+          }
+
+        }
+
+      </script>
+
+    </div>
+        <script src="/js/script.js">
+        </script>
+    <footer>
+        <script>
+            if (window.history.replaceState) {
+                window.history.replaceState(null, null, window.location.href);
+            }
+        </script>
+    </footer>
+</body>
+
+</html>

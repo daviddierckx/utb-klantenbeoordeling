@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/main.css">
+  {{!-- <link rel="stylesheet" href="/Frontend/css/main.css"> --}}
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <style>
+    html {
+      height: 100%;
+    }
+
+    
+  </style>
+</head>
+
+<body>
+  <div class="browser-only">
+  <nav>
+    <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink active">Beoordelingsoverzicht</button></a>
+    <a href="/admin"><button class="tablink ">Gebruikers</button></a>
+    <a href="/admin/forms"><button class="tablink">Vragen Wijzigen</button></a>
+    <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+  </nav><br><br><br><br><br><br><br><br><br><br>
+  </div>
+  <div class="printDiv">
+    <table class="">
+      <thead class="">
+        
+        {{#each data}}
+            {{#each this as | question |}}
+            <tr ></tr>
+              <th >{{question.label}}</th>
+              <td>{{question.answer}}</td>
+                </tr>
+            {{/each}}
+          {{/each}}
+      
+      </thead>
+      <tbody>
+        {{!-- {{#each data}}
+            {{#each this as | answer |}}
+              <td>{{answer.answer}}</td>
+            {{/each}}
+          {{/each}} --}}
+
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="browser-only">
+    <div id="wrapper-printButton">
+      <button id="printPage" onclick="window.print()">Print deze pagina</button>
+    </div>
+  </div>
+  {{!-- <input type="button" onClick="printDiv('printableArea')" value="Print deze pagina"> --}}
+  {{!-- <script type="text/javascript">
+    document.getElementById("doPrint").addEventListener("click", function() {
+      var printContents = document.getElementById('printDiv').innerHTML
+      var originalContents = document.body.innerHTML
+      
+      document.body.innerHTML = printContents
+      window.print()
+      document.body.innerHTML = originalContents
+    })
+  </script> --}}
+</body>
+
+</html>

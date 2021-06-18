@@ -29,16 +29,16 @@
             /></a>
         </li>
         <li>
-          <h1 id="formTitle">Login</h1>
+          <h1 class="formTitle">Login</h1>
         </li>
       </ul>
     </header>
 
-    <main>
+    <main class="slide-in-bottom">
       <div class="wrapper fadeInDown">
         <div id="formContent">
           <!-- Tabs Titles -->
-          <h2 class="active">Log in</h2>
+          <h2 class="active">Login</h2>
 
           <!-- Login Form -->
           <form action="/login" method="POST">
@@ -56,10 +56,10 @@
               name="password"
               placeholder="wachtwoord"
             />
-            <input type="submit" class="fadeInDown" value="Log In" />
+            <input type="submit" class="fadeInDown" value="Login" />
             {{#if alert}}
               <div id="alert" class="alert-login" role="alert">
-                {{alert}}
+                E-mailadres of wachtwoord is incorrect!
 
               </div>
             {{/if}}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    html {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+  <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink active">Beoordelingsoverzicht</button></a>
+  <a href="/admin"><button class="tablink">Gebruikers</button></a>
+  <a href="/admin/forms"><button class="tablink">Vragen Wijzigen</button></a>
+  <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+  </nav>
+    <form class="searchbar" method="POST" action="/admin" novalidate>
+    <input type="text" placeholder="Zoeken.." name="search">
+    <button class="hidden" type="submit"><i class="fa fa-search"></i></button>
+  </form>
+
+  <table class="">
+    <thead class="">
+      {{#each data.pages}}
+        {{#each this as | question |}}
+          {{#ifEquals question.type "date"}}
+            <th id="{{question.label}}"><label class="question-label" for="datePicker">{{question.label}}</label></th>
+          {{/ifEquals}}
+          {{#ifEquals question.type "small_text"}}
+            <th id="{{question.label}}"><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
+          {{/ifEquals}}
+          {{#ifEquals question.type "big_text"}}
+            <th id="{{question.label}}"><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
+          {{/ifEquals}}
+          {{#ifEquals question.type "radio"}}
+            <th id="{{question.label}}"><label class="question-label" for="question-{{question.id}}">{{question.label}}</label></th>
+          {{/ifEquals}}
+          {{#ifEquals question.type "rating"}}
+            <th id="{{question.label}}"><label class="question-label">{{question.label}}</label></th>
+          {{/ifEquals}} 
+        {{/each}}
+      {{/each}}
+      <th>Details</th>
+    </thead>
+    <tbody>
+      {{#each data2}}
+      <tr id="answer">
+        {{#each this as | answer |}}
+        {{!-- {{#ifEquals answer.label}} --}}
+        <td id="{{answer.label}}">{{answer.answer}}</td>
+        {{!-- {{/ifEquals}} --}}
+        {{/each}}
+        <td><a href="/beoordelingsformulier/utb-feedback-1/{{@key}}">details</a></td>
+      </tr>
+      {{/each}}
+
+    </tbody>
+  </table>
+
+</html>
