@@ -175,8 +175,8 @@ exports.getAllFormAnswers = function (formName, callback) {
   });
 }
 
-exports.getAllForms = function (formName, callback) {
-  database.con.query('SELECT name FROM Form', [formName], function (error, results, fields) {
+exports.getAllForms = function (callback) {
+  database.con.query('SELECT name FROM Form', [], function (error, results, fields) {
     if (error) return callback(error.sqlMessage, undefined);
     if (results.length === 0) return callback("no-forms-found", undefined);
 

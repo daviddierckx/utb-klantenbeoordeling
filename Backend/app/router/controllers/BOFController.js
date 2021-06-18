@@ -151,7 +151,7 @@ exports.createForm = function(req, res) {
 };
 
 exports.manageGetForms = function(req, res) {
-  forms_dao.getAllForms("utb-feedback-1", (err2, res2) => {
+  forms_dao.getAllForms((err2, res2) => {
     if (err2) {
       logger.log("Error in receiving form:", err2);
       return res.status(400).send({"success": false, "error": err2});
