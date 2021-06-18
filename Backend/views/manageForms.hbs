@@ -19,6 +19,14 @@
 </head>
 
 <body>
+    
+    <script>
+
+if(screen.availHeight > screen.availWidth){
+    alert("Draai uw mobiele apparaat!");
+}
+
+    </script>
 <nav>
     <a href="/admin/forms/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
     <a href="/admin"><button class="tablink">Gebruikers</button></a>
@@ -28,7 +36,7 @@
 
 <main>
 
-    <div class="tab-titles">
+    <div style="margin-top: 30px;" class="tab-titles">
         {{#each data as | form |}}
             <div class="tab-title" id="tab-title-{{form.id}}" onclick="showContent(this, '.tab-content', '#tab-content-{{form.id}}');">{{form.name}}</div>
         {{/each}}
