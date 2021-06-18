@@ -50,6 +50,7 @@ router.delete("/complaints/:complaintNr", forms_controller.placeholder);
 
 
 router.get("/forms", BOFController.manageGetForms);
+router.get("/forms/select", BOFController.selectFormAdmin);
 router.post("/forms/update/:formName", BOFController.updateForm);
 router.post("/forms/create/:formName", BOFController.createForm);
 router.get("/forms/:formName", BOFController.viewFormAnswers);

@@ -157,9 +157,6 @@ exports.getAllFormAnswers = function (formName, callback) {
 
     database.con.query('SELECT * FROM Answer WHERE formId LIKE ?', [formId], function (error, results, fields) {
       if (error) return callback(error.sqlMessage, undefined);
-      if (results.length === 0) {
-        return callback("form-not-found", undefined);
-      }
       const answerData = {};
       for (const answer of results) {
         if (answerData[answer.entryId] === undefined) {
