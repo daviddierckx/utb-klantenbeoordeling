@@ -167,6 +167,7 @@ nav {
     top: 0;
     margin-bottom: 5vh;
     width: 100%;
+    overflow-wrap: break-word;
 }
 
 main {
@@ -574,6 +575,7 @@ form input {
     padding: 14px 16px;
     font-size: 17px;
     width: 25%;
+    min-height: 70px;
 }
 
 .tablink:hover {
