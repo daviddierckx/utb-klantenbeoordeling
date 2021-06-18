@@ -13,6 +13,17 @@ exports.view = (req, res) => {
   });
 };
 
+exports.selectForm = (req, res) => {
+  forms_dao.getAllForms((err2, res2) => {
+    if (err2) {
+      logger.log("Error in receiving all forms:", err2);
+      return res.status(400).send({ "success": false, "error": err2 });
+    }
+    logger.log("Got all forms", JSON.stringify(res2));
+    res.render("selectform", { layout: false, data: res2 });
+  });
+};
+
 exports.viewSingle = (req, res) => {
   forms_dao.getFormResult(req.params.formName, req.params.entryId, (err2, res2) => {
     if (err2) {

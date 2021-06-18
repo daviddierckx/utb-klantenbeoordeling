@@ -3,7 +3,7 @@ const router = express.Router();
 const BOFController = require("./controllers/BOFController");
 
 //Routers
-router.get("/", BOFController.view);
+router.get("/", BOFController.selectForm);
 router.get("/:formName", BOFController.viewForm);
 router.post("/:formName", BOFController.submitForm);
 router.get("/:formName/:entryId", BOFController.viewSingle);
