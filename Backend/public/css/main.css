@@ -831,4 +831,13 @@ textarea {
   -ms-flex-pack: center;
   justify-content: center;
 }
+
+@media print {
+  .browser-only {
+    display: none;
+  }
+  .printDiv {
+    display: block;
+  }
+}
 /*# sourceMappingURL=main.css.map */
