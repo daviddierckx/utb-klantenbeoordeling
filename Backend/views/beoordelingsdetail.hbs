@@ -14,17 +14,21 @@
     html {
       height: 100%;
     }
+
+    
   </style>
 </head>
 
 <body>
+  <div class="browser-only">
   <nav>
     <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink active">Beoordelingsoverzicht</button></a>
     <a href="/admin"><button class="tablink ">Gebruikers</button></a>
     <a href=""></a><button class="tablink">Vragen Wijzigen</button></a>
     <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
   </nav><br><br><br><br><br>
-  <div id="printDiv">
+  </div>
+  <div class="printDiv">
     <table class="">
       <thead class="">
         
@@ -49,14 +53,18 @@
       </tbody>
     </table>
   </div>
-  <div id="wrapper">
-    <button id="printPage" onclick="window.print()">Print deze pagina</button>
+
+  <div class="browser-only">
+    <div id="wrapper-printButton">
+      <button id="printPage" onclick="window.print()">Print deze pagina</button>
+    </div>
   </div>
   {{!-- <input type="button" onClick="printDiv('printableArea')" value="Print deze pagina"> --}}
   {{!-- <script type="text/javascript">
     document.getElementById("doPrint").addEventListener("click", function() {
       var printContents = document.getElementById('printDiv').innerHTML
       var originalContents = document.body.innerHTML
+      
       document.body.innerHTML = printContents
       window.print()
       document.body.innerHTML = originalContents
