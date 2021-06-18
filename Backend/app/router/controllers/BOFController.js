@@ -24,7 +24,7 @@ exports.viewSingle = (req, res) => {
   });
 };
 
-exports.viewForm = (req, res) => {
+exports.viewFormAnswers = (req, res) => {
   logger.log("Received request to add a form answers");
   let check = request_utils.verifyParam(req, res, 'formName', 'string');
   if (!check) {
@@ -56,6 +56,24 @@ exports.viewForm = (req, res) => {
       };
       res.render("beoordelingsoverzicht", { data: res2, data2: res3Rebuild });
     })
+  });
+};
+
+exports.viewForm = (req, res) => {
+  logger.log("Received request to view a form");
+  let check = request_utils.verifyParam(req, res, 'formName', 'string');
+  if (!check) {
+    logger.log("Request cancelled because of an invalid param");
+    return;
+  }
+
+  forms_dao.getForm(req.params.formName, (err2, res2) => {
+    if (err2) {
+      logger.log("Error in receiving form:", err2);
+      return res.status(400).send({ "success": false, "error": err2 });
+    }
+    logger.log("Got form data", JSON.stringify(res2));
+    res.render("beoordelingsformulier", { layout: false, data: res2 });
   });
 };
 
