@@ -538,15 +538,25 @@ form input {
 }
 
 .btn {
-    height: 5vh;
-    width: 20%;
-    margin: 0;
-    color: color(textColor);
-    background: #0c457f;
-    border: 2px solid #051a2e;
-    box-sizing: border-box;
-    box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
-    border-radius: 10px;
+  height: 5vh;
+  width: 20%;
+  margin: 0;
+  cursor: pointer;
+  color: color(textColor);
+  background: #0c457f;
+  border: 2px solid #051a2e;
+  box-sizing: border-box;
+  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+  border-radius: 10px;
+}
+.btn:hover {
+  background: #55a2ef;
+  border: 2px solid #051a2e;
+  box-sizing: border-box;
+  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  border-radius: 10px;
+  color: color(textColor);
+  text-decoration: none;
 }
 
 .opmerkingenLijst {
