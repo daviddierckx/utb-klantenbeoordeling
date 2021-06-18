@@ -653,13 +653,13 @@ form input {
 
 .searchbar input {
   border-color: #051a2e;
-  height: 6vh;
+  height: 4vh;
 }
 
 .searchbar button {
   border-radius: 5px;
-  height: 6vh;
-  width: 3%;
+  height: 4vh;
+  width: 50px;
 }
 
 .slide-in-bottom {
@@ -786,5 +786,13 @@ textarea {
 .editForm {
   display: block;
   margin-top: 10vh;
+}
+
+@media only screen and (max-width: 647px) {
+  .formTitle {
+    font-family: "montserrat";
+    margin-left: 20%;
+    display: none;
+  }
 }
 /*# sourceMappingURL=main.css.map */
