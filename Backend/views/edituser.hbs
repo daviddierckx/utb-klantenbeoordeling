@@ -17,6 +17,14 @@
 </head>
 
 <body>
+  
+    <script>
+
+while(screen.availHeight > screen.availWidth){
+    alert("Draai uw mobiele apparaat!");
+}
+
+    </script>
   <nav>
   <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
   <a href="/admin"><button class="tablink active">Gebruikers</button></a>
@@ -27,7 +35,7 @@
   {{#each rows}}
   <form class="editForm" method="POST" action="/admin/edituser/{{this.id}}">
     <div class="">
-      <div class="">
+      <div style="margin-top: 90px;" class="">
         <label for="floatingInput"> Naam</label>
         <br><br>
         <input type="text" class="form-control" id="floatingInput" name="name" aria-describedby="emailHelp"

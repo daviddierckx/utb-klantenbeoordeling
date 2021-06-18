@@ -17,6 +17,14 @@
 </head>
 
 <body>
+  
+    <script>
+
+while(screen.availHeight > screen.availWidth){
+    alert("Draai uw mobiele apparaat!");
+}
+
+    </script>
   <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
   <a href="/admin"><button class="tablink">Gebruikers</button></a>
   <a href="/admin/forms"><button class="tablink">Vragen Wijzigen</button></a>
@@ -80,7 +88,7 @@
         </div>
         {{/if}}
         <div class="">
-          <button type="submit" class="btn" id="savebtn">Opslaan</button>
+          <button style="margin-bottom: 20px;" type="submit" class="btn" id="savebtn">Opslaan</button>
 
         </div>
   </form>
