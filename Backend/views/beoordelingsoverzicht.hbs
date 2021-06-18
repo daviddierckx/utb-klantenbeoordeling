@@ -18,6 +18,14 @@
 </head>
 
 <body>
+  
+    <script>
+
+while(screen.availHeight > screen.availWidth){
+    alert("Draai uw mobiele apparaat!");
+}
+
+    </script>
   <nav>
   <a href="/beoordelingsformulier/utb-feedback-1"><button class="tablink active">Beoordelingsoverzicht</button></a>
   <a href="/admin"><button class="tablink">Gebruikers</button></a>
@@ -29,7 +37,7 @@
     <button class="hidden" type="submit"><i class="fa fa-search"></i></button>
   </form>
 
-  <table class="">
+  <table style="margin-bottom: 20px;" class="">
     <thead class="">
       {{#each data.pages}}
         {{#each this as | question |}}
