@@ -300,7 +300,7 @@ h2 {
 #formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.6);
   padding: 30px;
   width: 90%;
   max-width: 450px;
@@ -339,6 +339,7 @@ input[type="reset"] {
   background-color: #56baed;
   border: none;
   color: white;
+  cursor: pointer;
   padding: 15px 80px;
   text-align: center;
   text-decoration: none;
@@ -568,12 +569,15 @@ input[type="password"]:placeholder {
 
 @media only screen and (min-width: 2560px) {
   #formContent{
-    max-width: 60%;
+    max-width: 60vw;
+    height: calc(60vw * .6);
+    padding: 150px;
   }
   #formContent h2{
     font-size: 40px;
   }
   #formContent form input{
     font-size: 30px;
+    margin: 25px auto;
   }
 }

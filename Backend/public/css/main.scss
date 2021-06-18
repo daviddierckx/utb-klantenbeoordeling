@@ -768,3 +768,16 @@ textarea {
         display: block;
     }
 }
+
+#formContent {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    -webkit-box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
+    box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
+    text-align: center;
+}
