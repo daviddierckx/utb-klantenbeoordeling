@@ -10,21 +10,26 @@
 .tab-titles {
   font-size: 0;
 }
+
 .tab-titles .tab-title {
-  padding: 0.4rem;
+  padding: .4rem;
   font-size: medium;
   display: inline-block;
   cursor: pointer;
-  transition-duration: 0.25s;
+  -webkit-transition-duration: .25s;
+          transition-duration: .25s;
 }
+
 .tab-titles .tab-title:not(:first-child) {
   border-left-style: solid;
   border-width: 1px;
   border-color: darkgrey;
 }
+
 .tab-titles .tab-title:hover {
   background-color: gray;
 }
+
 .tab-titles .selected-content {
   background-color: #5e5e5e;
 }
@@ -39,6 +44,7 @@ select {
   border-bottom-right-radius: 5px;
   background-color: #f5f0ef;
 }
+
 select:focus, select:active {
   outline: 0;
   border-bottom-color: white;
@@ -52,7 +58,7 @@ select:focus, select:active {
 
 label {
   display: block;
-  margin-bottom: 0.2rem;
+  margin-bottom: .2rem;
   margin-top: 1rem;
 }
 
@@ -65,10 +71,11 @@ input {
 }
 
 button.button {
-  padding: 0.3rem;
-  margin-top: 0.6rem;
+  padding: .3rem;
+  margin-top: .6rem;
   border: 0;
-  transition-duration: 0.25s;
+  -webkit-transition-duration: .25s;
+          transition-duration: .25s;
   cursor: pointer;
   float: right;
 }
@@ -82,5 +89,4 @@ main {
   padding: 1rem;
   max-width: 860px;
 }
-
 /*# sourceMappingURL=manageForms.css.map */
