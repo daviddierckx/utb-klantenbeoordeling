@@ -79,8 +79,7 @@ summary,
 time,
 mark,
 audio,
-video,
-button {
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -132,6 +131,7 @@ table {
 }
 
 .logo {
+  display: block;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -139,9 +139,9 @@ table {
 }
 
 @media screen and (max-width: 720px) {
-  .logo img{
-      display: block;
-      margin: auto;
+  .logo {
+    display: block;
+    margin: auto;
   }
 }
 body {
@@ -219,11 +219,6 @@ input[type=text],
   border: 1px solid #e63322;
   box-sizing: border-box;
   border-radius: 5px;
-}
-
-input[type=text]:disabled,
-[type=password]:disabled {
-  background-color: darkgrey;
 }
 
 input[type=date] {
@@ -608,11 +603,9 @@ form input {
   height: 100%;
 }
 
-
 .searchbar {
   display: block;
-  padding-top: 100px;
-  margin: 5vh;
+  margin: 10vh;
 }
 
 .searchbar input {
@@ -786,9 +779,9 @@ textarea {
 }
 
 .newForm {
-  height: 6vh;
+  height: 5vh;
   width: 20%;
-  margin: 2vh auto;
+  margin: 0;
   cursor: pointer;
   color: #f5f0ef;
   background: #0c457f;
@@ -797,6 +790,7 @@ textarea {
   box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
   border-radius: 10px;
 }
+
 .newForm:hover {
   background: #55a2ef;
   border: 2px solid #051a2e;
@@ -806,36 +800,55 @@ textarea {
   color: #f5f0ef;
   text-decoration: none;
 }
-/*# sourceMappingURL=main.css.map */
 
-
-.wrapper {
-  position: relative;
-  display: flex;
-  min-width: 100px;
-  left: 25%;
-}
-
-.search-icon {
+/* Hide the browser's default radio button */
+.question-radio ul li input {
   position: absolute;
-  top: 6px;
-  left: 8px;
-  width: 14px;
+  opacity: 0;
+  cursor: pointer;
 }
 
-
-
-
-.search {
-  border: 1px solid grey;
-  border-radius: 5px;
-  min-height: 25px;
-  width: 100%;
-  padding: 2px 23px 2px 30px;
-  outline: 0;
-  background-color: #f5f5f5;
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  background-color: #eee;
+  border-radius: 50%;
 }
-.search:hover, .search:focus {
-  border: 1.5px solid #009688;
-  background-color: white;
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
 }
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+/*# sourceMappingURL=main.css.map */

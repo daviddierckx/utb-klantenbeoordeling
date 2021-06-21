@@ -57,7 +57,8 @@ exports.login = function (req, res) {
       logger.log("Error in login:", err2);
       return errorHandler();
     }
-    logger.log("User logged in with token", res2);
+    logger.log("User logged in with token", JSON.stringify(res2));
+    res.cookie('utb-auth',res2.token, { maxAge: 900000, httpOnly: true });
 
     switch (res2.isAdmin) {
       case 0:
