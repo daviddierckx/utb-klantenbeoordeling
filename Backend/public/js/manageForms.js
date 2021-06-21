@@ -38,10 +38,10 @@ function addForm(el) {
                                       <option value="rating">1-5 rating met sterren</option>
                                   </select>
                                 </div>
-                                <button type="button" onclick="addQuestion(this)">Vraag toevoegen</button>
+                                <button type="button" class="btn" onclick="addQuestion(this)">Vraag toevoegen</button>
                               </div>
                             </div>
-                            <button type="button" onclick="saveForm(this)" style="float: left">Formulier opslaan</button>
+                            <button type="button" class="btn" onclick="saveForm(this)" style="float: left">Formulier opslaan</button>
                         </div>`);
   $(el).before(`<div class="tab-title" id="tab-title-${formId}" onclick="showContent(this, '.tab-content', '#tab-content-${formId}');">Nieuw formulier</div>`);
   showContent(`#tab-title-${formId}`, '.tab-content', `#tab-content-${formId}`);
@@ -65,7 +65,7 @@ function addPage(el) {
               <option value="rating">1-5 rating met sterren</option>
           </select>
         </div>
-        <button type="button" onclick="addQuestion(this)">Vraag toevoegen</button>
+        <button type="button" class="btn" onclick="addQuestion(this)">Vraag toevoegen</button>
       </div>
   `);
   $(el).before(`<div class="tab-title" id="page-title-${questionId}" onclick="showContent(this, '.page-content', '#page-content-${questionId}');">Nieuwe pagina</div>`);
@@ -99,11 +99,16 @@ function saveForm(el) {
       const $labelElmt = $(questionElmnt).find(".js-question-label");
       const questionLabel = $labelElmt.val();
       const questionType = $(questionElmnt).find(".js-question-type").val();
+      let options = undefined;
+      if (questionType === "radio"){
+        options = $(questionElmnt).find(".js-question-options").val().split(',');
+      }
       page.push({
         required: true,
         type: questionType,
         id: $labelElmt.data("question-id"),
-        label: questionLabel
+        label: questionLabel,
+        options: options
       });
     });
     pages.push(page);
@@ -123,10 +128,25 @@ function saveForm(el) {
   } else {
     return post("../../admin/forms/create/" + finalForm.name, {data: JSON.stringify(finalForm)});
   }
-
-
+}
+function setEventHandlers(){
+  $(".js-question-type:not(.has-handlers)").addClass("has-handlers").on('change', (event) => {
+    const $elmnt = $(event.target);
+    const $radioInput = $elmnt.parent().find(".js-question-options");
+    const hasRadioInput = $radioInput.length >= 1
+    if (!hasRadioInput && $elmnt.val() === "radio"){
+      $elmnt.parent().append(`<label for="question-options-${$elmnt.data('question-id')}">Welke opties heeft deze vraag?(onderscheidend met een ,)</label>
+                              <input class="js-question-options" style="width: 100%;" data-question-id="${$elmnt.data('question-id')}" type="text"
+                                     id="question-options-${$elmnt.data('question-id')}"
+                                     value="" placeholder="Welke opties heeft de vraag?(onderscheidend met een ,)">`)
+    }else if(hasRadioInput && $elmnt.val() !== "radio"){
+      $radioInput.prev().remove();
+      $radioInput.remove();
+    }
+  })
 }
 
+$(setEventHandlers);
 
 function post(path, params, method = 'post') {
   const form = document.createElement('form');
