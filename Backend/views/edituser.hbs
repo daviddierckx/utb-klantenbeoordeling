@@ -17,25 +17,29 @@
 </head>
 
 <body>
-  
-    <script>
 
-if(screen.availHeight > screen.availWidth){
-    alert("Draai uw mobiele apparaat!");
-}
+  <script>
 
-    </script>
+    if (screen.availHeight > screen.availWidth) {
+      alert("Draai uw mobiele apparaat!");
+    }
+
+  </script>
   <nav>
-  <a href="/admin/forms/select"><button class="tablink">Beoordelingsoverzicht</button></a>
-  <a href="/admin"><button class="tablink active">Gebruikers</button></a>
-  <a href="/admin/forms"><button class="tablink">Vragen Wijzigen</button></a>
-  <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+    <a href="/admin/forms/select"><button class="tablink">Beoordelingsoverzicht</button></a>
+    <a href="/admin"><button class="tablink active">Gebruikers</button></a>
+    <a href="/admin/forms"><button class="tablink">Vragen Wijzigen</button></a>
+    <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
   </nav>
 
   {{#each rows}}
+
+
   <form class="editForm" method="POST" action="/admin/edituser/{{this.id}}">
-    <div class="">
+    <div style="padding-top: 0.5px ;" class="">
       <div style="margin-top: 90px;" class="">
+        <h9>Bewerk gebruiker: {{this.name}}</h9>
+        <br><br>
         <label for="floatingInput"> Naam</label>
         <br><br>
         <input type="text" class="form-control" id="floatingInput" name="name" aria-describedby="emailHelp"
