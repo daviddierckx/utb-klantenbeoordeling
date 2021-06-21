@@ -43,8 +43,8 @@
 </nav>
 
 <main>
-
-    <div style="margin-top: 30px;" class="tab-titles">
+    <h1>Selecteer een formulier</h1>
+    <div class="tab-titles">
         {{#each data as | form |}}
             <div class="tab-title" id="tab-title-{{form.id}}"
                  onclick="showContent(this, '.tab-content', '#tab-content-{{form.id}}');">{{form.name}}</div>
@@ -72,7 +72,7 @@
                     {{#each form.pages as | page pageId |}}
                         <div class="tab-title"
                              onclick="showContent(this, '.page-content', '#page-content-{{form.id}}-{{pageId}}');">
-                            Page: {{pageId}}</div>
+                            Pagina {{pageId}}</div>
                     {{/each}}
                     <div class="tab-title" onclick="addPage(this);">Nieuwe pagina</div>
                 </div>
@@ -88,7 +88,7 @@
                                     <input class="js-question-label" data-question-id="{{question.id}}" type="text"
                                            id="question-label-{{question.id}}"
                                            value="{{question.label}}" placeholder="Welke titel heeft de vraag?">
-                                    <select class="js-question-type" id="question-type-{{question.id}}">
+                                    <select class="js-question-type" id="question-type-{{question.id}}" data-question-id="{{question.id}}">
                                         <option value="date" {{#ifEquals question.type "date"}}
                                                 selected {{/ifEquals}}>
                                             Datum
@@ -106,13 +106,19 @@
                                                 selected {{/ifEquals}}>1-5 rating met sterren
                                         </option>
                                     </select>
+                                    {{#ifEquals question.type "radio"}}
+                                        <label for="question-options-{{question.id}}">Welke opties heeft deze vraag?(onderscheidend met een ,)</label>
+                                        <input class="js-question-options" style="width: 100%;" data-question-id="{{question.id}}" type="text"
+                                               id="question-options-{{question.id}}"
+                                               value="{{question.options}}" placeholder="Welke opties heeft de vraag?(onderscheidend met een ,)">
+                                    {{/ifEquals}}
                                 </div>
                             {{/each}}
-                            <button type="button" class="button" onclick="addQuestion(this)">Vraag toevoegen</button>
+                            <button type="button" class="btn" onclick="addQuestion(this)">Vraag toevoegen</button>
                         </div>
                     {{/each}}
                 </div>
-                <button type="button" class="button" onclick="saveForm(this)" style="float: left">Formulier opslaan
+                <button type="button" class="btn" onclick="saveForm(this)" style="float: left">Formulier opslaan
                 </button>
             </div>
 
