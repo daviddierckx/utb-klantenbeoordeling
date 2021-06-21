@@ -839,3 +839,7 @@ textarea {
   border: 1.5px solid #009688;
   background-color: white;
 }
+
+.view-user{
+  padding-top: 100px;
+}
