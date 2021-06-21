@@ -12,7 +12,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
         const formName = "{{data.name}}";
     </script>
@@ -35,40 +35,41 @@
 
 <body>
 
-<script>
+    <script>
 
-    if (screen.availHeight > screen.availWidth) {
-        alert("Draai uw mobiele apparaat!");
-    }
+        if (screen.availHeight > screen.availWidth) {
+            alert("Draai uw mobiele apparaat!");
+        }
 
 </script>
 <nav>
     <a href="/admin/forms/select">
-        <button class="tablink">Beoordelingsoverzicht</button>
+        <button class="tablink active">Beoordelingsoverzicht</button>
     </a>
     <a href="/admin">
         <button class="tablink">Gebruikers</button>
     </a>
     <a href="/admin/forms">
-        <button class="tablink active">Vragen Wijzigen</button>
+        <button class="tablink">Vragen Wijzigen</button>
     </a>
     <a href="/admin/adduser">
         <button class="tablink">Gebruiker Toevoegen</button>
     </a>
 </nav>
 
-<main>
-    <h1 style="text-align: center">Selecteer een formulier</h1>
-    <div style="align-content: center;">
-        {{#each data as | form |}}
+    <main>
+        <h1 style="text-align: center">Selecteer een formulier</h1>
+        <div style="align-content: center;">
+            {{#each data as | form |}}
             <a href="/admin/forms/{{form.name}}">
                 <button class="tablink formSelectButton">{{form.title}}</button>
             </a>
-        {{/each}}
-    </div>
+            {{/each}}
+        </div>
 
 
-    <main>
-    </main>
+        <main>
+        </main>
 </body>
+
 </html>

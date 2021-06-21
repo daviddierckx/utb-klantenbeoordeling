@@ -31,17 +31,10 @@
   <body>
     <div id="bg"></div>
     <header>
-      <ul>
-        <li>
           <a href="https://www.utboils.com/" class="logo"><img
               src="../images/logo.png"
               alt="UTB logo"
             /></a>
-        </li>
-        <li>
-          <h1 class="formTitle">{{data.title}}</h1>
-        </li>
-      </ul>
     </header>
     <main>
       <form id="regForm" action="" method="post">
@@ -111,8 +104,7 @@
                         name="question-{{question.id}}"
                         value="{{this}}"
                         checked
-                      />
-                      <br />
+                      /> <br> <span class="checkmark"></span>
                       <label
                         for="question-{{question.id}}-{{@key}}"
                       >{{this}}</label>
