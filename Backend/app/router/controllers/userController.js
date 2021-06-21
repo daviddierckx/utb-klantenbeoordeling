@@ -10,6 +10,10 @@ exports.register = function (req, res) {
   check = check && request_utils.verifyBody(req, res, "password", "password");
   if (!check) {
     logger.log("Request cancelled because of an invalid param");
+    res.render("add-user", {
+      alert: "Kan gebruiker niet toevoegen (ongeldig e-mailadres)",
+      layout: false,
+    });
     return;
   }
 
@@ -24,14 +28,14 @@ exports.register = function (req, res) {
       if (err2) {
         logger.log("Error in register:", err2);
         res.render("add-user", {
-          alert: "Failed to add user",
+          alert: "Kan gebruiker niet toevoegen (e-mailadres al in gebruik) ",
           layout: false,
         });
         return res.status(400);
       }
 
       res.render("add-user", {
-        alert: "User added succesfully",
+        alert: "Gebruiker succesvol toegevoegd",
         layout: false,
       });
 
