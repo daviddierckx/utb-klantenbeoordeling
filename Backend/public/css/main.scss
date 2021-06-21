@@ -158,8 +158,18 @@ body {
     color: color(textColor);
     font-size: medium;
     margin: 0;
-    height: 100%;
+    height: fit-content;
     background-image: url("/images/background.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.userTable {
+    background-image: url("/images/background.jpg");
+    background-repeat: no-repeat;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -531,11 +541,13 @@ h3 {
     font-size: x-large;
     text-align: center;
 }
-.sr-only{
-  display: none;
+
+.sr-only {
+    display: none;
 }
+
 .question-spacer {
-  height: 2rem;
+    height: 2rem;
 }
 
 form input {
