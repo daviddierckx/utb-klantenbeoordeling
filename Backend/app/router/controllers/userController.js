@@ -23,7 +23,11 @@ exports.register = function (req, res) {
     (err2, res2) => {
       if (err2) {
         logger.log("Error in register:", err2);
-        return res.status(400).send({ success: false, error: err2 });
+        res.render("add-user", {
+          alert: "Failed to add user",
+          layout: false,
+        });
+        return res.status(400);
       }
 
       res.render("add-user", {
