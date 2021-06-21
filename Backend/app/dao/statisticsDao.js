@@ -15,16 +15,46 @@ module.exports = {
     const query = {
       // sql: "SELECT Q.questionTitle, AVG(A.answer) FROM Question AS Q JOIN Answer AS A ON A.questionId = Q.id WHERE Q.questionType = 'rating' GROUP BY Q.id;",
       sql: `SELECT Q.questionTitle, AVG(A.answer)
-                  FROM Question AS Q
-                    JOIN Answer AS A ON A.questionId = Q.id
-                  WHERE Q.questionType = 'rating'
-                  GROUP BY Q.id;`,
+            FROM Question AS Q
+              JOIN Answer AS A ON A.questionId = Q.id
+            WHERE Q.questionType = 'rating'
+            GROUP BY Q.id;`,
       timeout: 3000,
     };
     database.con.query(query, (err, results) => {
       if (results.length == 0) {
         logger.log("No data");
         callback("No data", undefined);
+      } else if (err) {
+        logger.log("An error occured");
+        callback(err, undefined);
+      }
+      callback(undefined, results);
+    });
+  },
+
+  getAveragesFromSpecificYear(year, callback) {
+    const query = {
+      sql: `SELECT Question.questionTitle, AVG(Answer.answer)
+            FROM Question
+            JOIN Question ON Answer.questionId = Question.id
+            WHERE Answer.entryId IN (
+            	SELECT Answer.entryId
+            	FROM Answer
+                JOIN Question ON Answer.questionId = Question.id
+            	WHERE Question.questionType = "date"
+            	AND YEAR(Answer.answer) = ?
+            	GROUP BY Answer.entryId
+            )
+            AND Question.questionType = "rating"
+            GROUP BY Answer.questionId;`,
+      values: year,
+      timeout: 3000
+    };
+    database.con.query(query, (err, results) => {
+      if (results.length == 0) {
+        logger.log("No data from that year");
+        callback("No data from that year", undefined);
       } else if (err) {
         logger.log("An error occured");
         callback(err, undefined);
