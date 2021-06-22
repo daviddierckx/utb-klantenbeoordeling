@@ -100,7 +100,7 @@ function saveForm(el) {
       const questionLabel = $labelElmt.val();
       const questionType = $(questionElmnt).find(".js-question-type").val();
       let options = undefined;
-      if (questionType === "radio"){
+      if (questionType === "radio") {
         options = $(questionElmnt).find(".js-question-options").val().split(',');
       }
       page.push({
@@ -129,17 +129,18 @@ function saveForm(el) {
     return post("../../admin/forms/create/" + finalForm.name, {data: JSON.stringify(finalForm)});
   }
 }
-function setEventHandlers(){
+
+function setEventHandlers() {
   $(".js-question-type:not(.has-handlers)").addClass("has-handlers").on('change', (event) => {
     const $elmnt = $(event.target);
     const $radioInput = $elmnt.parent().find(".js-question-options");
     const hasRadioInput = $radioInput.length >= 1
-    if (!hasRadioInput && $elmnt.val() === "radio"){
+    if (!hasRadioInput && $elmnt.val() === "radio") {
       $elmnt.parent().append(`<label for="question-options-${$elmnt.data('question-id')}">Welke opties heeft deze vraag?(onderscheidend met een ,)</label>
                               <input class="js-question-options" style="width: 100%;" data-question-id="${$elmnt.data('question-id')}" type="text"
                                      id="question-options-${$elmnt.data('question-id')}"
                                      value="" placeholder="Welke opties heeft de vraag?(onderscheidend met een ,)">`)
-    }else if(hasRadioInput && $elmnt.val() !== "radio"){
+    } else if (hasRadioInput && $elmnt.val() !== "radio") {
       $radioInput.prev().remove();
       $radioInput.remove();
     }
@@ -166,4 +167,31 @@ function post(path, params, method = 'post') {
 
   document.body.appendChild(form);
   form.submit();
+}
+
+
+// Get the modal
+var modal = document.getElementById("infoModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("infoModalButton");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on the button, open the modal
+btn.onclick = function () {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }

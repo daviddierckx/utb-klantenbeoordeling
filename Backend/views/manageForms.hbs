@@ -43,7 +43,42 @@
 </nav>
 
 <main>
-    <h1>Selecteer een formulier</h1>
+    <h1>Selecteer een formulier <button id="infoModalButton" class="btn">Help</button></h1>
+
+    <!-- The Modal -->
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="close">&times;</span>
+                <h2 style="padding: 0;">Formulieren beheren hulp</h2>
+            </div>
+            <div class="modal-body">
+                <p class="modal-title">De basis</p>
+                <p>Wanneer je een formulier opent zie je 3 velden: verkorte-naam, titel en subtitel</p>
+                <p>De verkorte naam komt in de URL te staan maar wordt verder weinig mee gedaan.</p>
+                <p>De titel staat bovenaan op iedere pagina en daaronder komt die subtitel</p>
+
+                <p class="modal-title">De basis - pagina's</p>
+                <p>Per formulier heb je een aantal pagina's. Per pagina kan je vragen toevoegen/verwijderen.</p>
+                <p>Per vraag heb je een "label" en een "type". Het label zal boven de vraag komen te staan.</p>
+
+                <p class="modal-title">De basis - vraag soorten</p>
+                <p>Er zijn verschillende soorten vragen:</p>
+                <p class="left-offset">Datum: Dit is een datum invoer veld.</p>
+                <p class="left-offset">Klein stukje tekst: Dit is een `een-regel` invoer veld.</p>
+                <p class="left-offset">Groot tekst vlak: Dit veld heeft meerdere regels, handig voor grote stukken tekst.</p>
+                <p class="left-offset">Multiple choice: Wanneer je dit selecteerd opent er een invoer veld. Hierin kan je met `,` gescheiden opties ingeven.</p>
+                <p class="left-offset">1-5 rating met sterren: Je kan een rating geven van 1 t/m 5 dmv. sterren.</p>
+
+                <p class="modal-title">In de diepte - vragen</p>
+                <p>Wat gebeurt er als ik vragen aanpas?</p>
+                <p class="left-offset">Wanneer je een vraag label aanpast zal deze in het overzicht veranderen. Echter behouden de al ingevulden vragen het oude label.</p>
+                <p>Wat gebeurt er als ik een vraag type aanpas?</p>
+                <p class="left-offset">Wanneer je een vraag type aanpast zullen de oude antwoorden bewaard blijven zoals ze ingevuld waren.</p>
+
+            </div>
+        </div>
+    </div>
     <div class="tab-titles">
         {{#each data as | form |}}
             <div class="tab-title" id="tab-title-{{form.id}}"
