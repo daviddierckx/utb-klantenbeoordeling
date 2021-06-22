@@ -24,10 +24,13 @@ body {
   position: absolute;
   z-index: -3;
   background-size: cover;
-
+  overflow-y: hidden ! important;
+  overflow-x: hidden ! important;
 }
 #bg {
   background: transparent url('../images/tankwagen.jpg') no-repeat center center;
+  overflow-y: hidden ! important;
+        overflow-x: hidden ! important;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -573,6 +576,7 @@ input[type="password"]:placeholder {
     padding-right: 30px;
 
    }
+ 
 } 
 
 @media only screen and (min-width: 2560px) {
