@@ -23,40 +23,40 @@ module.exports = {
         return errorHandler();
       }
       averages = results;
+      statistics_dao.getAverageRatingsFromSpecificYear(lastYear, (err, results) => {
+        if (err) {
+          logger.log("Error when getting data:", err);
+          return errorHandler();
+        }
+        averagesYear = results;
+
+        statistics_dao.getCountOfRadioButtons((err, results) => {
+          if (err) {
+            logger.log("Error when getting data:", err);
+            return errorHandler();
+          }
+          countButtons = results;
+          statistics_dao.getCountOfRadioButtonsFromSpecificYear(lastYear, (err, results) => {
+            if (err) {
+              logger.log("Error when getting data:", err);
+              return errorHandler();
+            }
+            countButtonsYear = results;
+            // logger.log(averagesYear);
+
+            res.render("statistics", {
+              averages,
+              averagesYear,
+              countButtons,
+              countButtonsYear,
+              layout: false
+            });
+          });
+        });
+      });
     });
 
-    statistics_dao.getAverageRatingsFromSpecificYear(lastYear, (err, results) => {
-      if (err) {
-        logger.log("Error when getting data:", err);
-        return errorHandler();
-      }
-      averagesYear = results;
-    });
 
-    statistics_dao.getCountOfRadioButtons((err, results) => {
-      if (err) {
-        logger.log("Error when getting data:", err);
-        return errorHandler();
-      }
-      countButtons = results;
-    });
 
-    statistics_dao.getCountOfRadioButtonsFromSpecificYear(lastYear, (err, results) => {
-      if (err) {
-        logger.log("Error when getting data:", err);
-        return errorHandler();
-      }
-      countButtonsYear = results;
-    });
-
-    // logger.log(averagesYear);
-
-    res.render("statistics", {
-      averages,
-      averagesYear,
-      countButtons,
-      countButtonsYear,
-      layout: false
-    });
   }
 };
