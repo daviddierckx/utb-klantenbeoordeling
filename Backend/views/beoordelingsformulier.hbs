@@ -31,10 +31,10 @@
   <body>
     <div id="bg"></div>
     <header>
-          <a href="https://www.utboils.com/" class="logo"><img
-              src="../images/logo.png"
-              alt="UTB logo"
-            /></a>
+      <a href="https://www.utboils.com/" class="logo"><img
+          src="../images/logo.png"
+          alt="UTB logo"
+        /></a>
     </header>
     <main>
       <form id="regForm" action="" method="post">
@@ -104,7 +104,8 @@
                         name="question-{{question.id}}"
                         value="{{this}}"
                         checked
-                      /> <br>
+                      />
+                      <br />
                       <label
                         for="question-{{question.id}}-{{@key}}"
                       >{{this}}</label>
@@ -167,13 +168,13 @@
               class="pageButtons"
               id="prevBtn"
               onclick="nextPrev(-1)"
-            ><span class="hidden">Vorige</span></button>
+            >icon <span class="hidden">Vorige</span></button>
             <button
               type="button"
               class="pageButtons"
               id="nextBtn"
               onclick="nextPrev(1)"
-            ><span class="hidden">Volgende</span></button>
+            ><span class="hidden">Volgende</span> icon </button>
           </div>
 
         </div>
