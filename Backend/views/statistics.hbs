@@ -18,20 +18,17 @@
 </head>
 
 <body>
-
-
-    <script>
-
-if(screen.availHeight > screen.availWidth){
-    alert("Draai uw mobiele apparaat!");
-}
-
-    </script>
+  <script>
+    if(screen.availHeight > screen.availWidth){
+      alert("Draai uw mobiele apparaat!");
+    }
+  </script>
   <nav>
     <a href="/admin/forms/select"><button class="tablink">Beoordelingsoverzicht</button></a>
     <a href="/admin"><button class="tablink active">Gebruikers</button></a>
     <a href="/admin/forms"><button class="tablink">Vragen Wijzigen</button></a>
     <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+    <a href="/admin/statistics"><button class="tablink">Statistieken</button></a>
   </nav>
   <form class="searchbar" method="POST" action="/admin" novalidate>
     <input type="text" placeholder="Zoeken.." name="search">
@@ -40,32 +37,18 @@ if(screen.availHeight > screen.availWidth){
   <table style="margin-bottom: 20px;" class="">
     <thead class="">
       <tr>
-        {{!-- <th scope="">ID</th> --}}
-        <th scope="">Naam</th>
-        <th scope="">Email</th>
-        {{! <th scope="">Password</th>
-        <th scope="">IsAdmin</th> }}
-        <th scope="" class="text-end">Actie</th>
-
+        <th scope="">Vraag</th>
+        <th scope="">Gemiddelde</th>
       </tr>
     </thead>
     <tbody>
-      {{#each rows}}
+      {{#each results}}
       <tr>
-        {{!-- <td scope="row">{{this.id}}</td> --}}
-        <td>{{this.name}}</td>
-        <td>{{this.email}}</td>
-        <!-- <td>{{this.password}}</td>
-          <td>{{this.isAdmin}}</td> -->
-        <td class="">
-          <a href="admin/users/overview/{{this.id}}" type="button" class=""><i class=""></i>Bekijk</a>
-          <a type="button" class="btn-edit" href="/admin/edituser/{{this.id}}"><i class=""></i>Bewerk</a>
-          <a type="button" class="btn-delete" href="javascript:delay('/admin/users/{{this.id}}')"><i></i>Verwijder</a>
-        </td>
+        <td>{{this.questionTitle}}</td>
+        <td>{{this.Averages}}</td>
       </tr>
       {{/each}}
       <script>
-
         function delay(URL) {
           if (confirm("Weet u zeker dat u deze gebruiker wilt verwijderen?")) {
             alert("Je hebt deze gebruiker verwijderd");
@@ -73,13 +56,8 @@ if(screen.availHeight > screen.availWidth){
           } else {
             alert("Je hebt deze verwijdering geannuleerd!");
           }
-
         }
-
       </script>
-
     </tbody>
   </table>
-
-
 </html>
