@@ -22,7 +22,7 @@ module.exports = {
       timeout: 3000,
     };
     database.con.query(query, (err, results) => {
-      if (results.length == 0) {
+      if (results == 0) {
         logger.log("No data");
         callback("No data", undefined);
       } else if (err) {
@@ -52,7 +52,7 @@ module.exports = {
       timeout: 3000
     };
     database.con.query(query, (err, results) => {
-      if (results.length == 0) {
+      if (results == 0) {
         logger.log("No data from that year");
         callback("No data from that year", undefined);
       } else if (err) {
@@ -90,7 +90,7 @@ module.exports = {
       timeout: 3000,
     };
     database.con.query(query, (err, results) => {
-      if (results.length == 0) {
+      if (results == 0) {
         logger.log("No data");
         callback("No data", undefined);
       } else if (err) {
@@ -138,7 +138,7 @@ module.exports = {
       timeout: 3000,
     };
     database.con.query(query, (err, results) => {
-      if (results.length == 0) {
+      if (results == 0) {
         logger.log("No data");
         callback("No data", undefined);
       } else if (err) {
