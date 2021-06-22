@@ -30,8 +30,13 @@
     <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
     <a href="/admin/statistics"><button class="tablink active">Statistieken</button></a>
   </nav>
-  <table style="margin-bottom: 20px;" class="statistics-table">
+  <table class="statistics-table">
     <thead class="">
+      <tr>
+        <th colspan="2">
+          <h3><br>Gemiddelde waardering per vraag</h3>
+        </th>
+      </tr>
       <tr>
         <th scope="">Vraag</th>
         <th scope="">Gemiddelde</th>
@@ -46,8 +51,13 @@
       {{/each}}
     </tbody>
   </table>
-  <table style="margin-bottom: 20px;" class="statistics-table">
+  <table class="statistics-table">
     <thead class="">
+      <tr>
+        <th colspan="2">
+          <h3><br>Gemiddelde waardering per vraag van vorig jaar</h3>
+        </th>
+      </tr>
       <tr>
         <th scope="">Vraag</th>
         <th scope="">Gemiddelde</th>
@@ -62,8 +72,13 @@
       {{/each}}
     </tbody>
   </table>
-  <table style="margin-bottom: 20px;" class="statistics-table">
+  <table class="statistics-table">
     <thead class="">
+      <tr>
+        <th colspan="4">
+          <h3><br>Som van waarden</h3>
+        </th>
+      </tr>
       <tr>
         <th scope="">Vraag</th>
         <th scope="">Aantal Positief</th>
@@ -82,8 +97,13 @@
       {{/each}}
     </tbody>
   </table>
-  <table style="margin-bottom: 20px;" class="statistics-table">
+  <table class="statistics-table">
     <thead class="">
+      <tr>
+        <th colspan="4">
+          <h3><br>Som van waarden van vorig jaar</h3>
+        </th>
+      </tr>
       <tr>
         <th scope="">Vraag</th>
         <th scope="">Aantal Positief</th>
@@ -102,4 +122,5 @@
       {{/each}}
     </tbody>
   </table>
+  <br><br>
 </html>
