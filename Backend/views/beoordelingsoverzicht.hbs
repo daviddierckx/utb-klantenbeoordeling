@@ -26,20 +26,13 @@
     }
 
 </script>
-<nav>
-    <a href="/admin/forms/select">
-        <button class="tablink">Beoordelingsoverzicht</button>
-    </a>
-    <a href="/admin">
-        <button class="tablink">Gebruikers</button>
-    </a>
-    <a href="/admin/forms">
-        <button class="tablink">Vragen Wijzigen</button>
-    </a>
-    <a href="/admin/adduser">
-        <button class="tablink">Gebruiker Toevoegen</button>
-    </a>
-</nav>
+  <nav>
+    <a href="/admin/forms/select"><button class="tablink active">Beoordelingsoverzicht</button></a>
+    <a href="/admin"><button class="tablink">Gebruikers</button></a>
+    <a href="/admin/forms"><button class="tablink">Vragen Wijzigen</button></a>
+    <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+    <a href="/admin/statistics"><button class="tablink">Statistieken</button></a>
+  </nav>
 <form class="searchbar" method="POST" action="/admin" novalidate>
     <input type="text" placeholder="Zoeken.." name="search">
     <button class="hidden" type="submit"><i class="fa fa-search"></i></button>
