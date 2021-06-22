@@ -21,7 +21,7 @@ router.use(function timeLog(req, res, next) {
 
 // testing routes. Change these to something more functional down the line
 router.get(
-  "/feedback/statistics/radio",
+  "/statistics",
   statistics_controller.getCountRadioButtonAnswers
 );
 
