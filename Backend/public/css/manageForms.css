@@ -11,11 +11,12 @@
   font-size: 0;
 }
 .tab-titles .tab-title {
-  padding: 0.4rem;
+  padding: 1rem;
   font-size: medium;
   display: inline-block;
   cursor: pointer;
   transition-duration: 0.25s;
+  background-color: #051a2e;
 }
 .tab-titles .tab-title:not(:first-child) {
   border-left-style: solid;
@@ -64,17 +65,9 @@ input {
   border: none !important;
 }
 
-button.button {
-  padding: 0.3rem;
-  margin-top: 0.6rem;
-  border: 0;
-  transition-duration: 0.25s;
-  cursor: pointer;
+.btn {
   float: right;
-}
-
-button.button:hover {
-  background-color: #b1b1b1;
+  margin-top: 1rem;
 }
 
 main {

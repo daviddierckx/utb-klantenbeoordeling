@@ -19,26 +19,35 @@
 </head>
 
 <body>
-    
-    <script>
 
-if(screen.availHeight > screen.availWidth){
-    alert("Draai uw mobiele apparaat!");
-}
+<script>
 
-    </script>
+    if (screen.availHeight > screen.availWidth) {
+        alert("Draai uw mobiele apparaat!");
+    }
+
+</script>
 <nav>
-    <a href="/admin/forms/utb-feedback-1"><button class="tablink">Beoordelingsoverzicht</button></a>
-    <a href="/admin"><button class="tablink">Gebruikers</button></a>
-    <a href="/admin/forms"><button class="tablink active">Vragen Wijzigen</button></a>
-    <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+    <a href="/admin/forms/select">
+        <button class="tablink">Beoordelingsoverzicht</button>
+    </a>
+    <a href="/admin">
+        <button class="tablink">Gebruikers</button>
+    </a>
+    <a href="/admin/forms">
+        <button class="tablink active">Vragen Wijzigen</button>
+    </a>
+    <a href="/admin/adduser">
+        <button class="tablink">Gebruiker Toevoegen</button>
+    </a>
 </nav>
 
 <main>
-
-    <div style="margin-top: 30px;" class="tab-titles">
+    <h1>Selecteer een formulier</h1>
+    <div class="tab-titles">
         {{#each data as | form |}}
-            <div class="tab-title" id="tab-title-{{form.id}}" onclick="showContent(this, '.tab-content', '#tab-content-{{form.id}}');">{{form.name}}</div>
+            <div class="tab-title" id="tab-title-{{form.id}}"
+                 onclick="showContent(this, '.tab-content', '#tab-content-{{form.id}}');">{{form.name}}</div>
         {{/each}}
         <div class="tab-title" onclick="addForm(this);">Nieuw formulier toevoegen</div>
     </div>
@@ -48,17 +57,22 @@ if(screen.availHeight > screen.availWidth){
             <div class="tab-content" id="tab-content-{{form.id}}">
                 <label for="page-name-{{form.id}}">Formulier verkorte-naam(voor in de URL, hier mogen geen spaties in
                     zitten)</label>
-                <input class="js-form-name" type="text" id="page-name-{{form.id}}" placeholder="Formulier naam" value="{{form.name}}" data-existing="1" disabled>
+                <input class="js-form-name" type="text" id="page-name-{{form.id}}" placeholder="Formulier naam"
+                       value="{{form.name}}" data-existing="1" disabled>
 
                 <label for="page-title-{{form.id}}">Formulier titel</label>
-                <input class="js-form-title" type="text" id="page-title-{{form.id}}" placeholder="Formulier titel" value="{{form.title}}">
+                <input class="js-form-title" type="text" id="page-title-{{form.id}}" placeholder="Formulier titel"
+                       value="{{form.title}}">
 
                 <label for="page-subtitle-{{form.id}}">Formulier sub-titel</label>
-                <input class="js-form-subtitle" type="text" id="page-subtitle-{{form.id}}" placeholder="Formulier ondertitel" value="{{form.subtitle}}">
+                <input class="js-form-subtitle" type="text" id="page-subtitle-{{form.id}}"
+                       placeholder="Formulier ondertitel" value="{{form.subtitle}}">
 
                 <div class="tab-titles">
                     {{#each form.pages as | page pageId |}}
-                        <div class="tab-title" onclick="showContent(this, '.page-content', '#page-content-{{form.id}}-{{pageId}}');">Page: {{pageId}}</div>
+                        <div class="tab-title"
+                             onclick="showContent(this, '.page-content', '#page-content-{{form.id}}-{{pageId}}');">
+                            Pagina {{pageId}}</div>
                     {{/each}}
                     <div class="tab-title" onclick="addPage(this);">Nieuwe pagina</div>
                 </div>
@@ -71,9 +85,10 @@ if(screen.availHeight > screen.availWidth){
                                     <label for="question-type-{{question.id}}" class="sr-only">Vraag type</label>
                                     <label for="question-label-{{question.id}}" class="sr-only">Vraag titel</label>
                                     <label>Vraag {{increase @key}}</label>
-                                    <input class="js-question-label" data-question-id="{{question.id}}" type="text" id="question-label-{{question.id}}"
+                                    <input class="js-question-label" data-question-id="{{question.id}}" type="text"
+                                           id="question-label-{{question.id}}"
                                            value="{{question.label}}" placeholder="Welke titel heeft de vraag?">
-                                    <select class="js-question-type" id="question-type-{{question.id}}">
+                                    <select class="js-question-type" id="question-type-{{question.id}}" data-question-id="{{question.id}}">
                                         <option value="date" {{#ifEquals question.type "date"}}
                                                 selected {{/ifEquals}}>
                                             Datum
@@ -91,13 +106,20 @@ if(screen.availHeight > screen.availWidth){
                                                 selected {{/ifEquals}}>1-5 rating met sterren
                                         </option>
                                     </select>
+                                    {{#ifEquals question.type "radio"}}
+                                        <label for="question-options-{{question.id}}">Welke opties heeft deze vraag?(onderscheidend met een ,)</label>
+                                        <input class="js-question-options" style="width: 100%;" data-question-id="{{question.id}}" type="text"
+                                               id="question-options-{{question.id}}"
+                                               value="{{question.options}}" placeholder="Welke opties heeft de vraag?(onderscheidend met een ,)">
+                                    {{/ifEquals}}
                                 </div>
                             {{/each}}
-                            <button type="button" class="button" onclick="addQuestion(this)">Vraag toevoegen</button>
+                            <button type="button" class="btn" onclick="addQuestion(this)">Vraag toevoegen</button>
                         </div>
                     {{/each}}
                 </div>
-                <button type="button" class="button" onclick="saveForm(this)" style="float: left">Formulier opslaan</button>
+                <button type="button" class="btn" onclick="saveForm(this)" style="float: left">Formulier opslaan
+                </button>
             </div>
 
         {{/each}}
