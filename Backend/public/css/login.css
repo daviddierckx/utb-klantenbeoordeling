@@ -30,7 +30,7 @@ body {
 #bg {
   background: transparent url('../images/tankwagen.jpg') no-repeat center center;
   overflow-y: hidden ! important;
-        overflow-x: hidden ! important;
+  overflow-x: hidden ! important;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -341,10 +341,10 @@ input[type="submit"],
 input[type="reset"],
 button {
   background-color: #56baed;
-  max-width: 80%;
   border: none;
   color: white;
   cursor: pointer;
+  padding: 15px 80px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -576,9 +576,7 @@ input[type="password"]:placeholder {
     padding-right: 30px;
 
    }
-  a.logo{
-    margin-left: 14%;
- }
+ 
 } 
 
 @media only screen and (min-width: 2560px) {
@@ -628,4 +626,10 @@ input[type="password"]:placeholder {
   font: bold 25px Helvetica, Arial, sans-serif;
   letter-spacing: -0.05em;
 
+ }
+ a.logo{
+     display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
  }
