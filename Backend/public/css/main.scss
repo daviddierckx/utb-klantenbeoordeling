@@ -871,15 +871,16 @@ textarea {
 }
 
 #formContent {
-  -webkit-border-radius: 10px 10px 10px 10px;
-  border-radius: 10px 10px 10px 10px;
-  background: #fff;
-  padding: 30px;
-  width: 90%;
-  max-width: 450px;
-  position: relative;
-
-  text-align: center;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    //-webkit-box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
+    //box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
+    text-align: center;
 }
 
 .newForm {
@@ -956,47 +957,22 @@ textarea {
 /* Style the indicator (dot/circle) */
 
 .container .checkmark:after {
-  top: 9px;
-  left: 9px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: white;
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
 }
-.wrapper {
-    position: relative;
-    display: flex;
-    min-width: 100px;
-    left: 25%;
-  }
-  
-  .search-icon {
-    position: absolute;
-    top: 6px;
-    left: 8px;
-    width: 14px;
-  }
-  
-  .searchbar{
-    padding-top: 50px;
-    margin-bottom: 15px;
-  }
-  
-  
-  .search {
-    border: 1px solid grey;
-    border-radius: 5px;
-    min-height: 25px;
-      width: 100%;
-    padding: 2px 23px 2px 30px;
-    outline: 0;
-    background-color: #f5f5f5;
-  }
-  .search:hover, .search:focus {
-    border: 1.5px solid #009688;
-    background-color: white;
-  }
-  
-  .view-user{
-    padding-top: 100px;
-  }
+
+//invalid email popup button styling
+.btn-close {
+    color: color(error);
+    font-weight: bolder;
+    border-radius: 50%;
+}
+.btn-close:hover {
+    background-color: color(errorLight);
+    color: color(textColor);
+    border-color: color(error);
+}
