@@ -102,7 +102,6 @@ module.exports = {
     logger.log("Executing query");
     const query = {
       sql: `SELECT Q.questionTitle
-
             ,      sum(CASE
                       when A.answer = 'positief' then 1
                       else 0
@@ -127,6 +126,7 @@ module.exports = {
             AND    Q.questionType = 'radio'
             AND    Q.questionTitle <> 'Product groep'
             GROUP  BY Q.id;`,
+      values: year,
       timeout: 3000,
     };
     database.con.query(query, (err, results) => {
