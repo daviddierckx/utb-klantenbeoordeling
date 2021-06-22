@@ -135,7 +135,6 @@ table {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
 @media screen and (max-width: 720px) {
@@ -145,6 +144,10 @@ table {
   .logo {
     display: block;
     margin: auto;
+    max-width: 100px;
+  }
+  .logo img {
+    width: 100px;
   }
 }
 
@@ -447,6 +450,7 @@ td a {
   padding: 5%;
 }
 
+
 .userInfo {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
@@ -665,7 +669,7 @@ form input {
   cursor: pointer;
   padding: 14px 16px;
   font-size: 17px;
-  width: 25%;
+  width: 20%;
   min-height: 70px;
 }
 
@@ -966,6 +970,12 @@ textarea {
   text-decoration: none;
 }
 
+@media only screen and (max-width: 647px) {
+  .newForm {
+    width: 80%;
+  }
+}
+
 /* Hide the browser's default radio button */
 .question-radio ul li input {
   position: absolute;
@@ -1027,4 +1037,9 @@ textarea {
   color: #f5f0ef;
   border-color: #e63322;
 }
-/*# sourceMappingURL=main.css.map */
+
+.statistics-table {
+    /* display: block; */
+    margin: 10vh auto;
+    text-align: center;
+}
