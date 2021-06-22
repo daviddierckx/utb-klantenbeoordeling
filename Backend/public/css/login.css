@@ -576,7 +576,9 @@ input[type="password"]:placeholder {
     padding-right: 30px;
 
    }
- 
+  a.logo{
+    margin-left: 14%;
+ }
 } 
 
 @media only screen and (min-width: 2560px) {
