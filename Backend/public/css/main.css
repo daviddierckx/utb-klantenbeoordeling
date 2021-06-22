@@ -135,7 +135,6 @@ table {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
 @media screen and (max-width: 720px) {
@@ -145,6 +144,10 @@ table {
   .logo {
     display: block;
     margin: auto;
+    max-width: 100px;
+  }
+  .logo img {
+    width: 100px;
   }
 }
 

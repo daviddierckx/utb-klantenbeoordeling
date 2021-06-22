@@ -41,6 +41,27 @@ body {
  background-repeat: no-repeat;
 }
 
+.logo {
+  display: block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 720px) {
+  .hidden {
+    display: none;
+  }
+
+  .logo {
+    display: block;
+    margin: auto;
+    max-width: 100px;
+  }
+  .logo img {
+    width: 100px;
+  }
+}
 
 main {
   margin-top: 10vh;
