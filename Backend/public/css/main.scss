@@ -791,8 +791,8 @@ textarea {
     width: 90%;
     max-width: 450px;
     position: relative;
-    -webkit-box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
-    box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
+    //-webkit-box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
+    //box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
     text-align: center;
 }
 
@@ -881,4 +881,16 @@ textarea {
     height: 8px;
     border-radius: 50%;
     background: white;
+}
+
+//invalid email popup button styling
+.btn-close {
+    color: color(error);
+    font-weight: bolder;
+    border-radius: 50%;
+}
+.btn-close:hover {
+    background-color: color(errorLight);
+    color: color(textColor);
+    border-color: color(error);
 }
