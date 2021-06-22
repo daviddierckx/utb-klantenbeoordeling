@@ -43,7 +43,9 @@
 </nav>
 
 <main>
-    <h1>Selecteer een formulier <button id="infoModalButton" class="btn">Help</button></h1>
+    <h1>Selecteer een formulier
+        <button id="infoModalButton" class="btn">Help</button>
+    </h1>
 
     <!-- The Modal -->
     <div id="infoModal" class="modal">
@@ -66,20 +68,29 @@
                 <p>Er zijn verschillende soorten vragen:</p>
                 <p class="left-offset">Datum: Dit is een datum invoer veld.</p>
                 <p class="left-offset">Klein stukje tekst: Dit is een `een-regel` invoer veld.</p>
-                <p class="left-offset">Groot tekst vlak: Dit veld heeft meerdere regels, handig voor grote stukken tekst.</p>
-                <p class="left-offset">Multiple choice: Wanneer je dit selecteerd opent er een invoer veld. Hierin kan je met `,` gescheiden opties ingeven.</p>
+                <p class="left-offset">Groot tekst vlak: Dit veld heeft meerdere regels, handig voor grote stukken
+                    tekst.</p>
+                <p class="left-offset">Multiple choice: Wanneer je dit selecteerd opent er een invoer veld. Hierin kan
+                    je met `,` gescheiden opties ingeven.</p>
                 <p class="left-offset">1-5 rating met sterren: Je kan een rating geven van 1 t/m 5 dmv. sterren.</p>
                 <p class="left-offset">Verborgen: Wanneer je een vraag wilt verbergen kan je deze optie seleteren.</p>
 
+                <p class="modal-title">De basis - vragen verplaatsen</p>
+                <p>Door middel van de pijltjes naar beneden/boven kan je vragen verplaatsen.</p>
+                <p>Het verplaatsen van vragen gebeurt zonder enige impact op bestaande antwoorden en kan zonder
+                    problemen gedaan worden.</p>
+
                 <p class="modal-title">In de diepte - vragen</p>
                 <p>Wat gebeurt er als ik vragen aanpas?</p>
-                <p class="left-offset">Wanneer je een vraag label aanpast zal deze in het overzicht veranderen. Echter behouden de al ingevulden vragen het oude label.</p>
+                <p class="left-offset">Wanneer je een vraag label aanpast zal deze in het overzicht veranderen. Echter
+                    behouden de al ingevulden vragen het oude label.</p>
                 <p>Wat gebeurt er als ik een vraag type aanpas?</p>
-                <p class="left-offset">Wanneer je een vraag type aanpast zullen de oude antwoorden bewaard blijven zoals ze ingevuld waren.</p>
+                <p class="left-offset">Wanneer je een vraag type aanpast zullen de oude antwoorden bewaard blijven zoals
+                    ze ingevuld waren.</p>
 
                 <p class="modal-title">Ik heb iets verkeerde gedaan! Hoe kan ik het ongedaan maken?</p>
-                <p>Wanneer je het formulier aanpast maar niet opgeslagen hebt kan je de pagina ververssen (F5 of ctrl+r). Dan Haalt hij het formulier weer op uit de database.</p>
-
+                <p>Wanneer je het formulier aanpast maar niet opgeslagen hebt kan je de pagina ververssen (F5 of
+                    ctrl+r). Dan Haalt hij het formulier weer op uit de database.</p>
             </div>
         </div>
     </div>
@@ -123,11 +134,14 @@
                                 <div class="question-container">
                                     <label for="question-type-{{question.id}}" class="sr-only">Vraag type</label>
                                     <label for="question-label-{{question.id}}" class="sr-only">Vraag titel</label>
-                                    <label>Vraag {{increase @key}}<span class="move-question-up"><i class="fa fa-arrow-up"></i></span><span class="move-question-down"><i class="fa fa-arrow-down"></i></span></label>
+                                    <label><span class="question-question">Vraag {{increase @key}}</span><span class="move-question-up"><i
+                                            class="fa fa-arrow-up"></i></span><span class="move-question-down"><i
+                                            class="fa fa-arrow-down"></i></span></label>
                                     <input class="js-question-label" data-question-id="{{question.id}}" type="text"
                                            id="question-label-{{question.id}}"
                                            value="{{question.label}}" placeholder="Welke titel heeft de vraag?">
-                                    <select class="js-question-type" id="question-type-{{question.id}}" data-question-id="{{question.id}}">
+                                    <select class="js-question-type" id="question-type-{{question.id}}"
+                                            data-question-id="{{question.id}}">
                                         <option value="date" {{#ifEquals question.type "date"}}
                                                 selected {{/ifEquals}}>
                                             Datum
@@ -149,10 +163,13 @@
                                         </option>
                                     </select>
                                     {{#ifEquals question.type "radio"}}
-                                        <label for="question-options-{{question.id}}">Welke opties heeft deze vraag?(onderscheidend met een ,)</label>
-                                        <input class="js-question-options" style="width: 100%;" data-question-id="{{question.id}}" type="text"
+                                        <label for="question-options-{{question.id}}">Welke opties heeft deze
+                                            vraag?(onderscheidend met een ,)</label>
+                                        <input class="js-question-options" style="width: 100%;"
+                                               data-question-id="{{question.id}}" type="text"
                                                id="question-options-{{question.id}}"
-                                               value="{{question.options}}" placeholder="Welke opties heeft de vraag?(onderscheidend met een ,)">
+                                               value="{{question.options}}"
+                                               placeholder="Welke opties heeft de vraag?(onderscheidend met een ,)">
                                     {{/ifEquals}}
                                 </div>
                             {{/each}}
