@@ -19,7 +19,6 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
-// testing routes. Change these to something more functional down the line
 router.get(
   "/statistics",
   statistics_controller.getCountRadioButtonAnswers
