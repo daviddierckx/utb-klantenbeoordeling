@@ -45,6 +45,7 @@ function addForm(el) {
                         </div>`);
   $(el).before(`<div class="tab-title" id="tab-title-${formId}" onclick="showContent(this, '.tab-content', '#tab-content-${formId}');">Nieuw formulier</div>`);
   showContent(`#tab-title-${formId}`, '.tab-content', `#tab-content-${formId}`);
+  setEventHandlers();
 }
 
 
@@ -70,6 +71,7 @@ function addPage(el) {
   `);
   $(el).before(`<div class="tab-title" id="page-title-${questionId}" onclick="showContent(this, '.page-content', '#page-content-${questionId}');">Nieuwe pagina</div>`);
   showContent(`#page-title-${questionId}`, '.page-content', `#page-content-${questionId}`);
+  setEventHandlers();
 }
 
 function addQuestion(el) {
@@ -88,6 +90,7 @@ function addQuestion(el) {
                         <option value="rating">1-5 rating met sterren</option>
                     </select>
                 </div>`);
+  setEventHandlers();
 }
 
 function saveForm(el) {
@@ -144,7 +147,11 @@ function setEventHandlers() {
       $radioInput.prev().remove();
       $radioInput.remove();
     }
-  })
+  });
+
+  $(".remove-question:not(.has-handlers)").addClass("has-handlers").on('click', (event) => {
+    $(event.target).parent().parent().remove();
+  });
 }
 
 $(setEventHandlers);

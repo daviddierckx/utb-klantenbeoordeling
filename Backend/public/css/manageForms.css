@@ -76,6 +76,15 @@ main {
   max-width: 860px;
 }
 
+.remove-question {
+  cursor: pointer;
+  margin-left: 0.3rem;
+  color: darkred;
+}
+.remove-question:hover {
+  color: red;
+}
+
 /* The Modal (background) */
 .modal {
   display: none;

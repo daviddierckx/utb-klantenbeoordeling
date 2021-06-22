@@ -81,6 +81,19 @@ main {
   max-width: 860px;
 }
 
+.remove-question {
+  &:hover {
+    color: red;
+  }
+
+  cursor: pointer;
+  margin-left: .3rem;
+  color: darkred;
+}
+
+
+// Modal shit:
+
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
@@ -173,6 +186,6 @@ main {
   font-weight: bold;
 }
 
-.left-offset{
+.left-offset {
   margin-left: 1rem;
 }

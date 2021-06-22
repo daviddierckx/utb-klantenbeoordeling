@@ -59,7 +59,7 @@
                 <p>De titel staat bovenaan op iedere pagina en daaronder komt die subtitel</p>
 
                 <p class="modal-title">De basis - pagina's</p>
-                <p>Per formulier heb je een aantal pagina's. Per pagina kan je vragen toevoegen/verwijderen.</p>
+                <p>Per formulier heb je een aantal pagina's. Per pagina kan je vragen toevoegen/verbergen.</p>
                 <p>Per vraag heb je een "label" en een "type". Het label zal boven de vraag komen te staan.</p>
 
                 <p class="modal-title">De basis - vraag soorten</p>
@@ -69,12 +69,16 @@
                 <p class="left-offset">Groot tekst vlak: Dit veld heeft meerdere regels, handig voor grote stukken tekst.</p>
                 <p class="left-offset">Multiple choice: Wanneer je dit selecteerd opent er een invoer veld. Hierin kan je met `,` gescheiden opties ingeven.</p>
                 <p class="left-offset">1-5 rating met sterren: Je kan een rating geven van 1 t/m 5 dmv. sterren.</p>
+                <p class="left-offset">Verborgen: Wanneer je een vraag wilt verbergen kan je deze optie seleteren.</p>
 
                 <p class="modal-title">In de diepte - vragen</p>
                 <p>Wat gebeurt er als ik vragen aanpas?</p>
                 <p class="left-offset">Wanneer je een vraag label aanpast zal deze in het overzicht veranderen. Echter behouden de al ingevulden vragen het oude label.</p>
                 <p>Wat gebeurt er als ik een vraag type aanpas?</p>
                 <p class="left-offset">Wanneer je een vraag type aanpast zullen de oude antwoorden bewaard blijven zoals ze ingevuld waren.</p>
+
+                <p class="modal-title">Ik heb iets verkeerde gedaan! Hoe kan ik het ongedaan maken?</p>
+                <p>Wanneer je het formulier aanpast maar niet opgeslagen hebt kan je de pagina ververssen (F5 of ctrl+r). Dan Haalt hij het formulier weer op uit de database.</p>
 
             </div>
         </div>
@@ -119,7 +123,7 @@
                                 <div class="question-container">
                                     <label for="question-type-{{question.id}}" class="sr-only">Vraag type</label>
                                     <label for="question-label-{{question.id}}" class="sr-only">Vraag titel</label>
-                                    <label>Vraag {{increase @key}}</label>
+                                    <label>Vraag {{increase @key}}<!-- <span class="remove-question">&times;</span> --></label>
                                     <input class="js-question-label" data-question-id="{{question.id}}" type="text"
                                            id="question-label-{{question.id}}"
                                            value="{{question.label}}" placeholder="Welke titel heeft de vraag?">
@@ -139,6 +143,9 @@
                                         </option>
                                         <option value="rating" {{#ifEquals question.type "rating"}}
                                                 selected {{/ifEquals}}>1-5 rating met sterren
+                                        </option>
+                                        <option value="hidden" {{#ifEquals question.type "hidden"}}
+                                                selected {{/ifEquals}}>Verborgen
                                         </option>
                                     </select>
                                     {{#ifEquals question.type "radio"}}
