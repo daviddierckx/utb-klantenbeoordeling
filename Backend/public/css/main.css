@@ -969,6 +969,12 @@ textarea {
   text-decoration: none;
 }
 
+@media only screen and (max-width: 647px) {
+  .newForm {
+    width: 80%;
+  }
+}
+
 /* Hide the browser's default radio button */
 .question-radio ul li input {
   position: absolute;
