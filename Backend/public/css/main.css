@@ -942,7 +942,7 @@ textarea {
 .newForm {
   height: 5vh;
   width: 20%;
-  margin: 0;
+  margin: 4vh auto;
   cursor: pointer;
   color: #f5f0ef;
   background: #0c457f;
