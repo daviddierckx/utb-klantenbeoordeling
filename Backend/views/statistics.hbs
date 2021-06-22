@@ -30,11 +30,7 @@
     <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
     <a href="/admin/statistics"><button class="tablink active">Statistieken</button></a>
   </nav>
-  <form class="searchbar" method="POST" action="/admin" novalidate>
-    <input type="text" placeholder="Zoeken.." name="search">
-    <button class="hidden" type="submit"><i class="fa fa-search"></i></button>
-  </form>
-  <table style="margin-bottom: 20px;" class="">
+  <table style="margin-bottom: 20px;" class="statistics-table">
     <thead class="">
       <tr>
         <th scope="">Vraag</th>
@@ -42,22 +38,68 @@
       </tr>
     </thead>
     <tbody>
-      {{#each results}}
+      {{#each averages}}
       <tr>
         <td>{{this.questionTitle}}</td>
         <td>{{this.Averages}}</td>
       </tr>
       {{/each}}
-      <script>
-        function delay(URL) {
-          if (confirm("Weet u zeker dat u deze gebruiker wilt verwijderen?")) {
-            alert("Je hebt deze gebruiker verwijderd");
-            setTimeout(function () { window.location.href = URL }, 100);
-          } else {
-            alert("Je hebt deze verwijdering geannuleerd!");
-          }
-        }
-      </script>
+    </tbody>
+  </table>
+  <table style="margin-bottom: 20px;" class="statistics-table">
+    <thead class="">
+      <tr>
+        <th scope="">Vraag</th>
+        <th scope="">Gemiddelde</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each averagesYear}}
+      <tr>
+        <td>{{this.questionTitle}}</td>
+        <td>{{this.Averages}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <table style="margin-bottom: 20px;" class="statistics-table">
+    <thead class="">
+      <tr>
+        <th scope="">Vraag</th>
+        <th scope="">Aantal Positief</th>
+        <th scope="">Aantal Neutraal</th>
+        <th scope="">Aantal negatief</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each countButtons}}
+      <tr>
+        <td>{{this.questionTitle}}</td>
+        <td>{{this.AmountPositive}}</td>
+        <td>{{this.AmountNeutral}}</td>
+        <td>{{this.AmountNegative}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <table style="margin-bottom: 20px;" class="statistics-table">
+    <thead class="">
+      <tr>
+        <th scope="">Vraag</th>
+        <th scope="">Aantal Positief</th>
+        <th scope="">Aantal Neutraal</th>
+        <th scope="">Aantal negatief</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each countButtonsYear}}
+      <tr>
+        <td>{{this.questionTitle}}</td>
+        <td>{{this.AmountPositive}}</td>
+        <td>{{this.AmountNeutral}}</td>
+        <td>{{this.AmountNegative}}</td>
+      </tr>
+      {{/each}}
     </tbody>
   </table>
 </html>
