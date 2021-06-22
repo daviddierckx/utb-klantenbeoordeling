@@ -13,8 +13,7 @@ module.exports = {
   // callback(undefined, result)
   getAveragesFromRating(callback) {
     const query = {
-      // sql: "SELECT Q.questionTitle, AVG(A.answer) FROM Question AS Q JOIN Answer AS A ON A.questionId = Q.id WHERE Q.questionType = 'rating' GROUP BY Q.id;",
-      sql: `SELECT Q.questionTitle, AVG(A.answer) AS 'Averages'
+      sql: `SELECT Q.questionTitle, ROUND(AVG(A.answer), 2) AS 'Averages'
             FROM Question AS Q
               JOIN Answer AS A ON A.questionId = Q.id
             WHERE Q.questionType = 'rating'
@@ -35,19 +34,19 @@ module.exports = {
 
   getAverageRatingsFromSpecificYear(year, callback) {
     const query = {
-      sql: `SELECT Question.questionTitle, AVG(Answer.answer) AS 'Averages'
-            FROM Question
-            JOIN Question ON Answer.questionId = Question.id
-            WHERE Answer.entryId IN (
-            	SELECT Answer.entryId
-            	FROM Answer
-                JOIN Question ON Answer.questionId = Question.id
-            	WHERE Question.questionType = "date"
-            	AND YEAR(Answer.answer) = ?
-            	GROUP BY Answer.entryId
+      sql: `SELECT Q.questionTitle, ROUND(AVG(A.answer), 2) AS 'Averages'
+            FROM Question AS Q
+            JOIN Answer AS A ON A.questionId = Q.id
+            WHERE A.entryId IN (
+            	SELECT An.entryId
+            	FROM Answer AS An
+                JOIN Question AS Qu ON An.questionId = Qu.id
+            	WHERE Qu.questionType = "date"
+            	AND YEAR(An.answer) = ?
+            	GROUP BY An.entryId
             )
-            AND Question.questionType = "rating"
-            GROUP BY Answer.questionId;`,
+            AND Q.questionType = "rating"
+            GROUP BY A.questionId;`,
       values: year,
       timeout: 3000
     };
@@ -67,22 +66,18 @@ module.exports = {
     logger.log("Executing query");
     const query = {
       sql: `SELECT Q.questionTitle
-
                   ,      sum(CASE
                             when A.answer = 'positief' then 1
                             else 0
                          end)                                                      as 'AmountPositive'
-                  /*,     (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'positief' and A.questionId = Q.id ) AS AantalPositief_old  */
                   ,      sum(CASE
                             when A.answer = 'neutraal' then 1
                             else 0
                          end)                                                      as 'AmountNeutral'
-                  /* ,     (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'neutraal' and A.questionId = Q.id ) AS AantalNeutraal_old */
                   ,      sum(CASE
                             when A.answer = 'negatief' then 1
                             else 0
                          end)                                                      as 'AmountNegative'
-                  /*,     (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'negatief' and A.questionId = Q.id ) AS Old_AantalNegatief */
                   FROM   Question AS Q JOIN Answer AS A ON A.questionId = Q.id
                   WHERE  Q.questionType = 'radio'
                   AND    Q.questionTitle <> 'Product groep'
@@ -112,17 +107,14 @@ module.exports = {
                       when A.answer = 'positief' then 1
                       else 0
                    end)                                                      as 'AmountPositive'
-            /*,     (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'positief' and A.questionId = Q.id ) AS AantalPositief_old  */
             ,      sum(CASE
                       when A.answer = 'neutraal' then 1
                       else 0
                   end)                                                      as 'AmountNeutral'
-            /* ,     (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'neutraal' and A.questionId = Q.id ) AS AantalNeutraal_old */
             ,      sum(CASE
                       when A.answer = 'negatief' then 1
                       else 0
                    end)                                                      as 'AmountNegative'
-            /*,     (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'negatief' and A.questionId = Q.id ) AS Old_AantalNegatief */
             FROM   Question AS Q JOIN Answer AS A ON A.questionId = Q.id
             WHERE A.entryId IN (
            	SELECT   Answer.entryId
