@@ -761,6 +761,51 @@ textarea {
 
 //large title on feedback form pops down.
 @media only screen and (max-width: 647px) {
+  form {
+    text-align: center;
+    font-size: x-large;
+    #nextBtn {
+      background-color: color(primary);
+      color: color(textColor);
+      border: 2px solid #0c457f;
+      border-radius: 8px;
+      box-sizing: border-box;
+      box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+        inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+      width: 70px;
+      height: 50px;
+      margin: 40px 10px 10px;
+    }
+    #nextBtn:hover {
+      background: #55a2ef;
+      border: 2px solid #051a2e;
+      box-sizing: border-box;
+      box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+        inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+    }
+    #prevBtn {
+      background-color: color(primary);
+      color: color(textColor);
+      border: 2px solid #0c457f;
+      border-radius: 8px;
+      box-sizing: border-box;
+      box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+        inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+      width: 70px;
+      height: 50px;
+      margin: 40px 10px 10px;
+    }
+    #prevBtn:hover {
+      background: #55a2ef;
+      border: 2px solid #051a2e;
+      box-sizing: border-box;
+      box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+        inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+    }
+  }
+
+  //here
+
   .logo {
     display: block;
     list-style-type: none;
