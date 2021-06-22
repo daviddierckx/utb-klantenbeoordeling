@@ -11,7 +11,7 @@ exports.register = function (req, res) {
   if (!check) {
     logger.log("Request cancelled because of an invalid param");
     res.render("add-user", {
-      alert: "Kan gebruiker niet toevoegen (ongeldig e-mailadres)",
+      alert: "Kan gebruiker niet toevoegen (vul alle velden met geldige data)",
       layout: false,
     });
     return;
