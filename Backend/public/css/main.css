@@ -854,3 +854,40 @@ textarea {
 }
 
 /*# sourceMappingURL=main.css.map */
+.wrapper {
+  position: relative;
+  display: flex;
+  min-width: 100px;
+  left: 25%;
+}
+
+.search-icon {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  width: 14px;
+}
+
+.searchbar{
+  padding-top: 50px;
+  margin-bottom: 15px;
+}
+
+
+.search {
+  border: 1px solid grey;
+  border-radius: 5px;
+  min-height: 25px;
+    width: 100%;
+  padding: 2px 23px 2px 30px;
+  outline: 0;
+  background-color: #f5f5f5;
+}
+.search:hover, .search:focus {
+  border: 1.5px solid #009688;
+  background-color: white;
+}
+
+.view-user{
+  padding-top: 100px;
+}
