@@ -130,15 +130,25 @@ table {
   border-spacing: 0;
 }
 
-header ul {
+.logo {
+  display: block;
   list-style-type: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
-header ul li {
-  float: left;
+@media screen and (max-width: 720px) {
+  .hidden {
+    display: none;
+  }
+  .logo {
+    display: block;
+    margin: auto;
+    max-width: 100px;
+  }
+  .logo img {
+    width: 100px;
+  }
 }
 
 body {
@@ -146,17 +156,19 @@ body {
   color: #f5f0ef;
   font-size: medium;
   margin: 0;
-  height: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   background-image: url("/images/background.jpg");
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 nav {
   position: fixed;
   top: 0;
+  z-index: 100;
   margin-bottom: 5vh;
   width: 100%;
   overflow-wrap: break-word;
@@ -175,55 +187,63 @@ form {
   text-align: center;
   font-size: x-large;
 }
+
 form #nextBtn {
   background-color: #0c457f;
   color: #f5f0ef;
   border: 2px solid #0c457f;
   border-radius: 8px;
-  box-sizing: border-box;
-  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
   width: 140px;
   height: 50px;
   margin: 40px 10px 10px;
 }
+
 form #nextBtn:hover {
-  background: #55A2EF;
-  border: 2px solid #051A2E;
-  box-sizing: border-box;
-  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  background: #55a2ef;
+  border: 2px solid #051a2e;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
 }
+
 form #prevBtn {
   background-color: #0c457f;
   color: #f5f0ef;
   border: 2px solid #0c457f;
   border-radius: 8px;
-  box-sizing: border-box;
-  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
   width: 140px;
   height: 50px;
   margin: 40px 10px 10px;
 }
+
 form #prevBtn:hover {
-  background: #55A2EF;
-  border: 2px solid #051A2E;
-  box-sizing: border-box;
-  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  background: #55a2ef;
+  border: 2px solid #051a2e;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
 }
 
-input[type=text],
-[type=password] {
+input[type="text"],
+[type="password"] {
   background: #f5f0ef;
   border: 1px solid #e63322;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border-radius: 5px;
 }
 
-input[type=text]:disabled,
-[type=password]:disabled {
-  background-color: darkgrey;
-}
-
-input[type=date] {
+input[type="date"] {
   border-radius: 5px;
 }
 
@@ -239,15 +259,25 @@ p {
   margin: 1vh auto;
   width: 50%;
 }
+
 .rating > * {
   float: right;
 }
+
+@-webkit-keyframes pulse {
+  50% {
+    color: #5e5e5e;
+    text-shadow: 0 0 15px #777777;
+  }
+}
+
 @keyframes pulse {
   50% {
     color: #5e5e5e;
     text-shadow: 0 0 15px #777777;
   }
 }
+
 .rating label {
   height: 40px;
   width: 20%;
@@ -255,37 +285,59 @@ p {
   position: relative;
   cursor: pointer;
 }
+
 .rating label:nth-of-type(10):after {
-  animation-delay: 0.5s;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
 }
+
 .rating label:nth-of-type(9):after {
-  animation-delay: 0.45s;
+  -webkit-animation-delay: 0.45s;
+          animation-delay: 0.45s;
 }
+
 .rating label:nth-of-type(8):after {
-  animation-delay: 0.4s;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
 }
+
 .rating label:nth-of-type(7):after {
-  animation-delay: 0.35s;
+  -webkit-animation-delay: 0.35s;
+          animation-delay: 0.35s;
 }
+
 .rating label:nth-of-type(6):after {
-  animation-delay: 0.3s;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
 }
+
 .rating label:nth-of-type(5):after {
-  animation-delay: 0.25s;
+  -webkit-animation-delay: 0.25s;
+          animation-delay: 0.25s;
 }
+
 .rating label:nth-of-type(4):after {
-  animation-delay: 0.2s;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
 }
+
 .rating label:nth-of-type(3):after {
-  animation-delay: 0.15s;
+  -webkit-animation-delay: 0.15s;
+          animation-delay: 0.15s;
 }
+
 .rating label:nth-of-type(2):after {
-  animation-delay: 0.1s;
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
 }
+
 .rating label:nth-of-type(1):after {
-  animation-delay: 0.05s;
+  -webkit-animation-delay: 0.05s;
+          animation-delay: 0.05s;
 }
+
 .rating label:after {
+  -webkit-transition: all 0.4s ease-out;
   transition: all 0.4s ease-out;
   -webkit-font-smoothing: antialiased;
   position: absolute;
@@ -297,8 +349,10 @@ p {
   height: 100%;
   text-align: center;
   font-size: 40px;
-  animation: 1s pulse ease;
+  -webkit-animation: 1s pulse ease;
+          animation: 1s pulse ease;
 }
+
 .rating label label {
   height: 40px;
   width: 20%;
@@ -306,22 +360,34 @@ p {
   position: relative;
   cursor: pointer;
 }
+
 .rating label label:nth-of-type(5):after {
-  animation-delay: 0.25s;
+  -webkit-animation-delay: 0.25s;
+          animation-delay: 0.25s;
 }
+
 .rating label label:nth-of-type(4):after {
-  animation-delay: 0.2s;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
 }
+
 .rating label label:nth-of-type(3):after {
-  animation-delay: 0.15s;
+  -webkit-animation-delay: 0.15s;
+          animation-delay: 0.15s;
 }
+
 .rating label label:nth-of-type(2):after {
-  animation-delay: 0.1s;
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
 }
+
 .rating label label:nth-of-type(1):after {
-  animation-delay: 0.05s;
+  -webkit-animation-delay: 0.05s;
+          animation-delay: 0.05s;
 }
+
 .rating label label:after {
+  -webkit-transition: all 0.4s ease-out;
   transition: all 0.4s ease-out;
   -webkit-font-smoothing: antialiased;
   position: absolute;
@@ -333,15 +399,19 @@ p {
   height: 100%;
   text-align: center;
   font-size: 40px;
-  animation: 1s pulse ease;
+  -webkit-animation: 1s pulse ease;
+          animation: 1s pulse ease;
 }
+
 .rating label label:hover:after {
   color: #5e5e5e;
   text-shadow: 0 0 15px #5e5e5e;
 }
+
 .rating input {
   display: none;
 }
+
 .rating input:checked + label:after,
 .rating input:checked ~ label:after {
   content: "★";
@@ -402,10 +472,12 @@ td a {
 .userInfo a {
   background: #0c457f;
   border: 2px solid #051a2e;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   display: inline-block;
   margin: 30px;
-  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
   border-radius: 10px;
   padding: 2vh 10%;
   color: #f5f0ef;
@@ -415,8 +487,10 @@ td a {
 .userInfo a:hover {
   background: #55a2ef;
   border: 2px solid #051a2e;
-  box-sizing: border-box;
-  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
   border-radius: 10px;
   padding: 2vh 10%;
   color: #f5f0ef;
@@ -545,6 +619,7 @@ form input {
     max-width: 80%;
   }
 }
+
 .btn {
   height: 5vh;
   width: 20%;
@@ -553,16 +628,20 @@ form input {
   color: #f5f0ef;
   background: #0c457f;
   border: 2px solid #051a2e;
-  box-sizing: border-box;
-  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
   border-radius: 10px;
 }
 
 .btn:hover {
   background: #55a2ef;
   border: 2px solid #051a2e;
-  box-sizing: border-box;
-  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
   border-radius: 10px;
   color: #f5f0ef;
   text-decoration: none;
@@ -647,29 +726,43 @@ textarea {
 }
 
 .wrapper-checkbox {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   margin-top: 30px;
   margin-bottom: 30px;
   height: 50px;
   width: 300px;
-  align-items: center;
-  justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   border-radius: 5px;
   padding: 20px 15px;
-  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+          box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
 }
 
 .wrapper-checkbox .option {
   height: 100%;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   margin: 0 10px;
   border-radius: 5px;
   cursor: pointer;
   padding: 0 10px;
   border: 2px solid lightgrey;
+  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
@@ -690,11 +783,13 @@ textarea {
   background: #0069d9;
   border-radius: 50%;
   opacity: 0;
-  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
-.wrapper-checkbox input[type=radio] {
+.wrapper-checkbox input[type="radio"] {
   display: none;
 }
 
@@ -713,7 +808,8 @@ textarea {
 #option-1:checked:checked ~ .option-1 .dot::before,
 #option-2:checked:checked ~ .option-2 .dot::before {
   opacity: 1;
-  transform: scale(1);
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .wrapper-checkbox .option span {
@@ -732,14 +828,83 @@ textarea {
 }
 
 @media only screen and (max-width: 647px) {
+  form {
+    text-align: center;
+    font-size: x-large;
+  }
+  form #nextBtn {
+    background-color: #0c457f;
+    color: #f5f0ef;
+    border: 2px solid #0c457f;
+    border-radius: 8px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+            box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+    width: 70px;
+    height: 50px;
+    margin: 40px 10px 10px;
+  }
+  form #nextBtn:hover {
+    background: #55a2ef;
+    border: 2px solid #051a2e;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+            box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  }
+  form #prevBtn {
+    background-color: #0c457f;
+    color: #f5f0ef;
+    border: 2px solid #0c457f;
+    border-radius: 8px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+            box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+    width: 70px;
+    height: 50px;
+    margin: 40px 10px 10px;
+  }
+  form #prevBtn:hover {
+    background: #55a2ef;
+    border: 2px solid #051a2e;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+            box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  }
+  .logo {
+    display: block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 65%;
+  }
+  main {
+    margin-top: 10px;
+  }
+  #regForm {
+    background-color: #051a2e;
+    margin: 100px auto;
+    margin-top: 40px;
+    padding: 40px;
+    width: 70%;
+    min-width: 250px;
+  }
   .formTitle {
     font-family: "montserrat";
     margin-left: 20%;
     display: none;
   }
 }
+
 #printPage {
-  background-color: #749DC8;
+  background-color: #749dc8;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -763,27 +928,108 @@ textarea {
   .browser-only {
     display: none;
   }
-
   .printDiv {
     display: block;
   }
 }
+
 #formContent {
-  -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
   background: #fff;
   padding: 30px;
   width: 90%;
   max-width: 450px;
   position: relative;
-  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   text-align: center;
 }
 
-.statistics-table {
-    /* display: block; */
-    margin-top: 10vh;
+.newForm {
+  height: 5vh;
+  width: 20%;
+  margin: 4vh auto;
+  cursor: pointer;
+  color: #f5f0ef;
+  background: #0c457f;
+  border: 2px solid #051a2e;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+  border-radius: 10px;
+}
+
+.newForm:hover {
+  background: #55a2ef;
+  border: 2px solid #051a2e;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  border-radius: 10px;
+  color: #f5f0ef;
+  text-decoration: none;
+}
+
+/* Hide the browser's default radio button */
+.question-radio ul li input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 50px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+.btn-close {
+  color: #e63322;
+  font-weight: bolder;
+  border-radius: 50%;
+}
+
+.btn-close:hover {
+  background-color: #f0847a;
+  color: #f5f0ef;
+  border-color: #e63322;
 }
 
 .statistics-table {
@@ -791,5 +1037,3 @@ textarea {
     margin: 10vh auto;
     text-align: center;
 }
-
-/*# sourceMappingURL=main.css.map */

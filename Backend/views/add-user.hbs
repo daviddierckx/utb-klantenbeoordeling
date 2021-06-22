@@ -17,19 +17,19 @@
 </head>
 
 <body>
-  
-    <script>
 
-if(screen.availHeight > screen.availWidth){
-    alert("Draai uw mobiele apparaat!");
-}
+  <script>
 
-    </script>
+    if (screen.availHeight > screen.availWidth) {
+      alert("Draai uw mobiele apparaat!");
+    }
+
+  </script>
   <nav>
     <a href="/admin/forms/select"><button class="tablink">Beoordelingsoverzicht</button></a>
-    <a href="/admin"><button class="tablink active">Gebruikers</button></a>
+    <a href="/admin"><button class="tablink">Gebruikers</button></a>
     <a href="/admin/forms"><button class="tablink">Vragen Wijzigen</button></a>
-    <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+    <a href="/admin/adduser"><button class="tablink active">Gebruiker Toevoegen</button></a>
     <a href="/admin/statistics"><button class="tablink">Statistieken</button></a>
   </nav>
   <br><br>
@@ -84,7 +84,7 @@ if(screen.availHeight > screen.availWidth){
           </div>
         </div>
         {{#if alert}}
-        <div id="alert" role="alert">
+        <div style="margin-bottom: 20px; font-size:20px" id="alert" role="alert">
           {{alert}}
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">X</button>
         </div>

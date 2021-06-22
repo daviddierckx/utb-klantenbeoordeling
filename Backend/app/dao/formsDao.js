@@ -359,6 +359,9 @@ exports.updateForm = function (formName, formData, callback) {
           for (const [questionIndex, pageRow] of Object.entries(page)) {
             if (pageRow.id) {
               questionPromisses.push(updateFormQuestion(pageRow.id, formId, pageIndex, questionIndex, pageRow.type, pageRow.label, pageRow.isRequired ?? true, pageRow));
+              if (pageRow.type === "radio") {
+                questionPromisses.push(removeAllOptionsFromQuestion(pageRow.id, { type: "system" }))
+              }
             } else {
               questionPromisses.push(addQuestionToForm(formId, pageIndex, questionIndex, pageRow.type, pageRow.label, pageRow.isRequired ?? true, pageRow));
             }
@@ -368,8 +371,30 @@ exports.updateForm = function (formName, formData, callback) {
         if (questionPromisses.length === 0) {
           return callback(undefined, formData);
         }
-        Promise.all(questionPromisses).then((questionOptionsData) => {
-          return callback(undefined, formId);
+        Promise.all(questionPromisses).then((pageRowResults) => {
+
+          const pageRowPromises = [];
+          // For each created question insert radiobutton values
+          pageRowResults.forEach((pageRowResult) => {
+            if (pageRowResult.source.type === "radio") {
+              for (const radioOptions of pageRowResult.source.options) {
+                pageRowPromises.push(addOptionToQuestion(pageRowResult.insertId, radioOptions));
+              }
+            }
+          })
+
+          // If no radiobutton-values are given return, else execute insertion promises
+          if (pageRowPromises.length === 0) {
+            return callback(undefined, formId);
+          }
+          Promise.all(pageRowPromises).then((pageOptionsPromises) => {
+            logger.log("Add page options pages:", JSON.stringify(pageRowResults))
+            // Return inserted formId
+            return callback(undefined, formId);
+          }).catch((err) => {
+            logger.log("Error while adding options to form:", err)
+            callback(err, undefined);
+          });
         }).catch((err) => {
           logger.log("Error while requestion question options:", err)
           callback(err, undefined);
@@ -384,13 +409,13 @@ exports.updateForm = function (formName, formData, callback) {
 }
 
 function updateFormQuestion(questionId, formId, pageIndex, questionIndex, questionType, questionLabel, isRequired, source) {
-  logger.log("updating question:", formId, pageIndex, questionIndex, questionType, questionLabel, isRequired)
+  logger.log("updating question:", questionId, formId, pageIndex, questionIndex, questionType, questionLabel, isRequired)
   return new Promise((resolve, reject) => {
     database.con.query('UPDATE `Question` SET `formId` = ?, `pageIndex` = ?, `questionIndex` = ?, `questionType` = ?, `questionTitle` = ?, `isRequired` = ? WHERE id = ?',
       [formId, pageIndex, questionIndex, questionType, questionLabel, isRequired, questionId], function (error, results, fields) {
         if (error) return reject(error.sqlMessage);
         if (results.affectedRows === 0) return reject("no-rows-affected");
-        resolve({insertId: results.insertId, source: source})
+        resolve({insertId: questionId, source: source})
       });
   });
 }
@@ -404,6 +429,20 @@ function addQuestionToForm(formId, pageIndex, questionIndex, questionType, quest
         if (error) return reject(error.sqlMessage);
         if (results.affectedRows === 0) return reject("no-rows-affected");
         resolve({insertId: results.insertId, source: source})
+      });
+  });
+}
+
+
+// Add radiobutton values to a question
+function removeAllOptionsFromQuestion(questionId, source) {
+  logger.log("Removing options:", questionId)
+  // Insert Radiobutton options into the database
+  return new Promise((resolve, reject) => {
+    database.con.query("DELETE FROM `QuestionOptions` WHERE questionId = ?",
+      [questionId], function (error, results, fields) {
+        if (error) return reject(error.sqlMessage);
+        resolve({insertId: source.id, source: source})
       });
   });
 }

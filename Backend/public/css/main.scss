@@ -1,4 +1,13 @@
-$colors: ( primary: #0c457f, PrimaryDark: #051a2e, primaryLight: #749dc8, textColor: #f5f0ef, starColor: #c8a95b, success: #06b261, error: #e63322, errorLight: #f0847a, );
+$colors: (
+    primary: #0c457f,
+    PrimaryDark: #051a2e,
+    primaryLight: #749dc8,
+    textColor: #f5f0ef,
+    starColor: #c8a95b,
+    success: #06b261,
+    error: #e63322,
+    errorLight: #f0847a,
+);
 @function color($color-name) {
     @return map-get($colors, $color-name);
 }
@@ -93,7 +102,6 @@ video {
     vertical-align: baseline;
 }
 
-
 /* HTML5 display-role reset for older browsers */
 
 article,
@@ -138,15 +146,27 @@ table {
 }
 
 // start of (s)css code
-header ul {
+.logo {
+    display: block;
     list-style-type: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    //overflow: hidden;
 }
 
-header ul li {
-    float: left;
+@media screen and (max-width: 720px) {
+    .hidden {
+        display: none;
+    }
+
+    .logo {
+        display: block;
+        margin: auto;
+        max-width: 100px;
+    }
+    .logo img {
+        width: 100px;
+    }
 }
 
 body {
@@ -154,17 +174,20 @@ body {
     color: color(textColor);
     font-size: medium;
     margin: 0;
-    height: 100%;
+    height: fit-content;
     background-image: url("/images/background.jpg");
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 nav {
     position: fixed;
     top: 0;
+    z-index: 100;
     margin-bottom: 5vh;
     width: 100%;
     overflow-wrap: break-word;
@@ -188,16 +211,18 @@ form {
         border: 2px solid #0c457f;
         border-radius: 8px;
         box-sizing: border-box;
-        box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+        box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+            inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
         width: 140px;
         height: 50px;
         margin: 40px 10px 10px;
     }
     #nextBtn:hover {
-        background: #55A2EF;
-        border: 2px solid #051A2E;
+        background: #55a2ef;
+        border: 2px solid #051a2e;
         box-sizing: border-box;
-        box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+        box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+            inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
     }
     #prevBtn {
         background-color: color(primary);
@@ -205,16 +230,18 @@ form {
         border: 2px solid #0c457f;
         border-radius: 8px;
         box-sizing: border-box;
-        box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+        box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+            inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
         width: 140px;
         height: 50px;
         margin: 40px 10px 10px;
     }
     #prevBtn:hover {
-        background: #55A2EF;
-        border: 2px solid #051A2E;
+        background: #55a2ef;
+        border: 2px solid #051a2e;
         box-sizing: border-box;
-        box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+        box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+            inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
     }
 }
 
@@ -240,14 +267,16 @@ p {
 }
 
 //stars
-@mixin star-rating( $filled-color: #c8a95b,
-$empty-color: #444,
-$size: 40px,
-$width: 50%) {
+@mixin star-rating(
+    $filled-color: #c8a95b,
+    $empty-color: #444,
+    $size: 40px,
+    $width: 50%
+) {
     $star--filled: ★;
     $star--empty: ☆;
     width: $width;
-    >* {
+    > * {
         float: right;
     }
     // optional initial pulse of stars
@@ -320,8 +349,8 @@ $width: 50%) {
     input {
         display: none;
         &:checked {
-            +label:after,
-            ~label:after {
+            + label:after,
+            ~ label:after {
                 content: "#{$star--filled}";
                 color: $filled-color;
                 text-shadow: 0 0 20px $filled-color;
@@ -367,7 +396,6 @@ td a {
     padding: 5%;
 }
 
-
 //info
 .userInfo {
     background-color: rgba(255, 255, 255, 0.1);
@@ -393,7 +421,8 @@ td a {
     box-sizing: border-box;
     display: inline-block;
     margin: 30px;
-    box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+    box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+        inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
     border-radius: 10px;
     padding: 2vh 10%;
     color: color(textColor);
@@ -404,7 +433,8 @@ td a {
     background: #55a2ef;
     border: 2px solid #051a2e;
     box-sizing: border-box;
-    box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+    box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+        inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
     border-radius: 10px;
     padding: 2vh 10%;
     color: color(textColor);
@@ -420,7 +450,6 @@ td a {
     min-width: 300px;
 }
 
-
 /* Style the input fields */
 
 input {
@@ -431,7 +460,6 @@ input {
     border: 1px solid color(primaryLight);
 }
 
-
 /* Mark input boxes that gets an error on validation: */
 
 input.invalid {
@@ -439,13 +467,11 @@ input.invalid {
     border-color: color(error);
 }
 
-
 /* Hide all steps by default: */
 
 .tab {
     display: none;
 }
-
 
 /* Make circles that indicate the steps of the form: */
 
@@ -460,13 +486,11 @@ input.invalid {
     opacity: 0.5;
 }
 
-
 /* Mark the active step: */
 
 .step.active {
     opacity: 1;
 }
-
 
 /* Mark the steps that are finished and valid: */
 
@@ -528,11 +552,13 @@ h3 {
     font-size: x-large;
     text-align: center;
 }
-.sr-only{
-  display: none;
+
+.sr-only {
+    display: none;
 }
+
 .question-spacer {
-  height: 2rem;
+    height: 2rem;
 }
 
 form input {
@@ -554,7 +580,8 @@ form input {
     background: #0c457f;
     border: 2px solid #051a2e;
     box-sizing: border-box;
-    box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+    box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+        inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
     border-radius: 10px;
 }
 
@@ -562,7 +589,8 @@ form input {
     background: #55a2ef;
     border: 2px solid #051a2e;
     box-sizing: border-box;
-    box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+    box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+        inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
     border-radius: 10px;
     color: color(textColor);
     text-decoration: none;
@@ -580,7 +608,6 @@ form input {
     padding: 10px;
 }
 
-
 /* Style tab links */
 
 .tablink {
@@ -592,14 +619,13 @@ form input {
     cursor: pointer;
     padding: 14px 16px;
     font-size: 17px;
-    width: 20%;
+    width: 25%;
     min-height: 70px;
 }
 
 .tablink:hover {
     background-color: color(primaryLight);
 }
-
 
 /* Style the tab content (and add height:100% for full page content) */
 
@@ -627,7 +653,8 @@ form input {
 }
 
 .slide-in-bottom {
-    -webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    -webkit-animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+        both;
     animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
@@ -703,20 +730,20 @@ textarea {
     display: none;
 }
 
-#option-1:checked:checked~.option-1,
-#option-2:checked:checked~.option-2 {
+#option-1:checked:checked ~ .option-1,
+#option-2:checked:checked ~ .option-2 {
     border-color: #0069d9;
     background: #0069d9;
 }
 
-#option-1~.option-1 .dot,
-#option-2~.option-2 .dot {
+#option-1 ~ .option-1 .dot,
+#option-2 ~ .option-2 .dot {
     background: #fff;
     border-color: #fff;
 }
 
-#option-1:checked:checked~.option-1 .dot::before,
-#option-2:checked:checked~.option-2 .dot::before {
+#option-1:checked:checked ~ .option-1 .dot::before,
+#option-2:checked:checked ~ .option-2 .dot::before {
     opacity: 1;
     transform: scale(1);
 }
@@ -726,8 +753,8 @@ textarea {
     color: #808080;
 }
 
-#option-1:checked:checked~.option-1 span,
-#option-2:checked:checked~.option-2 span {
+#option-1:checked:checked ~ .option-1 span,
+#option-2:checked:checked ~ .option-2 span {
     color: #fff;
 }
 
@@ -739,6 +766,77 @@ textarea {
 
 //large title on feedback form pops down.
 @media only screen and (max-width: 647px) {
+    form {
+        text-align: center;
+        font-size: x-large;
+        #nextBtn {
+            background-color: color(primary);
+            color: color(textColor);
+            border: 2px solid #0c457f;
+            border-radius: 8px;
+            box-sizing: border-box;
+            box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+                inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+            width: 70px;
+            height: 50px;
+            margin: 40px 10px 10px;
+        }
+        #nextBtn:hover {
+            background: #55a2ef;
+            border: 2px solid #051a2e;
+            box-sizing: border-box;
+            box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+                inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+        }
+        #prevBtn {
+            background-color: color(primary);
+            color: color(textColor);
+            border: 2px solid #0c457f;
+            border-radius: 8px;
+            box-sizing: border-box;
+            box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+                inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+            width: 70px;
+            height: 50px;
+            margin: 40px 10px 10px;
+        }
+        #prevBtn:hover {
+            background: #55a2ef;
+            border: 2px solid #051a2e;
+            box-sizing: border-box;
+            box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+                inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+        }
+    }
+
+    //here
+
+    .logo {
+        display: block;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 65%;
+    }
+
+    main {
+        margin-top: 10px;
+    }
+
+    #regForm {
+        background-color: color(PrimaryDark);
+
+        margin: 100px auto;
+        margin-top: 40px;
+        padding: 40px;
+        width: 70%;
+        min-width: 250px;
+    }
+
     .formTitle {
         font-family: "montserrat";
         margin-left: 20%;
@@ -747,7 +845,7 @@ textarea {
 }
 
 #printPage {
-    background-color: #749DC8;
+    background-color: #749dc8;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -784,7 +882,101 @@ textarea {
     width: 90%;
     max-width: 450px;
     position: relative;
-    -webkit-box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
-    box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
+    //-webkit-box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
+    //box-shadow: 0 30px 60px 0 rgb(0 0 0 / 30%);
     text-align: center;
+}
+
+.newForm {
+    height: 5vh;
+    width: 20%;
+    margin: 4vh auto;
+    cursor: pointer;
+    color: color(textColor);
+    background: #0c457f;
+    border: 2px solid #051a2e;
+    box-sizing: border-box;
+    box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+        inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+    border-radius: 10px;
+}
+
+.newForm:hover {
+    background: #55a2ef;
+    border: 2px solid #051a2e;
+    box-sizing: border-box;
+    box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5),
+        inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+    border-radius: 10px;
+    color: color(textColor);
+    text-decoration: none;
+}
+
+/* Hide the browser's default radio button */
+
+.question-radio ul li input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+
+.container input:checked ~ .checkmark {
+    background-color: #2196f3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+
+.container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+
+.container .checkmark:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
+//invalid email popup button styling
+.btn-close {
+    color: color(error);
+    font-weight: bolder;
+    border-radius: 50%;
+}
+.btn-close:hover {
+    background-color: color(errorLight);
+    color: color(textColor);
+    border-color: color(error);
 }

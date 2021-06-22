@@ -8,6 +8,8 @@ const logger = require("tracer").console();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const serveStatic = require("serve-static");
+const jwt = require("jsonwebtoken");
+const config = require("./app/config");
 
 const routeAdmin = require("./app/router/admin");
 const routeLogin = require("./app/router/login");
@@ -22,6 +24,49 @@ app.use(cookieParser());
 app.use(function timeLog(req, res, next) {
   logger.log(req.originalUrl, "Time:", Date.now(), "data:", JSON.stringify(req.body), "query:", JSON.stringify(req.query), "params:", JSON.stringify(req.params));
   next();
+});
+
+// User Authentication
+app.use(function timeLog(req, res, next) {
+  if (
+    req._parsedUrl.pathname === "/info" ||
+    req._parsedUrl.pathname === "/register" ||
+    req._parsedUrl.pathname === "/login" ||
+    req._parsedUrl.pathname === "/" ||
+    req._parsedUrl.pathname.startsWith("/css") ||
+    req._parsedUrl.pathname.startsWith("/js") ||
+    req._parsedUrl.pathname.startsWith("/images")
+  ) {
+    return next();
+  }
+
+  // If you want to skip out add this to your .env file: "SKIP_AUTH=1"
+  if (process.env.SKIP_AUTH === 1) {
+    logger.log("Skipping auth because of ENV SKIP_AUTH")
+    return next();
+  }
+
+  // Check if auth cookie exists
+  if (req.cookies === undefined || req.cookies['utb-auth'] === undefined) {
+    return res.status(401).redirect("/");
+  }
+
+  logger.log("User authentication started");
+  const token = req.cookies['utb-auth'];
+  jwt.verify(token, config.auth.secret, {}, function (err, decoded) {
+    if (err) {
+      return res.status(401).redirect("/");
+    }
+    // If trying to access admin as user page deny access
+    if (decoded.isAdmin === 0 && req._parsedUrl.pathname.startsWith("/admin")){
+      return res.status(401).redirect("/");
+    }
+    req.user_email = decoded.user_email;
+    req.user_id = decoded.user_id;
+    req.isAdmin = decoded.isAdmin;
+    logger.log("User authorization success:", JSON.stringify(decoded));
+    next();
+  });
 });
 
 app.use("/api", routes);

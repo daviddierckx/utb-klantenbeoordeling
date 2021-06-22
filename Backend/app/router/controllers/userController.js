@@ -5,11 +5,23 @@ const logger = require("tracer").console();
 exports.register = function (req, res) {
   logger.log("Received request to register user");
   let check = request_utils.verifyBody(req, res, "name", "string");
-  check = check && request_utils.verifyBody(req, res, "isAdmin", "int");
-  check = check && request_utils.verifyBody(req, res, "email", "email");
-  check = check && request_utils.verifyBody(req, res, "password", "password");
-  if (!check) {
+  let checkIsAdmin = request_utils.verifyBody(req, res, "isAdmin", "int");
+  let checkEmail = request_utils.verifyBody(req, res, "email", "email");
+  let checkPassword = request_utils.verifyBody(req, res, "password", "password");
+  if (!(check && checkEmail && checkPassword)) {
     logger.log("Request cancelled because of an invalid param");
+    res.render("add-user", {
+      alert: "Kan gebruiker niet toevoegen (ongeldige invoer)",
+      layout: false,
+    });
+    return;
+  }
+  if ((checkPassword) && !(check && checkEmail)) {
+    logger.log("Request cancelled because of an invalid param");
+    res.render("add-user", {
+      alert: "Kan gebruiker niet toevoegen (ongeldig wachtwoord)",
+      layout: false,
+    });
     return;
   }
 
@@ -23,11 +35,15 @@ exports.register = function (req, res) {
     (err2, res2) => {
       if (err2) {
         logger.log("Error in register:", err2);
-        return res.status(400).send({ success: false, error: err2 });
+        res.render("add-user", {
+          alert: "Kan gebruiker niet toevoegen (e-mailadres al in gebruik) ",
+          layout: false,
+        });
+        return res.status(400);
       }
 
       res.render("add-user", {
-        alert: "User added succesfully",
+        alert: "Gebruiker succesvol toegevoegd",
         layout: false,
       });
 
@@ -57,7 +73,8 @@ exports.login = function (req, res) {
       logger.log("Error in login:", err2);
       return errorHandler();
     }
-    logger.log("User logged in with token", res2);
+    logger.log("User logged in with token", JSON.stringify(res2));
+    res.cookie('utb-auth', res2.token, { maxAge: 900000, httpOnly: true });
 
     switch (res2.isAdmin) {
       case 0:

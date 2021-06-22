@@ -22,12 +22,9 @@ exports.verifyBody = function (req, res, paramName, paramType, errorHandler) {
   const success = exports.verifyValue(req.body[paramName], paramType);
   if (!success) {
     logger.log("Body", paramName, "was missing or not of type", paramType);
-    if (!errorHandler){
-      res.status(400).send({
-        success: false,
-        error: "Missing param " + paramName + " or not of type " + paramType,
-      });
-    }else{
+    if (!errorHandler) {
+      res.status(400)
+    } else {
       errorHandler(paramName, paramType);
     }
     return false;

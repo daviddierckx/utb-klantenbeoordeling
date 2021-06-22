@@ -1,110 +1,208 @@
 .tab-container {
-  position: relative;
+    position: relative;
 }
 
 .tab-content {
-  display: none;
-  margin-top: 1rem;
+    display: none;
+    margin-top: 1rem;
 }
 
 .tab-titles {
-  font-size: 0;
+    font-size: 0;
 }
 
 .tab-titles .tab-title {
-  padding: .4rem;
-  font-size: medium;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-transition-duration: .25s;
-          transition-duration: .25s;
+    padding: 1rem;
+    font-size: medium;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-transition-duration: 0.25s;
+    transition-duration: 0.25s;
+    background-color: #051a2e;
 }
 
 .tab-titles .tab-title:not(:first-child) {
-  border-left-style: solid;
-  border-width: 1px;
-  border-color: darkgrey;
+    border-left-style: solid;
+    border-width: 1px;
+    border-color: darkgrey;
 }
 
 .tab-titles .tab-title:hover {
-  background-color: #55a2ef;
+    background-color: #55a2ef;
 }
 
 .tab-titles .selected-content {
-  background-color: #749dc8;
+    background-color: #749dc8;
 }
 
 select {
-  border: 0;
-  width: 11rem;
-  margin-left: -5px;
-  height: 2.5rem;
-  vertical-align: top;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  background-color: #f5f0ef;
+    border: 0;
+    width: 11rem;
+    margin-left: -5px;
+    height: 2.5rem;
+    vertical-align: top;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #f5f0ef;
 }
 
-select:focus, select:active {
-  outline: 0;
-  border-bottom-color: white;
+select:focus,
+select:active {
+    outline: 0;
+    border-bottom-color: white;
 }
 
 .question-container input {
-  width: calc(100% - 11rem);
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
+    width: calc(100% - 11rem);
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
 }
 
 label {
-  display: block;
-  margin-bottom: .2rem;
-  margin-top: 1rem;
+    display: block;
+    margin-bottom: 0.2rem;
+    margin-top: 1rem;
 }
 
 .tab-titles:not(:first-child) {
-  margin-top: 1rem;
+    margin-top: 1rem;
 }
 
 input {
-  border: none !important;
+    border: none !important;
 }
 
-button.button {
-  padding: .3rem;
-  -webkit-transition-duration: .25s;
-          transition-duration: .25s;
-  float: right;
-  height: 5vh;
-  width: 20%;
-  margin: 0;
-  margin-top: .6rem;
-  cursor: pointer;
-  color: #f5f0ef;
-  background: #0c457f;
-  border: 2px solid #051a2e;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
-          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
-  border-radius: 5px;
-}
-
-button.button:hover {
-  background: #55a2ef;
-  border: 2px solid #051a2e;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
-          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
-  border-radius: 5px;
-  color: color(textColor);
-  text-decoration: none;
+.btn {
+    float: right;
+    margin-top: 1rem;
 }
 
 main {
-  margin: 12vh auto;
-  padding: 1rem;
-  max-width: 860px;
+    margin: 12vh auto;
+    padding: 1rem;
+    max-width: 860px;
+}
+
+.question-container:last-child(-2) .move-question-down {
+    display: none;
+}
+
+.move-question-up,
+.move-question-down {
+    cursor: pointer;
+    margin-left: 0.3rem;
+    color: darkred;
+}
+
+.move-question-up:hover,
+.move-question-down:hover {
+    color: red;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 6rem;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full he1ight */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: black;
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    color: black;
+    width: 80%;
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    max-height: calc(100% - 9rem);
+    overflow: auto;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0;
+    }
+    to {
+        top: 0;
+        opacity: 1;
+    }
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 1rem;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {
+    padding: 1rem;
+}
+
+.modal-footer {
+    padding: 1rem;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-title {
+    margin-top: 0.6rem;
+    font-weight: bold;
+}
+
+.left-offset {
+    margin-left: 1rem;
 }
 /*# sourceMappingURL=manageForms.css.map */
