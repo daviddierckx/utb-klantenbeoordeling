@@ -781,4 +781,9 @@ textarea {
   text-align: center;
 }
 
+.statistics-table {
+    /* display: block; */
+    margin-top: 10vh;
+}
+
 /*# sourceMappingURL=main.css.map */
