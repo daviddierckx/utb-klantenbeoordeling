@@ -123,7 +123,7 @@
                                 <div class="question-container">
                                     <label for="question-type-{{question.id}}" class="sr-only">Vraag type</label>
                                     <label for="question-label-{{question.id}}" class="sr-only">Vraag titel</label>
-                                    <label>Vraag {{increase @key}}<!-- <span class="remove-question">&times;</span> --></label>
+                                    <label>Vraag {{increase @key}}<span class="move-question-up"><i class="fa fa-arrow-up"></i></span><span class="move-question-down"><i class="fa fa-arrow-down"></i></span></label>
                                     <input class="js-question-label" data-question-id="{{question.id}}" type="text"
                                            id="question-label-{{question.id}}"
                                            value="{{question.label}}" placeholder="Welke titel heeft de vraag?">

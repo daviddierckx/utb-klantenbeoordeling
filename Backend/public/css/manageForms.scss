@@ -81,7 +81,11 @@ main {
   max-width: 860px;
 }
 
-.remove-question {
+.question-container:last-child(-2) .move-question-down {
+  display: none
+}
+
+.move-question-up, .move-question-down {
   &:hover {
     color: red;
   }

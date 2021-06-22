@@ -149,8 +149,22 @@ function setEventHandlers() {
     }
   });
 
-  $(".remove-question:not(.has-handlers)").addClass("has-handlers").on('click', (event) => {
-    $(event.target).parent().parent().remove();
+  $(".move-question-up:not(.has-handlers)").addClass("has-handlers").on('click', (event) => {
+    $elmnt = $(event.target).parent().parent().parent();
+    $target = $elmnt.prev();
+    $target.insertAfter($elmnt);
+    $elmnt.stop().fadeOut().fadeIn();
+    $target.stop().fadeOut().fadeIn();
+  });
+
+  $(".move-question-down:not(.has-handlers)").addClass("has-handlers").on('click', (event) => {
+    $elmnt = $(event.target).parent().parent().parent();
+    $target = $elmnt.next();
+    if ($elmnt.index() < $elmnt.parent().children.length) {
+      $target.insertBefore($elmnt);
+      $target.stop().fadeOut().fadeIn();
+    }
+    $elmnt.stop().fadeOut().fadeIn();
   });
 }
 
