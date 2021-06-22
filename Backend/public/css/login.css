@@ -24,10 +24,13 @@ body {
   position: absolute;
   z-index: -3;
   background-size: cover;
-
+  overflow-y: hidden ! important;
+  overflow-x: hidden ! important;
 }
 #bg {
   background: transparent url('../images/tankwagen.jpg') no-repeat center center;
+  overflow-y: hidden ! important;
+        overflow-x: hidden ! important;
   height: 100%;
   width: 100%;
   position: absolute;
@@ -338,10 +341,10 @@ input[type="submit"],
 input[type="reset"],
 button {
   background-color: #56baed;
+  max-width: 80%;
   border: none;
   color: white;
   cursor: pointer;
-  padding: 15px 80px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -562,12 +565,18 @@ input[type="password"]:placeholder {
 }
 
 /*remove title when width below 332*/
-@media only screen and (max-width: 332px) {
+@media only screen and (max-width: 360px) {
   .formTitle {
     font-family: "montserrat";
     margin-left: 20%;
     display: none;
   }
+  input.fadeInDown.btn-grad{
+    padding-left: 30px;
+    padding-right: 30px;
+
+   }
+ 
 } 
 
 @media only screen and (min-width: 2560px) {
@@ -583,6 +592,7 @@ input[type="password"]:placeholder {
     font-size: 30px;
     margin: 25px auto;
   }
+
 }
 
 
@@ -610,4 +620,10 @@ input[type="password"]:placeholder {
  input.fadeInDown.btn-grad{
   margin-top: 10px;
   margin-bottom: 10px;
+ }
+
+ h2.active{
+  font: bold 25px Helvetica, Arial, sans-serif;
+  letter-spacing: -0.05em;
+
  }

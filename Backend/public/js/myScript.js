@@ -51,7 +51,7 @@ function validateForm() {
   // A loop that checks every input field in the current tab:
   for (i = 0; i < y.length; i++) {
     // If a field is empty...
-    if (y[i].value == "") {
+    if (y[i].value == "" || y[i].value.length >= 64) {
       // add an "invalid" class to the field:
       y[i].className += " invalid";
       // and set the current valid status to false:
