@@ -14,7 +14,7 @@ module.exports = {
   getAveragesFromRating(callback) {
     const query = {
       // sql: "SELECT Q.questionTitle, AVG(A.answer) FROM Question AS Q JOIN Answer AS A ON A.questionId = Q.id WHERE Q.questionType = 'rating' GROUP BY Q.id;",
-      sql: `SELECT Q.questionTitle, AVG(A.answer)
+      sql: `SELECT Q.questionTitle, AVG(A.answer) AS 'Averages'
             FROM Question AS Q
               JOIN Answer AS A ON A.questionId = Q.id
             WHERE Q.questionType = 'rating'
@@ -35,7 +35,7 @@ module.exports = {
 
   getAverageRatingsFromSpecificYear(year, callback) {
     const query = {
-      sql: `SELECT Question.questionTitle, AVG(Answer.answer)
+      sql: `SELECT Question.questionTitle, AVG(Answer.answer) AS 'Averages'
             FROM Question
             JOIN Question ON Answer.questionId = Question.id
             WHERE Answer.entryId IN (
@@ -71,17 +71,17 @@ module.exports = {
                   ,      sum(CASE
                             when A.answer = 'positief' then 1
                             else 0
-                         end)                                                      as AantalPositief
+                         end)                                                      as 'AmountPositive'
                   /*,     (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'positief' and A.questionId = Q.id ) AS AantalPositief_old  */
                   ,      sum(CASE
                             when A.answer = 'neutraal' then 1
                             else 0
-                         end)                                                      as AantalNeutraal
+                         end)                                                      as 'AmountNeutral'
                   /* ,     (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'neutraal' and A.questionId = Q.id ) AS AantalNeutraal_old */
                   ,      sum(CASE
                             when A.answer = 'negatief' then 1
                             else 0
-                         end)                                                      as AantalNegatief
+                         end)                                                      as 'AmountNegative'
                   /*,     (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'negatief' and A.questionId = Q.id ) AS Old_AantalNegatief */
                   FROM   Question AS Q JOIN Answer AS A ON A.questionId = Q.id
                   WHERE  Q.questionType = 'radio'
@@ -111,17 +111,17 @@ module.exports = {
             ,      sum(CASE
                       when A.answer = 'positief' then 1
                       else 0
-                   end)                                                      as AantalPositief
+                   end)                                                      as 'AmountPositive'
             /*,     (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'positief' and A.questionId = Q.id ) AS AantalPositief_old  */
             ,      sum(CASE
                       when A.answer = 'neutraal' then 1
                       else 0
-                  end)                                                      as AantalNeutraal
+                  end)                                                      as 'AmountNeutral'
             /* ,     (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'neutraal' and A.questionId = Q.id ) AS AantalNeutraal_old */
             ,      sum(CASE
                       when A.answer = 'negatief' then 1
                       else 0
-                   end)                                                      as AantalNegatief
+                   end)                                                      as 'AmountNegative'
             /*,     (SELECT COUNT(A.answer) FROM Answer AS A WHERE A.answer = 'negatief' and A.questionId = Q.id ) AS Old_AantalNegatief */
             FROM   Question AS Q JOIN Answer AS A ON A.questionId = Q.id
             WHERE A.entryId IN (
