@@ -21,7 +21,7 @@ router.use(function timeLog(req, res, next) {
 
 router.get(
   "/statistics",
-  statistics_controller.getCountRadioButtonAnswers
+  statistics_controller.allData
 );
 
 module.exports = router;
