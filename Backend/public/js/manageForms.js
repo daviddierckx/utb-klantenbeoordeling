@@ -28,7 +28,9 @@ function addForm(el) {
                                 <div class="question-container">
                                   <label for="question-type-${questionId}" class="sr-only">Vraag type</label>
                                   <label for="question-label-${questionId}" class="sr-only">Vraag titel</label>
-                                  <label>Vraag 1</label>
+                                  <label><span class="question-question">Vraag 1</span><span class="move-question-up"><i
+                                            class="fa fa-arrow-up"></i></span><span class="move-question-down"><i
+                                            class="fa fa-arrow-down"></i></span></label>
                                   <input class="js-question-label" type="text" id="question-label-${questionId}" value="" placeholder="Welke titel heeft de vraag?">
                                   <select class="js-question-type" id="question-type-${questionId}">
                                       <option value="date">Datum</option>
@@ -56,7 +58,9 @@ function addPage(el) {
         <div class="question-container">
           <label for="question-type-${questionId}" class="sr-only">Vraag type</label>
           <label for="question-label-${questionId}" class="sr-only">Vraag titel</label>
-          <label>Vraag 1</label>
+          <label><span class="question-question">Vraag 1</span><span class="move-question-up"><i
+                          class="fa fa-arrow-up"></i></span><span class="move-question-down"><i
+                          class="fa fa-arrow-down"></i></span></label>
           <input class="js-question-label" type="text" id="question-label-${questionId}" value="" placeholder="Welke titel heeft de vraag?">
           <select class="js-question-type" id="question-type-${questionId}">
               <option value="date">Datum</option>
@@ -80,7 +84,9 @@ function addQuestion(el) {
   $(el).before(`<div class="question-container">
                     <label for="question-type-${questionId}" class="sr-only">Vraag type</label>
                     <label for="question-label-${questionId}" class="sr-only">Vraag titel</label>
-                    <label>Vraag ${questionCount}</label>
+                    <label><span class="question-question">Vraag ${questionCount}</span><span class="move-question-up"><i
+                                            class="fa fa-arrow-up"></i></span><span class="move-question-down"><i
+                                            class="fa fa-arrow-down"></i></span></label>
                     <input class="js-question-label" type="text" id="question-label-${questionId}" value="" placeholder="Welke titel heeft de vraag?">
                     <select class="js-question-type" id="question-type-${questionId}">
                         <option value="date">Datum</option>
@@ -133,6 +139,12 @@ function saveForm(el) {
   }
 }
 
+function fixQuestionIndexes() {
+  $(".page-content").children().each((index, elmt) => {
+    $(elmt).find(".question-question").text(`Vraag ${$(elmt).index() + 1}`);
+  });
+}
+
 function setEventHandlers() {
   $(".js-question-type:not(.has-handlers)").addClass("has-handlers").on('change', (event) => {
     const $elmnt = $(event.target);
@@ -155,6 +167,7 @@ function setEventHandlers() {
     $target.insertAfter($elmnt);
     $elmnt.stop().fadeOut().fadeIn();
     $target.stop().fadeOut().fadeIn();
+    fixQuestionIndexes();
   });
 
   $(".move-question-down:not(.has-handlers)").addClass("has-handlers").on('click', (event) => {
@@ -165,6 +178,7 @@ function setEventHandlers() {
       $target.stop().fadeOut().fadeIn();
     }
     $elmnt.stop().fadeOut().fadeIn();
+    fixQuestionIndexes();
   });
 }
 
