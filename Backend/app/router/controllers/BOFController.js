@@ -2,19 +2,36 @@ const request_utils = require("./../../utils/requestUtils");
 const forms_dao = require("../../dao/formsDao");
 const logger = require("tracer").console();
 
-//Find by Search
-// exports.search = (req, res) => {
-//   let searchTerm = req.body.search;
+// exports.search = function (callback) {
+//   const formName = req.params.formName;
+
 //   database.con.query(
-//     "SELECT * FROM User WHERE name LIKE ?",
-//     ["%" + searchTerm + "%"],
-//     (err, rows) => {
-//       if (!err) {
-//         res.render("home", { rows });
-//       } else {
-//         console.log(err);
+//     "SELECT * FROM Form WHERE name LIKE ?",
+//     [formName],
+//     function (error, results, fields) {
+//       if (error) return callback(error.sqlMessage, undefined);
+//       if (results.length === 0) {
+//         return callback("form-not-found", undefined);
 //       }
-//       console.log("The search data from user table: \n", rows);
+//       const formId = results[0]["id"];
+
+//       const searchTerm = req.body.search;
+//       const query = {
+//         sql: `SELECT *
+//               FROM Answer
+//               WHERE Answer.questionLabel = 'Bedrijfsnaam'
+// 	              AND Answer.answer LIKE ?
+//                 AND Answer.formId LIKE ?;`,
+//         values: ["%" + searchTerm + "%", formId],
+//         timeout: 3000,
+//       };
+//       database.con.query(query, (err, rows) => {
+//         if (!err) {
+//           res.render("beoordelingsoverzicht", { rows });
+//         } else {
+//           logger.log("The search data from answer table: \n", rows);
+//         }
+//       });
 //     }
 //   );
 // };
