@@ -2,6 +2,8 @@ const request_utils = require("./../../utils/requestUtils");
 const forms_dao = require("../../dao/formsDao");
 const logger = require("tracer").console();
 const database = require("../../dao/database");
+const jwt = require("jsonwebtoken");
+const config = require('./../../config');
 
 exports.search = function (req, res, callback) {
   const formName = req.params.formName;
@@ -21,14 +23,14 @@ exports.search = function (req, res, callback) {
         sql: `SELECT *
               FROM Answer
               WHERE Answer.questionLabel = 'Bedrijfsnaam'
-	              AND Answer.answer LIKE ?
+                AND Answer.answer LIKE ?
                 AND Answer.formId LIKE ?;`,
         values: ["%" + searchTerm + "%", formId],
         timeout: 3000,
       };
       database.con.query(query, (err, rows) => {
         if (!err) {
-          res.render("beoordelingsoverzicht", { rows });
+          res.render("beoordelingsoverzicht", {rows});
         } else {
           logger.log("The search data from answer table: \n", rows);
         }
@@ -41,10 +43,20 @@ exports.view = (req, res) => {
   forms_dao.getForm("utb-feedback-1", (err2, res2) => {
     if (err2) {
       logger.log("Error in receiving form:", err2);
-      return res.status(400).send({ success: false, error: err2 });
+      return res.status(400).send({success: false, error: err2});
     }
     logger.log("Got form data", JSON.stringify(res2));
-    res.render("beoordelingsformulier", { layout: false, data: res2 });
+    res.render("beoordelingsformulier", {layout: false, data: res2});
+  });
+};
+
+exports.guestLogin = (req, res) => {
+  jwt.sign({user_email: "guest@guest.com", user_id: -1, isAdmin: 0}, config.auth.secret, {expiresIn: '2h'}, (err, token) => {
+    if (err) return callback("error-while-creating-token", undefined);
+    logger.log("Guest logged in with token", token);
+    res.cookie('utb-auth', token, { maxAge: 900000, httpOnly: true });
+    res.redirect("/beoordelingsformulier");
+    return res.status(201);
   });
 };
 
@@ -52,10 +64,10 @@ exports.selectForm = (req, res) => {
   forms_dao.getAllForms((err2, res2) => {
     if (err2) {
       logger.log("Error in receiving all forms:", err2);
-      return res.status(400).send({ success: false, error: err2 });
+      return res.status(400).send({success: false, error: err2});
     }
     logger.log("Got all forms", JSON.stringify(res2));
-    res.render("selectform", { layout: false, data: res2 });
+    res.render("selectform", {layout: false, data: res2});
   });
 };
 
@@ -63,10 +75,10 @@ exports.selectFormAdmin = (req, res) => {
   forms_dao.getAllForms((err2, res2) => {
     if (err2) {
       logger.log("Error in receiving all forms:", err2);
-      return res.status(400).send({ success: false, error: err2 });
+      return res.status(400).send({success: false, error: err2});
     }
     logger.log("Got all forms", JSON.stringify(res2));
-    res.render("selectformAdmin", { layout: false, data: res2 });
+    res.render("selectformAdmin", {layout: false, data: res2});
   });
 };
 
@@ -77,10 +89,10 @@ exports.viewSingle = (req, res) => {
     (err2, res2) => {
       if (err2) {
         logger.log("Error in receiving form:", err2);
-        return res.status(400).send({ success: false, error: err2 });
+        return res.status(400).send({success: false, error: err2});
       }
       logger.log("Got form data", JSON.stringify(res2));
-      res.render("beoordelingsdetail", { data: res2 });
+      res.render("beoordelingsdetail", {data: res2});
     }
   );
 };
@@ -96,7 +108,7 @@ exports.viewFormAnswers = (req, res) => {
   forms_dao.getForm(req.params.formName, (err2, res2) => {
     if (err2) {
       logger.log("Error in receiving form:", err2);
-      return res.status(400).send({ success: false, error: err2 });
+      return res.status(400).send({success: false, error: err2});
     }
     logger.log("Got form data", JSON.stringify(res2));
 
@@ -104,7 +116,7 @@ exports.viewFormAnswers = (req, res) => {
     forms_dao.getAllFormAnswers(req.params.formName, (err3, res3) => {
       if (err3) {
         logger.log("Error in receiving answers:", err3);
-        return res.status(400).send({ success: false, error: err3 });
+        return res.status(400).send({success: false, error: err3});
       }
       logger.log("Got form answers", JSON.stringify(res3));
       res2.pages = [res2.pages[0]];
@@ -135,16 +147,16 @@ exports.viewForm = (req, res) => {
   forms_dao.getForm(req.params.formName, (err2, res2) => {
     if (err2) {
       logger.log("Error in receiving form:", err2);
-      return res.status(400).send({ success: false, error: err2 });
+      return res.status(400).send({success: false, error: err2});
     }
     logger.log("Got form data", JSON.stringify(res2));
-    res.render("beoordelingsformulier", { layout: false, data: res2 });
+    res.render("beoordelingsformulier", {layout: false, data: res2});
   });
 };
 
 exports.submit = function (req, res) {
   logger.log("Received submission, redirecting...");
-  res.render("succes", { layout: false });
+  res.render("succes", {layout: false});
 };
 
 exports.submitForm = function (req, res) {
@@ -165,10 +177,10 @@ exports.submitForm = function (req, res) {
     (err2, res2) => {
       if (err2) {
         logger.log("Error in adding form answers:", err2);
-        return res.status(400).send({ success: false, error: err2 });
+        return res.status(400).send({success: false, error: err2});
       }
       logger.log("Got adding form answer data", JSON.stringify(res2));
-      res.render("succes", { layout: false });
+      res.render("succes", {layout: false});
     }
   );
 };
@@ -188,13 +200,13 @@ exports.updateForm = function (req, res) {
   forms_dao.updateForm(req.params.formName, req.body.data, (err2, res2) => {
     if (err2) {
       logger.log("Error in updating form:", err2);
-      return res.status(400).send({ success: false, error: err2 });
+      return res.status(400).send({success: false, error: err2});
     }
     logger.log("Form updated with formId", res2);
     res.redirect("/admin/forms");
     return res
-      .status(201)
-      .send({ success: true, id: res2, name: req.body.name });
+    .status(201)
+    .send({success: true, id: res2, name: req.body.name});
   });
 };
 
@@ -212,13 +224,13 @@ exports.createForm = function (req, res) {
   forms_dao.createForm(req.body.data, (err2, res2) => {
     if (err2) {
       logger.log("Error in creating form:", err2);
-      return res.status(400).send({ success: false, error: err2 });
+      return res.status(400).send({success: false, error: err2});
     }
     logger.log("Form created with formId", res2);
     res.redirect("/admin/forms");
     return res
-      .status(201)
-      .send({ success: true, id: res2, name: req.body.name });
+    .status(201)
+    .send({success: true, id: res2, name: req.body.name});
   });
 };
 
@@ -226,9 +238,9 @@ exports.manageGetForms = function (req, res) {
   forms_dao.getAllForms((err2, res2) => {
     if (err2) {
       logger.log("Error in receiving form:", err2);
-      return res.status(400).send({ success: false, error: err2 });
+      return res.status(400).send({success: false, error: err2});
     }
     logger.log("Got all forms data", JSON.stringify(res2));
-    res.render("manageForms", { layout: false, data: res2 });
+    res.render("manageForms", {layout: false, data: res2});
   });
 };

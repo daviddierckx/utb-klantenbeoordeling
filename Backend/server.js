@@ -35,6 +35,7 @@ app.use(function timeLog(req, res, next) {
     req._parsedUrl.pathname === "/register" ||
     req._parsedUrl.pathname === "/login" ||
     req._parsedUrl.pathname === "/" ||
+    req._parsedUrl.pathname === "/beoordelingsformulier/gast" ||
     req._parsedUrl.pathname.startsWith("/css") ||
     req._parsedUrl.pathname.startsWith("/js") ||
     req._parsedUrl.pathname.startsWith("/images")
