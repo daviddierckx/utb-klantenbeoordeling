@@ -169,7 +169,7 @@ nav {
   position: fixed;
   top: 0;
   z-index: 100;
-  margin-bottom: 5vh;
+  margin-bottom: 50vh;
   width: 100%;
   overflow-wrap: break-word;
 }
@@ -450,6 +450,9 @@ td a {
   padding: 5%;
 }
 
+.detailTable {
+  margin-top: 160px;
+}
 
 .userInfo {
   background-color: rgba(255, 255, 255, 0.1);
@@ -1056,9 +1059,4 @@ a {
   color: #f5f0ef;
   border-color: #e63322;
 }
-
-.statistics-table {
-    /* display: block; */
-    margin: 10vh auto;
-    text-align: center;
-}
+/*# sourceMappingURL=main.css.map */
