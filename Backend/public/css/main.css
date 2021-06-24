@@ -724,6 +724,21 @@ textarea {
   background-color: #749dc8;
 }
 
+.selectFormTablink {
+  background-color: #051a2e;
+  color: white;
+  max-width: 80%;
+  height: 8vh;
+  float: none;
+  display: block;
+  margin: 2rem auto;
+  width: 25rem;
+}
+
+a {
+  text-decoration: none;
+}
+
 .wrapper-checkbox {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -972,6 +987,10 @@ textarea {
 @media only screen and (max-width: 647px) {
   .newForm {
     width: 80%;
+    height: 8vh;
+  }
+  h1 {
+    font-size: x-large;
   }
 }
 

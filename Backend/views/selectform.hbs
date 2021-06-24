@@ -27,10 +27,6 @@
       const formName = "{{data.name}}";
     </script>
 
-    <style>
-      .tablink{ float: none; display: block; margin-top: 2rem; margin-left: 50%;
-      transform: translateX(-50%); width: 25rem; } a { text-decoration: none; }
-    </style>
   </head>
 
   <body>
@@ -44,10 +40,10 @@
     </header>
     <main>
       <h1 style="text-align: center;margin-top: 20px;">Selecteer een formulier</h1>
-      <div style="align-content: center;">
+      <div class="selectForm" style="align-content: center;">
         {{#each data as |form|}}
           <a href="/beoordelingsformulier/{{form.name}}"><button
-              class="tablink"
+              class="selectFormTablink"
             >{{form.title}}</button></a>
         {{/each}}
       </div>

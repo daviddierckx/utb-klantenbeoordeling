@@ -676,6 +676,17 @@ textarea {
 .active {
   background-color: #749dc8;
 }
+//selectform
+.selectFormTablink{ 
+  background-color: color(PrimaryDark);
+  color: white;
+  max-width: 80%;
+  height: 8vh;
+  float: none; 
+  display: block; 
+  margin: 2rem auto; 
+  width: 25rem; }
+  a { text-decoration: none; }
 
 //admin checkbox
 .wrapper-checkbox {
@@ -915,6 +926,11 @@ textarea {
 @media only screen and (max-width: 647px) {
   .newForm {
     width: 80%;
+    height: 8vh;
+  }
+  
+  h1 {
+    font-size: x-large;
   }
   
 }

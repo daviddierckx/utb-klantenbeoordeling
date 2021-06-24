@@ -615,14 +615,17 @@ input[type="password"]:placeholder {
     font-size: 30px;
     margin: 25px auto;
   }
+  input[type="submit"]{
+    max-width: 350px;
+    width: 100%;
+  }
 
 }
 
 
+
 .btn-grad {background-image: linear-gradient(to right, #4776E6 0%, #8E54E9  51%, #4776E6  100%)}
 .btn-grad {
-
-
    padding: 15px 45px;
    text-align: center;
    text-transform: uppercase;
