@@ -206,6 +206,10 @@ form {
         width: 140px;
         height: 50px;
         margin: 40px 10px 10px;
+        a {
+            color: inherit;
+            text-decoration: inherit;
+        }
     }
     #nextBtn:hover {
         background: #55a2ef;
@@ -223,6 +227,10 @@ form {
         width: 140px;
         height: 50px;
         margin: 40px 10px 10px;
+        a {
+            color: inherit;
+            text-decoration: inherit;
+        }
     }
     #prevBtn:hover {
         background: #55a2ef;
@@ -586,11 +594,13 @@ form input {
     color: color(textColor);
     text-decoration: none;
 }
+
 @media only screen and (max-width: 900px) {
-  .btn {
-    height: 15vh;
-  }
+    .btn {
+        height: 15vh;
+    }
 }
+
 .opmerkingenLijst {
     background-color: #749dc8;
     margin: 20px;
@@ -622,10 +632,11 @@ form input {
 .tablink:hover {
     background-color: color(primaryLight);
 }
+
 @media only screen and(max-width: 647px) {
-  .tablink {
-    padding: 7px 8px;
-  }
+    .tablink {
+        padding: 7px 8px;
+    }
 }
 
 
@@ -1004,36 +1015,34 @@ a {
     border-color: color(error);
 }
 
-.userInfo{
+.userInfo {
     margin-top: 170px;
     padding-top: 20px;
 }
 
-.statistics-table{
+.statistics-table {
     margin-top: 100px;
 }
 
-div.wrapper{
+div.wrapper {
     margin-top: 100px;
 }
+
 .wrapper {
     position: relative;
     display: flex;
     min-width: 100px;
     left: 25%;
-  }
-  
-  .search-icon {
+}
+
+.search-icon {
     position: absolute;
     top: 6px;
     left: 8px;
     width: 14px;
-  }
-  
-  
-  
-  
-  .search {
+}
+
+.search {
     border: 1px solid grey;
     border-radius: 5px;
     min-height: 25px;
@@ -1041,8 +1050,10 @@ div.wrapper{
     padding: 2px 23px 2px 30px;
     outline: 0;
     background-color: #f5f5f5;
-  }
-  .search:hover, .search:focus {
+}
+
+.search:hover,
+.search:focus {
     border: 1.5px solid #009688;
     background-color: white;
-  }
+}
