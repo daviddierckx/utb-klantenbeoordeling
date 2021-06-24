@@ -650,6 +650,12 @@ form input {
   text-decoration: none;
 }
 
+@media only screen and (max-width: 900px) {
+  .btn {
+    height: 10vh;
+  }
+}
+
 .opmerkingenLijst {
   background-color: #749dc8;
   margin: 20px;
