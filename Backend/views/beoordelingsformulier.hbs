@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <div id="top"></div>
     <title>UTB klantenfeedback</title>
     <link rel="stylesheet" href="../css/main.css" />
     <link
@@ -29,12 +30,13 @@
   </head>
 
   <body>
+    
     <div id="bg"></div>
     <header>
-          <a href="https://www.utboils.com/" class="logo"><img
-              src="../images/logo.png"
-              alt="UTB logo"
-            /></a>
+      <a href="https://www.utboils.com/" class="logo"><img
+          src="../images/logo.png"
+          alt="UTB logo"
+        /></a>
     </header>
     <main>
       <form id="regForm" action="" method="post">
@@ -47,6 +49,7 @@
             <div class="progress-bar-progress"></div>
           </div>
         </div>
+        
         {{#each data.pages}}
           <div class="tab">
             {{#each this as |question|}}
@@ -104,7 +107,8 @@
                         name="question-{{question.id}}"
                         value="{{this}}"
                         checked
-                      /> <br>
+                      />
+                      <br />
                       <label
                         for="question-{{question.id}}-{{@key}}"
                       >{{this}}</label>
@@ -167,13 +171,16 @@
               class="pageButtons"
               id="prevBtn"
               onclick="nextPrev(-1)"
-            ><span class="hidden">Vorige</span></button>
+            ><i class="fa fa-arrow-left" aria-hidden="true"></i>
+              <span class="hidden"><a href="#top">Vorige</a></span></button>
             <button
               type="button"
               class="pageButtons"
               id="nextBtn"
               onclick="nextPrev(1)"
-            ><span class="hidden">Volgende</span></button>
+            ><span class="hidden"><a href="#top">Volgende</a></span>
+              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </button>
           </div>
 
         </div>

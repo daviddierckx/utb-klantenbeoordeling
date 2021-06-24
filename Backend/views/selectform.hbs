@@ -1,66 +1,56 @@
 <html lang="en">
 
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UTB klantenfeedback</title>
     <link rel="stylesheet" href="../css/main.css" />
     <link
-            href="https://fonts.googleapis.com/css?family=Montserrat"
-            rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
     />
     <link
-            href="https://fonts.googleapis.com/css?family=Roboto"
-            rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
     />
     <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <script
-            src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-            crossorigin="anonymous"
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
     ></script>
     <script>
-        const formName = "{{data.name}}";
+      const formName = "{{data.name}}";
     </script>
 
-    <style>
-        .tablink{
-            float: none;
-            display: block;
-            margin-top: 2rem;
-            margin-left: 50%;
-            transform: translateX(-50%);
-            width: 25rem;
-        }
-        a {
-            text-decoration: none;
-        }
-    </style>
-</head>
+  </head>
 
-<body>
-<div id="bg"></div>
-<header>
-    <a href="https://www.utboils.com/" class="logo"><img
-        src="../images/logo.png"
-        alt="UTB logo"/>
-    </a>
-</header>
-<main>
-    <h1 style="text-align: center">Selecteer een formulier</h1>
-    <div style="align-content: center;">
-        {{#each data as | form |}}
-            <a href="/beoordelingsformulier/{{form.name}}"><button class="tablink">{{form.title}}</button></a>
+  <body>
+    <div id="bg"></div>
+    <header>
+      <a href="https://www.utboils.com/" class="logo"><img
+          src="../images/logo.png"
+          alt="UTB logo"
+        />
+      </a>
+    </header>
+    <main>
+      <h1 style="text-align: center;margin-top: 20px;">Selecteer een formulier</h1>
+      <div class="selectForm" style="align-content: center;">
+        {{#each data as |form|}}
+          <a href="/beoordelingsformulier/{{form.name}}"><button
+              class="selectFormTablink"
+            >{{form.title}}</button></a>
         {{/each}}
-    </div>
+      </div>
 
-</main>
-<script src="/../js/myScript.js"></script>
-<script src="/../js/datePicker.js"></script>
-<script src="/../js/formScript.js"></script>
-</body>
+    </main>
+    <script src="/../js/myScript.js"></script>
+    <script src="/../js/datePicker.js"></script>
+    <script src="/../js/formScript.js"></script>
+  </body>
 </html>
