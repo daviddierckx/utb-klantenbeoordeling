@@ -450,7 +450,6 @@ td a {
   padding: 5%;
 }
 
-
 .userInfo {
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
@@ -675,6 +674,12 @@ form input {
 
 .tablink:hover {
   background-color: #749dc8;
+}
+
+@media only screen and (max-width: 647px) {
+  .tablink {
+    padding: 7px 8px;
+  }
 }
 
 /* Style the tab content (and add height:100% for full page content) */
@@ -1056,9 +1061,4 @@ a {
   color: #f5f0ef;
   border-color: #e63322;
 }
-
-.statistics-table {
-    /* display: block; */
-    margin: 10vh auto;
-    text-align: center;
-}
+/*# sourceMappingURL=main.css.map */
