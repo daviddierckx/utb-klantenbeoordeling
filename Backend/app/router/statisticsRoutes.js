@@ -19,10 +19,9 @@ router.use(function timeLog(req, res, next) {
   next();
 });
 
-// testing routes. Change these to something more functional down the line
 router.get(
-  "/feedback/statistics/radio",
-  statistics_controller.getCountRadioButtonAnswers
+  "/statistics",
+  statistics_controller.allData
 );
 
 module.exports = router;

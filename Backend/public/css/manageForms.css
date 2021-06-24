@@ -10,29 +10,24 @@
 .tab-titles {
   font-size: 0;
 }
-
 .tab-titles .tab-title {
   padding: 1rem;
   font-size: medium;
   display: inline-block;
   cursor: pointer;
-  -webkit-transition-duration: .25s;
-          transition-duration: .25s;
+  transition-duration: 0.25s;
   background-color: #051a2e;
 }
-
 .tab-titles .tab-title:not(:first-child) {
   border-left-style: solid;
   border-width: 1px;
   border-color: darkgrey;
 }
-
 .tab-titles .tab-title:hover {
-  background-color: gray;
+  background-color: #55a2ef;
 }
-
 .tab-titles .selected-content {
-  background-color: #5e5e5e;
+  background-color: #749dc8;
 }
 
 select {
@@ -45,7 +40,6 @@ select {
   border-bottom-right-radius: 5px;
   background-color: #f5f0ef;
 }
-
 select:focus, select:active {
   outline: 0;
   border-bottom-color: white;
@@ -59,7 +53,7 @@ select:focus, select:active {
 
 label {
   display: block;
-  margin-bottom: .2rem;
+  margin-bottom: 0.2rem;
   margin-top: 1rem;
 }
 
@@ -86,13 +80,14 @@ main {
   display: none;
 }
 
-.move-question-up, .move-question-down {
+.move-question-up,
+.move-question-down {
   cursor: pointer;
-  margin-left: .3rem;
+  margin-left: 0.3rem;
   color: darkred;
 }
-
-.move-question-up:hover, .move-question-down:hover {
+.move-question-up:hover,
+.move-question-down:hover {
   color: red;
 }
 
@@ -129,8 +124,7 @@ main {
   border: 1px solid #888;
   color: black;
   width: 80%;
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
@@ -150,7 +144,6 @@ main {
     opacity: 1;
   }
 }
-
 @keyframes animatetop {
   from {
     top: -300px;
@@ -161,7 +154,6 @@ main {
     opacity: 1;
   }
 }
-
 /* The Close Button */
 .close {
   color: white;
@@ -194,11 +186,10 @@ main {
 }
 
 .modal-title {
-  margin-top: .6rem;
+  margin-top: 0.6rem;
   font-weight: bold;
 }
 
 .left-offset {
   margin-left: 1rem;
-}
-/*# sourceMappingURL=manageForms.css.map */
+}/*# sourceMappingURL=manageForms.css.map */
