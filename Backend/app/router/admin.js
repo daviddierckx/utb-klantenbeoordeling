@@ -28,6 +28,7 @@ router.get("/forms/select", BOFController.selectFormAdmin);
 router.post("/forms/update/:formName", BOFController.updateForm);
 router.post("/forms/create/:formName", BOFController.createForm);
 router.get("/forms/:formName", BOFController.viewFormAnswers);
+router.post("/forms/:formName", BOFController.search);
 router.get("/forms/:formName/:entryId", BOFController.viewSingle);
 
 module.exports = router;
