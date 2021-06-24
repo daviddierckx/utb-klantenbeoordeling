@@ -164,7 +164,6 @@ form {
   text-align: center;
   font-size: x-large;
 }
-
 form #nextBtn {
   background-color: #0c457f;
   color: #f5f0ef;
@@ -174,12 +173,10 @@ form #nextBtn {
   height: 50px;
   margin: 40px 10px 10px;
 }
-
 form #nextBtn:hover {
   background-color: #008cba;
   color: white;
 }
-
 form #prevBtn {
   background-color: #0c457f;
   color: #f5f0ef;
@@ -189,21 +186,19 @@ form #prevBtn {
   height: 50px;
   margin: 40px 10px 10px;
 }
-
 form #prevBtn:hover {
   background-color: #008cba;
   color: white;
 }
 
-input[type="text"], [type="password"] {
+input[type=text], [type=password] {
   background: #f5f0ef;
   border: 1px solid #e63322;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-radius: 5px;
 }
 
-input[type="date"] {
+input[type=date] {
   border-radius: 5px;
 }
 
@@ -219,25 +214,21 @@ p {
   margin: 1vh auto;
   width: 50%;
 }
-
 .rating > * {
   float: right;
 }
-
 @-webkit-keyframes pulse {
   50% {
     color: #5e5e5e;
     text-shadow: 0 0 15px #777777;
   }
 }
-
 @keyframes pulse {
   50% {
     color: #5e5e5e;
     text-shadow: 0 0 15px #777777;
   }
 }
-
 .rating label {
   height: 40px;
   width: 20%;
@@ -245,59 +236,47 @@ p {
   position: relative;
   cursor: pointer;
 }
-
 .rating label:nth-of-type(10):after {
   -webkit-animation-delay: 0.5s;
           animation-delay: 0.5s;
 }
-
 .rating label:nth-of-type(9):after {
   -webkit-animation-delay: 0.45s;
           animation-delay: 0.45s;
 }
-
 .rating label:nth-of-type(8):after {
   -webkit-animation-delay: 0.4s;
           animation-delay: 0.4s;
 }
-
 .rating label:nth-of-type(7):after {
   -webkit-animation-delay: 0.35s;
           animation-delay: 0.35s;
 }
-
 .rating label:nth-of-type(6):after {
   -webkit-animation-delay: 0.3s;
           animation-delay: 0.3s;
 }
-
 .rating label:nth-of-type(5):after {
   -webkit-animation-delay: 0.25s;
           animation-delay: 0.25s;
 }
-
 .rating label:nth-of-type(4):after {
   -webkit-animation-delay: 0.2s;
           animation-delay: 0.2s;
 }
-
 .rating label:nth-of-type(3):after {
   -webkit-animation-delay: 0.15s;
           animation-delay: 0.15s;
 }
-
 .rating label:nth-of-type(2):after {
   -webkit-animation-delay: 0.1s;
           animation-delay: 0.1s;
 }
-
 .rating label:nth-of-type(1):after {
   -webkit-animation-delay: 0.05s;
           animation-delay: 0.05s;
 }
-
 .rating label:after {
-  -webkit-transition: all 0.4s ease-out;
   transition: all 0.4s ease-out;
   -webkit-font-smoothing: antialiased;
   position: absolute;
@@ -312,7 +291,6 @@ p {
   -webkit-animation: 1s pulse ease;
           animation: 1s pulse ease;
 }
-
 .rating label label {
   height: 40px;
   width: 20%;
@@ -320,34 +298,27 @@ p {
   position: relative;
   cursor: pointer;
 }
-
 .rating label label:nth-of-type(5):after {
   -webkit-animation-delay: 0.25s;
           animation-delay: 0.25s;
 }
-
 .rating label label:nth-of-type(4):after {
   -webkit-animation-delay: 0.2s;
           animation-delay: 0.2s;
 }
-
 .rating label label:nth-of-type(3):after {
   -webkit-animation-delay: 0.15s;
           animation-delay: 0.15s;
 }
-
 .rating label label:nth-of-type(2):after {
   -webkit-animation-delay: 0.1s;
           animation-delay: 0.1s;
 }
-
 .rating label label:nth-of-type(1):after {
   -webkit-animation-delay: 0.05s;
           animation-delay: 0.05s;
 }
-
 .rating label label:after {
-  -webkit-transition: all 0.4s ease-out;
   transition: all 0.4s ease-out;
   -webkit-font-smoothing: antialiased;
   position: absolute;
@@ -362,16 +333,13 @@ p {
   -webkit-animation: 1s pulse ease;
           animation: 1s pulse ease;
 }
-
 .rating label label:hover:after {
   color: #5e5e5e;
   text-shadow: 0 0 15px #5e5e5e;
 }
-
 .rating input {
   display: none;
 }
-
 .rating input:checked + label:after,
 .rating input:checked ~ label:after {
   content: "★";
@@ -493,7 +461,6 @@ form input {
     max-width: 80%;
   }
 }
-
 .btn {
   height: 5vh;
   width: 20%;
@@ -501,10 +468,8 @@ form input {
   color: #f5f0ef;
   background: #0C457F;
   border: 2px solid #051A2E;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
-          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
   border-radius: 10px;
 }
 
@@ -543,5 +508,4 @@ form input {
   display: none;
   padding: 100px 20px;
   height: 100%;
-}
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
