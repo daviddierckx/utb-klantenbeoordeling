@@ -1,3 +1,5 @@
+require('dotenv').config({path:__dirname+'/./.env'})
+
 const port = process.env.PORT || 3000;
 const ip = process.env.IP || "127.0.0.1";
 const express = require("express");
@@ -87,7 +89,7 @@ app.use("/login", routeLogin);
 app.use("/beoordelingsformulier", routeBOF);
 app.use(serveStatic("./views"));
 
-app.listen(port, () => {
+app.listen(port, ip, () => {
   logger.log(`Avans app listening at http://${ip}:${port}`);
 });
 
