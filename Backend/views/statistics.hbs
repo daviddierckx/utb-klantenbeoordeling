@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  <link rel="stylesheet" href="/css/main.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    html {
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    if(screen.availHeight > screen.availWidth){
+      alert("Draai uw mobiele apparaat!");
+    }
+  </script>
+  <nav>
+    <a href="/admin/forms/select"><button class="tablink">Beoordelingsoverzicht</button></a>
+    <a href="/admin"><button class="tablink">Gebruikers</button></a>
+    <a href="/admin/forms"><button class="tablink">Vragen Wijzigen</button></a>
+    <a href="/admin/adduser"><button class="tablink">Gebruiker Toevoegen</button></a>
+    <a href="/admin/statistics"><button class="tablink active">Statistieken</button></a>
+  </nav>
+  <table class="statistics-table">
+    <thead class="">
+      <tr>
+        <th colspan="2">
+          <h3><br>Gemiddelde waardering per vraag</h3>
+        </th>
+      </tr>
+      <tr>
+        <th scope="">Vraag</th>
+        <th scope="">Gemiddelde</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each averages}}
+      <tr>
+        <td>{{this.questionTitle}}</td>
+        <td>{{this.Averages}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <table class="statistics-table">
+    <thead class="">
+      <tr>
+        <th colspan="2">
+          <h3><br>Gemiddelde waardering per vraag van vorig jaar</h3>
+        </th>
+      </tr>
+      <tr>
+        <th scope="">Vraag</th>
+        <th scope="">Gemiddelde</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each averagesYear}}
+      <tr>
+        <td>{{this.questionTitle}}</td>
+        <td>{{this.Averages}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <table class="statistics-table">
+    <thead class="">
+      <tr>
+        <th colspan="4">
+          <h3><br>Som van waarden</h3>
+        </th>
+      </tr>
+      <tr>
+        <th scope="">Vraag</th>
+        <th scope="">Aantal Positief</th>
+        <th scope="">Aantal Neutraal</th>
+        <th scope="">Aantal negatief</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each countButtons}}
+      <tr>
+        <td>{{this.questionTitle}}</td>
+        <td>{{this.AmountPositive}}</td>
+        <td>{{this.AmountNeutral}}</td>
+        <td>{{this.AmountNegative}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <table class="statistics-table">
+    <thead class="">
+      <tr>
+        <th colspan="4">
+          <h3><br>Som van waarden van vorig jaar</h3>
+        </th>
+      </tr>
+      <tr>
+        <th scope="">Vraag</th>
+        <th scope="">Aantal Positief</th>
+        <th scope="">Aantal Neutraal</th>
+        <th scope="">Aantal negatief</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each countButtonsYear}}
+      <tr>
+        <td>{{this.questionTitle}}</td>
+        <td>{{this.AmountPositive}}</td>
+        <td>{{this.AmountNeutral}}</td>
+        <td>{{this.AmountNegative}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <br><br>
+</html>
