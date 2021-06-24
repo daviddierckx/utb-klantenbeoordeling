@@ -141,16 +141,17 @@ table {
   .hidden {
     display: none;
   }
+
   .logo {
     display: block;
     margin: auto;
     max-width: 100px;
   }
+
   .logo img {
     width: 100px;
   }
 }
-
 body {
   font-family: "roboto";
   color: #f5f0ef;
@@ -187,63 +188,50 @@ form {
   text-align: center;
   font-size: x-large;
 }
-
 form #nextBtn {
   background-color: #0c457f;
   color: #f5f0ef;
   border: 2px solid #0c457f;
   border-radius: 8px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
-          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
   width: 140px;
   height: 50px;
   margin: 40px 10px 10px;
 }
-
 form #nextBtn:hover {
   background: #55a2ef;
   border: 2px solid #051a2e;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
-          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
 }
-
 form #prevBtn {
   background-color: #0c457f;
   color: #f5f0ef;
   border: 2px solid #0c457f;
   border-radius: 8px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
-          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
   width: 140px;
   height: 50px;
   margin: 40px 10px 10px;
 }
-
 form #prevBtn:hover {
   background: #55a2ef;
   border: 2px solid #051a2e;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
-          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
 }
 
-input[type="text"],
-[type="password"] {
+input[type=text],
+[type=password] {
   background: #f5f0ef;
   border: 1px solid #e63322;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-radius: 5px;
 }
 
-input[type="date"] {
+input[type=date] {
   border-radius: 5px;
 }
 
@@ -259,25 +247,21 @@ p {
   margin: 1vh auto;
   width: 50%;
 }
-
 .rating > * {
   float: right;
 }
-
 @-webkit-keyframes pulse {
   50% {
     color: #5e5e5e;
     text-shadow: 0 0 15px #777777;
   }
 }
-
 @keyframes pulse {
   50% {
     color: #5e5e5e;
     text-shadow: 0 0 15px #777777;
   }
 }
-
 .rating label {
   height: 40px;
   width: 20%;
@@ -285,59 +269,47 @@ p {
   position: relative;
   cursor: pointer;
 }
-
 .rating label:nth-of-type(10):after {
   -webkit-animation-delay: 0.5s;
           animation-delay: 0.5s;
 }
-
 .rating label:nth-of-type(9):after {
   -webkit-animation-delay: 0.45s;
           animation-delay: 0.45s;
 }
-
 .rating label:nth-of-type(8):after {
   -webkit-animation-delay: 0.4s;
           animation-delay: 0.4s;
 }
-
 .rating label:nth-of-type(7):after {
   -webkit-animation-delay: 0.35s;
           animation-delay: 0.35s;
 }
-
 .rating label:nth-of-type(6):after {
   -webkit-animation-delay: 0.3s;
           animation-delay: 0.3s;
 }
-
 .rating label:nth-of-type(5):after {
   -webkit-animation-delay: 0.25s;
           animation-delay: 0.25s;
 }
-
 .rating label:nth-of-type(4):after {
   -webkit-animation-delay: 0.2s;
           animation-delay: 0.2s;
 }
-
 .rating label:nth-of-type(3):after {
   -webkit-animation-delay: 0.15s;
           animation-delay: 0.15s;
 }
-
 .rating label:nth-of-type(2):after {
   -webkit-animation-delay: 0.1s;
           animation-delay: 0.1s;
 }
-
 .rating label:nth-of-type(1):after {
   -webkit-animation-delay: 0.05s;
           animation-delay: 0.05s;
 }
-
 .rating label:after {
-  -webkit-transition: all 0.4s ease-out;
   transition: all 0.4s ease-out;
   -webkit-font-smoothing: antialiased;
   position: absolute;
@@ -352,7 +324,6 @@ p {
   -webkit-animation: 1s pulse ease;
           animation: 1s pulse ease;
 }
-
 .rating label label {
   height: 40px;
   width: 20%;
@@ -360,34 +331,27 @@ p {
   position: relative;
   cursor: pointer;
 }
-
 .rating label label:nth-of-type(5):after {
   -webkit-animation-delay: 0.25s;
           animation-delay: 0.25s;
 }
-
 .rating label label:nth-of-type(4):after {
   -webkit-animation-delay: 0.2s;
           animation-delay: 0.2s;
 }
-
 .rating label label:nth-of-type(3):after {
   -webkit-animation-delay: 0.15s;
           animation-delay: 0.15s;
 }
-
 .rating label label:nth-of-type(2):after {
   -webkit-animation-delay: 0.1s;
           animation-delay: 0.1s;
 }
-
 .rating label label:nth-of-type(1):after {
   -webkit-animation-delay: 0.05s;
           animation-delay: 0.05s;
 }
-
 .rating label label:after {
-  -webkit-transition: all 0.4s ease-out;
   transition: all 0.4s ease-out;
   -webkit-font-smoothing: antialiased;
   position: absolute;
@@ -402,16 +366,13 @@ p {
   -webkit-animation: 1s pulse ease;
           animation: 1s pulse ease;
 }
-
 .rating label label:hover:after {
   color: #5e5e5e;
   text-shadow: 0 0 15px #5e5e5e;
 }
-
 .rating input {
   display: none;
 }
-
 .rating input:checked + label:after,
 .rating input:checked ~ label:after {
   content: "★";
@@ -475,12 +436,10 @@ td a {
 .userInfo a {
   background: #0c457f;
   border: 2px solid #051a2e;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   display: inline-block;
   margin: 30px;
-  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
-          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
   border-radius: 10px;
   padding: 2vh 10%;
   color: #f5f0ef;
@@ -490,10 +449,8 @@ td a {
 .userInfo a:hover {
   background: #55a2ef;
   border: 2px solid #051a2e;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
-          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
   border-radius: 10px;
   padding: 2vh 10%;
   color: #f5f0ef;
@@ -622,7 +579,6 @@ form input {
     max-width: 80%;
   }
 }
-
 .btn {
   height: 5vh;
   width: 20%;
@@ -631,20 +587,16 @@ form input {
   color: #f5f0ef;
   background: #0c457f;
   border: 2px solid #051a2e;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
-          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
   border-radius: 10px;
 }
 
 .btn:hover {
   background: #55a2ef;
   border: 2px solid #051a2e;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
-          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
   border-radius: 10px;
   color: #f5f0ef;
   text-decoration: none;
@@ -655,7 +607,6 @@ form input {
     height: 15vh;
   }
 }
-
 .opmerkingenLijst {
   background-color: #749dc8;
   margin: 20px;
@@ -691,7 +642,6 @@ form input {
     padding: 7px 8px;
   }
 }
-
 /* Style the tab content (and add height:100% for full page content) */
 .tabcontent {
   color: #f5f0ef;
@@ -756,43 +706,29 @@ a {
 }
 
 .wrapper-checkbox {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   margin-top: 30px;
   margin-bottom: 30px;
   height: 50px;
   width: 300px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  align-items: center;
+  justify-content: space-evenly;
   border-radius: 5px;
   padding: 20px 15px;
-  -webkit-box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
-          box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
 }
 
 .wrapper-checkbox .option {
   height: 100%;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  align-items: center;
+  justify-content: space-evenly;
   margin: 0 10px;
   border-radius: 5px;
   cursor: pointer;
   padding: 0 10px;
   border: 2px solid lightgrey;
-  -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
@@ -813,13 +749,11 @@ a {
   background: #0069d9;
   border-radius: 50%;
   opacity: 0;
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
-  -webkit-transition: all 0.3s ease;
+  transform: scale(1.5);
   transition: all 0.3s ease;
 }
 
-.wrapper-checkbox input[type="radio"] {
+.wrapper-checkbox input[type=radio] {
   display: none;
 }
 
@@ -838,8 +772,7 @@ a {
 #option-1:checked:checked ~ .option-1 .dot::before,
 #option-2:checked:checked ~ .option-2 .dot::before {
   opacity: 1;
-  -webkit-transform: scale(1);
-          transform: scale(1);
+  transform: scale(1);
 }
 
 .wrapper-checkbox .option span {
@@ -867,10 +800,8 @@ a {
     color: #f5f0ef;
     border: 2px solid #0c457f;
     border-radius: 8px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
-            box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+    box-sizing: border-box;
+    box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
     width: 70px;
     height: 50px;
     margin: 40px 10px 10px;
@@ -878,20 +809,16 @@ a {
   form #nextBtn:hover {
     background: #55a2ef;
     border: 2px solid #051a2e;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
-            box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+    box-sizing: border-box;
+    box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
   }
   form #prevBtn {
     background-color: #0c457f;
     color: #f5f0ef;
     border: 2px solid #0c457f;
     border-radius: 8px;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
-            box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+    box-sizing: border-box;
+    box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
     width: 70px;
     height: 50px;
     margin: 40px 10px 10px;
@@ -899,11 +826,10 @@ a {
   form #prevBtn:hover {
     background: #55a2ef;
     border: 2px solid #051a2e;
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
-            box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+    box-sizing: border-box;
+    box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
   }
+
   .logo {
     display: block;
     list-style-type: none;
@@ -915,9 +841,11 @@ a {
     margin-right: auto;
     width: 65%;
   }
+
   main {
     margin-top: 10px;
   }
+
   #regForm {
     background-color: #051a2e;
     margin: 100px auto;
@@ -926,13 +854,13 @@ a {
     width: 70%;
     min-width: 250px;
   }
+
   .formTitle {
     font-family: "montserrat";
     margin-left: 20%;
     display: none;
   }
 }
-
 #printPage {
   background-color: #749dc8;
   border: none;
@@ -946,11 +874,7 @@ a {
 }
 
 #wrapper-printButton {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
 }
 
@@ -958,11 +882,11 @@ a {
   .browser-only {
     display: none;
   }
+
   .printDiv {
     display: block;
   }
 }
-
 #formContent {
   border-radius: 10px 10px 10px 10px;
   background: #fff;
@@ -981,20 +905,16 @@ a {
   color: #f5f0ef;
   background: #0c457f;
   border: 2px solid #051a2e;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
-          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 157, 200, 0.5);
   border-radius: 10px;
 }
 
 .newForm:hover {
   background: #55a2ef;
   border: 2px solid #051a2e;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
-          box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
+  box-sizing: border-box;
+  box-shadow: 4px 5px 2px 2px rgba(5, 26, 46, 0.5), inset -5px -5px 4px 1px rgba(116, 255, 255, 0.5);
   border-radius: 10px;
   color: #f5f0ef;
   text-decoration: none;
@@ -1005,11 +925,11 @@ a {
     width: 80%;
     height: 8vh;
   }
+
   h1 {
     font-size: x-large;
   }
 }
-
 /* Hide the browser's default radio button */
 .question-radio ul li input {
   position: absolute;
@@ -1071,4 +991,45 @@ a {
   color: #f5f0ef;
   border-color: #e63322;
 }
-/*# sourceMappingURL=main.css.map */
+
+.userInfo {
+  margin-top: 170px;
+  padding-top: 20px;
+}
+
+.statistics-table {
+  margin-top: 100px;
+}
+
+div.wrapper {
+  margin-top: 100px;
+}
+
+.wrapper {
+  position: relative;
+  display: flex;
+  min-width: 100px;
+  left: 25%;
+}
+
+.search-icon {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  width: 14px;
+}
+
+.search {
+  border: 1px solid grey;
+  border-radius: 5px;
+  min-height: 25px;
+  width: 100%;
+  padding: 2px 23px 2px 30px;
+  outline: 0;
+  background-color: #f5f5f5;
+}
+
+.search:hover, .search:focus {
+  border: 1.5px solid #009688;
+  background-color: white;
+}/*# sourceMappingURL=main.css.map */
