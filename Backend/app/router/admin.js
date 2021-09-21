@@ -30,5 +30,6 @@ router.post("/forms/create/:formName", BOFController.createForm);
 router.get("/forms/:formName", BOFController.viewFormAnswers);
 router.post("/forms/:formName", BOFController.search);
 router.get("/forms/:formName/:entryId", BOFController.viewSingle);
+router.get("/form/:id", BOFController.delete)
 
 module.exports = router;

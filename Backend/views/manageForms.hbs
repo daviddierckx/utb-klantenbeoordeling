@@ -12,7 +12,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script>
         const formName = "{{data.name}}";
     </script>
@@ -20,172 +20,177 @@
 
 <body>
 
-<script>
+    <script>
 
-    if (screen.availHeight > screen.availWidth) {
-        alert("Draai uw mobiele apparaat!");
-    }
+        if (screen.availHeight > screen.availWidth) {
+            alert("Draai uw mobiele apparaat!");
+        }
 
-</script>
-<nav>
-    <a href="/admin/forms/select">
-        <button class="tablink">Beoordelingsoverzicht</button>
-    </a>
-    <a href="/admin">
-        <button class="tablink">Gebruikers</button>
-    </a>
-    <a href="/admin/forms">
-        <button class="tablink active">Vragen Wijzigen</button>
-    </a>
-    <a href="/admin/adduser">
-        <button class="tablink">Gebruiker Toevoegen</button>
-    </a>
-    <a href="/admin/statistics"><button class="tablink">Statistieken</button></a>
-</nav>
+    </script>
+    <nav>
+        <a href="/admin/forms/select">
+            <button class="tablink">Beoordelingsoverzicht</button>
+        </a>
+        <a href="/admin">
+            <button class="tablink">Gebruikers</button>
+        </a>
+        <a href="/admin/forms">
+            <button class="tablink active">Vragen Wijzigen</button>
+        </a>
+        <a href="/admin/adduser">
+            <button class="tablink">Gebruiker Toevoegen</button>
+        </a>
+        <a href="/admin/statistics"><button class="tablink">Statistieken</button></a>
+    </nav>
 
-<main>
-    <h1>Selecteer een formulier
-        <button id="infoModalButton" class="btn">Help</button>
-    </h1>
+    <main>
+        <h1>Selecteer een formulier
+            <button id="infoModalButton" class="btn">Help</button>
+        </h1>
 
-    <!-- The Modal -->
-    <div id="infoModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2 style="padding: 0;">Formulieren beheren hulp</h2>
-            </div>
-            <div class="modal-body">
-                <p class="modal-title">De basis</p>
-                <p>Wanneer je een formulier opent zie je 3 velden: verkorte-naam, titel en subtitel</p>
-                <p>De verkorte naam komt in de URL te staan maar wordt verder weinig mee gedaan.</p>
-                <p>De titel staat bovenaan op iedere pagina en daaronder komt die subtitel</p>
+        <!-- The Modal -->
+        <div id="infoModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2 style="padding: 0;">Formulieren beheren hulp</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-title">De basis</p>
+                    <p>Wanneer je een formulier opent zie je 3 velden: verkorte-naam, titel en subtitel</p>
+                    <p>De verkorte naam komt in de URL te staan maar wordt verder weinig mee gedaan.</p>
+                    <p>De titel staat bovenaan op iedere pagina en daaronder komt die subtitel</p>
 
-                <p class="modal-title">De basis - pagina's</p>
-                <p>Per formulier heb je een aantal pagina's. Per pagina kan je vragen toevoegen/verbergen.</p>
-                <p>Per vraag heb je een "label" en een "type". Het label zal boven de vraag komen te staan.</p>
+                    <p class="modal-title">De basis - pagina's</p>
+                    <p>Per formulier heb je een aantal pagina's. Per pagina kan je vragen toevoegen/verbergen.</p>
+                    <p>Per vraag heb je een "label" en een "type". Het label zal boven de vraag komen te staan.</p>
 
-                <p class="modal-title">De basis - vraag soorten</p>
-                <p>Er zijn verschillende soorten vragen:</p>
-                <p class="left-offset">Datum: Dit is een datum invoer veld.</p>
-                <p class="left-offset">Klein stukje tekst: Dit is een `een-regel` invoer veld.</p>
-                <p class="left-offset">Groot tekst vlak: Dit veld heeft meerdere regels, handig voor grote stukken
-                    tekst.</p>
-                <p class="left-offset">Multiple choice: Wanneer je dit selecteerd opent er een invoer veld. Hierin kan
-                    je met `,` gescheiden opties ingeven.</p>
-                <p class="left-offset">1-5 rating met sterren: Je kan een rating geven van 1 t/m 5 dmv. sterren.</p>
-                <p class="left-offset">Verborgen: Wanneer je een vraag wilt verbergen kan je deze optie seleteren.</p>
+                    <p class="modal-title">De basis - vraag soorten</p>
+                    <p>Er zijn verschillende soorten vragen:</p>
+                    <p class="left-offset">Datum: Dit is een datum invoer veld.</p>
+                    <p class="left-offset">Klein stukje tekst: Dit is een `een-regel` invoer veld.</p>
+                    <p class="left-offset">Groot tekst vlak: Dit veld heeft meerdere regels, handig voor grote stukken
+                        tekst.</p>
+                    <p class="left-offset">Multiple choice: Wanneer je dit selecteerd opent er een invoer veld. Hierin
+                        kan
+                        je met `,` gescheiden opties ingeven.</p>
+                    <p class="left-offset">1-5 rating met sterren: Je kan een rating geven van 1 t/m 5 dmv. sterren.</p>
+                    <p class="left-offset">Verborgen: Wanneer je een vraag wilt verbergen kan je deze optie seleteren.
+                    </p>
 
-                <p class="modal-title">De basis - vragen verplaatsen</p>
-                <p>Door middel van de pijltjes naar beneden/boven kan je vragen verplaatsen.</p>
-                <p>Het verplaatsen van vragen gebeurt zonder enige impact op bestaande antwoorden en kan zonder
-                    problemen gedaan worden.</p>
+                    <p class="modal-title">De basis - vragen verplaatsen</p>
+                    <p>Door middel van de pijltjes naar beneden/boven kan je vragen verplaatsen.</p>
+                    <p>Het verplaatsen van vragen gebeurt zonder enige impact op bestaande antwoorden en kan zonder
+                        problemen gedaan worden.</p>
 
-                <p class="modal-title">In de diepte - vragen</p>
-                <p>Wat gebeurt er als ik vragen aanpas?</p>
-                <p class="left-offset">Wanneer je een vraag label aanpast zal deze in het overzicht veranderen. Echter
-                    behouden de al ingevulden vragen het oude label.</p>
-                <p>Wat gebeurt er als ik een vraag type aanpas?</p>
-                <p class="left-offset">Wanneer je een vraag type aanpast zullen de oude antwoorden bewaard blijven zoals
-                    ze ingevuld waren.</p>
+                    <p class="modal-title">In de diepte - vragen</p>
+                    <p>Wat gebeurt er als ik vragen aanpas?</p>
+                    <p class="left-offset">Wanneer je een vraag label aanpast zal deze in het overzicht veranderen.
+                        Echter
+                        behouden de al ingevulden vragen het oude label.</p>
+                    <p>Wat gebeurt er als ik een vraag type aanpas?</p>
+                    <p class="left-offset">Wanneer je een vraag type aanpast zullen de oude antwoorden bewaard blijven
+                        zoals
+                        ze ingevuld waren.</p>
 
-                <p class="modal-title">Ik heb iets verkeerde gedaan! Hoe kan ik het ongedaan maken?</p>
-                <p>Wanneer je het formulier aanpast maar niet opgeslagen hebt kan je de pagina ververssen (F5 of
-                    ctrl+r). Dan Haalt hij het formulier weer op uit de database.</p>
+                    <p class="modal-title">Ik heb iets verkeerde gedaan! Hoe kan ik het ongedaan maken?</p>
+                    <p>Wanneer je het formulier aanpast maar niet opgeslagen hebt kan je de pagina ververssen (F5 of
+                        ctrl+r). Dan Haalt hij het formulier weer op uit de database.</p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="tab-titles">
-        {{#each data as | form |}}
+        <div class="tab-titles">
+            {{#each data as | form |}}
             <div class="tab-title" id="tab-title-{{form.id}}"
-                 onclick="showContent(this, '.tab-content', '#tab-content-{{form.id}}');">{{form.name}}</div>
-        {{/each}}
-        <div class="tab-title" onclick="addForm(this);">Nieuw formulier toevoegen</div>
-    </div>
+                onclick="showContent(this, '.tab-content', '#tab-content-{{form.id}}');">{{form.name}}</div>
+            {{/each}}
+            <div class="tab-title" onclick="addForm(this);">Nieuw formulier toevoegen</div>
+        </div>
 
-    <div class="tab-container form-list">
-        {{#each data as | form |}}
+        <div class="tab-container form-list">
+            {{#each data as | form |}}
             <div class="tab-content" id="tab-content-{{form.id}}">
                 <label for="page-name-{{form.id}}">Formulier verkorte-naam(voor in de URL, hier mogen geen spaties in
                     zitten)</label>
                 <input class="js-form-name" type="text" id="page-name-{{form.id}}" placeholder="Formulier naam"
-                       value="{{form.name}}" data-existing="1" disabled>
+                    value="{{form.name}}" data-existing="1" disabled>
 
                 <label for="page-title-{{form.id}}">Formulier titel</label>
                 <input class="js-form-title" type="text" id="page-title-{{form.id}}" placeholder="Formulier titel"
-                       value="{{form.title}}">
+                    value="{{form.title}}">
 
                 <label for="page-subtitle-{{form.id}}">Formulier sub-titel</label>
                 <input class="js-form-subtitle" type="text" id="page-subtitle-{{form.id}}"
-                       placeholder="Formulier ondertitel" value="{{form.subtitle}}">
+                    placeholder="Formulier ondertitel" value="{{form.subtitle}}">
 
                 <div class="tab-titles">
                     {{#each form.pages as | page pageId |}}
-                        <div class="tab-title"
-                             onclick="showContent(this, '.page-content', '#page-content-{{form.id}}-{{pageId}}');">
-                            Pagina {{pageId}}</div>
+                    <div class="tab-title"
+                        onclick="showContent(this, '.page-content', '#page-content-{{form.id}}-{{pageId}}');">
+                        Pagina {{pageId}}</div>
                     {{/each}}
                     <div class="tab-title" onclick="addPage(this);">Nieuwe pagina</div>
                 </div>
 
                 <div class="tab-container form-pages">
                     {{#each form.pages as | page pageId |}}
-                        <div class="tab-content page-content" id="page-content-{{form.id}}-{{pageId}}">
-                            {{#each page as | question |}}
-                                <div class="question-container">
-                                    <label for="question-type-{{question.id}}" class="sr-only">Vraag type</label>
-                                    <label for="question-label-{{question.id}}" class="sr-only">Vraag titel</label>
-                                    <label><span class="question-question">Vraag {{increase @key}}</span><span class="move-question-up"><i
-                                            class="fa fa-arrow-up"></i></span><span class="move-question-down"><i
-                                            class="fa fa-arrow-down"></i></span></label>
-                                    <input class="js-question-label" data-question-id="{{question.id}}" type="text"
-                                           id="question-label-{{question.id}}"
-                                           value="{{question.label}}" placeholder="Welke titel heeft de vraag?">
-                                    <select class="js-question-type" id="question-type-{{question.id}}"
-                                            data-question-id="{{question.id}}">
-                                        <option value="date" {{#ifEquals question.type "date"}}
-                                                selected {{/ifEquals}}>
-                                            Datum
-                                        </option>
-                                        <option value="small_text" {{#ifEquals question.type "small_text"}}
-                                                selected {{/ifEquals}}>Klein stukje tekst
-                                        </option>
-                                        <option value="big_text" {{#ifEquals question.type "big_text"}}
-                                                selected {{/ifEquals}}>Groot tekst vlak
-                                        </option>
-                                        <option value="radio" {{#ifEquals question.type "radio"}}
-                                                selected {{/ifEquals}}>Multiple choice
-                                        </option>
-                                        <option value="rating" {{#ifEquals question.type "rating"}}
-                                                selected {{/ifEquals}}>1-5 rating met sterren
-                                        </option>
-                                        <option value="hidden" {{#ifEquals question.type "hidden"}}
-                                                selected {{/ifEquals}}>Verborgen
-                                        </option>
-                                    </select>
-                                    {{#ifEquals question.type "radio"}}
-                                        <label for="question-options-{{question.id}}">Welke opties heeft deze
-                                            vraag?(onderscheidend met een ,)</label>
-                                        <input class="js-question-options" style="width: 100%;"
-                                               data-question-id="{{question.id}}" type="text"
-                                               id="question-options-{{question.id}}"
-                                               value="{{question.options}}"
-                                               placeholder="Welke opties heeft de vraag?(onderscheidend met een ,)">
-                                    {{/ifEquals}}
-                                </div>
-                            {{/each}}
-                            <button type="button" class="btn" onclick="addQuestion(this)">Vraag toevoegen</button>
+                    <div class="tab-content page-content" id="page-content-{{form.id}}-{{pageId}}">
+                        {{#each page as | question |}}
+                        <div class="question-container">
+                            <label for="question-type-{{question.id}}" class="sr-only">Vraag type</label>
+                            <label for="question-label-{{question.id}}" class="sr-only">Vraag titel</label>
+                            <label><span class="question-question">Vraag {{increase @key}}</span><span
+                                    class="move-question-up"><i class="fa fa-arrow-up"></i></span><span
+                                    class="move-question-down"><i class="fa fa-arrow-down"></i></span></label>
+                            <input class="js-question-label" data-question-id="{{question.id}}" type="text"
+                                id="question-label-{{question.id}}" value="{{question.label}}"
+                                placeholder="Welke titel heeft de vraag?">
+                            <select class="js-question-type" id="question-type-{{question.id}}"
+                                data-question-id="{{question.id}}">
+                                <option value="date" {{#ifEquals question.type "date" }} selected {{/ifEquals}}>
+                                    Datum
+                                </option>
+                                <option value="small_text" {{#ifEquals question.type "small_text" }} selected
+                                    {{/ifEquals}}>Klein stukje tekst
+                                </option>
+                                <option value="big_text" {{#ifEquals question.type "big_text" }} selected {{/ifEquals}}>
+                                    Groot tekst vlak
+                                </option>
+                                <option value="radio" {{#ifEquals question.type "radio" }} selected {{/ifEquals}}>
+                                    Multiple choice
+                                </option>
+                                <option value="rating" {{#ifEquals question.type "rating" }} selected {{/ifEquals}}>1-5
+                                    rating met sterren
+                                </option>
+                                <option value="hidden" {{#ifEquals question.type "hidden" }} selected {{/ifEquals}}>
+                                    Verborgen
+                                </option>
+                            </select>
+                            {{#ifEquals question.type "radio"}}
+                            <label for="question-options-{{question.id}}">Welke opties heeft deze
+                                vraag?(onderscheidend met een ,)</label>
+                            <input class="js-question-options" style="width: 100%;" data-question-id="{{question.id}}"
+                                type="text" id="question-options-{{question.id}}" value="{{question.options}}"
+                                placeholder="Welke opties heeft de vraag?(onderscheidend met een ,)">
+                            {{/ifEquals}}
                         </div>
+                        {{/each}}
+                        <button type="button" class="btn" onclick="addQuestion(this)">Vraag toevoegen</button>
+                    </div>
                     {{/each}}
                 </div>
                 <button type="button" class="btn" onclick="saveForm(this)" style="float: left">Formulier opslaan
                 </button>
+                <a type="button" class="btn-delete" href="/admin/form/{{form.id}}"><button type="button"
+                        class="btn">Verwijder</button> </a>
+
             </div>
 
-        {{/each}}
-    </div>
-</main>
+            {{/each}}
+        </div>
+    </main>
 
-<script src="/../js/manageForms.js"></script>
+    <script src="/../js/manageForms.js"></script>
 </body>
+
 </html>
