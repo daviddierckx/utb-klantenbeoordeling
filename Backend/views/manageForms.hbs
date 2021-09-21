@@ -181,8 +181,8 @@
                 </div>
                 <button type="button" class="btn" onclick="saveForm(this)" style="float: left">Formulier opslaan
                 </button>
-                <a type="button" class="btn-delete" href="/admin/form/{{form.id}}"><button type="button"
-                        class="btn">Verwijder</button> </a>
+                <a type="button" class="btn-delete" href="javascript:delay('/admin/form/{{form.id}}')"><button
+                        type="button" class="btn">Verwijder</button> </a>
 
             </div>
 
@@ -190,7 +190,19 @@
         </div>
     </main>
 
-    <script src="/../js/manageForms.js"></script>
+    <script src="/../js/manageForms.js">
+    </script>
+    <script>
+        function delay(URL) {
+            if (confirm("Weet u zeker dat u deze formulier wilt verwijderen?")) {
+                alert("Je hebt deze formulier verwijderd");
+                setTimeout(function () { window.location.href = URL }, 100);
+            } else {
+                alert("Je hebt deze verwijdering geannuleerd!");
+            }
+
+        }
+    </script>
 </body>
 
 </html>
